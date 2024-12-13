@@ -18,10 +18,31 @@ const Index = () => {
         <>
             <Header/>
             <main>
-                <section className="flex items-center justify-center min-h-30vh m-5">
-                    <h1 className="text-[18vw] font-bold text-center">ARTIST. DESIGNER. ENGINEER.</h1>
-                </section>
-                <section id="hero-video" className="m-5 md:mx-20 md:my-10">
+                {/*<section className="flex items-center justify-center min-h-30vh m-5">*/}
+                {/*<motion.h1
+                    className="absolute text-[18vw] font-bold text-center leading-snug"
+                    initial={{y: 1000}}
+                    animate={{y: -1200}}
+                    transition={{
+                        duration: 4.0,
+                        delay: 0.2,
+                        ease: "linear"
+                    }}
+                >
+                    ARTIST. DESIGNER. ENGINEER.
+                </motion.h1>*/}
+                {/*</section>*/}
+                <motion.section
+                    id="hero-video"
+                    className="m-5 md:mx-20 md:my-10"
+                    initial={{opacity: 0}}
+                    animate={{opacity: 1}}
+                    transition={{
+                        duration: 0.5,
+                        delay: 0.5,
+                        ease: "linear"
+                    }}
+                >
                     <div className="md:flex">
                         <div className="relative w-full h-fit">
                             <video
@@ -70,7 +91,7 @@ const Index = () => {
                             </video>
                         </div>
                     </div>
-                </section>
+                </motion.section>
             </main>
             <Footer/>
         </>

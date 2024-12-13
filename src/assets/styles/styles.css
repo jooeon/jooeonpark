@@ -14,35 +14,6 @@ body {
     text-transform: uppercase;
 }
 
-/* LOGO */
-
-.logo {
-    text-decoration: none; /* Removes default underline */
-    letter-spacing: 3px;
-    color: white;
-    position: relative;
-    transition: color 0.3s ease;
-}
-
-.logo::after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 2px;
-    background: #ffffff; /* Underline color */
-    left: 0;
-    bottom: -5px;
-    transition: width 0.3s ease;
-}
-
-.logo:hover::after {
-    width: 100%; /* Expands underline */
-}
-
-.logo:hover {
-    color: #ffffff; /* Highlight on hover */
-}
-
 /* HEADER */
 
 .hero-content h1 {
@@ -72,6 +43,7 @@ body {
 
 /* NAVBAR  */
 
+
 .navbar {
     align-items: center;
     display: flex;
@@ -82,18 +54,6 @@ body {
     overflow: hidden;
     padding: 20px;
     position: relative;
-}
-
-.navbar .nav-links a {
-    color: #ffffff;
-    letter-spacing: 2px;
-    text-decoration: none;
-    margin: 0 15px;
-    transition: color 0.3s ease;
-}
-
-.navbar .nav-links a:hover {
-    color: #ffffff;
 }
 
 .nav-links {
@@ -108,29 +68,39 @@ body {
 }
 
 .nav-links a {
-    text-decoration: none; /* Removes default underline */
-    color: white;
     position: relative;
-    transition: color 0.3s ease;
+    color: #ffffff;
+    letter-spacing: 2px;
+    text-decoration: none;
+    margin: 0 15px;
+    display: inline-block; /* Ensure proper positioning */
 }
 
-.nav-links a::after {
+.navbar a::after {
     content: '';
     position: absolute;
-    width: 0;
-    height: 2px;
+    width: 100%;
+    height: 1px;
     background: #ffffff; /* Underline color */
     left: 0;
     bottom: -5px;
-    transition: width 0.3s ease;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s ease;
+    will-change: transform; /* Optional performance optimization */
 }
 
-.nav-links a:hover::after {
-    width: 100%; /* Expands underline */
+.navbar a:hover::after {
+    transform-origin: left;
+    transform: scaleX(1); /* Expands underline from left to right */
 }
 
-.nav-links a:hover {
-    color: #ffffff; /* Highlight on hover */
+.logo {
+    text-decoration: none; /* Removes default underline */
+    letter-spacing: 3px;
+    color: white;
+    position: relative;
+    transition: color 0.3s ease;
 }
 
 /* BODY */
@@ -274,9 +244,6 @@ video {
 }
 
 footer {
-    text-align: center;
-    padding-top: 60px;
-    padding-bottom: 20px;
     background: #1a1a1a;
     color: #ffffff;
 }

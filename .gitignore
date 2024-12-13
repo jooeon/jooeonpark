@@ -22,3 +22,42 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+/src/videos/full_recording.mp4
+/src/images/JooEon_Park_OnTheTracks_01.JPEG
+/src/images/JooEon_Park_OnTheTracks_02.JPEG
+/src/images/JooEon_Park_OnTheTracks_03.JPEG
+/src/images/JooEon_Park_OnTheTracks_04.JPEG
+/src/images/JooEon_Park_OnTheTracks_05.JPEG
+/src/images/JooEon_Park_OnTheTracks_06.JPEG
+/src/images/JooEon_Park_OnTheTracks_07.JPEG
+/src/images/JooEon_Park_OnTheTracks_08.JPEG
+/src/images/JooEon_Park_OnTheTracks_09.JPEG
+/src/images/JooEon_Park_OnTheTracks_10.jpg
+/src/images/JooEon_Park_OnTheTracks_main.JPEG
+/src/images/thumbnails/JooEon_Park_OnTheTracks_thumb.JPEG
+/src/images/Man-child_alt1.jpg
+/src/images/Man-child_alt2.jpg
+/src/images/Man-child_main.jpg
+/src/images/thumbnails/Man-child_thumb.jpg
+/src/images/Ocular Prosthetic for Reading Another Human_01.jpeg
+/src/images/Ocular Prosthetic for Reading Another Human_02.jpeg
+/src/images/thumbnails/Ocular Prosthetic for Reading Another Human_thumb.jpeg
+/src/images/Recollection_01.jpg
+/src/images/Recollection_02.jpg
+/src/images/Recollection_03.jpg
+/src/images/Recollection_main.jpg
+/src/images/thumbnails/Recollection_thumb.jpg
+/src/images/Running In a Dream.jpg
+/src/images/Running In a Dream_Detail_01.jpg
+/src/images/Running In a Dream_Detail_02.jpg
+/src/images/Running In a Dream_Detail_03.jpg
+/src/images/Running In a Dream_Detail_04.jpg
+/src/images/thumbnails/Running In a Dream_thumb.jpg
+/src/videos/simple.mp4
+/src/images/Symbiosis.jpg
+/src/images/thumbnails/Symbiosis_thumb.jpg
+/src/images/The_Workers.jpg
+/src/images/thumbnails/The_Workers_thumb.jpg
+/src/images/Trapped.jpg
+/src/images/thumbnails/Trapped_thumb.jpg
+/public/vite.svg
