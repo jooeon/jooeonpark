@@ -1,190 +1,16 @@
+// Archive.jsx
 import { useState } from "react";
-import Header from "./components/Header";
-import Footer from "./components/Footer";
-import { motion, useScroll } from "motion/react";
+import Header from "./components/Header.jsx";
+import Footer from "./components/Footer.jsx";
+import Overlay from "./components/Overlay";
+import { items, openSpring } from "./data.jsx";
+import { motion, AnimatePresence } from "framer-motion";
 
 const Archive = () => {
     const [overlayVisible, setOverlayVisible] = useState(false);
     const [currentImages, setCurrentImages] = useState([]);
     const [currentIndex, setCurrentIndex] = useState(0);
     const [currentCaption, setCurrentCaption] = useState("");
-
-    const portfolioItems = [
-        {
-            images: ["src/images/Symbiosis.jpg"],
-            caption: "Symbiosis<br>Linocut. 2020",
-            thumbnail: "src/images/thumbnails/Symbiosis_thumb.jpg",
-            alt: "Symbiosis",
-        },
-        {
-            images: ["src/images/The_Workers.jpg"],
-            caption: "The Workers<br>Linocut. 2023",
-            thumbnail: "src/images/thumbnails/The_Workers_thumb.jpg",
-            alt: "The Workers",
-        },
-        {
-            images: [
-                "src/images/Man-child_main.jpg",
-                "src/images/Man-child_alt1.jpg",
-                "src/images/Man-child_alt2.jpg",
-            ],
-            caption: "Man-child<br>Woodcut. 2023",
-            thumbnail: "src/images/thumbnails/Man-child_thumb.jpg",
-            alt: "Man-child",
-        },
-        {
-            images: ["src/images/Trapped.jpg"],
-            caption: "Trapped<br>Collagraph. 2023",
-            thumbnail: "src/images/thumbnails/Trapped_thumb.jpg",
-            alt: "Trapped",
-        },
-        {
-            images: [
-                "src/images/Ocular Prosthetic for Reading Another Human_01.jpeg",
-                "src/images/Ocular Prosthetic for Reading Another Human_02.jpeg",
-            ],
-            caption:
-                "Ocular Prosthetic for Reading Another Human<br>Plastic tubing, wire, glasses. 2024",
-            thumbnail:
-                "src/images/thumbnails/Ocular Prosthetic for Reading Another Human_thumb.jpeg",
-            alt: "Ocular Prosthetic for Reading Another Human",
-        },
-        {
-            images: [
-                "src/images/JooEon_Park_OnTheTracks_main.JPEG",
-                "src/images/JooEon_Park_OnTheTracks_01.JPEG",
-                "src/images/JooEon_Park_OnTheTracks_02.JPEG",
-                "src/images/JooEon_Park_OnTheTracks_03.JPEG",
-                "src/images/JooEon_Park_OnTheTracks_04.JPEG",
-                "src/images/JooEon_Park_OnTheTracks_05.JPEG",
-                "src/images/JooEon_Park_OnTheTracks_06.JPEG",
-                "src/images/JooEon_Park_OnTheTracks_07.JPEG",
-                "src/images/JooEon_Park_OnTheTracks_08.JPEG",
-                "src/images/JooEon_Park_OnTheTracks_09.JPEG",
-                "src/images/JooEon_Park_OnTheTracks_10.jpg"
-            ],
-            caption: "On The Tracks<br>Cardboard. 2024",
-            thumbnail: "src/images/thumbnails/JooEon_Park_OnTheTracks_thumb.JPEG",
-            alt: "On The Tracks",
-        },
-        {
-            images: [
-                "src/images/Recollection_main.jpg",
-                "src/images/Recollection_01.jpg",
-                "src/images/Recollection_02.jpg",
-                "src/images/Recollection_03.jpg",
-            ],
-            caption: "Recollection<br>Ink, collage, plastic film. 2024",
-            thumbnail: "src/images/thumbnails/Recollection_thumb.jpg",
-            alt: "Recollection",
-        },
-        {
-            images: [
-                "src/images/Running In a Dream.jpg",
-                "src/images/Running In a Dream_Detail_01.jpg",
-                "src/images/Running In a Dream_Detail_02.jpg",
-                "src/images/Running In a Dream_Detail_03.jpg",
-                "src/images/Running In a Dream_Detail_04.jpg",
-            ],
-            caption: "Running In a Dream<br>Plywood, fabric, nails. 2024",
-            thumbnail: "src/images/thumbnails/Running In a Dream_thumb.jpg",
-            alt: "Running In a Dream, 2024",
-        },
-        {
-            images: [
-                "src/images/Running In a Dream.jpg",
-                "src/images/Running In a Dream_Detail_01.jpg",
-                "src/images/Running In a Dream_Detail_02.jpg",
-                "src/images/Running In a Dream_Detail_03.jpg",
-                "src/images/Running In a Dream_Detail_04.jpg",
-            ],
-            caption: "Running In a Dream<br>Plywood, fabric, nails. 2024",
-            thumbnail: "src/images/thumbnails/Running In a Dream_thumb.jpg",
-            alt: "Running In a Dream, 2024",
-        },
-        {
-            images: [
-                "src/images/Running In a Dream.jpg",
-                "src/images/Running In a Dream_Detail_01.jpg",
-                "src/images/Running In a Dream_Detail_02.jpg",
-                "src/images/Running In a Dream_Detail_03.jpg",
-                "src/images/Running In a Dream_Detail_04.jpg",
-            ],
-            caption: "Running In a Dream<br>Plywood, fabric, nails. 2024",
-            thumbnail: "src/images/thumbnails/Running In a Dream_thumb.jpg",
-            alt: "Running In a Dream, 2024",
-        },
-        {
-            images: [
-                "src/images/Running In a Dream.jpg",
-                "src/images/Running In a Dream_Detail_01.jpg",
-                "src/images/Running In a Dream_Detail_02.jpg",
-                "src/images/Running In a Dream_Detail_03.jpg",
-                "src/images/Running In a Dream_Detail_04.jpg",
-            ],
-            caption: "Running In a Dream<br>Plywood, fabric, nails. 2024",
-            thumbnail: "src/images/thumbnails/Running In a Dream_thumb.jpg",
-            alt: "Running In a Dream, 2024",
-        },
-        {
-            images: [
-                "src/images/Running In a Dream.jpg",
-                "src/images/Running In a Dream_Detail_01.jpg",
-                "src/images/Running In a Dream_Detail_02.jpg",
-                "src/images/Running In a Dream_Detail_03.jpg",
-                "src/images/Running In a Dream_Detail_04.jpg",
-            ],
-            caption: "Running In a Dream<br>Plywood, fabric, nails. 2024",
-            thumbnail: "src/images/thumbnails/Running In a Dream_thumb.jpg",
-            alt: "Running In a Dream, 2024",
-        },
-        {
-            images: [
-                "src/images/Running In a Dream.jpg",
-                "src/images/Running In a Dream_Detail_01.jpg",
-                "src/images/Running In a Dream_Detail_02.jpg",
-                "src/images/Running In a Dream_Detail_03.jpg",
-                "src/images/Running In a Dream_Detail_04.jpg",
-            ],
-            caption: "Running In a Dream<br>Plywood, fabric, nails. 2024",
-            thumbnail: "src/images/thumbnails/Running In a Dream_thumb.jpg",
-            alt: "Running In a Dream, 2024",
-        },{
-            images: [
-                "src/images/Running In a Dream.jpg",
-                "src/images/Running In a Dream_Detail_01.jpg",
-                "src/images/Running In a Dream_Detail_02.jpg",
-                "src/images/Running In a Dream_Detail_03.jpg",
-                "src/images/Running In a Dream_Detail_04.jpg",
-            ],
-            caption: "Running In a Dream<br>Plywood, fabric, nails. 2024",
-            thumbnail: "src/images/thumbnails/Running In a Dream_thumb.jpg",
-            alt: "Running In a Dream, 2024",
-        },{
-            images: [
-                "src/images/Running In a Dream.jpg",
-                "src/images/Running In a Dream_Detail_01.jpg",
-                "src/images/Running In a Dream_Detail_02.jpg",
-                "src/images/Running In a Dream_Detail_03.jpg",
-                "src/images/Running In a Dream_Detail_04.jpg",
-            ],
-            caption: "Running In a Dream<br>Plywood, fabric, nails. 2024",
-            thumbnail: "src/images/thumbnails/Running In a Dream_thumb.jpg",
-            alt: "Running In a Dream, 2024",
-        },{
-            images: [
-                "src/images/Running In a Dream.jpg",
-                "src/images/Running In a Dream_Detail_01.jpg",
-                "src/images/Running In a Dream_Detail_02.jpg",
-                "src/images/Running In a Dream_Detail_03.jpg",
-                "src/images/Running In a Dream_Detail_04.jpg",
-            ],
-            caption: "Running In a Dream<br>Plywood, fabric, nails. 2024",
-            thumbnail: "src/images/thumbnails/Running In a Dream_thumb.jpg",
-            alt: "Running In a Dream, 2024",
-        },
-
-    ];
 
     const openOverlay = (images, caption) => {
         setCurrentImages(images);
@@ -196,82 +22,80 @@ const Archive = () => {
     const closeOverlay = () => setOverlayVisible(false);
 
     const prevImage = () => {
-        setCurrentIndex((currentIndex - 1 + currentImages.length) % currentImages.length);
+        setCurrentIndex((prevIndex) =>
+            (prevIndex - 1 + currentImages.length) % currentImages.length
+        );
     };
 
     const nextImage = () => {
-        setCurrentIndex((currentIndex + 1) % currentImages.length);
+        setCurrentIndex((prevIndex) => (prevIndex + 1) % currentImages.length);
     };
 
-    // const { scrollYProgress } = useScroll();
+    // Prevent background scrolling when overlay is open
+    // useEffect(() => {
+    //     if (overlayVisible) {
+    //         document.body.style.overflow = "hidden";
+    //     } else {
+    //         document.body.style.overflow = "auto";
+    //     }
+    // }, [overlayVisible]);
 
     return (
         <>
-            <Header/>
-            <main>
-                <section id="portfolio">
-                    <div className="p-5">
-                        <div className="portfolio-grid">
-                            {portfolioItems.map((item, index) => (
-                                <div
-                                    className="portfolio-item"
-                                    key={index}
-                                    onClick={() => openOverlay(item.images, item.caption)}
-                                >
-                                    <img src={item.thumbnail} alt={item.alt}/>
-                                    <div
-                                        className="overlay-text"
-                                        dangerouslySetInnerHTML={{__html: item.caption}}
-                                    ></div>
-                                </div>
-                            ))}
+            <Header />
+            <main className="flex justify-center py-8 px-4">
+                <motion.section
+                    className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5"
+                    initial={{opacity: 0}}
+                    animate={{opacity: 1}}
+                    transition={{
+                        duration: 0.5,
+                        delay: 0.2,
+                        ease: "linear"
+                    }}
+                >
+                    {items.map((item) => (
+                        <div
+                            className="relative group cursor-pointer"
+                            key={item.id} // Ensure each item has a unique id
+                            onClick={() => openOverlay(item.images, item.caption)}
+                            tabIndex={0}
+                            onKeyPress={(e) => {
+                                if (e.key === "Enter") openOverlay(item.images, item.caption);
+                            }}
+                            aria-label={`Open portfolio item: ${item.caption}`}
+                        >
+                            <img
+                                src={item.thumbnail}
+                                alt={item.alt}
+                                loading="lazy" // Adds lazy loading for performance
+                                className="w-full aspect-square object-cover transition duration-300 ease-in-out hover:brightness-50"
+                            />
+                            <div
+                                className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white text-xl uppercase text-center opacity-0 transition-opacity duration-300 ease-in-out pointer-events-none group-hover:opacity-100"
+                                dangerouslySetInnerHTML={{ __html: item.caption }}
+                            ></div>
                         </div>
-                    </div>
-                </section>
+                    ))}
+                </motion.section>
             </main>
 
-            {overlayVisible && (
-                <div className="overlay"
-                     style={{
-                         display: overlayVisible ? "flex" : "none",
-                     }}
-                     onClick={closeOverlay}>
-                    <div className="overlay-content" onClick={(e) => e.stopPropagation()}>
-                        <img
-                            src={currentImages[currentIndex]}
-                            alt="Artwork Preview"
-                        />
-                        <p
-                            className="overlay-caption"
-                            dangerouslySetInnerHTML={{__html: currentCaption}}
-                        ></p>
-                    </div>
-                    {currentImages.length > 1 && (
-                        <>
-                            <button
-                                className="prev-btn"
-                                onClick={(e) => {
-                                    e.stopPropagation();
-                                    prevImage();
-                                }}
-                            >
-                                ❮
-                            </button>
-                            <button
-                                className="next-btn"
-                                onClick={(e) => {
-                                    e.stopPropagation();
-                                    nextImage();
-                                }}
-                            >
-                                ❯
-                            </button>
-                        </>
-                    )}
-                </div>
-            )}
+            {/* AnimatePresence wraps the conditional rendering of the Overlay */}
+            <AnimatePresence>
+                {overlayVisible && (
+                    <Overlay
+                        images={currentImages}
+                        caption={currentCaption}
+                        currentIndex={currentIndex}
+                        prevImage={prevImage}
+                        nextImage={nextImage}
+                        closeOverlay={closeOverlay}
+                        key="overlay" // Key is necessary for AnimatePresence
+                    />
+                )}
+            </AnimatePresence>
 
-            <Footer/>
+            <Footer />
         </>
     );
 };
