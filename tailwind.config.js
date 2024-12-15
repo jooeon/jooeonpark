@@ -20,7 +20,10 @@ export default {
   		colors: {
 			customWhite: "#e0e0e0",
 			customBlack: "#1a1a1a"
-  		}
+  		},
+		fontSize: {
+			'35px': '35px',
+		},
   	}
   },
   plugins: [], // Add any plugins here as needed

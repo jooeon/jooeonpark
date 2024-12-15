@@ -1,4 +1,4 @@
-// data.jsx
+// Data.jsx
 
 export const openSpring = { type: "spring", stiffness: 200, damping: 30 };
 

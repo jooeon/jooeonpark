@@ -17,24 +17,25 @@ const Header = () => {
         // Active link is white, inactive links are greyed out
         return isActive
             ? "text-customWhite"
-            : "text-customWhite opacity-40 hover:opacity-100 transition-opacity duration-500";
+            : "text-customWhite opacity-30 hover:opacity-100 transition-opacity duration-500";
     };
 
     return (
-      <header>
+      <header className="h-14">
           <motion.nav
-              className="navbar relative flex items-center justify-between font-bold uppercase px-6 py-5 md:px-7 md:py-4"
+              className="navbar fixed top-0 left-0 w-full z-10 flex items-center
+                justify-between font-bold mix-blend-difference uppercase px-6 py-5 md:px-7 md:py-4"
               initial={{y: -100, opacity: 0}}
               animate={{y: 0, opacity: 1}}
               transition={{duration: 0.8, ease: [0.42, 0, 0.58, 1],}}
           >
-              <Link to="/" className="logo relative">
+              <Link to="/" className="relative">
                   J.E.PARK
               </Link>
               <ul className="nav-links flex gap-2 md:gap-7">
                   <li>
-                      <NavLink to="/showcase" className={getLinkClasses} exact>
-                          Showcase
+                      <NavLink to="/work" className={getLinkClasses} exact>
+                          Work
                       </NavLink>
                   </li>
                   <li>

@@ -3,7 +3,7 @@ import Header from "./components/Header.jsx";
 import Footer from "./components/Footer.jsx";
 import { motion } from "framer-motion";
 
-const Showcase = () => {
+const Work = () => {
     const videoRef = useRef(null);
     const [isMuted, setIsMuted] = useState(true);
 
@@ -18,7 +18,7 @@ const Showcase = () => {
         <>
             <Header/>
             <main>
-                <section id="hero-video" className="m-5 md:mx-20 md:my-10">
+                <section className="m-5 md:mx-20 md:my-10">
                     <div className="md:flex">
                         <div className="relative w-full h-fit">
                             <video
@@ -27,13 +27,12 @@ const Showcase = () => {
                                 autoPlay
                                 muted
                                 loop
-                                className="hero-video w-full"
+                                className="w-full"
                             >
                                 <source src="src/videos/simple.mp4" type="video/mp4"/>
                                 Your browser does not support the video tag.
                             </video>
                             <button
-                                id="volumeButton"
                                 className="volume-button"
                                 onClick={toggleMute}
                             >
@@ -55,7 +54,6 @@ const Showcase = () => {
                             </button>
                         </div>
                         <motion.div
-                            id="video-description"
                             className="my-6 md:my-0 md:p-5"
                             initial={{opacity: 0}}
                             animate={{opacity: 1}}
@@ -87,4 +85,4 @@ const Showcase = () => {
     );
 };
 
-export default Showcase;
+export default Work;

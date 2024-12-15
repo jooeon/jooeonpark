@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Index from "./Index.jsx";
-import Showcase from "./Showcase.jsx";
+import Work from "./Work.jsx";
 import Archive from "./Archive.jsx";
 import About from "./About.jsx";
 
@@ -9,7 +9,7 @@ const App = () => {
         <Router>
             <Routes>
                 <Route path="/" element={<Index />} />
-                <Route path="/showcase" element={<Showcase />} />
+                <Route path="/work" element={<Work />} />
                 <Route path="/archive" element={<Archive />} />
                 <Route path="/about" element={<About />} />
             </Routes>

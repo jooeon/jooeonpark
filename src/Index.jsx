@@ -1,82 +1,63 @@
 import Header from "./components/Header.jsx";
 import Footer from "./components/Footer.jsx";
-import { motion, animate, motionValue, useTransform } from "framer-motion";
-import { useEffect } from "react";
+import EntryAnim from "./components/EntryAnim.jsx";
+import { motion } from "framer-motion";
 
 const Index = () => {
-
-    const count = motionValue(0);
-    const rounded = useTransform(count, Math.round);
-
-    useEffect(() => {
-        const animation = animate(count, 100, { duration: 1.0 });
-
-        return animation.stop;
-    }, []);
 
     return (
         <>
             <Header/>
             <main>
+                {/* Overlay for "loading" animation on page load */}
                 <motion.div
-                    className="fixed flex justify-center items-center top-0 pointer-events-none h-screen w-full bg-red-700 z-10 text-8xl"
+                    className="fixed top-0 pointer-events-none h-full w-full bg-customBlack text-customWhite z-20"
                     initial={{opacity: 1}}
                     animate={{opacity: 0}}
                     transition={{
-                        duration: 0.2,
-                        delay: 1.5,
+                        duration: 0.4,
+                        delay: 2.85,
                         ease: "linear"
                     }}
                 >
-                    {rounded}
+                    <EntryAnim />
                 </motion.div>
+                {/* Introduction text */}
                 <section className="flex items-center justify-center min-h-30vh m-5">
                     <motion.div
-                        className="text-4xl text-center w-2/4"
-                        initial={{y: 0, opacity: 1, width: 100, height: 440}}
-                        animate={{y: 0, opacity: 1, width: 900, height: 440}}
+                        className="text-4xl text-center w-11/12 md:w-2/4"
+                        initial={{y: 20, filter: 'blur(3px)'}}
+                        animate={{y: 0, filter: 'blur(0px)'}}
                         transition={{
-                            duration: 1.5,
-                            delay: 1.6,
-                            ease: [0.5, 1, 0.89, 1] // easeOutQuad
+                            duration: 0.5,
+                            delay: 3,
+                            ease: "linear"
                         }}
                     >
-                        <p className="py-40 text-clip overflow-hidden">
-                            Artist, designer, and engineer in the interdisciplinary world of digital media, where art and design meet technology.
+                        <p className="py-24 md:py-40 text-35px text-clip overflow-hidden">
+                            Joo Eon Park is an artist, designer, and engineer in the interdisciplinary world of digital media, where art and design meet technology.
                         </p>
                     </motion.div>
-                    {/*<motion.h1*/}
-                    {/*    className="absolute text-[18vw] font-bold text-center leading-snug"*/}
-                    {/*    initial={{y: 1000}}*/}
-                    {/*    animate={{y: -1200}}*/}
-                    {/*    transition={{*/}
-                    {/*        duration: 4.0,*/}
-                    {/*        delay: 0.2,*/}
-                    {/*        ease: "linear"*/}
-                    {/*    }}*/}
-                    {/*>*/}
-                    {/*    ARTIST. DESIGNER. ENGINEER.*/}
-                    {/*</motion.h1>*/}
                 </section>
                 <section className="flex justify-center h-screen w-full p-5">
                     <motion.div
                         className="w-1/2 bg-customWhite m-5"
-                        initial={{y: 300, opacity: 0}}
+                        initial={{y: 250, opacity: 0}}
                         animate={{y: 0, opacity: 1}}
                         transition={{
                             duration: 1.2,
-                            delay: 1.8,
+                            delay: 3,
                             ease: [0.42, 0, 0.58, 1]    // custom easeInOut
                         }}
                     >
                     </motion.div>
                     <motion.div
                         className="w-1/2 bg-customWhite m-5"
-                        initial={{y: 300, opacity: 0}}
+                        initial={{y: 250, opacity: 0}}
                         animate={{y: 0, opacity: 1}}
                         transition={{
                             duration: 1.2,
-                            delay: 2.1,
+                            delay: 3.3,
                             ease: [0.42, 0, 0.58, 1]    // custom easeInOut
                         }}
                     >

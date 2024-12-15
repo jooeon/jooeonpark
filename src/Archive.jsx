@@ -3,7 +3,7 @@ import { useState } from "react";
 import Header from "./components/Header.jsx";
 import Footer from "./components/Footer.jsx";
 import Overlay from "./components/Overlay";
-import { items } from "./data.jsx";
+import { items } from "./Data.jsx";
 import { motion, AnimatePresence } from "framer-motion";
 
 const Archive = () => {
@@ -43,7 +43,7 @@ const Archive = () => {
     return (
         <>
             <Header />
-            <main className="flex justify-center py-8 px-4">
+            <main className="flex justify-center m-5">
                 <motion.section
                     className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5"
                     initial={{opacity: 0}}

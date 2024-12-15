@@ -5,17 +5,18 @@
 /* ... */
 
 body {
-    background-color: #1a1a1a;
-    color: #e0e0e0;
     font-family: 'Outfit', 'Inter', Arial, sans-serif;
-    margin: 0;
-    padding: 0;
 }
 
 /* NAVBAR  */
 
 .navbar {
     font-family: 'Raleway', 'Inter', Arial, sans-serif;
+}
+
+#animated-text {
+    font-family: 'Raleway', 'Inter', Arial, sans-serif;
+    line-height: 1;
 }
 
 /* Need below custom styling for link underline animation */
