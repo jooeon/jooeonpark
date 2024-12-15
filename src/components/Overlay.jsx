@@ -55,7 +55,6 @@ const Overlay = ({
                 onClick={(e) => e.stopPropagation()} // Prevent closing when clicking inside
             >
 
-                {/* Image with Animation */}
                 <img
                     src={images[currentIndex]}
                     alt={`Image ${currentIndex + 1}`}
@@ -64,12 +63,12 @@ const Overlay = ({
                 />
 
                 {/* Caption */}
-                <div className="p-2">
+                <div className="relative p-2">
                     <h2
                         className="text-base"
                         dangerouslySetInnerHTML={{ __html: caption }}
                     ></h2>
-                    {/* Add more details if needed */}
+                    <p className="absolute top-2 right-2">{currentIndex + 1}/{images.length}</p>
                 </div>
 
                 {/* Navigation Buttons */}

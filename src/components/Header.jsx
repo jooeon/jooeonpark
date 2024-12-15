@@ -3,6 +3,8 @@ import { motion } from "framer-motion";
 
 const Header = () => {
 
+    // TODO: hide navbar when scrolling down, reveal again when scrolling up
+
     const location = useLocation();
     const isLandingPage = location.pathname === "/";
 
@@ -15,13 +17,13 @@ const Header = () => {
         // Active link is white, inactive links are greyed out
         return isActive
             ? "text-customWhite"
-            : "text-customWhite opacity-55 hover:opacity-100 transition-opacity duration-500";
+            : "text-customWhite opacity-40 hover:opacity-100 transition-opacity duration-500";
     };
 
     return (
       <header>
           <motion.nav
-              className="navbar relative flex items-center justify-between font-bold uppercase px-5 py-4 md:px-6 md:py-5"
+              className="navbar relative flex items-center justify-between font-bold uppercase px-6 py-5 md:px-7 md:py-4"
               initial={{y: -100, opacity: 0}}
               animate={{y: 0, opacity: 1}}
               transition={{duration: 0.8, ease: [0.42, 0, 0.58, 1],}}

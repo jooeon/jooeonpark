@@ -4,18 +4,22 @@ export default {
     content: ["./index.html", "./src/**/*.{ts,tsx,js,jsx}"], // Add the correct paths here
   theme: {
   	extend: {
-		minHeight: {
-			'30vh': '30vh',
-		},
 		maxWidth: {
 			'half': '50%',
 			'90vw': '90vw',
+		},
+		height: {
+			'500px':'500px',
+		},
+		minHeight: {
+			'30vh': '30vh',
 		},
 		maxHeight: {
 			'90vh': '90vh',
 		},
   		colors: {
-			customWhite: "#f0f0f0"
+			customWhite: "#e0e0e0",
+			customBlack: "#1a1a1a"
   		}
   	}
   },

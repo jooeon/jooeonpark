@@ -1,3 +1,3 @@
 Joo Eon Park's Website
 
-Created with React and Tailwind CSS
+Created with React, Framer Motion, and Tailwind CSS

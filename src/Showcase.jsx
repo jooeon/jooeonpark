@@ -1,7 +1,7 @@
 import { useRef, useState } from "react";
 import Header from "./components/Header.jsx";
 import Footer from "./components/Footer.jsx";
-import { motion, useScroll } from "framer-motion";
+import { motion } from "framer-motion";
 
 const Showcase = () => {
     const videoRef = useRef(null);
@@ -18,17 +18,7 @@ const Showcase = () => {
         <>
             <Header/>
             <main>
-                <motion.section
-                    id="hero-video"
-                    className="m-5 md:mx-20 md:my-10"
-                    initial={{opacity: 0}}
-                    animate={{opacity: 1}}
-                    transition={{
-                        duration: 0.5,
-                        delay: 0.2,
-                        ease: "linear"
-                    }}
-                >
+                <section id="hero-video" className="m-5 md:mx-20 md:my-10">
                     <div className="md:flex">
                         <div className="relative w-full h-fit">
                             <video
@@ -64,20 +54,33 @@ const Showcase = () => {
                                 }
                             </button>
                         </div>
-                        <div id="video-description" className="my-6">
+                        <motion.div
+                            id="video-description"
+                            className="my-6 md:my-0 md:p-5"
+                            initial={{opacity: 0}}
+                            animate={{opacity: 1}}
+                            transition={{
+                                duration: 0.5,
+                                delay: 0.2,
+                                ease: "linear"
+                            }}
+                        >
                             <h2 className="text-4xl">11,182,156 Steps</h2>
                             <p className="text-lg italic mt-2">Digital, Toshiba 1979 TV. 2024</p>
                             <p>
                                 An audiovisual translation of my daily step counts since January
                                 1st, 2018 to December 2nd, 2024.
                             </p>
-                            <video className="md:max-w-half mt-5" autoPlay muted loop>
+                            <video className="md:h-500px mt-4" autoPlay muted loop>
                                 <source src="src/videos/full_recording.mp4" type="video/mp4"/>
                                 Your browser does not support the video tag.
                             </video>
-                        </div>
+                        </motion.div>
                     </div>
-                </motion.section>
+                </section>
+                <section>
+                {/* TODO: insert exhibitions */}
+                </section>
             </main>
             <Footer/>
         </>

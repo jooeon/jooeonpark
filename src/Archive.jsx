@@ -3,7 +3,7 @@ import { useState } from "react";
 import Header from "./components/Header.jsx";
 import Footer from "./components/Footer.jsx";
 import Overlay from "./components/Overlay";
-import { items, openSpring } from "./data.jsx";
+import { items } from "./data.jsx";
 import { motion, AnimatePresence } from "framer-motion";
 
 const Archive = () => {
@@ -72,7 +72,7 @@ const Archive = () => {
                                 className="w-full aspect-square object-cover transition duration-300 ease-in-out hover:brightness-50"
                             />
                             <div
-                                className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white text-xl uppercase text-center opacity-0 transition-opacity duration-300 ease-in-out pointer-events-none group-hover:opacity-100"
+                                className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white text-xl text-center opacity-0 transition-opacity duration-300 ease-in-out pointer-events-none group-hover:opacity-100"
                                 dangerouslySetInnerHTML={{ __html: item.caption }}
                             ></div>
                         </div>
