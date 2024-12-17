@@ -4,20 +4,7 @@
 
 /* ... */
 
-body {
-    font-family: 'Outfit', 'Inter', Arial, sans-serif;
-}
-
 /* NAVBAR  */
-
-.navbar {
-    font-family: 'Raleway', 'Inter', Arial, sans-serif;
-}
-
-#animated-text {
-    font-family: 'Raleway', 'Inter', Arial, sans-serif;
-    line-height: 1;
-}
 
 /* Need below custom styling for link underline animation */
 
@@ -35,7 +22,7 @@ body {
     position: absolute;
     width: 100%;
     height: 1px;
-    background: #ffffff; /* Underline color */
+    background: #f1f1f1; /* Underline color */
     left: 0;
     bottom: 0;
     transform: scaleX(0);

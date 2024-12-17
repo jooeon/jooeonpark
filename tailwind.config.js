@@ -3,6 +3,10 @@ export default {
     darkMode: ["class"],
     content: ["./index.html", "./src/**/*.{ts,tsx,js,jsx}"], // Add the correct paths here
   theme: {
+	fontFamily: {
+		'raleway': ['Raleway', 'Inter', 'Arial', 'sans-serif'],
+		'outfit': ['Outfit', 'Inter', 'Arial', 'sans-serif']
+	},
   	extend: {
 		maxWidth: {
 			'half': '50%',
@@ -18,7 +22,7 @@ export default {
 			'90vh': '90vh',
 		},
   		colors: {
-			customWhite: "#e0e0e0",
+			customWhite: "#f1f1f1",
 			customBlack: "#1a1a1a"
   		},
 		fontSize: {

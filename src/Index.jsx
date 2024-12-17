@@ -16,37 +16,20 @@ const Index = () => {
                     animate={{opacity: 0}}
                     transition={{
                         duration: 0.4,
-                        delay: 2.85,
+                        delay: 1.8,
                         ease: "linear"
                     }}
                 >
                     <EntryAnim />
                 </motion.div>
-                {/* Introduction text */}
-                <section className="flex items-center justify-center min-h-30vh m-5">
-                    <motion.div
-                        className="text-4xl text-center w-11/12 md:w-2/4"
-                        initial={{y: 20, filter: 'blur(3px)'}}
-                        animate={{y: 0, filter: 'blur(0px)'}}
-                        transition={{
-                            duration: 0.5,
-                            delay: 3,
-                            ease: "linear"
-                        }}
-                    >
-                        <p className="py-24 md:py-40 text-35px text-clip overflow-hidden">
-                            Joo Eon Park is an artist, designer, and engineer in the interdisciplinary world of digital media, where art and design meet technology.
-                        </p>
-                    </motion.div>
-                </section>
                 <section className="flex justify-center h-screen w-full p-5">
                     <motion.div
                         className="w-1/2 bg-customWhite m-5"
                         initial={{y: 250, opacity: 0}}
                         animate={{y: 0, opacity: 1}}
                         transition={{
-                            duration: 1.2,
-                            delay: 3,
+                            duration: 0.8,
+                            delay: 1.8,
                             ease: [0.42, 0, 0.58, 1]    // custom easeInOut
                         }}
                     >
@@ -56,8 +39,8 @@ const Index = () => {
                         initial={{y: 250, opacity: 0}}
                         animate={{y: 0, opacity: 1}}
                         transition={{
-                            duration: 1.2,
-                            delay: 3.3,
+                            duration: 0.8,
+                            delay: 2.1,
                             ease: [0.42, 0, 0.58, 1]    // custom easeInOut
                         }}
                     >

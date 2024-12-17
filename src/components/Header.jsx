@@ -17,14 +17,14 @@ const Header = () => {
         // Active link is white, inactive links are greyed out
         return isActive
             ? "text-customWhite"
-            : "text-customWhite opacity-30 hover:opacity-100 transition-opacity duration-500";
+            : "text-customWhite opacity-50 hover:opacity-100 transition-opacity duration-500";
     };
 
     return (
       <header className="h-14">
           <motion.nav
-              className="navbar fixed top-0 left-0 w-full z-10 flex items-center
-                justify-between font-bold mix-blend-difference uppercase px-6 py-5 md:px-7 md:py-4"
+              className="navbar fixed top-0 left-0 w-full z-10 flex items-center font-raleway
+                justify-between font-bold mix-blend-difference uppercase p-6 md:px-7 md:py-4"
               initial={{y: -100, opacity: 0}}
               animate={{y: 0, opacity: 1}}
               transition={{duration: 0.8, ease: [0.42, 0, 0.58, 1],}}

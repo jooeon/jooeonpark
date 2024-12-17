@@ -9,8 +9,8 @@ const AnimatedText = () => {
             // Start the initial animation: fade in with blur
             await controls.start('visible');
 
-            // Wait for 1 second before starting the abbreviation
-            await new Promise((resolve) => setTimeout(resolve, 750));
+            // Delay before starting the abbreviation
+            await new Promise((resolve) => setTimeout(resolve, 350));
 
             // Start the abbreviation animation
             await controls.start('abbreviate');
@@ -31,12 +31,12 @@ const AnimatedText = () => {
         visible: {
             opacity: 1,
             filter: 'blur(0px)',
-            transition: { duration: 0.8 },
+            transition: { duration: 0.5 },
         },
         abbreviate: {
             opacity: 1,
             x: -53.56,
-            transition: { duration: 0.8 },
+            transition: { duration: 0.6 },
         },
     };
 
@@ -46,12 +46,12 @@ const AnimatedText = () => {
         visible: {
             opacity: 0,
             filter: 'blur(0px)',
-            transition: { duration: 0.8 },
+            transition: { duration: 0.5 },
         },
         abbreviate: {
             opacity: 1,
             x: -53.56,
-            transition: { duration: 0.8 },
+            transition: { duration: 0.6 },
         },
     };
 
@@ -61,11 +61,11 @@ const AnimatedText = () => {
         visible: {
             opacity: 1,
             filter: 'blur(0px)',
-            transition: { duration: 0.8 },
+            transition: { duration: 0.5 },
         },
         abbreviate: {
             opacity: 1,
-            transition: { duration: 0.8 },
+            transition: { duration: 0.6 },
         },
     };
 
@@ -75,11 +75,11 @@ const AnimatedText = () => {
         visible: {
             opacity: 0,
             filter: 'blur(0px)',
-            transition: { duration: 0.8 },
+            transition: { duration: 0.5 },
         },
         abbreviate: {
             opacity: 1,
-            transition: { duration: 0.8 },
+            transition: { duration: 0.6 },
         },
     };
 
@@ -89,12 +89,12 @@ const AnimatedText = () => {
         visible: {
             opacity: 1,
             filter: 'blur(0px)',
-            transition: { duration: 0.8 },
+            transition: { duration: 0.5 },
         },
         abbreviate: {
             opacity: 1,
             x: 53.56,
-            transition: { duration: 0.8 },
+            transition: { duration: 0.6 },
         },
     };
 
@@ -103,7 +103,7 @@ const AnimatedText = () => {
         visible: {
             opacity: 1,
             filter: 'blur(0px)',
-            transition: { duration: 0.8 },
+            transition: { duration: 0.5 },
         },
     };
 
@@ -118,7 +118,7 @@ const AnimatedText = () => {
     return (
         <motion.h1
             id="animated-text"
-            className="fixed w-64 top-1/2 left-1/2 text-center
+            className="fixed w-64 top-1/2 left-1/2 text-center font-raleway
                 transform -translate-x-1/2 -translate-y-1/2 text-35px font-bold z-30"
             initial="hidden"
             animate={controls}
