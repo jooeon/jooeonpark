@@ -8,7 +8,6 @@ const About = () => {
         <>
             <Header/>
             <main>
-                {/* Introduction text */}
                 <section className="flex flex-col min-h-30vh p-7">
                     <h1 className="text-6xl uppercase font-raleway font-bold">
                         <motion.span

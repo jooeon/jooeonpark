@@ -1,4 +1,5 @@
 import { motion } from "framer-motion"
+import ThemeToggle from "./ThemeToggle.jsx";
 
 const Footer = () => {
   return (
@@ -18,7 +19,7 @@ const Footer = () => {
             }}
         >
             <p>&copy; MMXXV. Joo Eon Park</p>
-            <p>All rights reserved</p>
+            <p>All rights reserved<ThemeToggle /></p>
         </motion.div>
     </footer>
   );

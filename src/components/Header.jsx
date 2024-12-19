@@ -29,7 +29,7 @@ const Header = () => {
               animate={{y: 0, opacity: 1}}
               transition={{duration: 0.8, ease: [0.42, 0, 0.58, 1],}}
           >
-              <Link to="/" className="relative">
+              <Link to="/" className="relative text-customWhite">
                   J.E.PARK
               </Link>
               <ul className="nav-links flex gap-2 md:gap-7">

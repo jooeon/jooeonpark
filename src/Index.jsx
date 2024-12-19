@@ -11,7 +11,8 @@ const Index = () => {
             <main>
                 {/* Overlay for "loading" animation on page load */}
                 <motion.div
-                    className="fixed top-0 pointer-events-none h-full w-full bg-customBlack text-customWhite z-20"
+                    className="fixed top-0 pointer-events-none h-full w-full
+                        bg-customWhite bg-customBlack dark:bg-customBlack dark:text-customWhite z-20"
                     initial={{opacity: 1}}
                     animate={{opacity: 0}}
                     transition={{
@@ -24,7 +25,7 @@ const Index = () => {
                 </motion.div>
                 <section className="flex justify-center h-screen w-full p-5">
                     <motion.div
-                        className="w-1/2 bg-customWhite m-5"
+                        className="w-1/2 bg-customBlack dark:bg-customWhite m-5"
                         initial={{y: 250, opacity: 0}}
                         animate={{y: 0, opacity: 1}}
                         transition={{
@@ -35,7 +36,7 @@ const Index = () => {
                     >
                     </motion.div>
                     <motion.div
-                        className="w-1/2 bg-customWhite m-5"
+                        className="w-1/2 bg-customBlack dark:bg-customWhite m-5"
                         initial={{y: 250, opacity: 0}}
                         animate={{y: 0, opacity: 1}}
                         transition={{
