@@ -44,22 +44,17 @@ const ThemeToggle = () => {
         <div
             onClick={toggleTheme}
             data-isDark={isDark}
-            className="switch bg-customBlack dark:bg-customWhite opacity-40"
+            className="switch bg-customBlack dark:bg-customWhite m-1.5"
             aria-label="Toggle Dark Mode"
         >
             <motion.div
                 className="handle bg-customWhite dark:bg-customBlack"
                 layout
-                transition={spring}
+                transition={{duration: 0.1,
+                    ease: "linear"}}
             ></motion.div>
         </div>
     );
-};
-
-const spring = {
-    type: "spring",
-    stiffness: 700,
-    damping: 30
 };
 
 export default ThemeToggle;

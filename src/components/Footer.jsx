@@ -9,7 +9,7 @@ const Footer = () => {
             <div></div>
         </div>
         <motion.div
-            className="flex justify-between p-6 md:px-7 md:py-4 text-xs md:text-base"
+            className="flex items-center justify-between p-6 md:px-7 md:py-4 text-xs md:text-base"
             initial={{opacity: 0}}
             animate={{opacity: 1}}
             transition={{
@@ -19,7 +19,7 @@ const Footer = () => {
             }}
         >
             <p>&copy; MMXXV. Joo Eon Park</p>
-            <p>All rights reserved<ThemeToggle /></p>
+            <div className="flex items-center"><p className="p-2">All rights reserved</p><ThemeToggle /></div>
         </motion.div>
     </footer>
   );

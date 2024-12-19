@@ -6,11 +6,7 @@
 
 /* NAVBAR  */
 
-/* Need below custom styling for link underline animation */
-
-.nav-links li {
-    display: inline;
-}
+/* Link underline animation */
 
 .nav-links a {
     position: relative;
@@ -22,7 +18,6 @@
     position: absolute;
     width: 100%;
     height: 1px;
-    background: #f1f1f1; /* Underline color */
     left: 0;
     bottom: 0;
     transform: scaleX(0);
