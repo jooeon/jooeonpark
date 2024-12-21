@@ -1,43 +1,37 @@
-// Data.jsx
-
-export const openSpring = { type: "spring", stiffness: 200, damping: 30 };
-
 export const items = [
     {
-        id: "symbiosis",
+        id: "ocular-prosthetic",
         isVideo: false,
-        images: ["src/images/Symbiosis.jpg"],
-        caption: "SYMBIOSIS<br>Linocut. 2020",
-        thumbnail: "src/images/thumbnails/Symbiosis_thumb.jpg",
-        alt: "Symbiosis",
+        images: [
+            "src/images/Ocular Prosthetic for Reading Another Human_01.jpeg",
+            "src/images/Ocular Prosthetic for Reading Another Human_02.jpeg",
+        ],
+        caption: [
+            "OCULAR PROSTHETIC FOR READING ANOTHER HUMAN",
+            "Sculpture",
+            "Plastic tubing, wire, glasses",
+            "2024"
+        ],
+        thumbnail:
+            "src/images/Ocular Prosthetic for Reading Another Human_01.jpeg",
+        alt: "Ocular Prosthetic for Reading Another Human",
+        padding: "",
+        link: "",
     },
     {
         id: "steps",
         isVideo: true,
         images: [],
-        caption: "11,182,156 STEPS<br>Digital, Toshiba 1979 TV. 2024",
+        caption: [
+            "11,182,156 STEPS",
+            "Digital",
+            "Toshiba 1979 TV, DVD player, Speaker",
+            "2024"
+            ],
         thumbnail: "src/videos/polychrome.mp4",
         alt: "11,182,156 Steps",
-    },
-    {
-        id: "the-workers",
-        isVideo: false,
-        images: ["src/images/The_Workers.jpg"],
-        caption: "THE WORKERS<br>Linocut. 2023",
-        thumbnail: "src/images/thumbnails/The_Workers_thumb.jpg",
-        alt: "The Workers",
-    },
-    {
-        id: "man-child",
-        isVideo: false,
-        images: [
-            "src/images/Man-child_main.jpg",
-            "src/images/Man-child_alt1.jpg",
-            "src/images/Man-child_alt2.jpg",
-        ],
-        caption: "MAN-CHILD<br>Woodcut. 2023",
-        thumbnail: "src/images/thumbnails/Man-child_thumb.jpg",
-        alt: "Man-child",
+        padding: "",
+        link: "/steps",
     },
     {
         id: "running-in-a-dream",
@@ -49,34 +43,20 @@ export const items = [
             "src/images/Running In a Dream_Detail_03.jpg",
             "src/images/Running In a Dream_Detail_04.jpg",
         ],
-        caption: "RUNNING IN A DREAM<br>Plywood, fabric, nails. 2024",
-        thumbnail: "src/images/thumbnails/Running In a Dream_thumb.jpg",
-        alt: "Running In a Dream, 2024",
-    },
-    {
-        id: "trapped",
-        isVideo: false,
-        images: ["src/images/Trapped.jpg"],
-        caption: "TRAPPED<br>Collagraph. 2023",
-        thumbnail: "src/images/thumbnails/Trapped_thumb.jpg",
-        alt: "Trapped",
-    },
-    {
-        id: "ocular-prosthetic",
-        isVideo: false,
-        images: [
-            "src/images/Ocular Prosthetic for Reading Another Human_01.jpeg",
-            "src/images/Ocular Prosthetic for Reading Another Human_02.jpeg",
+        caption: [
+            "RUNNING IN A DREAM",
+            "Mixed media",
+            "Plywood, colored pencils, fabric, nails",
+            "2024"
         ],
-        caption:
-            "OCULAR PROSTHETIC FOR READING ANOTHER HUMAN<br>Plastic tubing, wire, glasses. 2024",
-        thumbnail:
-            "src/images/thumbnails/Ocular Prosthetic for Reading Another Human_thumb.jpeg",
-        alt: "Ocular Prosthetic for Reading Another Human",
+        thumbnail: "src/images/Running In a Dream.jpg",
+        alt: "Running In a Dream, 2024",
+        padding: "",
+        link: "",
     },
     {
         id: "on-the-tracks",
-        isVideo: false,
+        isVideo: true,
         images: [
             "src/images/JooEon_Park_OnTheTracks_main.JPEG",
             "src/images/JooEon_Park_OnTheTracks_01.JPEG",
@@ -90,9 +70,16 @@ export const items = [
             "src/images/JooEon_Park_OnTheTracks_09.JPEG",
             "src/images/JooEon_Park_OnTheTracks_10.jpg"
         ],
-        caption: "ON THE TRACKS<br>Paint, ink, cardboard. 2024",
-        thumbnail: "src/images/thumbnails/JooEon_Park_OnTheTracks_thumb.JPEG",
+        caption: [
+            "ON THE TRACKS",
+            "Street art",
+            "Paint, ink, cardboard, tape",
+            "2024",
+        ],
+        thumbnail: "src/videos/JooEon_Park_OnTheTracks_Video.MOV",
         alt: "On The Tracks",
+        padding: "",
+        link: "",
     },
     {
         id: "recollection",
@@ -103,8 +90,87 @@ export const items = [
             "src/images/Recollection_02.jpg",
             "src/images/Recollection_03.jpg",
         ],
-        caption: "RECOLLECTION<br>Ink, collage, plastic film. 2024",
-        thumbnail: "src/images/thumbnails/Recollection_thumb.jpg",
+        caption: [
+            "RECOLLECTION",
+            "Drawing",
+            "Ink, collage, plastic film",
+            "2024"
+        ],
+        thumbnail: "src/images/Recollection_01.jpg",
         alt: "Recollection",
+        padding: "",
+        link: "",
+    },
+    {
+        id: "the-workers",
+        isVideo: false,
+        images: [
+            "src/images/The_Workers.jpg",
+        ],
+        caption: [
+            "THE WORKERS",
+            "Printmaking",
+            "Linocut",
+            "2023"
+        ],
+        thumbnail: "src/images/The_Workers.jpg",
+        alt: "The Workers",
+        padding: "",
+        link: "",
+    },
+    {
+        id: "trapped",
+        isVideo: false,
+        images: [
+            "src/images/Trapped.jpg",
+        ],
+        caption: [
+            "TRAPPED",
+            "Printmaking",
+            "Collagraph",
+            "2023"
+        ],
+        thumbnail:  "src/images/Trapped.jpg",
+        alt: "Trapped",
+        padding: "",
+        link: "",
+    },
+    {
+        id: "man-child",
+        isVideo: false,
+        images: [
+            "src/images/Man-child_main.jpg",
+            "src/images/Man-child_alt1.jpg",
+            "src/images/Man-child_alt2.jpg",
+            "src/images/Man-child_alt3.jpg",
+            "src/images/Man-child_alt4.jpg",
+        ],
+        caption: [
+            "MAN-CHILD",
+            "Printmaking",
+            "Woodcut",
+            "2023"
+        ],
+        thumbnail: "src/images/Man-child_alt2.jpg",
+        alt: "Man-child",
+        padding: "",
+        link: "",
+    },
+    {
+        id: "symbiosis",
+        isVideo: false,
+        images: [
+            "src/images/Symbiosis.jpg",
+        ],
+        caption: [
+            "SYMBIOSIS",
+            "Printmaking",
+            "Linocut",
+            "2020"
+        ],
+        thumbnail: "src/images/Symbiosis.jpg",
+        alt: "Symbiosis",
+        padding: "",
+        link: "",
     },
 ];

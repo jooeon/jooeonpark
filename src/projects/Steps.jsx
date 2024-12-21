@@ -19,9 +19,9 @@ const Steps = () => {
         <>
             <Header/>
             <main>
-                <section className="m-5 md:mx-20 md:my-10">
-                    <div className="md:flex">
-                        <div className="relative w-full h-fit">
+                <section className="m-5 xl:my-10 xl:mx-20">
+                    <div className="xl:flex ">
+                        <div className="relative w-full xl:w-3/5 h-fit">
                             <video
                                 id="heroVideo"
                                 ref={videoRef}
@@ -34,7 +34,7 @@ const Steps = () => {
                                 Your browser does not support the video tag.
                             </video>
                             <button
-                                className="volume-button"
+                                className="volume-button text-customWhite"
                                 onClick={toggleMute}
                             >
                                 {isMuted ?
@@ -56,7 +56,7 @@ const Steps = () => {
                             </button>
                         </div>
                         <motion.div
-                            className="my-6 md:my-0 md:p-5"
+                            className="my-6 xl:my-0 xl:p-5 xl:w-2/5"
                             initial={{opacity: 0}}
                             animate={{opacity: 1}}
                             transition={{
@@ -71,8 +71,8 @@ const Steps = () => {
                                 An audiovisual translation of my daily step counts since January
                                 1st, 2018 to December 2nd, 2024.
                             </p>
-                            <video className="md:h-500px mt-4" autoPlay muted loop>
-                                <source src="src/videos/full_recording.mp4" type="video/mp4"/>
+                            <video className="mt-4 w-full xl:w-2/5" autoPlay muted loop>
+                                <source src="src/videos/steps_tv.mp4" type="video/mp4"/>
                                 Your browser does not support the video tag.
                             </video>
                         </motion.div>

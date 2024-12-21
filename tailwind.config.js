@@ -4,8 +4,10 @@ export default {
     content: ["./index.html", "./src/**/*.{ts,tsx,js,jsx}"], // Add the correct paths here
   theme: {
 	fontFamily: {
-		'raleway': ['Raleway', 'Inter', 'Arial', 'sans-serif'],
-		'outfit': ['Outfit', 'Inter', 'Arial', 'sans-serif']
+		'raleway': ['Raleway', 'Outfit', 'Arial', 'sans-serif'],
+		'outfit': ['Outfit', 'Inter', 'Arial', 'sans-serif'],
+		'inter': ['Inter', 'Outfit', 'Arial', 'sans-serif'],
+		'roboto': ['Roboto Mono', 'Outfit', 'Arial', 'sans-serif'],
 	},
   	extend: {
 		maxWidth: {
@@ -23,7 +25,8 @@ export default {
 		},
   		colors: {
 			customWhite: "#f1f1f1",
-			customBlack: "#1a1a1a"
+			customBlack: "#1a1a1a",
+			customGray: "#a1a1a1"
   		},
 		fontSize: {
 			'35px': '35px',

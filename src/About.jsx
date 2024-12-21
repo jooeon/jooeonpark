@@ -57,7 +57,7 @@ const About = () => {
                             ease: "easeIn"
                         }}
                     >
-                        <p className="py-6 md:py-8 text-35px leading-snug uppercase">
+                        <p className="py-6 md:py-8 text-35px leading-snug">
                             Joo Eon Park is an artist, designer, and software engineer in the interdisciplinary world of digital media, where art and design meet technology.
                         </p>
                     </motion.div>

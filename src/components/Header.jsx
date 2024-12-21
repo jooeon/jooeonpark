@@ -12,7 +12,7 @@ const Header = () => {
         //     return "text-customBlack dark:text-customWhite";
         // }
 
-        // Active link is white, inactive links are greyed out
+        // Inactive links are greyed out
         return isActive
             ? "text-customBlack dark:text-customWhite"
             : "text-customBlack dark:text-customWhite opacity-50 hover:opacity-100 transition-opacity duration-500";
@@ -36,11 +36,11 @@ const Header = () => {
                           Work
                       </NavLink>
                   </li>
-                  <li>
-                      <NavLink to="/archive" className={getLinkClasses}>
-                          Archive
-                      </NavLink>
-                  </li>
+                  {/*<li>*/}
+                  {/*    <NavLink to="/archive" className={getLinkClasses}>*/}
+                  {/*        Archive*/}
+                  {/*    </NavLink>*/}
+                  {/*</li>*/}
                   <li>
                       <NavLink to="/about" className={getLinkClasses}>
                           About
