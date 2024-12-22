@@ -1,30 +1,15 @@
 import { Link } from "react-router-dom";
 import Header from "./components/Header.jsx";
 import Footer from "./components/Footer.jsx";
-import EntryAnim from "./components/EntryAnim.jsx";
 import { motion } from "framer-motion";
 import {items} from "./Data.jsx";
 
-const Work = () => {
+const Art = () => {
 
     return (
         <>
             <Header/>
-            <main>
-                {/* Overlay for "loading" animation on page load */}
-                <motion.div
-                    className="fixed top-0 pointer-events-none h-full w-full
-                        bg-customWhite text-customBlack dark:bg-customBlack dark:text-customWhite z-20"
-                    initial={{opacity: 1}}
-                    animate={{opacity: 0}}
-                    transition={{
-                        duration: 0.4,
-                        delay: 1.8,
-                        ease: "linear"
-                    }}
-                >
-                    <EntryAnim/>
-                </motion.div>
+            <main className="pt-16 xl:pt-20">
                 <section className="flex flex-row flex-wrap justify-between gap-5 xl:gap-48
                     h-min w-full xl:w-11/12 mx-auto p-5 uppercase">
                     {items.map((item) => (
@@ -46,7 +31,7 @@ const Work = () => {
                                     <>
                                         {/* Top-Left Caption */}
                                         {item.caption[0] && (
-                                            <p className="text-customBlack">
+                                            <p className="text-customBlack dark:text-customWhite">
                                                 {item.caption[0]}
                                             </p>
                                         )}
@@ -95,7 +80,7 @@ const Work = () => {
 
                                     {/* Bottom-Right Caption */}
                                     {item.caption[3] && (
-                                        <p className="text-customBlack">
+                                        <p className="text-customBlack dark:text-customWhite">
                                             {item.caption[3]}
                                         </p>
                                     )}
@@ -111,4 +96,4 @@ const Work = () => {
 );
 };
 
-export default Work;
+export default Art;

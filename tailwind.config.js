@@ -10,6 +10,9 @@ export default {
 		'roboto': ['Roboto Mono', 'Outfit', 'Arial', 'sans-serif'],
 	},
   	extend: {
+		width: {
+			'50vw': '50vw',
+		},
 		maxWidth: {
 			'half': '50%',
 			'90vw': '90vw',
@@ -26,7 +29,9 @@ export default {
   		colors: {
 			customWhite: "#f1f1f1",
 			customBlack: "#1a1a1a",
-			customGray: "#a1a1a1"
+			customGray: "#a1a1a1",
+			customNavy: "#100f14",
+			customNavyLight: "#15141a",
   		},
 		fontSize: {
 			'35px': '35px',

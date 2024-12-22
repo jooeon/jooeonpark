@@ -7,61 +7,82 @@ const About = () => {
     return (
         <>
             <Header/>
-            <main>
-                <section className="flex flex-col min-h-30vh p-7">
-                    <h1 className="text-6xl uppercase font-raleway font-bold">
-                        <motion.span
-                            className=""
-                            initial={{opacity: 0, filter: 'blur(3px)'}}
-                            animate={{opacity: 1, filter: 'blur(0px)'}}
+            <main className="pt-16">
+                <div className="hidden xl:block xl:fixed xl:top-0 xl:left-0 bg-customNavy xl:h-screen xl:w-50vw -z-10"></div>
+                <div className="flex flex-col xl:flex-row">
+                    <section className="flex justify-center items-center xl:h-screen xl:w-50vw py-14 xl:py-0 bg-customNavy">
+                        <motion.div
+                            className="w-3/4 xl:w-1/2 xl:min-w-96 border-4 border-customNavyLight"
+                            initial={{opacity: 0}}
+                            animate={{opacity: 1}}
                             transition={{
                                 duration: 0.3,
                                 delay: 0.6,
                                 ease: "easeIn"
                             }}
                         >
-                            Creativity.{' '}
-                        </motion.span>
-                        <motion.span
+                            <img
+                                src="/src/images/profile_bw.png"
+                                alt="Joo Eon Park Profile Image"
+                                loading="lazy" // Adds lazy loading for performance
+                            />
+                        </motion.div>
+                    </section>
+                    <section className="flex flex-col p-7 xl:px-24 xl:py-24 w-screen xl:h-screen xl:w-50vw">
+                        <h1 className="text-6xl uppercase font-raleway font-bold">
+                            <motion.span
+                                className=""
+                                initial={{opacity: 0, filter: 'blur(3px)'}}
+                                animate={{opacity: 1, filter: 'blur(0px)'}}
+                                transition={{
+                                    duration: 0.3,
+                                    delay: 0.6,
+                                    ease: "easeIn"
+                                }}
+                            >
+                                Creativity.{' '}
+                            </motion.span>
+                            <motion.span
+                                className=""
+                                initial={{opacity: 0, filter: 'blur(3px)'}}
+                                animate={{opacity: 1, filter: 'blur(0px)'}}
+                                transition={{
+                                    duration: 0.3,
+                                    delay: 0.9,
+                                    ease: "easeIn"
+                                }}
+                            >
+                                Design.{' '}
+                            </motion.span>
+                            <motion.span
+                                className=""
+                                initial={{opacity: 0, filter: 'blur(3px)'}}
+                                animate={{opacity: 1, filter: 'blur(0px)'}}
+                                transition={{
+                                    duration: 0.3,
+                                    delay: 1.2,
+                                    ease: "easeIn"
+                                }}
+                            >
+                                Execution.
+                            </motion.span>
+                        </h1>
+                        <motion.div
                             className=""
-                            initial={{opacity: 0, filter: 'blur(3px)'}}
-                            animate={{opacity: 1, filter: 'blur(0px)'}}
+                            initial={{opacity: 0}}
+                            animate={{opacity: 1}}
                             transition={{
                                 duration: 0.3,
-                                delay: 0.9,
+                                delay: 1.5,
                                 ease: "easeIn"
                             }}
                         >
-                            Design.{' '}
-                        </motion.span>
-                        <motion.span
-                            className=""
-                            initial={{opacity: 0, filter: 'blur(3px)'}}
-                            animate={{opacity: 1, filter: 'blur(0px)'}}
-                            transition={{
-                                duration: 0.3,
-                                delay: 1.2,
-                                ease: "easeIn"
-                            }}
-                        >
-                            Execution.
-                        </motion.span>
-                    </h1>
-                    <motion.div
-                        className="w-11/12 md:w-3/4"
-                        initial={{opacity: 0}}
-                        animate={{opacity: 1}}
-                        transition={{
-                            duration: 0.3,
-                            delay: 1.5,
-                            ease: "easeIn"
-                        }}
-                    >
-                        <p className="py-6 md:py-8 text-35px leading-snug">
-                            Joo Eon Park is an artist, designer, and software engineer in the interdisciplinary world of digital media, where art and design meet technology.
-                        </p>
-                    </motion.div>
-                </section>
+                            <p className="py-6 xl:py-8 text-35px leading-snug">
+                                Joo Eon Park is an artist, designer, and software engineer in the interdisciplinary world of digital media, where art and design meet technology.
+                            </p>
+                        </motion.div>
+                    </section>
+                </div>
             </main>
             <Footer/>
         </>

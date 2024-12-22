@@ -1,16 +1,16 @@
-import { NavLink, Link } from "react-router-dom";
+import { NavLink, Link, useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
 
 const Header = () => {
 
-    // const location = useLocation();
-    // const isLandingPage = location.pathname === "/";
+    const location = useLocation();
+    const isLandingPage = location.pathname === "/";
 
     const getLinkClasses = ({ isActive }) => {
-        // if (isLandingPage) {
-        //     // On the landing page, all links are white
-        //     return "text-customBlack dark:text-customWhite";
-        // }
+        if (isLandingPage) {
+            // On the landing page, all links are full opacity
+            return "text-customBlack dark:text-customWhite";
+        }
 
         // Inactive links are greyed out
         return isActive
@@ -19,10 +19,10 @@ const Header = () => {
     };
 
     return (
-      <header className="h-14">
+      <header className="fixed h-14">
           <motion.nav
-              className="navbar fixed top-0 left-0 w-full z-10 flex items-center
-                justify-between uppercase p-6 md:px-7 md:py-4 [&_a]:after:bg-customBlack dark:[&_a]:after:bg-customWhite"
+              className="navbar fixed top-0 left-0 w-screen z-20 flex items-center
+                justify-between uppercase p-5 xl:px-7 xl:py-4 [&_a]:after:bg-customBlack dark:[&_a]:after:bg-customWhite"
               initial={{y: -100, opacity: 0}}
               animate={{y: 0, opacity: 1}}
               transition={{duration: 0.8, ease: [0.42, 0, 0.58, 1],}}
@@ -32,8 +32,8 @@ const Header = () => {
               </Link>
               <ul className="nav-links flex gap-2 md:gap-7">
                   <li>
-                      <NavLink to="/" className={getLinkClasses} exact>
-                          Work
+                      <NavLink to="/art" className={getLinkClasses} exact>
+                          Art
                       </NavLink>
                   </li>
                   {/*<li>*/}

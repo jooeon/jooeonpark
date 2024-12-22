@@ -18,7 +18,7 @@ const Steps = () => {
     return (
         <>
             <Header/>
-            <main>
+            <main className="pt-14 xl:pt-20">
                 <section className="m-5 xl:my-10 xl:mx-20">
                     <div className="xl:flex ">
                         <div className="relative w-full xl:w-3/5 h-fit">

@@ -9,7 +9,7 @@ const Footer = () => {
             <div></div>
         </div>
         <motion.div
-            className="flex items-center justify-between p-6 md:px-7 md:py-4 text-xs md:text-base"
+            className="flex items-center justify-between w-full p-6 md:px-7 md:py-4 text-xs md:text-base"
             initial={{opacity: 0}}
             animate={{opacity: 1}}
             transition={{
