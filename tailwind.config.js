@@ -26,11 +26,15 @@ export default {
 		maxHeight: {
 			'90vh': '90vh',
 		},
+		spacing: {
+			'40rem' : '40rem',
+			'50rem' : '50rem',
+			'60rem' : '60rem',
+		},
   		colors: {
 			customWhite: "#f1f1f1",
-			customBlack: "#1a1a1a",
+			customBlack: "#100f14",
 			customGray: "#a1a1a1",
-			customNavy: "#100f14",
 			customNavyLight: "#15141a",
   		},
 		fontSize: {

@@ -15,7 +15,7 @@ export const items = [
         thumbnail:
             "src/images/Ocular Prosthetic for Reading Another Human_01.jpeg",
         alt: "Ocular Prosthetic for Reading Another Human",
-        padding: "",
+        padding: "pb-10 ",
         link: "",
     },
     {
@@ -30,7 +30,7 @@ export const items = [
             ],
         thumbnail: "src/videos/polychrome.mp4",
         alt: "11,182,156 Steps",
-        padding: "",
+        padding: "pb-10 xl:pt-40rem",
         link: "/steps",
     },
     {
@@ -51,7 +51,7 @@ export const items = [
         ],
         thumbnail: "src/images/Running In a Dream.jpg",
         alt: "Running In a Dream, 2024",
-        padding: "",
+        padding: "pb-10 ",
         link: "",
     },
     {
@@ -78,7 +78,7 @@ export const items = [
         ],
         thumbnail: "src/videos/JooEon_Park_OnTheTracks_Video.MOV",
         alt: "On The Tracks",
-        padding: "",
+        padding: "pb-10 xl:pt-60rem",
         link: "",
     },
     {
@@ -98,7 +98,7 @@ export const items = [
         ],
         thumbnail: "src/images/Recollection_01.jpg",
         alt: "Recollection",
-        padding: "",
+        padding: "pb-10 ",
         link: "",
     },
     {
@@ -115,7 +115,7 @@ export const items = [
         ],
         thumbnail: "src/images/The_Workers.jpg",
         alt: "The Workers",
-        padding: "",
+        padding: "pb-10 xl:pt-40rem",
         link: "",
     },
     {
@@ -132,7 +132,7 @@ export const items = [
         ],
         thumbnail:  "src/images/Trapped.jpg",
         alt: "Trapped",
-        padding: "",
+        padding: "pb-10 ",
         link: "",
     },
     {
@@ -153,7 +153,7 @@ export const items = [
         ],
         thumbnail: "src/images/Man-child_alt2.jpg",
         alt: "Man-child",
-        padding: "",
+        padding: "pb-10 xl:pt-96",
         link: "",
     },
     {
@@ -170,7 +170,7 @@ export const items = [
         ],
         thumbnail: "src/images/Symbiosis.jpg",
         alt: "Symbiosis",
-        padding: "",
+        padding: "pb-10 ",
         link: "",
     },
 ];

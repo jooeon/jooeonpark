@@ -22,10 +22,30 @@ const Index = () => {
     //     }
     // }, []);
 
+    const container = {
+        hidden: { opacity: 1 },
+        visible: { opacity: 1 },
+    }
+
+    const leftText = {
+        hidden: { x: 50, opacity: 0 },
+        visible: { x: 0, opacity: 1 },
+    }
+
+    const line = {
+        hidden: { width: 0 },
+        visible: { width: "100%" },
+    }
+
+    const rightText = {
+        hidden: { x: -50, opacity: 0 },
+        visible: { x: 0, opacity: 1 },
+    }
+
     return (
         <>
             <Header/>
-            <main className="pt-16 xl:pt-20">
+            <main className="">
                 {/* Overlay for "loading" animation on page load */}
                 <motion.div
                     className="fixed top-0 pointer-events-none h-full w-full
@@ -33,22 +53,43 @@ const Index = () => {
                     initial={{opacity: 1}}
                     animate={{opacity: 0}}
                     transition={{
-                        duration: 0.4,
+                        duration: 0.5,
                         delay: 1.8,
-                        ease: "linear"
+                        ease: "easeOut"
                     }}
                 >
                     <EntryAnim/>
                 </motion.div>
-                <section className="p-7 h-screen">
-                    <h1 className="flex flex-col text-5xl md:text-8xl lg:text-9xl xl:text-9xl uppercase font-outfit font-bold">
+                <section className="flex justify-center items-center p-7 h-screen">
+                    <h1 className="uppercase font-outfit">
                         <motion.span
                             className="w-fit"
-                            initial={{x: 50, opacity: 0}}
-                            animate={{x: 0, opacity: 1}}
+                            initial={{opacity: 0, filter: "blur(20px)"}}
+                            animate={{opacity: 1, filter: "blur(0px)"}}
+                            transition={{
+                                duration: 1.0,
+                                delay: 2.2,
+                                ease: "easeOut"
+                            }}
+                        >
+                            Multidisciplinary
+                        </motion.span>
+                    </h1>
+                </section>
+                <section className="p-7 h-screen">
+                    <motion.h2
+                        className="sticky top-0 flex flex-col text-5xl md:text-8xl lg:text-9xl xl:text-9xl uppercase font-outfit font-bold"
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ amount: "all", once: true }}
+                        variants={container}
+                    >
+                        <motion.span
+                            className="w-fit"
+                            variants={leftText}
                             transition={{
                                 duration: 0.5,
-                                delay: 2.2,
+                                delay: 0,
                                 ease: "easeInOut"
                             }}
                         >
@@ -56,11 +97,10 @@ const Index = () => {
                         </motion.span>
                         <motion.span
                             className="w-fit pl-12 lg:pl-24"
-                            initial={{x: 50, opacity: 0}}
-                            animate={{x: 0, opacity: 1}}
+                            variants={leftText}
                             transition={{
                                 duration: 0.5,
-                                delay: 2.5,
+                                delay: 0.3,
                                 ease: "easeInOut"
                             }}
                         >
@@ -68,11 +108,10 @@ const Index = () => {
                         </motion.span>
                         <motion.span
                             className="w-fit pl-24 lg:pl-48 xl:h-48 pb-12 xl:pb-16"
-                            initial={{x: 50, opacity: 0}}
-                            animate={{x: 0, opacity: 1}}
+                            variants={leftText}
                             transition={{
                                 duration: 0.5,
-                                delay: 2.8,
+                                delay: 0.6,
                                 ease: "easeInOut"
                             }}
                         >
@@ -80,21 +119,19 @@ const Index = () => {
                         </motion.span>
                         <motion.hr
                             className="border-customBlack dark:border-customWhite"
-                            initial={{width: 0}}
-                            animate={{width: "100%"}}
+                            variants={line}
                             transition={{
                                 duration: 0.5,
-                                delay: 3.1,
+                                delay: 0.9,
                                 ease: "easeInOut"
                             }}
                         />
                         <motion.span
                             className="w-full text-right xl:h-48 pt-12 xl:pt-16"
-                            initial={{x: -50, opacity: 0}}
-                            animate={{x: 0, opacity: 1}}
+                            variants={rightText}
                             transition={{
                                 duration: 0.5,
-                                delay: 3.4,
+                                delay: 1.2,
                                 ease: "easeInOut"
                             }}
                         >
@@ -102,11 +139,10 @@ const Index = () => {
                         </motion.span>
                         <motion.span
                             className="w-full text-right pr-12 lg:pr-24"
-                            initial={{x: -50, opacity: 0}}
-                            animate={{x: 0, opacity: 1}}
+                            variants={rightText}
                             transition={{
                                 duration: 0.5,
-                                delay: 3.7,
+                                delay: 1.5,
                                 ease: "easeInOut"
                             }}
                         >
@@ -114,22 +150,21 @@ const Index = () => {
                         </motion.span>
                         <motion.span
                             className="w-full text-right pr-24 lg:pr-48"
-                            initial={{x: -50, opacity: 0}}
-                            animate={{x: 0, opacity: 1}}
+                            variants={rightText}
                             transition={{
                                 duration: 0.5,
-                                delay: 4.0,
+                                delay: 1.8,
                                 ease: "easeInOut"
                             }}
                         >
                             Code.
                         </motion.span>
-                    </h1>
+                    </motion.h2>
                 </section>
             </main>
             <Footer/>
         </>
-    );
+);
 };
 
 export default Index;

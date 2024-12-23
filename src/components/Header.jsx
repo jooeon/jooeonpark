@@ -19,9 +19,9 @@ const Header = () => {
     };
 
     return (
-      <header className="fixed h-14">
+      <header className="fixed top-0 z-20">
           <motion.nav
-              className="navbar fixed top-0 left-0 w-screen z-20 flex items-center
+              className="navbar w-screen flex items-center
                 justify-between uppercase p-5 xl:px-7 xl:py-4 [&_a]:after:bg-customBlack dark:[&_a]:after:bg-customWhite"
               initial={{y: -100, opacity: 0}}
               animate={{y: 0, opacity: 1}}
