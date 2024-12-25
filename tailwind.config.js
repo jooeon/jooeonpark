@@ -7,7 +7,8 @@ export default {
 		'raleway': ['Raleway', 'Outfit', 'Arial', 'sans-serif'],
 		'outfit': ['Outfit', 'Inter', 'Arial', 'sans-serif'],
 		'inter': ['Inter', 'Outfit', 'Arial', 'sans-serif'],
-		'roboto': ['Roboto Mono', 'Outfit', 'Arial', 'sans-serif'],
+		'roboto': ['Roboto Mono', 'monospace'],
+		'aldrich': ['Aldrich', 'Outfit', 'Arial', 'sans-serif'],
 	},
   	extend: {
 		width: {

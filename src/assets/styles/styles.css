@@ -6,8 +6,8 @@ body a {
     cursor: none;
 }
 
-#landing-text {
-    font-size: clamp(10rem, 14cqi, 25rem);
+.encryption-text {
+    /*font-size: clamp(7rem, 5cqi, 9rem);*/
 }
 
 /* NAVBAR  */

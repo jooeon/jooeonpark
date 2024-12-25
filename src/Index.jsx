@@ -2,6 +2,8 @@ import Header from "./components/Header.jsx";
 import Footer from "./components/Footer.jsx";
 import { motion } from "framer-motion";
 import EntryAnim from "./components/EntryAnim.jsx";
+import EncryptionText from "./components/EncryptionAnim.jsx";
+import { useEffect, useState } from "react";
 
 const Index = () => {
 
@@ -22,6 +24,17 @@ const Index = () => {
     //     }
     // }, []);
 
+    const words = ["/03-Developer", "/01-Artist", "/02-Designer"];
+    const [currentWordIndex, setCurrentWordIndex] = useState(0);
+
+    useEffect(() => {
+        const interval = setTimeout(() => {
+            setCurrentWordIndex((prevIndex) => (prevIndex + 1) % words.length); // Cycle through words
+        }, 3000); // Delay of 4 seconds before switching words
+
+        return () => clearTimeout(interval); // Cleanup timeout on unmount
+    }, [currentWordIndex, words.length]); // Re-run when the current word changes
+
     const container = {
         hidden: { opacity: 1 },
         visible: { opacity: 1 },
@@ -33,8 +46,8 @@ const Index = () => {
     }
 
     const line = {
-        hidden: { width: 0 },
-        visible: { width: "100%" },
+        hidden: { width: 0, opacity: 0 },
+        visible: { width: "100%", opacity: 1 },
     }
 
     const rightText = {
@@ -48,7 +61,7 @@ const Index = () => {
             <main className="">
                 {/* Overlay for "loading" animation on page load */}
                 <motion.div
-                    className="fixed top-0 pointer-events-none h-full w-full
+                    className="fixed top-0 pointer-events-none h-full w-full font-raleway
                         bg-customWhite text-customBlack dark:bg-customBlack dark:text-customWhite z-20"
                     initial={{opacity: 1}}
                     animate={{opacity: 0}}
@@ -61,27 +74,42 @@ const Index = () => {
                     <EntryAnim/>
                 </motion.div>
                 <section className="flex justify-center items-center p-7 h-screen">
-                    <h1 className="uppercase font-outfit">
+                    <h1 className="flex items-center flex-col gap-2 md:gap-10 xl:gap-20
+                        text-3xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl uppercase font-roboto">
                         <motion.span
-                            className="w-fit"
-                            initial={{opacity: 0, filter: "blur(20px)"}}
-                            animate={{opacity: 1, filter: "blur(0px)"}}
+                            className="min-h-32 text-customGray"
+                        >
+                            <EncryptionText
+                                text={"Multidisciplinary"}
+                                duration={2.0}
+                                speed={20}
+                            />
+                        </motion.span>
+                        <motion.span
+                            className="min-h-32"
+                            initial={{opacity: 0}}
+                            animate={{opacity: 1}}
                             transition={{
-                                duration: 1.0,
-                                delay: 2.2,
-                                ease: "easeOut"
+                                duration: 0.5,
+                                delay: 3.0,
                             }}
                         >
-                            Multidisciplinary
+                            <EncryptionText
+                                key={currentWordIndex}
+                                text={words[currentWordIndex]}
+                                duration={0.3}
+                                speed={20}
+                            />
                         </motion.span>
                     </h1>
                 </section>
                 <section className="p-7 h-screen">
                     <motion.h2
-                        className="sticky top-0 flex flex-col text-5xl md:text-8xl lg:text-9xl xl:text-9xl uppercase font-outfit font-bold"
+                        className="sticky top-0 flex flex-col text-5xl md:text-8xl lg:text-9xl xl:text-9xl
+                            uppercase font-raleway font-bold"
                         initial="hidden"
                         whileInView="visible"
-                        viewport={{ amount: "all", once: true }}
+                        viewport={{amount: "all", once: true}}
                         variants={container}
                     >
                         <motion.span
@@ -157,7 +185,7 @@ const Index = () => {
                                 ease: "easeInOut"
                             }}
                         >
-                            Code.
+                            Development.
                         </motion.span>
                     </motion.h2>
                 </section>
