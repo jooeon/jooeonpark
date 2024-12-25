@@ -43,7 +43,7 @@ const ThemeToggle = () => {
     return (
         <div
             onClick={toggleTheme}
-            data-isDark={isDark}
+            data-isdark={isDark}
             className="switch bg-customBlack dark:bg-customWhite m-1.5"
             aria-label="Toggle Dark Mode"
         >

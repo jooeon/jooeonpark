@@ -3,7 +3,7 @@ import ThemeToggle from "./ThemeToggle.jsx";
 
 const Footer = () => {
   return (
-    <footer className="footer mt-10 uppercase">
+    <footer className="z-20 uppercase">
         <div className="grid">
             {/* TODO: add contact, links, etc, maybe a fancy design/text */}
             <div></div>

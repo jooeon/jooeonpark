@@ -34,7 +34,7 @@ const Steps = () => {
                                 Your browser does not support the video tag.
                             </video>
                             <button
-                                className="volume-button text-customWhite"
+                                className="volume-button cursor-none text-customWhite"
                                 onClick={toggleMute}
                             >
                                 {isMuted ?

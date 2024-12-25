@@ -50,7 +50,6 @@ video {
     background: none; /* Remove background */
     border: none; /* Remove border */
     font-size: 1.5rem; /* Increase icon size */
-    cursor: pointer;
     transition: transform 0.3s ease;
 }
 
