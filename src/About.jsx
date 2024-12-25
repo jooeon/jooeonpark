@@ -14,7 +14,7 @@ const About = () => {
                         {/*<div className="hidden xl:block xl:fixed xl:top-0 xl:left-0 bg-customBlack xl:h-screen xl:w-50vw -z-10"></div>*/}
                         <motion.div className="w-3/4 xl:w-1/2 xl:min-w-96 border-4 border-customNavyLight">
                             <img
-                                src="/src/images/profile_bw.png"
+                                src="/images/profile_bw.png"
                                 alt="Joo Eon Park Profile Image"
                                 loading="lazy" // Adds lazy loading for performance
                             />

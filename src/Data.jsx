@@ -3,8 +3,8 @@ export const items = [
         id: "ocular-prosthetic",
         isVideo: false,
         images: [
-            "src/images/Ocular Prosthetic for Reading Another Human_01.jpeg",
-            "src/images/Ocular Prosthetic for Reading Another Human_02.jpeg",
+            "/images/Ocular Prosthetic for Reading Another Human_01.jpeg",
+            "/images/Ocular Prosthetic for Reading Another Human_02.jpeg",
         ],
         caption: [
             "OCULAR PROSTHETIC FOR READING ANOTHER HUMAN",
@@ -13,7 +13,7 @@ export const items = [
             "2024"
         ],
         thumbnail:
-            "src/images/Ocular Prosthetic for Reading Another Human_01.jpeg",
+            "/images/Ocular Prosthetic for Reading Another Human_01.jpeg",
         alt: "Ocular Prosthetic for Reading Another Human",
         padding: "pb-10 ",
         link: "",
@@ -28,7 +28,7 @@ export const items = [
             "Toshiba 1979 TV, DVD player, Speaker",
             "2024"
             ],
-        thumbnail: "src/videos/polychrome.mp4",
+        thumbnail: "/videos/polychrome.mp4",
         alt: "11,182,156 Steps",
         padding: "pb-10 xl:pt-40rem",
         link: "/steps",
@@ -37,11 +37,11 @@ export const items = [
         id: "running-in-a-dream",
         isVideo: false,
         images: [
-            "src/images/Running In a Dream.jpg",
-            "src/images/Running In a Dream_Detail_01.jpg",
-            "src/images/Running In a Dream_Detail_02.jpg",
-            "src/images/Running In a Dream_Detail_03.jpg",
-            "src/images/Running In a Dream_Detail_04.jpg",
+            "/images/Running In a Dream.jpg",
+            "/images/Running In a Dream_Detail_01.jpg",
+            "/images/Running In a Dream_Detail_02.jpg",
+            "/images/Running In a Dream_Detail_03.jpg",
+            "/images/Running In a Dream_Detail_04.jpg",
         ],
         caption: [
             "RUNNING IN A DREAM",
@@ -49,7 +49,7 @@ export const items = [
             "Plywood, colored pencils, fabric, nails",
             "2024"
         ],
-        thumbnail: "src/images/Running In a Dream.jpg",
+        thumbnail: "/images/Running In a Dream.jpg",
         alt: "Running In a Dream, 2024",
         padding: "pb-10 ",
         link: "",
@@ -58,17 +58,17 @@ export const items = [
         id: "on-the-tracks",
         isVideo: true,
         images: [
-            "src/images/JooEon_Park_OnTheTracks_main.JPEG",
-            "src/images/JooEon_Park_OnTheTracks_01.JPEG",
-            "src/images/JooEon_Park_OnTheTracks_02.JPEG",
-            "src/images/JooEon_Park_OnTheTracks_03.JPEG",
-            "src/images/JooEon_Park_OnTheTracks_04.JPEG",
-            "src/images/JooEon_Park_OnTheTracks_05.JPEG",
-            "src/images/JooEon_Park_OnTheTracks_06.JPEG",
-            "src/images/JooEon_Park_OnTheTracks_07.JPEG",
-            "src/images/JooEon_Park_OnTheTracks_08.JPEG",
-            "src/images/JooEon_Park_OnTheTracks_09.JPEG",
-            "src/images/JooEon_Park_OnTheTracks_10.jpg"
+            "/images/JooEon_Park_OnTheTracks_main.JPEG",
+            "/images/JooEon_Park_OnTheTracks_01.JPEG",
+            "/images/JooEon_Park_OnTheTracks_02.JPEG",
+            "/images/JooEon_Park_OnTheTracks_03.JPEG",
+            "/images/JooEon_Park_OnTheTracks_04.JPEG",
+            "/images/JooEon_Park_OnTheTracks_05.JPEG",
+            "/images/JooEon_Park_OnTheTracks_06.JPEG",
+            "/images/JooEon_Park_OnTheTracks_07.JPEG",
+            "/images/JooEon_Park_OnTheTracks_08.JPEG",
+            "/images/JooEon_Park_OnTheTracks_09.JPEG",
+            "/images/JooEon_Park_OnTheTracks_10.jpg"
         ],
         caption: [
             "ON THE TRACKS",
@@ -76,7 +76,7 @@ export const items = [
             "Paint, ink, cardboard, tape",
             "2024",
         ],
-        thumbnail: "src/videos/JooEon_Park_OnTheTracks_Video.MOV",
+        thumbnail: "/videos/JooEon_Park_OnTheTracks_Video.MOV",
         alt: "On The Tracks",
         padding: "pb-10 xl:pt-60rem",
         link: "",
@@ -85,10 +85,10 @@ export const items = [
         id: "recollection",
         isVideo: false,
         images: [
-            "src/images/Recollection_main.jpg",
-            "src/images/Recollection_01.jpg",
-            "src/images/Recollection_02.jpg",
-            "src/images/Recollection_03.jpg",
+            "/images/Recollection_main.jpg",
+            "/images/Recollection_01.jpg",
+            "/images/Recollection_02.jpg",
+            "/images/Recollection_03.jpg",
         ],
         caption: [
             "RECOLLECTION",
@@ -96,7 +96,7 @@ export const items = [
             "Ink, collage, plastic film",
             "2024"
         ],
-        thumbnail: "src/images/Recollection_01.jpg",
+        thumbnail: "/images/Recollection_01.jpg",
         alt: "Recollection",
         padding: "pb-10 ",
         link: "",
@@ -105,7 +105,7 @@ export const items = [
         id: "the-workers",
         isVideo: false,
         images: [
-            "src/images/The_Workers.jpg",
+            "/images/The_Workers.jpg",
         ],
         caption: [
             "THE WORKERS",
@@ -113,7 +113,7 @@ export const items = [
             "Linocut",
             "2023"
         ],
-        thumbnail: "src/images/The_Workers.jpg",
+        thumbnail: "/images/The_Workers.jpg",
         alt: "The Workers",
         padding: "pb-10 xl:pt-40rem",
         link: "",
@@ -122,7 +122,7 @@ export const items = [
         id: "trapped",
         isVideo: false,
         images: [
-            "src/images/Trapped.jpg",
+            "/images/Trapped.jpg",
         ],
         caption: [
             "TRAPPED",
@@ -130,7 +130,7 @@ export const items = [
             "Collagraph",
             "2023"
         ],
-        thumbnail:  "src/images/Trapped.jpg",
+        thumbnail:  "/images/Trapped.jpg",
         alt: "Trapped",
         padding: "pb-10 ",
         link: "",
@@ -139,11 +139,11 @@ export const items = [
         id: "man-child",
         isVideo: false,
         images: [
-            "src/images/Man-child_main.jpg",
-            "src/images/Man-child_alt1.jpg",
-            "src/images/Man-child_alt2.jpg",
-            "src/images/Man-child_alt3.jpg",
-            "src/images/Man-child_alt4.jpg",
+            "/images/Man-child_main.jpg",
+            "/images/Man-child_alt1.jpg",
+            "/images/Man-child_alt2.jpg",
+            "/images/Man-child_alt3.jpg",
+            "/images/Man-child_alt4.jpg",
         ],
         caption: [
             "MAN-CHILD",
@@ -151,7 +151,7 @@ export const items = [
             "Woodcut",
             "2023"
         ],
-        thumbnail: "src/images/Man-child_alt2.jpg",
+        thumbnail: "/images/Man-child_alt2.jpg",
         alt: "Man-child",
         padding: "pb-10 xl:pt-96",
         link: "",
@@ -160,7 +160,7 @@ export const items = [
         id: "symbiosis",
         isVideo: false,
         images: [
-            "src/images/Symbiosis.jpg",
+            "/images/Symbiosis.jpg",
         ],
         caption: [
             "SYMBIOSIS",
@@ -168,7 +168,7 @@ export const items = [
             "Linocut",
             "2020"
         ],
-        thumbnail: "src/images/Symbiosis.jpg",
+        thumbnail: "/images/Symbiosis.jpg",
         alt: "Symbiosis",
         padding: "pb-10 ",
         link: "",

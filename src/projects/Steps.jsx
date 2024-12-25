@@ -30,7 +30,7 @@ const Steps = () => {
                                 loop
                                 className="w-full"
                             >
-                                <source src="src/videos/simple.mp4" type="video/mp4"/>
+                                <source src="/videos/simple.mp4" type="video/mp4"/>
                                 Your browser does not support the video tag.
                             </video>
                             <button
@@ -72,7 +72,7 @@ const Steps = () => {
                                 1st, 2018 to December 2nd, 2024.
                             </p>
                             <video className="mt-4 w-full xl:w-2/5" autoPlay muted loop>
-                                <source src="src/videos/steps_tv.mp4" type="video/mp4"/>
+                                <source src="/videos/steps_tv.mp4" type="video/mp4"/>
                                 Your browser does not support the video tag.
                             </video>
                         </motion.div>
