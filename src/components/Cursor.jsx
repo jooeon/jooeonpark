@@ -4,7 +4,7 @@ import { useCursor } from "./CursorContext";
 
 const Cursor = () => {
     const [position, setPosition] = useState({ x: 0, y: 0 });
-    const { isLinkHovered, isClicked, leftViewport } = useCursor();
+    const { isLinkHovered, isContentHovered, isClicked, leftViewport } = useCursor();
 
     useEffect(() => {
         const handleMouseMove = (e) => {
@@ -27,17 +27,25 @@ const Cursor = () => {
             y: y - 8,
             transition: { type: "spring", stiffness: 250, mass: 0.1 },
         }),
-        hover: ({ x, y }) => ({
+        linkHover: ({ x, y }) => ({
             scale: 2.5,
             x: x - 8,
             y: y - 8,
-            transition: { type: "spring", stiffness: 250, mass: 0.1, duration: 0.15, ease: "easeIn" },
+            transition: { type: "spring", stiffness: 250, mass: 0.1},
+        }),
+        contentHover: ({ x, y }) => ({
+            scale: 6.0,
+            width: 50,
+            height: 30,
+            x: x - 8,
+            y: y - 8,
+            transition: { type: "spring", stiffness: 250, mass: 0.1},
         }),
         click: ({ x, y }) => ({
             scale: 1.5,
             x: x - 8,
             y: y - 8,
-            transition: { type: "spring", stiffness: 250, mass: 0.1, duration: 0.05, ease: "easeIn" },
+            transition: { type: "spring", stiffness: 250, mass: 0.1},
         }),
         leftViewport: ({ x, y }) => ({
             scale: 1,
@@ -49,7 +57,8 @@ const Cursor = () => {
     };
 
     const getCursorVariant = () => {
-        if (isLinkHovered) return "hover";
+        if (isLinkHovered) return "linkHover";
+        if (isContentHovered) return "contentHover";
         if (isClicked) return "click";
         if (leftViewport) return "leftViewport";
         return "default";

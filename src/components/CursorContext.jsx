@@ -6,6 +6,7 @@ const CursorContext = createContext();
 
 export const CursorProvider = ({ children }) => {
     const [isLinkHovered, setIsLinkHovered] = useState(false);
+    const [isContentHovered, setIsContentHovered] = useState(false);
     const [isClicked, setIsClicked] = useState(false);
     const [leftViewport, setLeftViewport] = useState(false);
 
@@ -14,11 +15,15 @@ export const CursorProvider = ({ children }) => {
         const handleMouseEnter = (e) => {
             if (e.target.closest("a") || e.target.closest("button")) {
                 setIsLinkHovered(true);
+            } else if (e.target.closest("h1") || e.target.closest("span")
+                    || e.target.closest("img") || e.target.closest("video")) {
+                setIsContentHovered(true);
             }
         };
         // Mouse leaves the target elements
         const handleMouseLeave = () => {
             setIsLinkHovered(false);
+            setIsContentHovered(false);
         };
 
         // Mouse click event
@@ -61,6 +66,7 @@ export const CursorProvider = ({ children }) => {
 
     const value = {
         isLinkHovered,
+        isContentHovered,
         isClicked,
         leftViewport,
     };

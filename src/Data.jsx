@@ -28,7 +28,7 @@ export const items = [
             "Toshiba 1979 TV, DVD player, Speaker",
             "2024"
             ],
-        thumbnail: "/videos/polychrome.mp4",
+        thumbnail: "/videos/polychrome_dark.mp4",
         alt: "11,182,156 Steps",
         padding: "pb-10 xl:pt-40rem",
         link: "/steps",

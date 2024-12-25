@@ -5,10 +5,11 @@ export default {
   theme: {
 	fontFamily: {
 		'raleway': ['Raleway', 'Outfit', 'Arial', 'sans-serif'],
-		'outfit': ['Outfit', 'Inter', 'Arial', 'sans-serif'],
-		'inter': ['Inter', 'Outfit', 'Arial', 'sans-serif'],
-		'roboto': ['Roboto Mono', 'monospace'],
+		'outfit': ['Outfit', 'Arial', 'sans-serif'],
 		'aldrich': ['Aldrich', 'Outfit', 'Arial', 'sans-serif'],
+		'roboto': ['Roboto Mono', 'monospace'],
+		'azeret': ['Azeret Mono', 'Roboto Mono', 'monospace'],
+		'cousine': ['Cousine', 'Roboto Mono', 'monospace'],
 	},
   	extend: {
 		width: {
@@ -34,8 +35,10 @@ export default {
 		},
   		colors: {
 			customWhite: "#f1f1f1",
-			customBlack: "#100f14",
+			customBlack: "#020202",
+			customBlackLight: "#0c0c0c",
 			customGray: "#a1a1a1",
+			customNavy: "#100f14",
 			customNavyLight: "#15141a",
   		},
 		fontSize: {
