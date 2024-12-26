@@ -84,9 +84,9 @@ const Index = () => {
                         ease: [0.16, 1, 0.3, 1] // easeOutExpo
                     }}
                 >
-                    <EntryAnim/>
+                    <EntryAnim />
                 </motion.div>
-                <AsciiAnimation width="50vw" height="90vh" />
+                <AsciiAnimation />
                 <div className="absolute top-0 flex h-90vh w-full -z-10  border-b border-customGrayLight dark:border-customBlackLight">
                     <div className="w-1/4 border-r border-customGrayLight dark:border-customBlackLight"></div>
                     <div className="w-1/4 border-r border-customGrayLight dark:border-customBlackLight"></div>
@@ -94,8 +94,8 @@ const Index = () => {
                     <div className="w-1/4"></div>
                 </div>
                 <section className="flex justify-center items-center p-7 h-90vh">
-                    <h1 className="flex items-center flex-col gap-2 md:gap-8 xl:gap-16 z-10
-                        text-3xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl uppercase font-azeret">
+                    <h1 className="flex items-center flex-col gap-2 md:gap-8 2xl:gap-16 z-10
+                        text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl uppercase font-azeret">
                         <motion.span
                             className="min-h-9 md:min-h-16 lg:min-h-20 xl:min-h-32 text-customGray"
                             initial={{opacity: 0, y: 150}}

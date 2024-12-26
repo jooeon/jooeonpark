@@ -26,6 +26,7 @@ const Steps = () => {
                                 id="heroVideo"
                                 ref={videoRef}
                                 autoPlay
+                                playsInline
                                 muted
                                 loop
                                 className="w-full"

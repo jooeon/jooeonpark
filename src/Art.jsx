@@ -50,6 +50,7 @@ const Art = () => {
                                     {item.isVideo && (
                                         <video
                                             autoPlay
+                                            playsInline
                                             muted
                                             loop
                                             className="w-full py-3"

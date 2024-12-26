@@ -6,7 +6,7 @@ import PropTypes from "prop-types";
 
 // Rotating cube animation in ASCII style
 // Parameters: container width, container height (doesn't need to be square)
-const AsciiAnimation = ({ width = "50rem", height = "50rem" }) => {
+const AsciiAnimation = () => {
     const containerRef = useRef(null);
 
     useEffect(() => {
@@ -28,7 +28,7 @@ const AsciiAnimation = ({ width = "50rem", height = "50rem" }) => {
             scene = new THREE.Scene();
 
             // Lights
-            const directionalLight = new THREE.DirectionalLight(0xffffff, 0.5);
+            const directionalLight = new THREE.DirectionalLight(0xffffff, 3.5);
             directionalLight.position.set(2, 2, 2);
             scene.add(directionalLight);
 
@@ -39,13 +39,14 @@ const AsciiAnimation = ({ width = "50rem", height = "50rem" }) => {
             const geometry = new THREE.BoxGeometry();
             const material = new THREE.MeshPhongMaterial({ color: "#f1f1f1" }); // customWhite
             cube = new THREE.Mesh(geometry, material);
-            cube.scale.set(1.5, 1.5, 1.5); // Uniform scaling
+            cube.scale.set(2.0, 2.0, 2.0); // Uniform scaling
             scene.add(cube);
 
             // Renderer and AsciiEffect
             renderer = new THREE.WebGLRenderer();
             renderer.setSize(containerWidth, containerHeight);
 
+            // Maps the brightness of pixels to characters in the provided character set
             effect = new AsciiEffect(renderer, " .:-+*=%@#", { invert: true });
             effect.setSize(containerWidth, containerHeight);
             // effect.domElement.style.backgroundColor = "#020202"; // background color
@@ -59,11 +60,11 @@ const AsciiAnimation = ({ width = "50rem", height = "50rem" }) => {
 
             // TrackballControls for interaction
             controls = new TrackballControls(camera, effect.domElement);
-            controls.rotateSpeed = 2.0; // how fast you can rotate cube with mouse
-            controls.zoomSpeed = 5.0;   // how fast you zoom in and out
+            controls.rotateSpeed = 2.0; // How fast you can rotate cube with mouse
+            controls.zoomSpeed = 5.0;   // How fast you zoom in and out
             controls.panSpeed = 0.8;
-            controls.staticMoving = true;
-            controls.dynamicDampingFactor = 0.3;
+            controls.staticMoving = true; // Immediate responsiveness (true) or enable inertia (false).
+            controls.dynamicDampingFactor = 0.3; // When staticMoving is false, controls the damping of the inertia effect
 
             window.addEventListener("resize", onWindowResize);
         }
@@ -111,9 +112,8 @@ const AsciiAnimation = ({ width = "50rem", height = "50rem" }) => {
     return (
         <div
             ref={containerRef}
-            style={{ width, height }}
             id="ascii-cube"
-            className="absolute top-0 right-0 *:!cursor-none"
+            className="absolute top-44 md:top-52 xl:top-0 right-0 *:!cursor-none w-50vw h-[50vh] lg:h-[60vh] xl:h-90vh"
         />
     );
 };
