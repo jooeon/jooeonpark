@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { motion, useAnimation } from 'framer-motion';
 
+// Overlay animation that plays when loading the landing page (/)
 const AnimatedText = () => {
     const controls = useAnimation();
 

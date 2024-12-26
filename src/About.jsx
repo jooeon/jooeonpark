@@ -1,8 +1,17 @@
 import Header from "./components/Header.jsx";
 import Footer from "./components/Footer.jsx";
 import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
 
 const About = () => {
+
+    const [isDarkMode, setIsDarkMode] = useState(false);
+
+    useEffect(() => {
+        // Check if the dark mode class is applied
+        const html = document.documentElement;
+        setIsDarkMode(html.classList.contains("dark"));
+    }, []);
 
     return (
         <>
@@ -11,10 +20,9 @@ const About = () => {
                 <div className="sticky top-0 flex flex-col xl:flex-row">
                     <section className="flex justify-center items-center xl:h-screen xl:w-50vw
                         py-14 md:py-24 lg:py-32 xl:py-0">
-                        {/*<div className="hidden xl:block xl:fixed xl:top-0 xl:left-0 bg-customBlack xl:h-screen xl:w-50vw -z-10"></div>*/}
                         <motion.div className="w-3/4 xl:w-1/2 xl:min-w-96 border border-customBlackLight">
                             <img
-                                src="/images/profile_bw.jpg"
+                                src={isDarkMode ? "/images/profile.jpg" : "/images/profile_bw.jpg"}
                                 alt="Joo Eon Park Profile Image"
                                 loading="lazy" // Adds lazy loading for performance
                             />

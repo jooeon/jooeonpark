@@ -4,6 +4,7 @@ import {motion} from "framer-motion";
 import EntryAnim from "./components/EntryAnim.jsx";
 import EncryptionText from "./components/EncryptionAnim.jsx";
 import { useEffect, useState } from "react";
+import AsciiAnimation from "./components/AsciiAnim.jsx";
 
 const Index = () => {
 
@@ -67,29 +68,43 @@ const Index = () => {
 
     return (
         <>
-            <Header/>
+            <Header delay={2.4}/>
             <motion.main
                 className=""
             >
                 {/* Overlay for "loading" animation on page load */}
                 <motion.div
                     className="fixed top-0 pointer-events-none h-full w-full font-raleway
-                        bg-customWhite text-customBlack dark:bg-customBlack dark:text-customWhite z-20"
-                    initial={{opacity: 1}}
-                    animate={{opacity: 0}}
+                        dark:bg-customWhite dark:text-customBlack bg-customBlack text-customWhite z-20"
+                    initial={{y: 0}}
+                    animate={{y: "-100%"}}
                     transition={{
-                        duration: 0.5,
+                        duration: 0.8,
                         delay: 1.8,
-                        ease: "easeOut"
+                        ease: [0.16, 1, 0.3, 1] // easeOutExpo
                     }}
                 >
                     <EntryAnim/>
                 </motion.div>
-                <section className="flex justify-center items-center p-7 h-screen">
-                    <h1 className="flex items-center flex-col gap-2 md:gap-8 xl:gap-16
+                <AsciiAnimation width="50vw" height="90vh" />
+                <div className="absolute top-0 flex h-90vh w-full -z-10  border-b border-customGrayLight dark:border-customBlackLight">
+                    <div className="w-1/4 border-r border-customGrayLight dark:border-customBlackLight"></div>
+                    <div className="w-1/4 border-r border-customGrayLight dark:border-customBlackLight"></div>
+                    <div className="w-1/4 border-r border-customGrayLight dark:border-customBlackLight"></div>
+                    <div className="w-1/4"></div>
+                </div>
+                <section className="flex justify-center items-center p-7 h-90vh">
+                    <h1 className="flex items-center flex-col gap-2 md:gap-8 xl:gap-16 z-10
                         text-3xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl uppercase font-azeret">
                         <motion.span
                             className="min-h-9 md:min-h-16 lg:min-h-20 xl:min-h-32 text-customGray"
+                            initial={{opacity: 0, y: 150}}
+                            animate={{opacity: 1, y: 0}}
+                            transition={{
+                                duration: 1.0,
+                                delay: 2.0,
+                                ease: [0.16, 1, 0.3, 1] // easeOutExpo
+                            }}
                         >
                             <EncryptionText
                                 text={"Multidisciplinary"}
@@ -103,7 +118,7 @@ const Index = () => {
                             animate={{opacity: 1}}
                             transition={{
                                 duration: 0.5,
-                                delay: 3.0,
+                                delay: 3.2,
                             }}
                         >
                             <EncryptionText
@@ -121,7 +136,7 @@ const Index = () => {
                             uppercase font-raleway font-bold"
                         initial="hidden"
                         whileInView="visible"
-                        viewport={{amount: 0.9}}
+                        viewport={{amount: 0.5, once: true}}
                         variants={container}
                     >
                         <motion.span

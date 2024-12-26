@@ -4,10 +4,6 @@ import ThemeToggle from "./ThemeToggle.jsx";
 const Footer = () => {
   return (
     <footer className="z-20 uppercase">
-        <div className="grid">
-            {/* TODO: add contact, links, etc, maybe a fancy design/text */}
-            <div></div>
-        </div>
         <motion.div
             className="flex items-center justify-between w-full p-6 md:px-7 md:py-4 text-xs md:text-base"
             initial={{opacity: 0}}

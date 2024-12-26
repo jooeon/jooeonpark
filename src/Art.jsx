@@ -18,7 +18,7 @@ const Art = () => {
                                 className=""
                                 initial={{ y: 150, opacity: 0 }}
                                 whileInView={{ y: 0, opacity: 1 }}
-                                viewport={{ once: true, amount: 0.2 }}
+                                viewport={{ once: true, amount: 0.1 }}
                                 transition={{
                                     duration: 0.9,
                                     delay: 0,

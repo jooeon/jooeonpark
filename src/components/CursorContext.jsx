@@ -11,7 +11,7 @@ export const CursorProvider = ({ children }) => {
     const [leftViewport, setLeftViewport] = useState(false);
 
     useEffect(() => {
-        // Hover event on links (<a> tags)
+        // Hover event on specific tags
         const handleMouseEnter = (e) => {
             if (e.target.closest("a") || e.target.closest("button")) {
                 setIsLinkHovered(true);

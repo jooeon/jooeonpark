@@ -14,6 +14,7 @@ export default {
   	extend: {
 		width: {
 			'50vw': '50vw',
+			'90vw': '90vw',
 		},
 		maxWidth: {
 			'half': '50%',
@@ -21,6 +22,7 @@ export default {
 		},
 		height: {
 			'500px':'500px',
+			'90vh': '90vh',
 		},
 		minHeight: {
 			'30vh': '30vh',
@@ -36,8 +38,9 @@ export default {
   		colors: {
 			customWhite: "#f1f1f1",
 			customBlack: "#020202",
-			customBlackLight: "#0c0c0c",
+			customBlackLight: "#101010",
 			customGray: "#a1a1a1",
+			customGrayLight: "#cfcfcf",
 			customNavy: "#100f14",
 			customNavyLight: "#15141a",
   		},

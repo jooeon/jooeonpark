@@ -2,10 +2,12 @@ import { BrowserRouter as Router, Route, Routes, useLocation } from "react-route
 import Index from "./Index.jsx";
 import Art from "./Art.jsx";
 import Steps from "./projects/Steps.jsx";
-// import Archive from "./Archive.jsx";
 import About from "./About.jsx";
 import { AnimatePresence } from "framer-motion";
 import { motion } from "framer-motion";
+import {isMobile} from "react-device-detect";
+import Cursor from "./components/Cursor.jsx";
+import {CursorProvider} from "./components/CursorContext.jsx";
 
 // animations for entering and exiting each page
 const navVariants = {
@@ -25,55 +27,31 @@ const AnimatedRoutes = () => {
     return (
         <AnimatePresence mode="wait">
             <Routes location={location} key={location.pathname}>
-                <Route
-                    path="/"
+                <Route path="/"
                     element={
-                        <motion.div
-                            variants={navVariants}
-                            initial="exit"
-                            animate="enter"
-                            exit="exit"
-                        >
+                        <motion.div variants={navVariants} initial="exit" animate="enter" exit="exit">
                             <Index />
                         </motion.div>
                     }
                 />
-                <Route
-                    path="/Art"
+                <Route path="/Art"
                     element={
-                        <motion.div
-                            variants={navVariants}
-                            initial="exit"
-                            animate="enter"
-                            exit="exit"
-                        >
+                        <motion.div variants={navVariants} initial="exit" animate="enter" exit="exit">
                             <Art />
                         </motion.div>
                     }
                 />
-                <Route
-                    path="/steps"
+                    {/* Individual project pages */}
+                    <Route path="/steps"
+                        element={
+                            <motion.div variants={navVariants} initial="exit" animate="enter" exit="exit">
+                                <Steps />
+                            </motion.div>
+                        }
+                    />
+                <Route path="/about"
                     element={
-                        <motion.div
-                            variants={navVariants}
-                            initial="exit"
-                            animate="enter"
-                            exit="exit"
-                        >
-                            <Steps />
-                        </motion.div>
-                    }
-                />
-                {/* <Route path="/archive" element={<Archive />} /> */}
-                <Route
-                    path="/about"
-                    element={
-                        <motion.div
-                            variants={navVariants}
-                            initial="exit"
-                            animate="enter"
-                            exit="exit"
-                        >
+                        <motion.div variants={navVariants} initial="exit" animate="enter" exit="exit">
                             <About />
                         </motion.div>
                     }
@@ -86,7 +64,10 @@ const AnimatedRoutes = () => {
 const App = () => {
     return (
         <Router>
-            <AnimatedRoutes />
+            <CursorProvider>
+                <AnimatedRoutes />
+                {!isMobile && <Cursor />}
+            </CursorProvider>
         </Router>
     );
 };

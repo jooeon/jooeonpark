@@ -43,16 +43,6 @@ video {
     clip-path: inset(20px 3px 15px 7px); /* hide small black border on video */
 }
 
-.volume-button {
-    position: absolute;
-    bottom: 25px;
-    right: 15px;
-    background: none; /* Remove background */
-    border: none; /* Remove border */
-    font-size: 1.5rem; /* Increase icon size */
-    transition: transform 0.3s ease;
-}
-
 /* Theme toggle switch */
 
 .switch {

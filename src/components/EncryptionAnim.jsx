@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import PropTypes from "prop-types";
 
+// Plays encryption animation on a string, eventually landing on the input string
+// Parameters: input text, duration of animation, speed at which the random letters shuffle
 const EncryptionText = ({ text, duration = 2, speed = 10 }) => {
     const [encryptionText, setEncryptionText] = useState(Array(text.length).fill(""));
 
@@ -16,7 +18,7 @@ const EncryptionText = ({ text, duration = 2, speed = 10 }) => {
                 let elapsed = 0;
                 const interval = setInterval(() => {
                     if (elapsed >= duration * 1000) {
-                        clearInterval(interval); // Stop scrambling when duration is over
+                        clearInterval(interval); // Stop animation when duration is over
                         setEncryptionText((prev) =>
                             prev.map((c, i) => (i === index ? char : c))
                         );
@@ -49,7 +51,7 @@ const EncryptionText = ({ text, duration = 2, speed = 10 }) => {
     );
 };
 
-// Add PropTypes validation
+// PropTypes validation
 EncryptionText.propTypes = {
     text: PropTypes.string.isRequired,
     duration: PropTypes.number,
