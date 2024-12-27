@@ -29,14 +29,28 @@ const Cursor = () => {
 
         const handleMouseMove = (e) => {
             setPosition({ x: e.clientX, y: e.clientY });
-            // console.log("y: " + e.clientY + "| x: " + e.clientX);
         };
 
+        const handleTouchStart = (e) => {
+            const touch = e.touches[0]; // Get the first touch point
+            setPosition({ x: touch.clientX, y: touch.clientY });
+        };
+
+        const handleTouchMove = (e) => {
+            const touch = e.touches[0]; // Get the first touch point
+            setPosition({ x: touch.clientX, y: touch.clientY });
+        };
+
+        // Add mouse and touch event listeners
         window.addEventListener("mousemove", handleMouseMove);
+        window.addEventListener("touchstart", handleTouchStart, { passive: true });
+        window.addEventListener("touchmove", handleTouchMove, { passive: true });
 
         return () => {
             clearTimeout(timeout);
             window.removeEventListener("mousemove", handleMouseMove);
+            window.removeEventListener("touchstart", handleTouchStart);
+            window.removeEventListener("touchmove", handleTouchMove);
         };
     }, []);
 
@@ -69,15 +83,18 @@ const Cursor = () => {
             x: x - 8,
             y: y - 8,
         }),
-        contentHover: ({ x, y }) => ({
-            scale: 6.0,
-            opacity: 1,
-            width: 50,
-            height: 30,
-            backgroundColor: cursorColor,
-            x: x - 8,
-            y: y - 8,
-        }),
+        contentHover: ({ x, y }) => {
+            const isSmallScreen = window.innerWidth <= 768;
+            return {
+                scale: isSmallScreen ? 4.0 : 6.0, // Smaller scale on small screens
+                opacity: 1,
+                width: isSmallScreen ? 30 : 50, // Adjust width
+                height: isSmallScreen ? 20 : 30, // Adjust height
+                backgroundColor: cursorColor,
+                x: x - 8,
+                y: y - 8,
+            };
+        },
         interactiveHover: ({ x, y }) => ({
             scale: 6.0,
             opacity: 1,
