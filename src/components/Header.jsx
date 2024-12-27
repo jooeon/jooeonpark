@@ -20,9 +20,10 @@ const Header = ({delay = 0}) => {
     };
 
     return (
-      <header className="fixed top-0 w-screen z-20 uppercase">
+      <header className="fixed top-0 w-full z-30
+        bg-customWhite/40 dark:bg-customBlack/40 backdrop-blur-sm border-b border-customGrayLight dark:border-customBlackLight">
           <motion.nav
-              className="navbar flex items-center
+              className="navbar flex items-center text-xs md:text-base uppercase
                 justify-between p-5 xl:px-7 xl:py-4 [&_a]:after:bg-customBlack dark:[&_a]:after:bg-customWhite"
               initial={{y: -100, opacity: 0}}
               animate={{y: 0, opacity: 1}}

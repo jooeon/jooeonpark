@@ -28,7 +28,7 @@ const AsciiAnimation = () => {
             scene = new THREE.Scene();
 
             // Lights
-            const directionalLight = new THREE.DirectionalLight(0xffffff, 3.5);
+            const directionalLight = new THREE.DirectionalLight(0xffffff, 2.8);
             directionalLight.position.set(2, 2, 2);
             scene.add(directionalLight);
 
@@ -36,20 +36,21 @@ const AsciiAnimation = () => {
             scene.add(ambientLight);
 
             // Cube setup
-            const geometry = new THREE.BoxGeometry();
-            const material = new THREE.MeshPhongMaterial({ color: "#f1f1f1" }); // customWhite
+            const geometry = new THREE.BoxGeometry(1, 1, 1, 1, 1, 1); // Lower subdivisions
+            const material = new THREE.MeshLambertMaterial({ color: "#f1f1f1" });
             cube = new THREE.Mesh(geometry, material);
             cube.scale.set(2.0, 2.0, 2.0); // Uniform scaling
             scene.add(cube);
 
-            // Renderer and AsciiEffect
-            renderer = new THREE.WebGLRenderer();
+            // Renderer
+            renderer = new THREE.WebGLRenderer({ antialias: false });
+            renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1));
             renderer.setSize(containerWidth, containerHeight);
+            renderer.shadowMap.enabled = false; // Disable shadows
 
             // Maps the brightness of pixels to characters in the provided character set
             effect = new AsciiEffect(renderer, " .:-+*=%@#", { invert: true });
             effect.setSize(containerWidth, containerHeight);
-            // effect.domElement.style.backgroundColor = "#020202"; // background color
 
             // Ensure effect.domElement is a valid Node
             if (effect.domElement instanceof Node) {
@@ -62,7 +63,7 @@ const AsciiAnimation = () => {
             controls = new TrackballControls(camera, effect.domElement);
             controls.rotateSpeed = 2.0; // How fast you can rotate cube with mouse
             controls.zoomSpeed = 5.0;   // How fast you zoom in and out
-            controls.panSpeed = 0.8;
+            controls.panSpeed = 0.5;
             controls.staticMoving = true; // Immediate responsiveness (true) or enable inertia (false).
             controls.dynamicDampingFactor = 0.3; // When staticMoving is false, controls the damping of the inertia effect
 
@@ -113,7 +114,8 @@ const AsciiAnimation = () => {
         <div
             ref={containerRef}
             id="ascii-cube"
-            className="absolute top-44 md:top-52 xl:top-0 right-0 *:!cursor-none w-50vw h-[50vh] lg:h-[60vh] xl:h-90vh"
+            className="absolute top-44 md:top-52 xl:top-0 right-0 w-50vw h-[50vh] lg:h-[60vh] xl:h-90vh z-10
+                *:!cursor-none touch-pinch-zoom overflow-clip"
         />
     );
 };

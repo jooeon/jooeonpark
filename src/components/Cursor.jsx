@@ -6,9 +6,11 @@ import { useCursor } from "./CursorContext";
 const Cursor = () => {
     const [position, setPosition] = useState({ x: window.innerWidth / 2, y: window.innerHeight / 2 });
     const [isActive, setIsActive] = useState(false); // Cursor activation
-    const [isLoaded, setIsLoaded] = useState(false); // Track page load state
-    const { isLinkHovered, isContentHovered, isClicked, leftViewport } = useCursor();
+    const [cursorColor, setCursorColor] = useState("#ffffff"); // Default cursor color
+    const { isLinkHovered, isContentHovered, isInteractiveHovered, isClicked, leftViewport } = useCursor();
     const location = useLocation(); // Get the current route
+
+    const colors = ["#ff5733", "#33c4ff", "#a633ff", "#ff33a1", "#33ff57", "#fc0834", "#4a21ff", "#ffef73"]; // Preset colors
 
     useEffect(() => {
         // Activate the cursor after a delay (ms)
@@ -30,77 +32,85 @@ const Cursor = () => {
             // console.log("y: " + e.clientY + "| x: " + e.clientX);
         };
 
-        // Wait for all resources to load
-        const handleLoad = () => {
-            setIsLoaded(true); // Activate cursor after page load
-        };
-
         window.addEventListener("mousemove", handleMouseMove);
-        window.addEventListener("load", handleLoad);
 
         return () => {
             clearTimeout(timeout);
             window.removeEventListener("mousemove", handleMouseMove);
-            window.removeEventListener("load", handleLoad);
         };
     }, []);
 
-    // repetitive code currently because the mouse move transitions need to be consistent regardless of the mouse events
+    useEffect(() => {
+        if (isLinkHovered || isContentHovered || isInteractiveHovered) {
+            // Randomize cursor color
+            const randomColor = colors[Math.floor(Math.random() * colors.length)];
+            setCursorColor(randomColor);
+        }
+    }, [isLinkHovered, isContentHovered, isInteractiveHovered]);
+
     const cursorVariants = {
         initial: ({ x, y }) => ({
             scale: 1,
-            opacity: 0,
-            x: x - 8,
+            opacity: 0, // initial cursor fade in
+            transition: { duration: 1.5, ease: "easeIn" },
+            x: x - 8,   // subtract 8 to center actual cursor to custom cursor
             y: y - 8,
         }),
         default: ({ x, y }) => ({
             scale: 1,
             opacity: 1,
-            x: x - 8, // Center the cursor
+            x: x - 8,
             y: y - 8,
-            transition: { type: "spring", stiffness: 250, mass: 0.1 },
         }),
         linkHover: ({ x, y }) => ({
             scale: 2.5,
             opacity: 1,
+            backgroundColor: cursorColor,
             x: x - 8,
             y: y - 8,
-            transition: { type: "spring", stiffness: 250, mass: 0.1 },
         }),
         contentHover: ({ x, y }) => ({
             scale: 6.0,
             opacity: 1,
             width: 50,
             height: 30,
+            backgroundColor: cursorColor,
             x: x - 8,
             y: y - 8,
-            transition: { type: "spring", stiffness: 250, mass: 0.1 },
+        }),
+        interactiveHover: ({ x, y }) => ({
+            scale: 6.0,
+            opacity: 1,
+            borderRadius: "50%",
+            backgroundColor: cursorColor,
+            x: x - 8,
+            y: y - 8,
         }),
         click: ({ x, y }) => ({
             scale: 1.5,
             opacity: 1,
             x: x - 8,
             y: y - 8,
-            transition: { type: "spring", stiffness: 250, mass: 0.1 },
         }),
         leftViewport: ({ x, y }) => ({
             scale: 1,
             opacity: 0,
+            transition: { duration: 0.2, ease: "easeOut" },
             x: x - 8,
             y: y - 8,
-            transition: { type: "spring", stiffness: 250, mass: 0.1 },
         }),
     };
 
     const getCursorVariant = () => {
         if (isLinkHovered) return "linkHover";
         if (isContentHovered) return "contentHover";
+        if (isInteractiveHovered) return "interactiveHover";
         if (isClicked) return "click";
         if (leftViewport) return "leftViewport";
         return "default";
     };
 
-    if (!isActive || !isLoaded) return null; // Hide cursor initially
+    if (!isActive) return null; // Hide cursor initially
 
     return (
         <motion.div
@@ -108,6 +118,7 @@ const Cursor = () => {
             variants={cursorVariants}
             initial="initial"
             animate={getCursorVariant()}
+            transition={{ type: "spring", stiffness: 275, mass: 0.1 }}
             custom={position} // Pass position to the variants
         />
     );

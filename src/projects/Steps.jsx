@@ -73,7 +73,12 @@ const Steps = () => {
                                 An audiovisual translation of my daily step counts since January
                                 1st, 2018 to December 2nd, 2024.
                             </p>
-                            <video className="mt-4 w-full xl:w-2/5" autoPlay muted loop>
+                            <video className="mt-4 w-full xl:w-2/5"
+                                autoPlay
+                                playsInline
+                                muted
+                                loop
+                            >
                                 <source src="/videos/steps_tv.mp4" type="video/mp4"/>
                                 Your browser does not support the video tag.
                             </video>

@@ -3,9 +3,9 @@ import ThemeToggle from "./ThemeToggle.jsx";
 
 const Footer = () => {
   return (
-    <footer className="z-20 uppercase">
+    <footer className="z-30">
         <motion.div
-            className="flex items-center justify-between w-full p-6 md:px-7 md:py-4 text-xs md:text-base"
+            className="flex items-center justify-between w-full p-6 md:px-7 md:py-4 text-xs md:text-base uppercase"
             initial={{opacity: 0}}
             animate={{opacity: 1}}
             transition={{
@@ -15,7 +15,7 @@ const Footer = () => {
             }}
         >
             <p>&copy; MMXXV. Joo Eon Park</p>
-            <div className="flex items-center"><p className="p-2">All rights reserved</p><ThemeToggle /></div>
+            <div className="flex items-center"><p className="p-2 font-azeret">---></p><ThemeToggle /></div>
         </motion.div>
     </footer>
   );
