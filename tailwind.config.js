@@ -9,7 +9,6 @@ export default {
 		'aldrich': ['Aldrich', 'Outfit', 'Arial', 'sans-serif'],
 		'roboto': ['Roboto Mono', 'monospace'],
 		'azeret': ['Azeret Mono', 'Roboto Mono', 'monospace'],
-		'cousine': ['Cousine', 'Roboto Mono', 'monospace'],
 	},
   	extend: {
 		width: {
@@ -38,7 +37,7 @@ export default {
   		colors: {
 			customWhite: "#f1f1f1",
 			customBlack: "#020202",
-			customBlackLight: "#111111",
+			customBlackLight: "#171717",
 			customGray: "#a1a1a1",
 			customGrayLight: "#cfcfcf",
 			customNavy: "#100f14",

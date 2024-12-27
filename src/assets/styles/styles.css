@@ -10,6 +10,10 @@ body a {
     /*font-size: clamp(7rem, 5cqi, 9rem);*/
 }
 
+#ascii-cube table, tr, td {
+    pointer-events: none;
+}
+
 /* NAVBAR  */
 
 /* Link underline animation */

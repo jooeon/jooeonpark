@@ -69,13 +69,11 @@ const Index = () => {
     return (
         <>
             <Header delay={2.4}/>
-            <motion.main
-                className=""
-            >
+            <motion.main>
                 {/* Overlay for "loading" animation on page load */}
                 <motion.div
                     className="fixed top-0 pointer-events-none h-full w-full font-raleway
-                        dark:bg-customWhite dark:text-customBlack bg-customBlack text-customWhite z-20"
+                        dark:bg-customWhite dark:text-customBlack bg-customBlack text-customWhite z-30"
                     initial={{y: 0}}
                     animate={{y: "-100%"}}
                     transition={{
@@ -84,18 +82,25 @@ const Index = () => {
                         ease: [0.16, 1, 0.3, 1] // easeOutExpo
                     }}
                 >
-                    <EntryAnim />
+                    <EntryAnim/>
                 </motion.div>
-                <AsciiAnimation />
-                <div className="absolute top-0 flex h-90vh w-full -z-10  border-b border-customGrayLight dark:border-customBlackLight">
-                    <div className="w-1/4 border-r border-customGrayLight dark:border-customBlackLight"></div>
-                    <div className="w-1/4 border-r border-customGrayLight dark:border-customBlackLight"></div>
-                    <div className="w-1/4 border-r border-customGrayLight dark:border-customBlackLight"></div>
-                    <div className="w-1/4"></div>
+                {/* Cube animation */}
+                <AsciiAnimation/>
+                <div className="absolute top-0 flex flex-wrap w-full -z-10 *:w-1/4 *:h-90vh
+                    *:border-customGrayLight *:dark:border-customBlackLight *:border-b">
+                    <div className="border-r"></div>
+                    <div className="border-r"></div>
+                    <div className="border-r"></div>
+                    <div className=""></div>
+                    <div className="border-r"></div>
+                    <div className="border-r"></div>
+                    <div className="border-r"></div>
+                    <div className=""></div>
                 </div>
+                {/* Main landing text */}
                 <section className="flex justify-center items-center p-7 h-90vh">
-                    <h1 className="flex items-center flex-col gap-2 md:gap-8 2xl:gap-16 z-10
-                        text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl uppercase font-azeret">
+                    <h1 className="flex items-center flex-col sm:gap-2 lg:gap-4 2xl:gap-14 z-20
+                        text-2xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-9xl uppercase font-azeret">
                         <motion.span
                             className="min-h-9 md:min-h-16 lg:min-h-20 xl:min-h-32 text-customGray"
                             initial={{opacity: 0, y: 150}}
@@ -130,9 +135,12 @@ const Index = () => {
                         </motion.span>
                     </h1>
                 </section>
-                <section className="p-7 h-screen">
+                {/*<section className="flex justify-center items-center p-7 h-90vh">*/}
+
+                {/*</section>*/}
+                <section className="p-7 h-90vh">
                     <motion.h2
-                        className="sticky top-0 flex flex-col text-5xl md:text-8xl lg:text-9xl xl:text-9xl
+                        className="flex flex-col text-2xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-9xl
                             uppercase font-raleway font-bold"
                         initial="hidden"
                         whileInView="visible"
@@ -181,45 +189,51 @@ const Index = () => {
                                 ease: "easeInOut"
                             }}
                         />
-                        <motion.span
-                            className="w-full text-right xl:h-48 pt-12 xl:pt-16"
-                            variants={rightText}
-                            transition={{
-                                duration: 0.5,
-                                delay: 1.2,
-                                ease: "easeInOut"
-                            }}
-                        >
-                            Art.
-                        </motion.span>
-                        <motion.span
-                            className="w-full text-right pr-12 lg:pr-24"
-                            variants={rightText}
-                            transition={{
-                                duration: 0.5,
-                                delay: 1.5,
-                                ease: "easeInOut"
-                            }}
-                        >
-                            UI/UX.
-                        </motion.span>
-                        <motion.span
-                            className="w-full text-right pr-24 lg:pr-48"
-                            variants={rightText}
-                            transition={{
-                                duration: 0.5,
-                                delay: 1.8,
-                                ease: "easeInOut"
-                            }}
-                        >
-                            Coding.
-                        </motion.span>
+                        <div className="w-full">
+                            <motion.span
+                                className="w-fit float-right xl:h-48 pt-12 xl:pt-16"
+                                variants={rightText}
+                                transition={{
+                                    duration: 0.5,
+                                    delay: 1.2,
+                                    ease: "easeInOut"
+                                }}
+                            >
+                                Art.
+                            </motion.span>
+                        </div>
+                        <div className="w-full">
+                            <motion.span
+                                className="w-fit float-right pr-12 lg:pr-24"
+                                variants={rightText}
+                                transition={{
+                                    duration: 0.5,
+                                    delay: 1.5,
+                                    ease: "easeInOut"
+                                }}
+                            >
+                                UI/UX.
+                            </motion.span>
+                        </div>
+                        <div className="w-full">
+                            <motion.span
+                                className="w-fit float-right pr-24 lg:pr-48"
+                                variants={rightText}
+                                transition={{
+                                    duration: 0.5,
+                                    delay: 1.8,
+                                    ease: "easeInOut"
+                                }}
+                            >
+                                Coding.
+                            </motion.span>
+                        </div>
                     </motion.h2>
                 </section>
             </motion.main>
             <Footer/>
         </>
-);
+    );
 };
 
 export default Index;

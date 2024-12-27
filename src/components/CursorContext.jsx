@@ -7,23 +7,27 @@ const CursorContext = createContext();
 export const CursorProvider = ({ children }) => {
     const [isLinkHovered, setIsLinkHovered] = useState(false);
     const [isContentHovered, setIsContentHovered] = useState(false);
+    const [isInteractiveHovered, setIsInteractiveHovered] = useState(false);
     const [isClicked, setIsClicked] = useState(false);
     const [leftViewport, setLeftViewport] = useState(false);
 
     useEffect(() => {
         // Hover event on specific tags
         const handleMouseEnter = (e) => {
-            if (e.target.closest("a") || e.target.closest("button")) {
-                setIsLinkHovered(true);
-            } else if (e.target.closest("h1") || e.target.closest("span")
-                    || e.target.closest("img") || e.target.closest("video")) {
+            if (e.target.closest("h1") || e.target.closest("span")
+                    || e.target.closest("img") || e.target.closest("video") || e.target.closest(".art-image")) {
                 setIsContentHovered(true);
+            } else if (e.target.closest("a") || e.target.closest("button") || e.target.closest("p")) {
+                setIsLinkHovered(true);
+            } else if (e.target.closest("#ascii-cube")) {
+                setIsInteractiveHovered(true)
             }
         };
         // Mouse leaves the target elements
         const handleMouseLeave = () => {
             setIsLinkHovered(false);
             setIsContentHovered(false);
+            setIsInteractiveHovered(false)
         };
 
         // Mouse click event
@@ -67,6 +71,7 @@ export const CursorProvider = ({ children }) => {
     const value = {
         isLinkHovered,
         isContentHovered,
+        isInteractiveHovered,
         isClicked,
         leftViewport,
     };
