@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { useCursor } from "./CursorContext";
 
 const Cursor = () => {
-    const [position, setPosition] = useState({ x: window.innerWidth / 2, y: window.innerHeight / 2 });
+    const [position, setPosition] = useState({ x: window.innerWidth / 2, y: window.innerHeight * 3 / 4 });
     const [isActive, setIsActive] = useState(false); // Cursor activation
     const [cursorColor, setCursorColor] = useState("#ffffff"); // Default cursor color
     const { isLinkHovered, isContentHovered, isInteractiveHovered, isClicked, leftViewport } = useCursor();
