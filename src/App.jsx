@@ -5,7 +5,7 @@ import Steps from "./projects/Steps.jsx";
 import About from "./About.jsx";
 import { AnimatePresence } from "framer-motion";
 import { motion } from "framer-motion";
-// import {isMobile} from "react-device-detect";
+import {isMobile} from "react-device-detect";
 import Cursor from "./components/Cursor.jsx";
 import {CursorProvider} from "./components/CursorContext.jsx";
 
@@ -66,7 +66,7 @@ const App = () => {
         <Router>
             <CursorProvider>
                 <AnimatedRoutes />
-                {<Cursor />}
+                {!isMobile && <Cursor />}
             </CursorProvider>
         </Router>
     );

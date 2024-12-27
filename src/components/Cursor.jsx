@@ -31,26 +31,11 @@ const Cursor = () => {
             setPosition({ x: e.clientX, y: e.clientY });
         };
 
-        const handleTouchStart = (e) => {
-            const touch = e.touches[0]; // Get the first touch point
-            setPosition({ x: touch.clientX, y: touch.clientY });
-        };
-
-        const handleTouchMove = (e) => {
-            const touch = e.touches[0]; // Get the first touch point
-            setPosition({ x: touch.clientX, y: touch.clientY });
-        };
-
-        // Add mouse and touch event listeners
         window.addEventListener("mousemove", handleMouseMove);
-        window.addEventListener("touchstart", handleTouchStart, { passive: true });
-        window.addEventListener("touchmove", handleTouchMove, { passive: true });
 
         return () => {
             clearTimeout(timeout);
             window.removeEventListener("mousemove", handleMouseMove);
-            window.removeEventListener("touchstart", handleTouchStart);
-            window.removeEventListener("touchmove", handleTouchMove);
         };
     }, []);
 
@@ -61,6 +46,8 @@ const Cursor = () => {
             setCursorColor(randomColor);
         }
     }, [isLinkHovered, isContentHovered, isInteractiveHovered]);
+
+    const isSmallScreen = window.innerWidth <= 768;
 
     const cursorVariants = {
         initial: ({ x, y }) => ({
@@ -84,19 +71,18 @@ const Cursor = () => {
             y: y - 8,
         }),
         contentHover: ({ x, y }) => {
-            const isSmallScreen = window.innerWidth <= 768;
             return {
-                scale: isSmallScreen ? 4.0 : 6.0, // Smaller scale on small screens
+                scale: isSmallScreen ? 4.0 : 6.0,
                 opacity: 1,
-                width: isSmallScreen ? 30 : 50, // Adjust width
-                height: isSmallScreen ? 20 : 30, // Adjust height
+                width: isSmallScreen ? 30 : 50,
+                height: isSmallScreen ? 20 : 30,
                 backgroundColor: cursorColor,
                 x: x - 8,
                 y: y - 8,
             };
         },
         interactiveHover: ({ x, y }) => ({
-            scale: 6.0,
+            scale: isSmallScreen ? 4.0 : 6.0,
             opacity: 1,
             borderRadius: "50%",
             backgroundColor: cursorColor,
