@@ -46,25 +46,25 @@ const Index = () => {
     //     ["#f1f1f1", "#090909"]
     // )
 
-    const container = {
-        hidden: { opacity: 1 },
-        visible: { opacity: 1 },
-    }
-
-    const leftText = {
-        hidden: { x: 50, opacity: 0 },
-        visible: { x: 0, opacity: 1 },
-    }
-
-    const line = {
-        hidden: { width: 0, opacity: 0 },
-        visible: { width: "100%", opacity: 1 },
-    }
-
-    const rightText = {
-        hidden: { x: -50, opacity: 0 },
-        visible: { x: 0, opacity: 1 },
-    }
+    // const container = {
+    //     hidden: { opacity: 1 },
+    //     visible: { opacity: 1 },
+    // }
+    //
+    // const leftText = {
+    //     hidden: { x: 50, opacity: 0 },
+    //     visible: { x: 0, opacity: 1 },
+    // }
+    //
+    // const line = {
+    //     hidden: { width: 0, opacity: 0 },
+    //     visible: { width: "100%", opacity: 1 },
+    // }
+    //
+    // const rightText = {
+    //     hidden: { x: -50, opacity: 0 },
+    //     visible: { x: 0, opacity: 1 },
+    // }
 
     return (
         <>
