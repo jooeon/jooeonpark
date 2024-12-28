@@ -6,23 +6,20 @@ import { useCursor } from "./CursorContext";
 const Cursor = () => {
     const [position, setPosition] = useState({ x: window.innerWidth / 2, y: window.innerHeight * 3 / 4 });
     const [isActive, setIsActive] = useState(false); // Cursor activation
+    const [isSmallScreen, setIsSmallScreen] = useState(window.innerWidth <= 768);
     const [cursorColor, setCursorColor] = useState("#ffffff"); // Default cursor color
     const { isLinkHovered, isContentHovered, isInteractiveHovered, isClicked, leftViewport } = useCursor();
     const location = useLocation(); // Get the current route
-
-    const colors = ["#ff5733", "#33c4ff", "#a633ff", "#ff33a1", "#33ff57", "#fc0834", "#4a21ff", "#ffef73"]; // Preset colors
+    const colors = ["#ff5733", "#33c4ff", "#a633ff", "#ff33a1", "#33ff57", "#fc0834", "#4a21ff", "#ffef73"];
 
     useEffect(() => {
         // Activate the cursor after a delay (ms)
-        // Currently there is a bug where cursor on initial load stutters
-        // Specifically when there are other heavy animations (e.g. the ascii animation)
-        // setting a long enough timeout seems to resolve this issue
         let timeout;
         // Only set the timeout if on the landing page
         if (location.pathname === "/") {
             timeout = setTimeout(() => {
                 setIsActive(true);
-            }, 4500); // Delay for 4.5 seconds
+            }, 2200);
         } else {
             setIsActive(true); // Activate immediately on other pages
         }
@@ -39,69 +36,47 @@ const Cursor = () => {
         };
     }, []);
 
+    // Randomize cursor color
     useEffect(() => {
-        if (isLinkHovered || isContentHovered || isInteractiveHovered) {
-            // Randomize cursor color
+        if (isLinkHovered || isContentHovered || isInteractiveHovered || isClicked) {
             const randomColor = colors[Math.floor(Math.random() * colors.length)];
             setCursorColor(randomColor);
         }
-    }, [isLinkHovered, isContentHovered, isInteractiveHovered]);
+    }, [isLinkHovered, isContentHovered, isInteractiveHovered, isClicked]);
 
-    const isSmallScreen = window.innerWidth <= 768;
+    useEffect(() => {
+        const handleResize = () => {
+            setIsSmallScreen(window.innerWidth <= 768);
+        };
+
+        window.addEventListener("resize", handleResize);
+
+        return () => {
+            window.removeEventListener("resize", handleResize);
+        };
+    }, []);
 
     const cursorVariants = {
-        initial: ({ x, y }) => ({
-            scale: 1,
-            opacity: 0, // initial cursor fade in
-            transition: { duration: 1.5, ease: "easeIn" },
-            x: x - 8,   // subtract 8 to center actual cursor to custom cursor
-            y: y - 8,
-        }),
-        default: ({ x, y }) => ({
-            scale: 1,
-            opacity: 1,
-            x: x - 8,
-            y: y - 8,
-        }),
-        linkHover: ({ x, y }) => ({
-            scale: 2.5,
-            opacity: 1,
-            backgroundColor: cursorColor,
-            x: x - 8,
-            y: y - 8,
-        }),
-        contentHover: ({ x, y }) => {
-            return {
-                scale: isSmallScreen ? 4.0 : 6.0,
-                opacity: 1,
-                width: isSmallScreen ? 30 : 50,
-                height: isSmallScreen ? 20 : 30,
-                backgroundColor: cursorColor,
-                x: x - 8,
-                y: y - 8,
-            };
-        },
-        interactiveHover: ({ x, y }) => ({
+        initial: { scale: 1, opacity: 0 },
+        default: { scale: 1, opacity: 1, transition: { duration: 0.2, ease: "easeIn" }, },
+        linkHover: { scale: 2.5, opacity: 1, backgroundColor: cursorColor, transition: { duration: 0.1, ease: "easeIn" }, },
+        contentHover: {
             scale: isSmallScreen ? 4.0 : 6.0,
+            opacity: 1,
+            width: isSmallScreen ? 30 : 50,
+            height: isSmallScreen ? 20 : 30,
+            backgroundColor: cursorColor,
+            transition: { duration: 0.2, ease: "easeOut" },
+        },
+        interactiveHover: {
+            scale: isSmallScreen ? 3.0 : 6.0,
             opacity: 1,
             borderRadius: "50%",
             backgroundColor: cursorColor,
-            x: x - 8,
-            y: y - 8,
-        }),
-        click: ({ x, y }) => ({
-            scale: 1.5,
-            opacity: 1,
-            x: x - 8,
-            y: y - 8,
-        }),
-        leftViewport: ({ x, y }) => ({
-            scale: 1,
-            opacity: 0,
-            transition: { duration: 0.2, ease: "easeOut" },
-            x: x - 8,
-            y: y - 8,
-        }),
+            transition: { duration: 0.2, ease: "easeIn" },
+        },
+        click: { scale: 1.5, opacity: 1, backgroundColor: cursorColor, },
+        leftViewport: { scale: 1, opacity: 0, transition: { duration: 0.2, ease: "easeOut" }, },
     };
 
     const getCursorVariant = () => {
@@ -117,12 +92,11 @@ const Cursor = () => {
 
     return (
         <motion.div
-            className={`fixed top-0 left-0 z-50 w-5 h-5 bg-customWhite mix-blend-difference pointer-events-none`}
+            className={`fixed top-0 left-0 z-30 w-5 h-5 bg-customWhite mix-blend-difference pointer-events-none`}
             variants={cursorVariants}
             initial="initial"
             animate={getCursorVariant()}
-            transition={{ type: "spring", stiffness: 275, mass: 0.1 }}
-            custom={position} // Pass position to the variants
+            style={{ x: position.x - 8, y: position.y - 8 }}
         />
     );
 };

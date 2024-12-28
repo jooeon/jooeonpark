@@ -3,8 +3,8 @@ import { motion } from "framer-motion";
 import PropTypes from "prop-types";
 
 // Plays encryption animation on a string, eventually landing on the input string
-// Parameters: input text, duration of animation, speed at which the random letters shuffle
-const EncryptionText = ({ text, duration = 2, speed = 10 }) => {
+// Parameters: input text, delay on secs for animation start, duration of animation, speed at which the random letters shuffle
+const EncryptionText = ({ text, delay = 0, duration = 2, speed = 10 }) => {
     const [encryptionText, setEncryptionText] = useState(Array(text.length).fill(""));
 
     useEffect(() => {
@@ -13,32 +13,34 @@ const EncryptionText = ({ text, duration = 2, speed = 10 }) => {
 
         text.split("").forEach((char, index) => {
             const startDelay = index * (duration / text.length) * 1000; // Stagger letters
-
             setTimeout(() => {
-                let elapsed = 0;
-                const interval = setInterval(() => {
-                    if (elapsed >= duration * 1000) {
-                        clearInterval(interval); // Stop animation when duration is over
-                        setEncryptionText((prev) =>
-                            prev.map((c, i) => (i === index ? char : c))
-                        );
-                    } else {
-                        setEncryptionText((prev) =>
-                            prev.map((c, i) =>
-                                i === index ? letters[Math.floor(Math.random() * letters.length)] : c
-                            )
-                        );
-                        elapsed += intervalDuration;
-                    }
-                }, intervalDuration);
-            }, startDelay);
+                setTimeout(() => {
+                    let elapsed = 0;
+                    const interval = setInterval(() => {
+                        if (elapsed >= duration * 1000) {
+                            clearInterval(interval); // Stop animation when duration is over
+                            setEncryptionText((prev) =>
+                                prev.map((c, i) => (i === index ? char : c))
+                            );
+                        } else {
+                            setEncryptionText((prev) =>
+                                prev.map((c, i) =>
+                                    i === index ? letters[Math.floor(Math.random() * letters.length)] : c
+                                )
+                            );
+                            elapsed += intervalDuration;
+                        }
+                    }, intervalDuration);
+                }, startDelay);
+            }, delay * 1000);
         });
-    }, [text, duration, speed]);
+    }, [text, delay, duration, speed]);
 
     return (
         <div className="flex">
             {encryptionText.map((char, index) => (
                 <motion.span
+                    style={char === " " ? { width: "0.5rem" } : {}}
                     key={index}
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
@@ -54,6 +56,7 @@ const EncryptionText = ({ text, duration = 2, speed = 10 }) => {
 // PropTypes validation
 EncryptionText.propTypes = {
     text: PropTypes.string.isRequired,
+    delay: PropTypes.number,
     duration: PropTypes.number,
     speed: PropTypes.number,
 };
