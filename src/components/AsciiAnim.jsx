@@ -13,6 +13,7 @@ const AsciiAnimation = () => {
         let camera, controls, scene, renderer, effect;
         let cube;
         const start = Date.now();
+        let frameRequest;
 
         function init() {
             const container = containerRef.current;
@@ -36,20 +37,24 @@ const AsciiAnimation = () => {
             scene.add(ambientLight);
 
             // Cube setup
-            const geometry = new THREE.BoxGeometry(1, 1, 1, 1, 1, 1); // Lower subdivisions
-            const material = new THREE.MeshLambertMaterial({ color: "#f1f1f1" });
+            const geometry = new THREE.BoxGeometry(1, 1, 1);
+
+            const material = new THREE.MeshLambertMaterial({ color: "#f1f1f1", flatShading: true });
             cube = new THREE.Mesh(geometry, material);
             cube.scale.set(2.0, 2.0, 2.0); // Uniform scaling
             scene.add(cube);
 
             // Renderer
-            renderer = new THREE.WebGLRenderer({ antialias: false });
-            renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1));
+            renderer = new THREE.WebGLRenderer({ antialias: false, powerPreference: "low-power" });
+            renderer.setPixelRatio(0.4);    // Lower for higher performance
             renderer.setSize(containerWidth, containerHeight);
             renderer.shadowMap.enabled = false; // Disable shadows
 
             // Maps the brightness of pixels to characters in the provided character set
-            effect = new AsciiEffect(renderer, " .:-+*=%@#", { invert: true });
+            effect = new AsciiEffect(renderer, " .:-+*=%@#", {
+                invert: true,
+                resolution: 0.13,   // Lower for higher performance
+            });
             effect.setSize(containerWidth, containerHeight);
 
             // Ensure effect.domElement is a valid Node
@@ -61,9 +66,9 @@ const AsciiAnimation = () => {
 
             // TrackballControls for interaction
             controls = new TrackballControls(camera, effect.domElement);
-            controls.rotateSpeed = 2.0; // How fast you can rotate cube with mouse
-            controls.zoomSpeed = 5.0;   // How fast you zoom in and out
-            controls.panSpeed = 0.5;
+            controls.enablePan = false;
+            controls.rotateSpeed = 1.5; // How fast you can rotate cube with mouse
+            controls.zoomSpeed = 3.0;   // How fast you zoom in and out
             controls.staticMoving = true; // Immediate responsiveness (true) or enable inertia (false).
             controls.dynamicDampingFactor = 0.3; // When staticMoving is false, controls the damping of the inertia effect
 
@@ -91,11 +96,12 @@ const AsciiAnimation = () => {
 
             controls.update();
             effect.render(scene, camera);
+            frameRequest = requestAnimationFrame(animate);
         }
 
         init();
-
-        renderer.setAnimationLoop(animate);
+        frameRequest = requestAnimationFrame(animate);
+        // renderer.setAnimationLoop(animate);
 
         return () => {
             if (containerRef.current) {
@@ -106,6 +112,7 @@ const AsciiAnimation = () => {
             window.removeEventListener("resize", onWindowResize);
             renderer.dispose();
             controls.dispose();
+            cancelAnimationFrame(frameRequest);
         };
 
     }, []);
