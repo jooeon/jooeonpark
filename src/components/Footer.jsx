@@ -15,7 +15,7 @@ const Footer = () => {
             }}
         >
             <p>&copy; MMXXV. Joo Eon Park</p>
-            <div className="flex items-center"><p className="p-2 font-azeret">---></p><ThemeToggle /></div>
+            <div className="flex items-center"><p className="p-2 font-azeret">-----></p><ThemeToggle /></div>
         </motion.div>
     </footer>
   );

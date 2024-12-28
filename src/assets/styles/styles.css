@@ -6,17 +6,23 @@ body a {
     cursor: none;
 }
 
-.encryption-text {
-    /*font-size: clamp(7rem, 5cqi, 9rem);*/
-}
-
 #ascii-cube table, tr, td {
     pointer-events: none;
 }
 
-/* NAVBAR  */
+/* Z Indices */
+/*
+- z-50: overlays
+    - z-30: custom cursor
+    - z-30: Header
+    - z-30: Footer
+        - z-20: landing text
+            - z-10: Cube animation
+                - -z-10: borders background
 
-/* Link underline animation */
+*/
+
+/* NAVBAR  */
 
 .nav-links a {
     position: relative;
