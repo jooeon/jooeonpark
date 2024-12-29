@@ -84,21 +84,28 @@ const Index = () => {
                     <EntryAnim/>
                 </motion.div>
                 {/* Background grid */}
-                <div className="absolute top-0 flex flex-wrap w-full -z-10 *:w-1/4 *:h-[90vh] *:border-b
-                    *:border-customGrayLight *:dark:border-customBlackLight">
-                    <div className="border-r"></div>
-                    <div className="border-r"></div>
-                    <div className="border-r"></div>
-                    <div className=""></div>
-                    <div className="border-r"></div>
-                    <div className="border-r"></div>
-                    <div className="border-r"></div>
-                    <div className=""></div>
-                </div>
+                {/*<div className="absolute top-0 flex flex-wrap w-full -z-10 *:w-1/4 *:h-[90vh] *:border-b*/}
+                {/*    *:border-customGrayLight *:dark:border-customBlackLight">*/}
+                {/*    <div className="border-r"></div>*/}
+                {/*    <div className="border-r"></div>*/}
+                {/*    <div className="border-r"></div>*/}
+                {/*    <div className=""></div>*/}
+                {/*    <div className="border-r"></div>*/}
+                {/*    <div className="border-r"></div>*/}
+                {/*    <div className="border-r"></div>*/}
+                {/*    <div className=""></div>*/}
+                {/*</div>*/}
                 {/* Cube animation */}
                 <AsciiAnimation/>
                 {/* Main landing text */}
-                <section className="flex justify-center items-center p-7 h-90vh">
+                <section className="relative flex justify-center items-center p-7 h-90vh">
+                    <div className="absolute top-0 bottom-0 flex flex-wrap w-full -z-10 *:w-1/4 *:border-b
+                    *:border-customGrayLight *:dark:border-customBlackLight">
+                        <div className="border-r"></div>
+                        <div className="border-r"></div>
+                        <div className="border-r"></div>
+                        <div className=""></div>
+                    </div>
                     <h1 className="flex items-center flex-col gap-2 lg:gap-4 2xl:gap-14 z-20 uppercase font-azeret">
                         <motion.span
                             className="min-h-9 md:min-h-16 lg:min-h-20 xl:min-h-32 text-customGray
@@ -136,9 +143,16 @@ const Index = () => {
                         </motion.span>
                     </h1>
                 </section>
-                <section className="flex flex-col gap-20 p-7 h-90vh">
+                <section className="relative flex flex-col gap-14 sm:gap-20 p-7 pb-20 h-fit h-90vh">
+                    <div className="absolute top-0 left-0 bottom-0 flex flex-wrap w-full -z-10 *:w-1/4 *:border-b
+                    *:border-customGrayLight *:dark:border-customBlackLight">
+                        <div className="border-r"></div>
+                        <div className="border-r"></div>
+                        <div className="border-r"></div>
+                        <div className=""></div>
+                    </div>
                     {/* About text */}
-                    <div className="xl:w-1/2 text-xl md:text-3xl lg:text-3xl 2xl:text-4xl xl:p-5">
+                    <div className="xl:w-1/2 text-xl md:text-3xl lg:text-3xl 2xl:text-4xl lg:p-5">
                         <h2 className="text-customGray uppercase mb-2 ml-1 min-h-7 md:min-h-9 xl:min-h-10 text-lg">
                             <EncryptionText
                                 text={"// About"}
@@ -183,10 +197,12 @@ const Index = () => {
                             />
                         </h2>
                         <div className="flex gap-20">
-                            <Link to="https://www.linkedin.com/in/joo-eon-park/" target="_blank" className="textLink text-customBlack dark:text-customWhite after:bg-customBlack dark:after:bg-customWhite">
+                            <Link to="https://www.linkedin.com/in/joo-eon-park/" target="_blank"
+                                  className="textLink text-customBlack dark:text-customWhite after:bg-customBlack dark:after:bg-customWhite">
                                 LinkedIn
                             </Link>
-                            <Link to="mailto:jooeon427@gmail.com" target="_blank" className="textLink text-customBlack dark:text-customWhite after:bg-customBlack dark:after:bg-customWhite">
+                            <Link to="mailto:jooeon427@gmail.com" target="_blank"
+                                  className="textLink text-customBlack dark:text-customWhite after:bg-customBlack dark:after:bg-customWhite">
                                 Email
                             </Link>
                         </div>
