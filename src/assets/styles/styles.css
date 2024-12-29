@@ -22,14 +22,14 @@ body a {
 
 */
 
-/* NAVBAR  */
+/* Links styling  */
 
-.nav-links a {
+a.textLink {
     position: relative;
     display: inline-block;
 }
 
-.navbar a::after {
+a.textLink::after {
     content: '';
     position: absolute;
     width: 100%;
@@ -42,7 +42,7 @@ body a {
     will-change: transform; /* Optional performance optimization */
 }
 
-.navbar a:hover::after {
+a.textLink:hover::after {
     transform-origin: left;
     transform: scaleX(1); /* Expands underline from left to right */
 }

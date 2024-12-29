@@ -14,10 +14,11 @@ export const CursorProvider = ({ children }) => {
     useEffect(() => {
         // Hover event on specific tags
         const handleMouseEnter = (e) => {
-            if (e.target.closest("h1") || e.target.closest("h2")
+            if (e.target.closest("h1") || e.target.closest(".parallaxText")
                     || e.target.closest("img") || e.target.closest("video") || e.target.closest(".art-image")) {
                 setIsContentHovered(true);
-            } else if (e.target.closest("a") || e.target.closest("button") || e.target.closest("p")) {
+            } else if (e.target.closest("a") || e.target.closest("button") || e.target.closest("p")
+                    || e.target.closest("h2")) {
                 setIsLinkHovered(true);
             } else if (e.target.closest("#ascii-cube")) {
                 setIsInteractiveHovered(true)
