@@ -17,7 +17,7 @@ const About = () => {
         <>
             <Header/>
             <main>
-                <div className="sticky top-0 flex flex-col xl:flex-row">
+                <div className="flex flex-col xl:flex-row">
                     <section className="flex justify-center items-center xl:h-screen xl:w-50vw
                         py-14 md:py-24 lg:py-32 xl:py-0">
                         <motion.div className="w-3/4 xl:w-1/2 xl:min-w-96 border border-customBlackLight">
@@ -28,8 +28,8 @@ const About = () => {
                             />
                         </motion.div>
                     </section>
-                    <section className="flex flex-col p-9 lg:p-14 xl:px-24 xl:py-32 xl:h-screen xl:w-50vw">
-                        <h1 className="text-5xl md:text-6xl uppercase font-raleway font-bold">
+                    <section className="flex flex-col justify-center xl:h-screen xl:w-50vw px-10 md:px-12 lg:px-16 xl:px-10">
+                        <h1 className="flex flex-col gap-2 xl:gap-4 xl:flex-row text-4xl md:text-6xl uppercase font-raleway font-bold">
                             <motion.span
                                 className=""
                                 initial={{opacity: 0, filter: 'blur(3px)'}}
@@ -68,17 +68,24 @@ const About = () => {
                             </motion.span>
                         </h1>
                         <motion.div
-                            className=""
+                            className="py-6 xl:py-8 text-2xl md:text-35px leading-snug"
                             initial={{opacity: 0}}
                             animate={{opacity: 1}}
                             transition={{
-                                duration: 0.3,
+                                duration: 0.5,
                                 delay: 1.4,
                                 ease: "easeIn"
                             }}
                         >
-                            <p className="py-6 xl:py-8 text-2xl md:text-35px leading-snug">
-                                Joo Eon Park is an artist, designer, and software engineer in the interdisciplinary world of digital media, where art and design meet technology.
+                            <p className="">
+                                Joo Eon Park is a South Korean artist, designer, and software engineer
+                                pursuing endless creativity, attentive design, and precise execution through his
+                                interdisciplinary work in design and technology.
+                            </p>
+                            <p className="mt-4">
+                                With diverse backgrounds in Computer Science, Digital Media, and Studio Arts,
+                                Park blends his multifaceted expertise to create experiences that are both highly
+                                functional and visually engaging.
                             </p>
                         </motion.div>
                     </section>
