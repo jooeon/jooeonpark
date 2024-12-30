@@ -83,7 +83,7 @@ const About = () => {
                                 interdisciplinary work in design and technology.
                             </p>
                             <p className="mt-4">
-                                With diverse backgrounds in Computer Science, Digital Media, and Studio Arts,
+                                With diverse backgrounds in Computer Science, Digital Media, and Visual Art,
                                 Park blends his multifaceted expertise to create experiences that are both highly
                                 functional and visually engaging.
                             </p>

@@ -13,7 +13,7 @@ export const items = [
             "2024"
         ],
         thumbnail:
-            "/images/Ocular Prosthetic for Reading Another Human_01.jpeg",
+            "/images/thumbnails/Ocular Prosthetic for Reading Another Human_thumb.jpeg",
         alt: "Ocular Prosthetic for Reading Another Human",
         padding: "pb-10 ",
         link: "",
@@ -49,7 +49,7 @@ export const items = [
             "Plywood, colored pencils, fabric, nails",
             "2024"
         ],
-        thumbnail: "/images/Running In a Dream.jpg",
+        thumbnail: "/images/thumbnails/Running In a Dream_thumb.jpg",
         alt: "Running In a Dream, 2024",
         padding: "pb-10 ",
         link: "",
@@ -96,7 +96,7 @@ export const items = [
             "Ink, collage, plastic film",
             "2024"
         ],
-        thumbnail: "/images/Recollection_01.jpg",
+        thumbnail: "/images/thumbnails/Recollection_thumb.jpg",
         alt: "Recollection",
         padding: "pb-10 ",
         link: "",
@@ -113,7 +113,7 @@ export const items = [
             "Linocut",
             "2023"
         ],
-        thumbnail: "/images/The_Workers.jpg",
+        thumbnail: "/images/thumbnails/The_Workers_thumb.jpg",
         alt: "The Workers",
         padding: "pb-10 xl:pt-40rem",
         link: "",
@@ -130,7 +130,7 @@ export const items = [
             "Collagraph",
             "2023"
         ],
-        thumbnail:  "/images/Trapped.jpg",
+        thumbnail:  "/images/thumbnails/Trapped_thumb.jpg",
         alt: "Trapped",
         padding: "pb-10 ",
         link: "",
@@ -151,7 +151,7 @@ export const items = [
             "Woodcut",
             "2023"
         ],
-        thumbnail: "/images/Man-child_alt2.jpg",
+        thumbnail: "/images/thumbnails/Man-child_thumb.jpg",
         alt: "Man-child",
         padding: "pb-10 xl:pt-96",
         link: "",
@@ -168,7 +168,7 @@ export const items = [
             "Linocut",
             "2020"
         ],
-        thumbnail: "/images/Symbiosis.jpg",
+        thumbnail: "/images/thumbnails/Symbiosis_thumb.jpg",
         alt: "Symbiosis",
         padding: "pb-10 ",
         link: "",
