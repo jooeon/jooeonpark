@@ -1,6 +1,5 @@
 import Header from "./components/Header.jsx";
 import Footer from "./components/Footer.jsx";
-// import {items} from "./Data.jsx";
 import { motion, useScroll } from "framer-motion";
 import EntryAnim from "./components/EntryAnim.jsx";
 import EncryptionText from "./components/EncryptionAnim.jsx";
@@ -9,7 +8,8 @@ import AsciiAnimation from "./components/AsciiAnim.jsx";
 import ScrollTextAnimation from "./components/ScrollTextAnim.jsx";
 // import HorizontalScrollSection from './components/HorizontalScrollSection';
 import ParallaxText from "./components/ParallaxText.jsx";
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
+import { isMobile } from "react-device-detect";
 
 const Index = () => {
 
@@ -83,18 +83,6 @@ const Index = () => {
                 >
                     <EntryAnim/>
                 </motion.div>
-                {/* Background grid */}
-                {/*<div className="absolute top-0 flex flex-wrap w-full -z-10 *:w-1/4 *:h-[90vh] *:border-b*/}
-                {/*    *:border-customGrayLight *:dark:border-customBlackLight">*/}
-                {/*    <div className="border-r"></div>*/}
-                {/*    <div className="border-r"></div>*/}
-                {/*    <div className="border-r"></div>*/}
-                {/*    <div className=""></div>*/}
-                {/*    <div className="border-r"></div>*/}
-                {/*    <div className="border-r"></div>*/}
-                {/*    <div className="border-r"></div>*/}
-                {/*    <div className=""></div>*/}
-                {/*</div>*/}
                 {/* Cube animation */}
                 <AsciiAnimation/>
                 {/* Main landing text */}
@@ -156,13 +144,13 @@ const Index = () => {
                         <h2 className="text-customGray uppercase mb-2 ml-1 min-h-7 md:min-h-9 xl:min-h-10 text-lg">
                             <EncryptionText
                                 text={"// About"}
-                                delay={2.5}
+                                delay={0.4}
                                 duration={0.75}
                                 speed={20}
                             />
                         </h2>
                         <ScrollTextAnimation
-                            paragraph={"Artist, designer, and software engineer with a background in Computer Science, Digital Media, and Studio Art with multidisciplinary expertise in Full-Stack Web Development, Human-Computer Interaction, Graphic Design, UI/UX, and Visual Arts."}/>
+                            paragraph={"Artist, designer, and software engineer with a background in Computer Science, Digital Media, and Studio Art, bringing multidisciplinary expertise in Full-Stack Web Development, Human-Computer Interaction, Graphic Design, UI/UX, and Visual Arts."}/>
                         <br/>
                         <ScrollTextAnimation
                             paragraph={"Seamlessly integrating design and technology to create experiences that are both highly functional and visually engaging."}/>
@@ -172,7 +160,7 @@ const Index = () => {
                         xl:p-5 uppercase">
                         <h2 className="text-customGray uppercase mb-2 ml-1 min-h-7 md:min-h-9 xl:min-h-10 text-lg">
                             <EncryptionText
-                                text={"// Tech Stack"}
+                                text={"// Tech Stack & Software"}
                                 delay={0.4}
                                 duration={0.75}
                                 speed={20}
@@ -180,8 +168,8 @@ const Index = () => {
                         </h2>
                         <div className="absolute left-0 w-full flex overflow-hidden items-center font-aldrich">
                             <ParallaxText
-                                textArray={["react", "next.js", "adobe cc", "tailwind", "figma", "framer motion"]}
-                                baseVelocity={100}
+                                textArray={["react", "next.js", "tailwind", "framer motion", "SQL", "adobe cc", "figma"]}
+                                baseVelocity={isMobile ? 50 : 100}
                                 scrollY={scrollY}
                             />
                         </div>

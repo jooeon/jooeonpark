@@ -1,12 +1,7 @@
-// ParallaxText.jsx
 import { useState, useRef, useEffect } from "react";
 import PropTypes from "prop-types";
-import {
-    motion,
-    useMotionValue,
-    useAnimationFrame,
-    animate
-} from "framer-motion";
+import { motion, useMotionValue, useAnimationFrame,animate } from "framer-motion";
+import { isMobile } from "react-device-detect";
 
 /**
  * ParallaxText component
@@ -36,7 +31,7 @@ export default function ParallaxText({ textArray, baseVelocity = 100, scrollY })
             if (diff > 0) {
                 // Scrolling down → text should accelerate left
                 setDirection("left");
-                animate(velocityMV, baseVelocity + 650, {
+                animate(velocityMV, baseVelocity + isMobile ? 325 : 650, {
                     type: "spring",
                     stiffness: 50,
                     damping: 30,
@@ -44,7 +39,7 @@ export default function ParallaxText({ textArray, baseVelocity = 100, scrollY })
             } else if (diff < 0) {
                 // Scrolling up → text should accelerate right
                 setDirection("right");
-                animate(velocityMV, baseVelocity + 100, {
+                animate(velocityMV, baseVelocity + isMobile ? 50 : 100, {
                     type: "spring",
                     stiffness: 50,
                     damping: 30,
