@@ -5,9 +5,9 @@ import Steps from "./projects/Steps.jsx";
 import About from "./About.jsx";
 import { AnimatePresence } from "framer-motion";
 import { motion } from "framer-motion";
-import {isMobile} from "react-device-detect";
+import { isMobile } from "react-device-detect";
 import Cursor from "./components/Cursor.jsx";
-import {CursorProvider} from "./components/CursorContext.jsx";
+import { CursorProvider } from "./components/CursorContext.jsx";
 
 // animations for entering and exiting each page
 const navVariants = {

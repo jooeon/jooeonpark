@@ -68,7 +68,7 @@ const About = () => {
                             </motion.span>
                         </h1>
                         <motion.div
-                            className="py-6 xl:py-8 text-2xl md:text-35px leading-snug"
+                            className="py-6 xl:py-8 text-2xl md:text-35px leading-snug text-customGray"
                             initial={{opacity: 0}}
                             animate={{opacity: 1}}
                             transition={{

@@ -7,7 +7,7 @@ const Cursor = () => {
     const [position, setPosition] = useState({ x: window.innerWidth / 2, y: window.innerHeight * 3 / 4 });
     const [isActive, setIsActive] = useState(false); // Cursor activation
     const [isSmallScreen, setIsSmallScreen] = useState(window.innerWidth <= 768);
-    const [cursorColor, setCursorColor] = useState("#ffffff"); // Default cursor color
+    const [cursorColor, setCursorColor] = useState("#f1f1f1"); // Default cursor color
     const { isLinkHovered, isContentHovered, isInteractiveHovered, isClicked, leftViewport } = useCursor();
     const location = useLocation(); // Get the current route
     const colors = ["#ff5733", "#33c4ff", "#a633ff", "#ff33a1", "#33ff57", "#fc0834", "#4a21ff", "#ffef73"];
@@ -92,12 +92,24 @@ const Cursor = () => {
 
     return (
         <motion.div
-            className={`fixed top-0 left-0 z-30 w-5 h-5 bg-customWhite mix-blend-difference pointer-events-none`}
+            className={`fixed top-0 left-0 flex items-center justify-center z-30 w-5 h-5
+                bg-customWhite mix-blend-difference pointer-events-none`}
             variants={cursorVariants}
             initial="initial"
             animate={getCursorVariant()}
             style={{ x: position.x - 8, y: position.y - 8 }}
-        />
+        >
+            {getCursorVariant() === "interactiveHover" && (
+                <motion.span
+                    className="mix-blend-difference text-[3px] font-raleway uppercase tracking-wider"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                >
+                    Interact
+                </motion.span>
+            )}
+        </motion.div>
     );
 };
 
