@@ -6,7 +6,6 @@ import EncryptionText from "./components/EncryptionAnim.jsx";
 import { useEffect, useState } from "react";
 import AsciiAnimation from "./components/AsciiAnim.jsx";
 import ScrollTextAnimation from "./components/ScrollTextAnim.jsx";
-// import HorizontalScrollSection from './components/HorizontalScrollSection';
 import ParallaxText from "./components/ParallaxText.jsx";
 import { Link } from "react-router-dom";
 import { isMobile } from "react-device-detect";
@@ -114,7 +113,7 @@ const Index = () => {
                         </motion.span>
                         <motion.span
                             className="min-h-9 md:min-h-16 lg:min-h-20 xl:min-h-32
-                                text-3xl sm:text-4xl md:text-5xl lg:text-7xl xl:text-8xl 2xl:text-9xl"
+                                text-2xl sm:text-3xl md:text-4xl lg:text-6xl xl:text-7xl 2xl:text-8xl"
                             initial={{opacity: 0}}
                             animate={{opacity: 1}}
                             transition={{
@@ -131,7 +130,8 @@ const Index = () => {
                         </motion.span>
                     </h1>
                 </section>
-                <section className="relative flex flex-col gap-14 sm:gap-20 p-7 pb-20 h-fit h-90vh">
+                {/* Content section */}
+                <section className="relative flex flex-col gap-14 sm:gap-20 p-7 pb-20 h-fit">
                     <div className="absolute top-0 left-0 bottom-0 flex flex-wrap w-full -z-10 *:w-1/4 *:border-b
                     *:border-customGrayLight *:dark:border-customBlackLight">
                         <div className="border-r"></div>
@@ -150,7 +150,7 @@ const Index = () => {
                             />
                         </h2>
                         <ScrollTextAnimation
-                            paragraph={"Artist, designer, and software engineer with a background in Computer Science, Digital Media, and Studio Art, bringing multidisciplinary expertise in Full-Stack Web Development, Human-Computer Interaction, Graphic Design, UI/UX, and Visual Arts."}/>
+                            paragraph={"Artist, designer, and software engineer with diverse backgrounds in Computer Science, Digital Media, and Visual Art, bringing multidisciplinary expertise in Full-Stack Web Development, Human-Computer Interaction, Graphic Design, UI/UX, and Visual Arts."}/>
                         <br/>
                         <ScrollTextAnimation
                             paragraph={"Seamlessly integrating design and technology to create experiences that are both highly functional and visually engaging."}/>
@@ -196,32 +196,6 @@ const Index = () => {
                         </div>
                     </div>
                 </section>
-                {/*<HorizontalScrollSection  itemWidth={500} gap={40}>*/}
-                {/*    {items.map((item) => (*/}
-                {/*        <div key={item.id} className="flex flex-col">*/}
-                {/*            {item.isVideo && (*/}
-                {/*                <video*/}
-                {/*                    autoPlay*/}
-                {/*                    playsInline*/}
-                {/*                    muted*/}
-                {/*                    loop*/}
-                {/*                    className=""*/}
-                {/*                >*/}
-                {/*                    <source src={item.thumbnail} type="video/mp4"/>*/}
-                {/*                    Your browser does not support the video tag.*/}
-                {/*                </video>*/}
-                {/*            )}*/}
-                {/*            {!item.isVideo && (*/}
-                {/*                <img*/}
-                {/*                    src={item.thumbnail}*/}
-                {/*                    alt={`Gallery ${item.id + 1}`}*/}
-                {/*                    className=""*/}
-                {/*                    loading="lazy"*/}
-                {/*                />*/}
-                {/*            )}*/}
-                {/*        </div>*/}
-                {/*    ))}*/}
-                {/*</HorizontalScrollSection>*/}
                 {/*<section className="p-7 h-90vh">*/}
                 {/*    <motion.div*/}
                 {/*        className="flex flex-col text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-9xl*/}
