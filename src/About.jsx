@@ -28,7 +28,8 @@ const About = () => {
                             />
                         </motion.div>
                     </section>
-                    <section className="flex flex-col justify-center xl:h-screen xl:w-50vw px-10 md:px-12 lg:px-16 xl:pl-10 xl:pr-40">
+                    <section
+                        className="flex flex-col justify-center xl:h-screen xl:w-50vw px-10 md:px-12 lg:px-16 xl:pl-10 xl:pr-40">
                         <h1 className="flex flex-col gap-2 xl:gap-4 xl:flex-row text-4xl md:text-6xl uppercase font-raleway font-bold">
                             <motion.span
                                 className=""

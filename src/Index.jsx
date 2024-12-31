@@ -113,7 +113,7 @@ const Index = () => {
                         </motion.span>
                         <motion.span
                             className="min-h-9 md:min-h-16 lg:min-h-20 xl:min-h-32
-                                text-3xl sm:text-4xl md:text-5xl lg:text-7xl xl:text-8xl 2xl:text-9xl"
+                                text-2xl sm:text-3xl md:text-4xl lg:text-6xl xl:text-7xl 2xl:text-8xl"
                             initial={{opacity: 0}}
                             animate={{opacity: 1}}
                             transition={{
