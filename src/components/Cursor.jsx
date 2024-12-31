@@ -61,7 +61,7 @@ const Cursor = () => {
         default: { scale: 1, opacity: 1, transition: { duration: 0.2, ease: "easeIn" }, },
         linkHover: { scale: 2.5, opacity: 1, backgroundColor: cursorColor, transition: { duration: 0.1, ease: "easeIn" }, },
         contentHover: {
-            scale: isSmallScreen ? 4.0 : 6.0,
+            scale: isSmallScreen ? 2.0 : 4.0,
             opacity: 1,
             width: isSmallScreen ? 30 : 50,
             height: isSmallScreen ? 20 : 30,
@@ -75,7 +75,7 @@ const Cursor = () => {
             backgroundColor: cursorColor,
             transition: { duration: 0.2, ease: "easeIn" },
         },
-        click: { scale: 1.5, opacity: 1, backgroundColor: cursorColor, },
+        click: { scale: 0.8, opacity: 1, backgroundColor: cursorColor, },
         leftViewport: { scale: 1, opacity: 0, transition: { duration: 0.2, ease: "easeOut" }, },
     };
 
@@ -93,7 +93,7 @@ const Cursor = () => {
     return (
         <motion.div
             className={`fixed top-0 left-0 flex items-center justify-center z-30 w-5 h-5
-                bg-customWhite mix-blend-difference pointer-events-none`}
+                bg-customWhite backdrop-blur-xs mix-blend-difference pointer-events-none`}
             variants={cursorVariants}
             initial="initial"
             animate={getCursorVariant()}

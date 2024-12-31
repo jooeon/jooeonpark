@@ -34,6 +34,12 @@ export default {
 			'50rem' : '50rem',
 			'60rem' : '60rem',
 		},
+		fontSize: {
+			'35px': '35px',
+		},
+		backdropBlur: {
+			xs: '0.75px',
+		},
   		colors: {
 			customWhite: "#f1f1f1",
 			customBlack: "#070707",
@@ -43,9 +49,6 @@ export default {
 			customNavy: "#100f14",
 			customNavyLight: "#15141a",
   		},
-		fontSize: {
-			'35px': '35px',
-		},
   	}
   },
   plugins: [], // Add any plugins here as needed

@@ -11,19 +11,19 @@ const Art = () => {
     return (
         <>
             <Header/>
-            <main className="pt-16 xl:pt-20">
-                <section className="relative flex justify-center items-center p-7 h-screen">
-                    <div className="absolute top-0 bottom-0 flex flex-wrap w-full -z-10 *:w-1/4
-                        *:border-customGrayLight *:dark:border-customBlackLight">
-                        <div className="border-r"></div>
-                        <div className="border-r"></div>
-                        <div className="border-r"></div>
-                        <div className=""></div>
-                    </div>
-                </section>
-                {/* if not mobile, use horizontal scroll since it is awkward on touch screens */}
+            <main className="pt-16 xl:pt-24">
+                {/*<section className="relative flex justify-center items-center p-7 h-screen">*/}
+                {/*    <div className="absolute top-0 bottom-0 flex flex-wrap w-full -z-10 *:w-1/4*/}
+                {/*        *:border-customGrayLight *:dark:border-customBlackLight">*/}
+                {/*        <div className="border-r"></div>*/}
+                {/*        <div className="border-r"></div>*/}
+                {/*        <div className="border-r"></div>*/}
+                {/*        <div className=""></div>*/}
+                {/*    </div>*/}
+                {/*</section>*/}
+                {/* Use horizontal scroll only on desktop, since it is awkward on touch screens */}
                 {!isMobile ?
-                    <section className="relative flex justify-center items-center uppercase font-raleway">
+                    <section className="relative flex justify-center items-center w-full uppercase font-raleway">
                         <div className="absolute top-0 bottom-0 flex flex-wrap w-full -z-10 *:w-1/4
                         *:border-customGrayLight *:dark:border-customBlackLight">
                             <div className="border-r"></div>
@@ -31,18 +31,19 @@ const Art = () => {
                             <div className="border-r"></div>
                             <div className=""></div>
                         </div>
+                        {/*<h1 className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 -z-10 text-8xl">Creative mind</h1>*/}
                         <HorizontalScrollSection itemWidth={500} gap={20}>
                             {items.map((item) => (
                                 <motion.div
                                     key={item.id}
                                     className="flex flex-col"
-                                    initial={{opacity: 0}}
-                                    whileInView={{opacity: 1}}
-                                    viewport={{amount: 0.2, once: true}}
-                                    transition={{
-                                        duration: 1.0,
-                                        ease: "easeIn",
-                                    }}
+                                    // initial={{filter: 'blur(20px'}}
+                                    // whileInView={{filter: 'blur(0px'}}
+                                    // viewport={{amount: 0.1, once: true}}
+                                    // transition={{
+                                    //     duration: 0.5,
+                                    //     ease: "easeIn",
+                                    // }}
                                 >
                                     {/* Video/image content */}
                                     <Link to={item.link} className="">
@@ -91,7 +92,7 @@ const Art = () => {
                             ))}
                         </HorizontalScrollSection>
                     </section>
-                :
+                    :
                     <section className="flex flex-row flex-wrap justify-between gap-5
                         h-min w-full xl:w-11/12 mx-auto p-5 uppercase">
                         {items.map((item) => (
@@ -176,7 +177,7 @@ const Art = () => {
                     </section>
                 }
             </main>
-            <Footer/>
+            <div className="hidden"><Footer/></div>
         </>
 );
 };

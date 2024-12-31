@@ -36,7 +36,7 @@ const HorizontalScrollSection = ({
             style={{ height: `${totalScrollWidth}px` }} // Ensure enough height for vertical scrolling
         >
             {/* Sticky Wrapper */}
-            <div className="sticky top-0 h-screen overflow-hidden pt-14 pb-10">
+            <div className="sticky top-0 h-screen overflow-hidden pt-16 xl:pt-24 pb-10">
                 {/* Motion div for horizontal scrolling */}
                 <motion.div
                     style={{ x: smoothX }}
