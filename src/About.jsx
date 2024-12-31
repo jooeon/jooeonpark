@@ -28,7 +28,8 @@ const About = () => {
                             />
                         </motion.div>
                     </section>
-                    <section className="flex flex-col justify-center xl:h-screen xl:w-50vw px-10 md:px-12 lg:px-16 xl:pl-10 xl:pr-40">
+                    <section
+                        className="flex flex-col justify-center xl:h-screen xl:w-50vw px-10 md:px-12 lg:px-16 xl:pl-10 xl:pr-40">
                         <h1 className="flex flex-col gap-2 xl:gap-4 xl:flex-row text-4xl md:text-6xl uppercase font-raleway font-bold">
                             <motion.span
                                 className=""
@@ -83,7 +84,7 @@ const About = () => {
                                 interdisciplinary work in design and technology.
                             </p>
                             <p className="mt-4">
-                                With diverse backgrounds in Computer Science, Digital Media, and Studio Arts,
+                                With diverse backgrounds in Computer Science, Digital Media, and Visual Art,
                                 Park blends his multifaceted expertise to create experiences that are both highly
                                 functional and visually engaging.
                             </p>

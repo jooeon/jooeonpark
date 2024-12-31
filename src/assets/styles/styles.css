@@ -50,7 +50,7 @@ a.textLink:hover::after {
 /* VIDEO */
 
 video {
-    clip-path: inset(20px 3px 15px 7px); /* hide small black border on video */
+    /*clip-path: inset(20px 3px 15px 7px); !* hide small black border on video *!*/
 }
 
 /* Theme toggle switch */
@@ -72,4 +72,12 @@ video {
     width: 10px;
     height: 9px;
     border-radius: 50%;
+}
+
+.x-scroll-item:nth-child(2n) {
+    align-items: end;
+}
+
+.x-scroll-item:nth-child(3n) {
+    align-items: center;
 }

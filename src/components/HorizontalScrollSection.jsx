@@ -11,7 +11,7 @@ const HorizontalScrollSection = ({
     const containerRef = useRef(null);
 
     // Calculate total scrollable width
-    const totalScrollWidth = (children.length * itemWidth) + (children.length - 1) * gap - window.innerWidth + itemWidth;
+    const totalScrollWidth = (children.length * itemWidth) + (children.length - 1) * (gap * 2) - window.innerWidth + itemWidth/5;
 
     // Track scroll progress
     const { scrollYProgress } = useScroll({
@@ -32,11 +32,11 @@ const HorizontalScrollSection = ({
     return (
         <div
             ref={containerRef}
-            className={`relative w-full`}
+            className="relative w-full"
             style={{ height: `${totalScrollWidth}px` }} // Ensure enough height for vertical scrolling
         >
             {/* Sticky Wrapper */}
-            <div className="sticky top-0 h-screen overflow-hidden">
+            <div className="sticky top-0 h-screen overflow-hidden pt-16 xl:pt-24 pb-10">
                 {/* Motion div for horizontal scrolling */}
                 <motion.div
                     style={{ x: smoothX }}
@@ -45,8 +45,8 @@ const HorizontalScrollSection = ({
                     {children.map((child, index) => (
                         <div
                             key={index}
-                            className={`h-full`}
-                            style={{ width: `${itemWidth}px`, marginRight: `${gap}px` }}
+                            className={`flex h-full x-scroll-item`}
+                            style={{ width: `${itemWidth}px`, marginLeft: `${gap}px`, marginRight: `${gap}px` }}
                         >
                             {child}
                         </div>
