@@ -4,14 +4,14 @@ import { AsciiEffect } from "three/addons/effects/AsciiEffect.js";
 import { TrackballControls } from "three/addons/controls/TrackballControls.js";
 import PropTypes from "prop-types";
 
-// Rotating cube animation in ASCII style
+// Rotating shape animation in ASCII style
 // Parameters: container width, container height (doesn't need to be square)
 const AsciiAnimation = () => {
     const containerRef = useRef(null);
 
     useEffect(() => {
         let camera, controls, scene, renderer, effect;
-        let cube;
+        let shape;
         const start = Date.now();
         let frameRequest;
 
@@ -36,13 +36,14 @@ const AsciiAnimation = () => {
             const ambientLight = new THREE.AmbientLight(0x404040); // Soft white light
             scene.add(ambientLight);
 
-            // Cube setup
-            const geometry = new THREE.BoxGeometry(1, 1, 1);
+            // Shape setup
+            // const geometry = new THREE.BoxGeometry(1, 1, 1);
+            const geometry = new THREE.TorusKnotGeometry(8, 2, 75, 20, 2, 3);
 
             const material = new THREE.MeshLambertMaterial({ color: "#f1f1f1", flatShading: true });
-            cube = new THREE.Mesh(geometry, material);
-            cube.scale.set(2.0, 2.0, 2.0); // Uniform scaling
-            scene.add(cube);
+            shape = new THREE.Mesh(geometry, material);
+            shape.scale.set(2.0, 2.0, 2.0); // Uniform scaling
+            scene.add(shape);
 
             // Renderer
             renderer = new THREE.WebGLRenderer({ antialias: false, powerPreference: "low-power" });
@@ -67,7 +68,7 @@ const AsciiAnimation = () => {
             // TrackballControls for interaction
             controls = new TrackballControls(camera, effect.domElement);
             controls.enablePan = false;
-            controls.rotateSpeed = 1.5; // How fast you can rotate cube with mouse
+            controls.rotateSpeed = 1.5; // How fast you can rotate shape with mouse
             controls.zoomSpeed = 3.0;   // How fast you zoom in and out
             controls.staticMoving = true; // Immediate responsiveness (true) or enable inertia (false).
             controls.dynamicDampingFactor = 0.3; // When staticMoving is false, controls the damping of the inertia effect
@@ -90,9 +91,9 @@ const AsciiAnimation = () => {
         function animate() {
             const elapsed = (Date.now() - start) / 1000;
 
-            // Rotate the cube (adjust value to change rotation speed)
-            cube.rotation.y = elapsed * Math.PI * 0.2;
-            cube.rotation.z = elapsed * Math.PI * 0.2;
+            // Rotate the shape (adjust value to change rotation speed)
+            shape.rotation.y = elapsed * Math.PI * 0.1;
+            shape.rotation.z = elapsed * Math.PI * 0.1;
 
             controls.update();
             effect.render(scene, camera);
@@ -120,8 +121,8 @@ const AsciiAnimation = () => {
     return (
         <div
             ref={containerRef}
-            id="ascii-cube"
-            className="absolute top-44 md:top-52 xl:top-0 right-0 w-50vw h-[50vh] lg:h-[60vh] xl:h-90vh z-10
+            id="ascii-shape"
+            className="absolute top-0 right-10 w-50vw h-[30vh] lg:h-[40vh] 4xl:h-[30vh] 5xl:h-[25vh] z-10
                 *:!cursor-none touch-pinch-zoom overflow-clip"
         />
     );

@@ -11,16 +11,16 @@ const Art = () => {
     return (
         <>
             <Header/>
-            <main className="pt-16 xl:pt-24">
-                {/*<section className="relative flex justify-center items-center p-7 h-screen">*/}
-                {/*    <div className="absolute top-0 bottom-0 flex flex-wrap w-full -z-10 *:w-1/4*/}
-                {/*        *:border-customGrayLight *:dark:border-customBlackLight">*/}
-                {/*        <div className="border-r"></div>*/}
-                {/*        <div className="border-r"></div>*/}
-                {/*        <div className="border-r"></div>*/}
-                {/*        <div className=""></div>*/}
-                {/*    </div>*/}
-                {/*</section>*/}
+            <main className="pt-14">
+                <section className="relative flex justify-center items-center p-7 h-[60vh]">
+                    <div className="absolute top-0 bottom-0 flex flex-wrap w-full -z-10 *:w-1/4
+                        *:border-customGrayLight *:dark:border-customBlackLight">
+                        <div className="border-r"></div>
+                        <div className="border-r"></div>
+                        <div className="border-r"></div>
+                        <div className=""></div>
+                    </div>
+                </section>
                 {/* Use horizontal scroll only on desktop, since it is awkward on touch screens */}
                 {!isMobile ?
                     <section className="relative flex justify-center items-center w-full uppercase font-raleway">
@@ -31,19 +31,28 @@ const Art = () => {
                             <div className="border-r"></div>
                             <div className=""></div>
                         </div>
-                        {/*<h1 className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 -z-10 text-8xl">Creative mind</h1>*/}
-                        <HorizontalScrollSection itemWidth={500} gap={20}>
-                            {items.map((item) => (
+                        <h1 className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 -z-10 text-8xl font-outfit">
+                            Creative Works
+                        </h1>
+                        <HorizontalScrollSection gap={20}>
+                            {items.map((item) => {
+                                const animationProps = item.hasAnimation
+                                ? {
+                                    initial: {opacity: 0, y: 70},
+                                    whileInView: {opacity: 1, y: 0},
+                                    viewport: { once: true },
+                                    transition: {
+                                        duration: 0.5,
+                                        ease: "easeInOut",
+                                    },
+                                }
+                                : {};
+
+                                return (
                                 <motion.div
                                     key={item.id}
                                     className="flex flex-col"
-                                    // initial={{filter: 'blur(20px'}}
-                                    // whileInView={{filter: 'blur(0px'}}
-                                    // viewport={{amount: 0.1, once: true}}
-                                    // transition={{
-                                    //     duration: 0.5,
-                                    //     ease: "easeIn",
-                                    // }}
+                                    {...animationProps}
                                 >
                                     {/* Video/image content */}
                                     <Link to={item.link} className="">
@@ -89,7 +98,8 @@ const Art = () => {
                                         </div>
                                     </Link>
                                 </motion.div>
-                            ))}
+                                );
+                            })}
                         </HorizontalScrollSection>
                     </section>
                     :
