@@ -43,12 +43,17 @@ export default {
   		colors: {
 			customWhite: "#f1f1f1",
 			customBlack: "#070707",
-			customBlackLight: "#171717",
-			customGray: "#979797",
+			customBlackLight: "#1c1c1c",
+			customGray: "#9a9a9a",
 			customGrayLight: "#cfcfcf",
 			customNavy: "#100f14",
 			customNavyLight: "#15141a",
   		},
+		screens: {
+			'3xl': '2560px',
+			'4xl': '3024px',
+			'5xl': '3456px',
+		},
   	}
   },
   plugins: [], // Add any plugins here as needed

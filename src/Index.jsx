@@ -86,7 +86,7 @@ const Index = () => {
                 <AsciiAnimation/>
                 {/* Main landing text */}
                 <section className="relative flex justify-center items-center p-7 h-90vh">
-                    <div className="absolute top-0 bottom-0 flex flex-wrap w-full -z-10 *:w-1/4 *:border-b
+                    <div className="absolute top-0 left-0 flex flex-wrap w-full -z-10 *:w-1/4 *:border-b
                     *:border-customGrayLight *:dark:border-customBlackLight">
                         <div className="border-r"></div>
                         <div className="border-r"></div>

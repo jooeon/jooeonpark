@@ -17,6 +17,7 @@ export const items = [
         alt: "Ocular Prosthetic for Reading Another Human",
         padding: "pb-10 ",
         link: "",
+        hasAnimation: true,
     },
     {
         id: "steps",
@@ -32,6 +33,7 @@ export const items = [
         alt: "11,182,156 Steps",
         padding: "pb-10 xl:pt-40rem",
         link: "/steps",
+        hasAnimation: true,
     },
     {
         id: "running-in-a-dream",
@@ -53,6 +55,7 @@ export const items = [
         alt: "Running In a Dream, 2024",
         padding: "pb-10 ",
         link: "",
+        hasAnimation: true,
     },
     {
         id: "on-the-tracks",
@@ -80,6 +83,7 @@ export const items = [
         alt: "On The Tracks",
         padding: "pb-10 xl:pt-60rem",
         link: "",
+        hasAnimation: true,
     },
     {
         id: "recollection",
@@ -100,6 +104,7 @@ export const items = [
         alt: "Recollection",
         padding: "pb-10 ",
         link: "",
+        hasAnimation: true,
     },
     {
         id: "the-workers",
@@ -117,6 +122,7 @@ export const items = [
         alt: "The Workers",
         padding: "pb-10 xl:pt-40rem",
         link: "",
+        hasAnimation: false,
     },
     {
         id: "trapped",
@@ -134,6 +140,7 @@ export const items = [
         alt: "Trapped",
         padding: "pb-10 ",
         link: "",
+        hasAnimation: false,
     },
     {
         id: "man-child",
@@ -155,6 +162,7 @@ export const items = [
         alt: "Man-child",
         padding: "pb-10 xl:pt-96",
         link: "",
+        hasAnimation: false,
     },
     {
         id: "symbiosis",
@@ -172,5 +180,6 @@ export const items = [
         alt: "Symbiosis",
         padding: "pb-10 ",
         link: "",
+        hasAnimation: false,
     },
 ];

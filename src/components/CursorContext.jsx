@@ -18,9 +18,9 @@ export const CursorProvider = ({ children }) => {
                     || e.target.closest("img") || e.target.closest("video") || e.target.closest(".art-image")) {
                 setIsContentHovered(true);
             } else if (e.target.closest("a") || e.target.closest("button") || e.target.closest("p")
-                    || e.target.closest("h2")) {
+                    || e.target.closest("h2") || e.target.closest("caption")) {
                 setIsLinkHovered(true);
-            } else if (e.target.closest("#ascii-cube")) {
+            } else if (e.target.closest("#ascii-shape")) {
                 setIsInteractiveHovered(true)
             }
         };

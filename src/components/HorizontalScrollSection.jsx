@@ -1,17 +1,34 @@
-import { useRef } from 'react';
+import { useRef, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
 
 const HorizontalScrollSection = ({
                                      children,
-                                     itemWidth = 100, // Width of each item in the horizontal scroll
                                      gap = 10, // Gap between items
                                      duration = 0.5, // Smoothness of the scroll
                                  }) => {
     const containerRef = useRef(null);
+    const [itemWidth, setItemWidth] = useState(0);
 
-    // Calculate total scrollable width
-    const totalScrollWidth = (children.length * itemWidth) + (children.length - 1) * (gap * 2) - window.innerWidth + itemWidth/5;
+    useEffect(() => {
+        // Calculate dynamic item width so that ~4.5 items fit in the viewport
+        const updateItemWidth = () => {
+            setItemWidth(window.innerWidth / 4.5 - gap * 2);
+        };
+
+        // Initial calculation
+        updateItemWidth();
+
+        // Recalculate on window resize
+        window.addEventListener('resize', updateItemWidth);
+
+        // Cleanup on unmount
+        return () => window.removeEventListener('resize', updateItemWidth);
+    }, [gap]);
+
+    // Calculate total scrollable width dynamically
+    const totalScrollWidth =
+        children.length * (itemWidth + gap * 2) - window.innerWidth + itemWidth / 5;
 
     // Track scroll progress
     const { scrollYProgress } = useScroll({
@@ -46,7 +63,11 @@ const HorizontalScrollSection = ({
                         <div
                             key={index}
                             className={`flex h-full x-scroll-item`}
-                            style={{ width: `${itemWidth}px`, marginLeft: `${gap}px`, marginRight: `${gap}px` }}
+                            style={{
+                                width: `${itemWidth}px`,
+                                marginLeft: `${gap}px`,
+                                marginRight: `${gap}px`,
+                            }}
                         >
                             {child}
                         </div>
@@ -59,7 +80,6 @@ const HorizontalScrollSection = ({
 
 HorizontalScrollSection.propTypes = {
     children: PropTypes.arrayOf(PropTypes.node).isRequired,
-    itemWidth: PropTypes.number,
     gap: PropTypes.number,
     duration: PropTypes.number,
 };

@@ -44,6 +44,11 @@ const Header = ({delay = 0.4}) => {
                       </NavLink>
                   </li>
                   <li>
+                      <NavLink to="/tech" className={getLinkClasses}>
+                          Tech
+                      </NavLink>
+                  </li>
+                  <li>
                       <NavLink to="/about" className={getLinkClasses}>
                           About
                       </NavLink>
