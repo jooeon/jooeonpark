@@ -112,7 +112,7 @@ export default function ParallaxText({ textArray, baseVelocity = 100, scrollY })
     return (
         <motion.div
             ref={containerRef}
-            className="parallax-text flex whitespace-nowrap"
+            className="parallax-text flex whitespace-nowrap h-[110%]"
             style={{ x }} // Apply Framer Motion x transform
         >
             {repeatedText.map((text, index) => (
