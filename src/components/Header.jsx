@@ -21,8 +21,7 @@ const Header = ({delay = 0.4}) => {
 
     return (
       <motion.header
-          className="fixed top-0 w-full z-30 bg-customWhite/40 dark:bg-customBlack/40 backdrop-blur-sm
-            border-b border-customGrayLight dark:border-customBlackLight"
+          className="fixed top-0 w-full z-30"
           initial={{y: -100, opacity: 0}}
           animate={{y: 0, opacity: 1}}
           transition={{
@@ -31,11 +30,11 @@ const Header = ({delay = 0.4}) => {
               ease: [0.16, 1, 0.3, 1],
           }}>
           <motion.nav
-              className="flex items-center text-xs md:text-base uppercase
+              className="flex items-center text-xs md:text-base lowercase font-medium
                 justify-between p-5 xl:px-7 xl:py-4 [&_a]:after:bg-customBlack dark:[&_a]:after:bg-customWhite"
           >
               <Link to="/" className="textLink text-customBlack dark:text-customWhite">
-                  J.E.PARK
+                  Joo Eon Park
               </Link>
               <ul className="flex gap-2 md:gap-7">
                   <li>
