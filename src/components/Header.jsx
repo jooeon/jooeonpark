@@ -10,13 +10,13 @@ const Header = ({delay = 0.4}) => {
     const getLinkClasses = ({ isActive }) => {
         if (isLandingPage) {
             // On the landing page, all links are full opacity
-            return "textLink text-customBlack dark:text-customWhite";
+            return "text-link text-customBlack dark:text-customWhite";
         }
 
         // Inactive links are greyed out
         return isActive
-            ? "textLink text-customBlack dark:text-customWhite"
-            : "textLink text-customBlack dark:text-customWhite opacity-50 hover:opacity-100 transition-opacity duration-500";
+            ? "text-link text-customBlack dark:text-customWhite"
+            : "text-link text-customBlack dark:text-customWhite opacity-50 hover:opacity-100 transition-opacity duration-500";
     };
 
     return (
@@ -30,23 +30,26 @@ const Header = ({delay = 0.4}) => {
               ease: [0.16, 1, 0.3, 1],
           }}>
           <motion.nav
-              className="flex items-center text-xs md:text-base lowercase font-medium
-                justify-between p-5 xl:px-7 xl:py-4 [&_a]:after:bg-customBlack dark:[&_a]:after:bg-customWhite"
+              className="flex items-center justify-between text-xs md:text-base p-5 xl:px-7 xl:py-4
+              lowercase font-bold
+              [&_a]:after:bg-customBlack dark:[&_a]:after:bg-customWhite"
           >
-              <Link to="/" className="textLink text-customBlack dark:text-customWhite">
+              <Link to="/" className="text-link text-customBlack dark:text-customWhite">
                   Joo Eon Park
               </Link>
-              <ul className="flex gap-2 md:gap-7">
+              <ul className="flex gap-2 md:gap-3">
                   <li>
                       <NavLink to="/art" className={getLinkClasses}>
                           Art
                       </NavLink>
                   </li>
+                  <span className="font-outfit">/</span>
                   <li>
                       <NavLink to="/tech" className={getLinkClasses}>
                           Tech
                       </NavLink>
                   </li>
+                  <span className="font-outfit">/</span>
                   <li>
                       <NavLink to="/about" className={getLinkClasses}>
                           About

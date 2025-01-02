@@ -7,7 +7,7 @@ export const items = [
             "/images/Ocular Prosthetic for Reading Another Human_02.jpeg",
         ],
         caption: [
-            "OCULAR PROSTHETIC FOR READING ANOTHER HUMAN",
+            "Ocular Prosthetic for Reading Another Human",
             "Sculpture",
             "Plastic tubing, wire, glasses",
             "2024"
@@ -24,7 +24,7 @@ export const items = [
         isVideo: true,
         images: [],
         caption: [
-            "11,182,156 STEPS",
+            "11,182,156 Steps",
             "Digital",
             "Toshiba 1979 TV, DVD player, Speaker",
             "2024"
@@ -46,7 +46,7 @@ export const items = [
             "/images/Running In a Dream_Detail_04.jpg",
         ],
         caption: [
-            "RUNNING IN A DREAM",
+            "Running In a Dream",
             "Mixed media",
             "Plywood, colored pencils, fabric, nails",
             "2024"
@@ -74,7 +74,7 @@ export const items = [
             "/images/JooEon_Park_OnTheTracks_10.jpg"
         ],
         caption: [
-            "ON THE TRACKS",
+            "On The Tracks",
             "Street art",
             "Paint, ink, cardboard, tape",
             "2024",
@@ -95,7 +95,7 @@ export const items = [
             "/images/Recollection_03.jpg",
         ],
         caption: [
-            "RECOLLECTION",
+            "Recollection",
             "Drawing",
             "Ink, collage, plastic film",
             "2024"
@@ -113,7 +113,7 @@ export const items = [
             "/images/The_Workers.jpg",
         ],
         caption: [
-            "THE WORKERS",
+            "The Workers",
             "Printmaking",
             "Linocut",
             "2023"
@@ -131,7 +131,7 @@ export const items = [
             "/images/Trapped.jpg",
         ],
         caption: [
-            "TRAPPED",
+            "Trapped",
             "Printmaking",
             "Collagraph",
             "2023"
@@ -153,7 +153,7 @@ export const items = [
             "/images/Man-child_alt4.jpg",
         ],
         caption: [
-            "MAN-CHILD",
+            "Man-child",
             "Printmaking",
             "Woodcut",
             "2023"
@@ -171,7 +171,7 @@ export const items = [
             "/images/Symbiosis.jpg",
         ],
         caption: [
-            "SYMBIOSIS",
+            "Symbiosis",
             "Printmaking",
             "Linocut",
             "2020"

@@ -23,7 +23,7 @@ const Art = () => {
                 </section>
                 {/* Use horizontal scroll only on desktop, since it is awkward on touch screens */}
                 {!isMobile ?
-                    <section className="relative flex justify-center items-center w-full lowercase font-outfit">
+                    <section className="relative flex justify-center items-center w-full">
                         <div className="absolute top-0 bottom-0 flex flex-wrap w-full -z-10 *:w-1/4
                         *:border-customGrayLight *:dark:border-customBlackLight">
                             <div className="border-r"></div>
@@ -31,7 +31,7 @@ const Art = () => {
                             <div className="border-r"></div>
                             <div className=""></div>
                         </div>
-                        <h1 className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 -z-10 text-8xl font-poppins">
+                        <h1 className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 -z-10 text-8xl font-bold lowercase">
                             Creative Works
                         </h1>
                         <HorizontalScrollSection gap={20}>
@@ -77,7 +77,7 @@ const Art = () => {
                                             />
                                         )}
                                         {/* Bottom captions */}
-                                        <div className="flex justify-between pt-1">
+                                        <div className="flex justify-between pt-1 font-outfit uppercase">
                                             {item.caption && (
                                                 <>
                                                     {/* Bottom-Left Caption */}

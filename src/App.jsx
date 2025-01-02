@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Route, Routes, useLocation } from "react-route
 import { AnimatePresence } from "framer-motion";
 import { motion } from "framer-motion";
 import { isMobile } from "react-device-detect";
+import { ReactLenis } from 'lenis/react'
 import Index from "./Index.jsx";
 import Art from "./Art.jsx";
 import Tech from "./Tech.jsx";
@@ -74,12 +75,14 @@ const AnimatedRoutes = () => {
 
 const App = () => {
     return (
-        <Router>
-            <CursorProvider>
-                <AnimatedRoutes />
-                {!isMobile && <Cursor />}
-            </CursorProvider>
-        </Router>
+        <ReactLenis root>
+            <Router>
+                <CursorProvider>
+                    <AnimatedRoutes />
+                    {!isMobile && <Cursor />}
+                </CursorProvider>
+            </Router>
+        </ReactLenis>
     );
 };
 

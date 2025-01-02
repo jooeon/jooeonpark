@@ -2,6 +2,7 @@ import Header from "./components/Header.jsx";
 import Footer from "./components/Footer.jsx";
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
+import ScrollText from "./components/ScrollTextAnim.jsx";
 
 const About = () => {
 
@@ -80,16 +81,41 @@ const About = () => {
                         >
                             <p className="">
                                 Joo Eon Park is a South Korean artist, designer, and software engineer
-                                with a passion for endless creativity, attentive design, and precise execution
-                                through his interdisciplinary work in design and technology.
+                                with a passion for design and creation, integrating his interdisciplinary expertise
+                                in design and technology to build platforms for creative expression.
                             </p>
                             <p className="mt-4">
                                 With diverse backgrounds in Computer Science, Digital Media, and Studio Art,
-                                Park blends his multifaceted expertise to create experiences that are both highly
-                                functional and visually engaging.
+                                he blends his multifaceted expertise to create experiences that are both highly
+                                functional and visually engaging. In pursuit of limitless creativity, attentive design,
+                                and precise execution in his work, Park brings a perspective that integrates the minds
+                                of artists, designers, and technicians alike.
+                            </p>
+                            <p className="mt-4">
+                                Park offers professional skills and knowledge in Full-Stack Web Development,
+                                Human-Computer Interaction, Graphic Design, UI/UX, and Visual Arts.
                             </p>
                         </motion.div>
                     </section>
+                    {/*<section className="flex flex-col gap-14 sm:gap-20 px-7 pb-20 mt-60 h-fit">*/}
+                    {/*    /!* About text *!/*/}
+                    {/*    <motion.div*/}
+                    {/*        className="xl:w-2/3 text-xl md:text-3xl lg:text-3xl 2xl:text-8xl font-outfit font-semibold"*/}
+                    {/*        initial={{opacity: 0}}*/}
+                    {/*        animate={{opacity: 1}}*/}
+                    {/*        transition={{*/}
+                    {/*            duration: 0.3,*/}
+                    {/*            delay: 3.0,*/}
+                    {/*            ease: "easeIn"*/}
+                    {/*        }}*/}
+                    {/*    >*/}
+                    {/*        <h2 className="text-customGray mb-2 ml-1 min-h-7 md:min-h-9 xl:min-h-10 text-lg lowercase">*/}
+                    {/*            [ About ]*/}
+                    {/*        </h2>*/}
+                    {/*        <ScrollText*/}
+                    {/*            paragraph={"in pursuit of limitless creativity, meticulous design, and flawless execution."}/>*/}
+                    {/*    </motion.div>*/}
+                    {/*</section>*/}
                 </div>
             </main>
             <Footer/>

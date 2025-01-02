@@ -17,19 +17,18 @@ body a {
     - z-30: Header
     - z-30: Footer
         - z-20: landing text
-            - z-10: Cube animation
-                - -z-10: borders background
+            - -z-10: borders background
 
 */
 
 /* Links styling  */
 
-a.textLink {
+a.text-link {
     position: relative;
     display: inline-block;
 }
 
-a.textLink::after {
+a.text-link::after {
     content: '';
     position: absolute;
     width: 100%;
@@ -42,7 +41,7 @@ a.textLink::after {
     will-change: transform; /* Optional performance optimization */
 }
 
-a.textLink:hover::after {
+a.text-link:hover::after {
     transform-origin: left;
     transform: scaleX(1); /* Expands underline from left to right */
 }
