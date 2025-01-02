@@ -79,8 +79,8 @@ const Index = () => {
                 {/* Main landing text */}
                 <section className="relative flex flex-col items-end gap-5 p-4 md:p-7 w-fit h-fit">
                     <motion.h1
-                        className="title-text inline-block w-fit z-20 font-poppins font-extrabold lowercase
-                        text-5xl sm:text-6xl md:text-8xl lg:text-9xl xl:text-12xl 2xl:text-17xl"
+                        className="title-text w-min h-5/6 z-20 font-poppins font-extrabold lowercase
+                        text-5xl sm:text-6xl md:text-8xl lg:text-9xl xl:text-12xl 2xl:text-12xl 3xl:text-17xl"
                         initial={{filter: 'blur(10px)'}}
                         animate={{filter: 'blur(0px)'}}
                         transition={{
@@ -89,42 +89,41 @@ const Index = () => {
                             ease: "easeOut" // easeOutExpo
                         }}
                     >
-                        <span className="inline-block">Design &</span>
-                        <span className="inline-block">Engineering</span>
+                        Design & Engineering
                     </motion.h1>
-                    {/*<h2 className="absolute bottom-5 flex flex-col gap-4 w-fit*/}
-                    {/*    font-poppins font-semibold*/}
-                    {/*    text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-2xl">*/}
-                    {/*    <motion.span*/}
-                    {/*        className="title-text w-fit"*/}
-                    {/*        initial={{opacity: 0}}*/}
-                    {/*        animate={{opacity: 1}}*/}
-                    {/*        transition={{*/}
-                    {/*            duration: 0.75,*/}
-                    {/*            delay: 2.0,*/}
-                    {/*            ease: "easeOut" // easeOutExpo*/}
-                    {/*        }}*/}
-                    {/*    >*/}
-                    {/*        of platforms for creative expression*/}
-                    {/*    </motion.span>*/}
-                    {/*    <motion.span*/}
-                    {/*        className="title-text w-fit pl-52"*/}
-                    {/*        initial={{opacity: 0}}*/}
-                    {/*        animate={{opacity: 1}}*/}
-                    {/*        transition={{*/}
-                    {/*            duration: 0.75,*/}
-                    {/*            delay: 2.0,*/}
-                    {/*            ease: "easeOut" // easeOutExpo*/}
-                    {/*        }}*/}
-                    {/*    >*/}
-                    {/*        built for high performance and timeless aesthetics*/}
-                    {/*    </motion.span>*/}
-                    {/*</h2>*/}
+                    <h2 className="absolute -bottom-16 -right-32 flex flex-col items-end gap-4 w-fit
+                        font-poppins font-semibold
+                        text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-3xl">
+                        <motion.span
+                            className="title-text w-fit pr-96"
+                            initial={{opacity: 0}}
+                            animate={{opacity: 1}}
+                            transition={{
+                                duration: 0.75,
+                                delay: 2.0,
+                                ease: "easeOut" // easeOutExpo
+                            }}
+                        >
+                            of platforms for creative expression
+                        </motion.span>
+                        <motion.span
+                            className="title-text w-fit"
+                            initial={{opacity: 0}}
+                            animate={{opacity: 1}}
+                            transition={{
+                                duration: 0.75,
+                                delay: 2.0,
+                                ease: "easeOut" // easeOutExpo
+                            }}
+                        >
+                            built for high performance and timeless aesthetics
+                        </motion.span>
+                    </h2>
                 </section>
                 {/* Content section */}
                 <section className="relative flex flex-col gap-14 sm:gap-20 p-7 pb-20 h-fit">
                     {/* About text */}
-                    <div className="xl:w-1/2 text-xl md:text-3xl lg:text-3xl 2xl:text-4xl lg:p-5">
+                    <div className="xl:w-1/2 text-xl md:text-3xl lg:text-3xl 2xl:text-4xl lg:p-5 font-poppins">
                         <h2 className="text-customGray mb-2 ml-1 min-h-7 md:min-h-9 xl:min-h-10 text-lg lowercase">
                             About
                         </h2>

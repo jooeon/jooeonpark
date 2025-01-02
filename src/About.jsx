@@ -30,7 +30,7 @@ const About = () => {
                     </section>
                     <section
                         className="flex flex-col justify-center xl:h-screen xl:w-50vw px-8 md:px-12 lg:px-16 xl:pl-10 xl:pr-40">
-                        <h1 className="title-text flex flex-col gap-2 xl:gap-4 xl:flex-row text-4xl md:text-6xl lowercase font-poppins font-bold">
+                        <h1 className="title-text flex flex-col gap-2 xl:gap-4 xl:flex-row text-4xl lg:text-5xl lowercase font-poppins font-bold">
                             <motion.span
                                 className=""
                                 initial={{opacity: 0, filter: 'blur(3px)'}}
@@ -69,7 +69,7 @@ const About = () => {
                             </motion.span>
                         </h1>
                         <motion.div
-                            className="py-6 xl:py-8 text-sm md:text-xl leading-snug font-outfit font-medium"
+                            className="py-6 xl:py-8 text-sm md:text-xl leading-snug font-poppins font-medium"
                             initial={{opacity: 0}}
                             animate={{opacity: 1}}
                             transition={{
