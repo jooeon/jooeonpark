@@ -120,7 +120,7 @@ const AnimatedText = () => {
         <motion.h1
             id="animated-text"
             className="fixed w-64 top-1/2 left-1/2 text-center
-                transform -translate-x-1/2 -translate-y-1/2 text-35px font-bold z-30"
+                transform -translate-x-1/2 -translate-y-1/2 text-35px z-30"
             initial="hidden"
             animate={controls}
         >

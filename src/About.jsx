@@ -29,8 +29,8 @@ const About = () => {
                         </motion.div>
                     </section>
                     <section
-                        className="flex flex-col justify-center xl:h-screen xl:w-50vw px-10 md:px-12 lg:px-16 xl:pl-10 xl:pr-40">
-                        <h1 className="flex flex-col gap-2 xl:gap-4 xl:flex-row text-4xl md:text-6xl uppercase font-raleway font-bold">
+                        className="flex flex-col justify-center xl:h-screen xl:w-50vw px-8 md:px-12 lg:px-16 xl:pl-10 xl:pr-40">
+                        <h1 className="title-text flex flex-col gap-2 xl:gap-4 xl:flex-row text-4xl md:text-6xl lowercase font-poppins font-bold">
                             <motion.span
                                 className=""
                                 initial={{opacity: 0, filter: 'blur(3px)'}}
@@ -69,7 +69,7 @@ const About = () => {
                             </motion.span>
                         </h1>
                         <motion.div
-                            className="py-6 xl:py-8 text-2xl md:text-35px leading-snug text-customGray"
+                            className="py-6 xl:py-8 text-sm md:text-xl leading-snug font-outfit font-medium"
                             initial={{opacity: 0}}
                             animate={{opacity: 1}}
                             transition={{
@@ -80,11 +80,11 @@ const About = () => {
                         >
                             <p className="">
                                 Joo Eon Park is a South Korean artist, designer, and software engineer
-                                pursuing endless creativity, attentive design, and precise execution through his
-                                interdisciplinary work in design and technology.
+                                with a passion for endless creativity, attentive design, and precise execution
+                                through his interdisciplinary work in design and technology.
                             </p>
                             <p className="mt-4">
-                                With diverse backgrounds in Computer Science, Digital Media, and Visual Art,
+                                With diverse backgrounds in Computer Science, Digital Media, and Studio Art,
                                 Park blends his multifaceted expertise to create experiences that are both highly
                                 functional and visually engaging.
                             </p>
