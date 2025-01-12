@@ -57,7 +57,7 @@ const EncryptionText = ({ text, delay = 0, duration = 2, speed = 10 }) => {
         >
             {encryptionText.map((char, index) => (
                 <motion.span
-                    style={char === " " ? { width: "0.5rem" } : {}}
+                    style={char === " " ? { width: "0.3rem" } : {}}
                     key={index}
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}

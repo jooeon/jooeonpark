@@ -12,8 +12,7 @@ export const items = [
             "Plastic tubing, wire, glasses",
             "2024"
         ],
-        thumbnail:
-            "/images/thumbnails/Ocular Prosthetic for Reading Another Human_thumb.jpeg",
+        thumbnail: "/images/thumbnails/Ocular Prosthetic for Reading Another Human_thumb.jpeg",
         alt: "Ocular Prosthetic for Reading Another Human",
         padding: "pb-10 ",
         link: "",
@@ -71,7 +70,9 @@ export const items = [
             "/images/JooEon_Park_OnTheTracks_07.JPEG",
             "/images/JooEon_Park_OnTheTracks_08.JPEG",
             "/images/JooEon_Park_OnTheTracks_09.JPEG",
-            "/images/JooEon_Park_OnTheTracks_10.jpg"
+            "/images/JooEon_Park_OnTheTracks_10.jpg",
+            "/images/JooEon_Park_OnTheTracks_16.JPEG",
+            "/images/JooEon_Park_OnTheTracks_10.JPEG",
         ],
         caption: [
             "On The Tracks",
@@ -107,6 +108,28 @@ export const items = [
         hasAnimation: true,
     },
     {
+        id: "encapsulated",
+        isVideo: false,
+        images: [
+            "/images/JooEon_Park_Encapsulation_03.jpg",
+            "/images/JooEon_Park_Encapsulation_05.jpg",
+            "/images/JooEon_Park_Encapsulation_06.jpg",
+            "/images/JooEon_Park_Encapsulation_11.jpg",
+            "/images/JooEon_Park_Encapsulation_13.jpg",
+        ],
+        caption: [
+            "Encapsulated",
+            "Artist Book",
+            "Folded construction paper and card stock, etching and collagraph",
+            "2024"
+        ],
+        thumbnail: "/images/thumbnails/JooEon_Park_Encapsulation_thumb.jpg",
+        alt: "Encapsulated, 2024",
+        padding: "",
+        link: "",
+        hasAnimation: false,
+    },
+    {
         id: "the-workers",
         isVideo: false,
         images: [
@@ -139,6 +162,24 @@ export const items = [
         thumbnail:  "/images/thumbnails/Trapped_thumb.jpg",
         alt: "Trapped",
         padding: "pb-10 ",
+        link: "",
+        hasAnimation: false,
+    },
+    {
+        id: "behind-you",
+        isVideo: false,
+        images: [
+            "/images/BehindYou!.jpg",
+        ],
+        caption: [
+            "Behind You!",
+            "Printmaking",
+            "CMYK Screenprint",
+            "2023"
+        ],
+        thumbnail:  "/images/thumbnails/BehindYou!_thumb.jpg",
+        alt: "Behind You!",
+        padding: "",
         link: "",
         hasAnimation: false,
     },

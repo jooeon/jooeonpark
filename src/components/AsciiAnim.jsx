@@ -23,7 +23,7 @@ const AsciiAnimation = () => {
             const containerHeight = container.offsetHeight;
 
             camera = new THREE.PerspectiveCamera(70, containerWidth / containerHeight, 0.1, 1000);
-            camera.position.z = 5;
+            camera.position.z = 3;
 
             // Scene setup
             scene = new THREE.Scene();
@@ -37,8 +37,8 @@ const AsciiAnimation = () => {
             scene.add(ambientLight);
 
             // Shape setup
-            // const geometry = new THREE.BoxGeometry(1, 1, 1);
-            const geometry = new THREE.TorusKnotGeometry(8, 2, 75, 20, 2, 3);
+            const geometry = new THREE.BoxGeometry(1, 1, 1);
+            // const geometry = new THREE.TorusKnotGeometry(8, 2, 75, 20, 2, 3);
 
             const material = new THREE.MeshLambertMaterial({ color: "#f1f1f1", flatShading: true });
             shape = new THREE.Mesh(geometry, material);

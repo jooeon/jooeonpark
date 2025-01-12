@@ -4,6 +4,7 @@ export default {
     content: ["./index.html", "./src/**/*.{ts,tsx,js,jsx}"],
   theme: {
 	fontFamily: {
+		'work': ['Work Sans', 'Outfit', 'Arial', 'system-ui', 'sans-serif'],
 		'poppins': ['Poppins', 'Outfit', 'Arial', 'system-ui', 'sans-serif'],
 		'raleway': ['Raleway', 'Outfit', 'Arial', 'system-ui', 'sans-serif'],
 		'outfit': ['Outfit', 'Arial', 'system-ui', 'sans-serif'],
@@ -37,6 +38,7 @@ export default {
 		},
 		fontSize: {
 			'35px': '35px',
+			'xxs': ['0.5rem', '0.75rem'],
 			'10xl': '10rem', /* 160px */
 			'11xl': '12rem', /* 192px */
 			'12xl': '13.5rem', /* 216px */
@@ -55,11 +57,12 @@ export default {
 			customBlack: "#070707",
 			customBlackLight: "#1c1c1c",
 			customGray: "#9a9a9a",
-			customGrayLight: "#dcdcdc",
+			customGrayLight: "#ececec",
 			customNavy: "#100f14",
 			customNavyLight: "#15141a",
   		},
 		screens: {
+			'xs': '390px',
 			'3xl': '2560px',
 			'4xl': '3024px',
 			'5xl': '3456px',

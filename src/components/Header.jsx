@@ -1,6 +1,7 @@
 import { NavLink, Link, useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
 import PropTypes from "prop-types";
+import EncryptionText from "./EncryptionAnim.jsx";
 
 const Header = ({delay = 0.4}) => {
 
@@ -10,18 +11,18 @@ const Header = ({delay = 0.4}) => {
     const getLinkClasses = ({ isActive }) => {
         if (isLandingPage) {
             // On the landing page, all links are full opacity
-            return "text-link text-customBlack dark:text-customWhite";
+            return "text-link";
         }
 
         // Inactive links are greyed out
         return isActive
-            ? "text-link text-customBlack dark:text-customWhite"
-            : "text-link text-customBlack dark:text-customWhite opacity-50 hover:opacity-100 transition-opacity duration-500";
+            ? "text-link"
+            : "text-link opacity-50 hover:opacity-100 transition-opacity duration-500";
     };
 
     return (
       <motion.header
-          className="fixed top-0 w-full z-30"
+          className="fixed top-0 w-full z-30 mix-blend-difference"
           initial={{y: -100, opacity: 0}}
           animate={{y: 0, opacity: 1}}
           transition={{
@@ -31,11 +32,15 @@ const Header = ({delay = 0.4}) => {
           }}>
           <motion.nav
               className="flex items-center justify-between text-xs md:text-base p-5 xl:px-7 xl:py-4
-              lowercase font-bold
-              [&_a]:after:bg-customBlack dark:[&_a]:after:bg-customWhite"
+              uppercase font-semibold text-customWhite [&_a]:after:bg-customWhite"
           >
-              <Link to="/" className="text-link text-customBlack dark:text-customWhite">
-                  Joo Eon Park
+              <Link to="/" className="text-link">
+                  <EncryptionText
+                      text={"Joo Eon Park"}
+                      delay={0}
+                      duration={0.5}
+                      speed={20}
+                  />
               </Link>
               <ul className="flex gap-2 md:gap-3">
                   <li>
