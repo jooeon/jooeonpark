@@ -6,9 +6,14 @@ body a {
     cursor: none;
 }
 
-#ascii-cube table, tr, td {
+#ascii-shape table, tr, td {
     pointer-events: none;
 }
+
+/*.title-text {*/
+/*    -webkit-text-stroke: 1px #070707;*/
+/*}*/
+
 
 /* Z Indices */
 /*

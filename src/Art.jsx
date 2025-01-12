@@ -13,6 +13,10 @@ const Art = () => {
             <Header/>
             <main className="">
                 <section className="relative flex justify-center items-center p-7 h-[60vh]">
+                    <h1 className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full text-center leading-none
+                            text-8xl uppercase font-outfit">
+                        Creative Works
+                    </h1>
                     <div className="absolute top-0 bottom-0 flex flex-wrap w-full -z-10 *:w-1/4
                         *:border-customGrayLight *:dark:border-customBlackLight">
                         <div className="border-r"></div>
@@ -25,15 +29,12 @@ const Art = () => {
                 {!isMobile ?
                     <section className="relative flex justify-center items-center w-full">
                         <div className="absolute top-0 bottom-0 flex flex-wrap w-full -z-10 *:w-1/4
-                        *:border-customGrayLight *:dark:border-customBlackLight">
+                            *:border-customGrayLight *:dark:border-customBlackLight">
                             <div className="border-r"></div>
                             <div className="border-r"></div>
                             <div className="border-r"></div>
                             <div className=""></div>
                         </div>
-                        <h1 className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 -z-10 text-8xl font-bold lowercase">
-                            Creative Works
-                        </h1>
                         <HorizontalScrollSection gap={20}>
                             {items.map((item) => {
                                 const animationProps = item.hasAnimation

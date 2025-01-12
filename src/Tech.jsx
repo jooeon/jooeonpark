@@ -2,8 +2,7 @@ import Header from "./components/Header.jsx";
 import Footer from "./components/Footer.jsx";
 import { useScroll } from "framer-motion";
 import EncryptionText from "./components/EncryptionAnim.jsx";
-// import AsciiAnimation from "./components/AsciiAnim.jsx";
-import TransmissionModel from "./components/TransmissionModel.jsx";
+import AsciiAnimation from "./components/AsciiAnim.jsx";
 import ParallaxText from "./components/ParallaxText.jsx";
 import { isMobile } from "react-device-detect";
 import {Link} from "react-router-dom";
@@ -18,8 +17,9 @@ const Tech = () => {
             <Header/>
             <main className="pt-16 xl:pt-24">
                 {/* Main landing text */}
-                <section className="relative flex flex-col gap-16 md:gap-28 lg:gap-36 px-5 md:px-7 h-screen">
+                <section className="relative flex flex-col gap-16 md:gap-28 lg:gap-36 h-screen">
                     {/* 3D animation */}
+                    <AsciiAnimation/>
                     {/*
                         Swap between TransmissionModel and AsciiAnimation for different moods
                         Use h1 below for AsciiAnimation
@@ -31,8 +31,9 @@ const Tech = () => {
                     {/*    Digital Experiences*/}
                     {/*</h1>*/}
                     {/* About text */}
-                    <div className="xl:w-1/2 text-xl md:text-3xl lg:text-3xl 2xl:text-4xl xl:pl-5">
-                        <h2 className="lowercase font-semibold font-outfit mb-2 ml-1 min-h-7 md:min-h-9 xl:min-h-10 text-xs md:text-base lg:text-lg">
+                    <div className="xl:w-1/2 text-xl md:text-3xl lg:text-3xl 2xl:text-4xl">
+                        <h2 className="lowercase font-semibold font-outfit px-5 mb-5 min-h-7 md:min-h-9 xl:min-h-10
+                            text-xs md:text-base lg:text-lg">
                             <EncryptionText
                                 text={"Skills"}
                                 delay={0.4}
@@ -40,7 +41,7 @@ const Tech = () => {
                                 speed={20}
                             />
                         </h2>
-                        <div className="flex flex-col gap-10 w-full text-xl lowercase
+                        <div className="flex flex-col gap-10 w-full text-xl lowercase px-5
                             [&_caption]:w-fit [&_caption]:mb-2 [&_caption]:text-start
                             [&_caption]:text-xl [&_caption]md:text-2xl [&_caption]:lg:text-3xl [&_caption]:font-bold
                             [&_tr]:border-b [&_tr]:text-customGray [&_tr]:border-customGrayLight [&_tr]:dark:border-customBlackLight [&_tr]:font-semibold
@@ -99,9 +100,9 @@ const Tech = () => {
                         </div>
                     </div>
                     {/* Tech stack parallax text */}
-                    <div className="mb-10 md:mb-12 lg:mb-[4.5rem] 2xl:mb-24
-                        xl:px-5 lowercase">
-                        <h2 className="font-semibold mb-2 ml-1 min-h-7 md:min-h-9 xl:min-h-10 text-xs md:text-base lg:text-lg">
+                    <div className="lowercase">
+                        <h2 className="font-semibold px-5 min-h-7 md:min-h-9 xl:min-h-10
+                            text-xs md:text-base lg:text-lg">
                             <EncryptionText
                                 text={"Tech Stack & Software"}
                                 delay={0.4}
@@ -109,8 +110,9 @@ const Tech = () => {
                                 speed={20}
                             />
                         </h2>
-                        <div className="absolute left-0 w-full flex overflow-hidden items-center font-extrabold py-5
-                            text-4xl md:text-5xl lg:text-7xl 2xl:text-12xl">
+                        <div className="w-full flex overflow-hidden items-center font-extrabold
+                            text-4xl md:text-5xl lg:text-7xl 2xl:text-10xl
+                            h-56">
                             <ParallaxText
                                 textArray={["react", "next.js", "tailwind", "framer motion", "sql", "prisma", "adobe cc", "figma"]}
                                 baseVelocity={isMobile ? 50 : 100}
@@ -119,8 +121,9 @@ const Tech = () => {
                         </div>
                     </div>
                     {/* Connect text */}
-                    <div className="xl:w-1/2 text-xl md:text-3xl lg:text-3xl 2xl:text-4xl xl:px-5">
-                        <h2 className="lowercase font-semibold mb-2 ml-1 min-h-7 md:min-h-9 xl:min-h-10 text-xs md:text-base lg:text-lg">
+                    <div className="xl:w-1/2 text-xl md:text-3xl lg:text-3xl 2xl:text-4xl">
+                        <h2 className="lowercase font-semibold px-5 mb-5 min-h-7 md:min-h-9 xl:min-h-10
+                            text-xs md:text-base lg:text-lg">
                             <EncryptionText
                                 text={"Connect"}
                                 delay={0.4}
@@ -128,7 +131,7 @@ const Tech = () => {
                                 speed={20}
                             />
                         </h2>
-                        <div className="flex gap-10 md:gap-20 lowercase font-semibold">
+                        <div className="flex gap-10 md:gap-20 px-5 lowercase font-semibold">
                             <Link to="https://www.linkedin.com/in/joo-eon-park/" target="_blank"
                                   className="text-link text-customBlack dark:text-customWhite after:bg-customBlack dark:after:bg-customWhite">
                                 LinkedIn
