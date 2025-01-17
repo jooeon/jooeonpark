@@ -120,7 +120,7 @@ const Tech = () => {
                                 speed={20}
                             />
                         </h2>
-                        <div className="flex gap-10 md:gap-20 xl:px-5 font-normal font-outfit">
+                        <div className="flex gap-10 md:gap-20 xl:px-5 font-light font-outfit">
                             <Link to="https://www.linkedin.com/in/joo-eon-park/" target="_blank"
                                   className="text-link text-customBlack dark:text-customWhite after:bg-customBlack dark:after:bg-customWhite">
                                 LinkedIn
