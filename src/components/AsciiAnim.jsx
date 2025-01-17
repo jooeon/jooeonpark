@@ -38,7 +38,7 @@ const AsciiAnimation = () => {
 
             // Shape setup
             const geometry = new THREE.BoxGeometry(1, 1, 1);
-            // const geometry = new THREE.TorusKnotGeometry(8, 2, 75, 20, 2, 3);
+            // const geometry = new THREE.TorusKnotGeometry(8, 2, 100, 30, 2, 3);
 
             const material = new THREE.MeshLambertMaterial({ color: "#f1f1f1", flatShading: true });
             shape = new THREE.Mesh(geometry, material);

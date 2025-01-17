@@ -88,7 +88,7 @@ const About = () => {
                                 With diverse backgrounds in Computer Science, Digital Media, and Studio Art,
                                 he blends his multifaceted expertise to create experiences that are both highly
                                 functional and visually engaging. In pursuit of limitless creativity, attentive design,
-                                and precise execution in his work, Park brings a perspective that integrates the minds
+                                and flawless execution in his work, Park brings a perspective that integrates the minds
                                 of artists, designers, and technicians alike.
                             </p>
                             <p className="mt-4">

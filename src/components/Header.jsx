@@ -31,14 +31,14 @@ const Header = ({delay = 0.4}) => {
               ease: [0.16, 1, 0.3, 1],
           }}>
           <motion.nav
-              className="flex items-center justify-between text-xs md:text-base p-5 xl:px-7 xl:py-4
+              className="flex items-center justify-between text-xs md:text-sm p-5 xl:px-7 xl:py-4
               uppercase font-semibold text-customWhite [&_a]:after:bg-customWhite"
           >
               <Link to="/" className="text-link">
                   <EncryptionText
                       text={"Joo Eon Park"}
                       delay={0}
-                      duration={0.5}
+                      duration={0.3}
                       speed={20}
                   />
               </Link>
