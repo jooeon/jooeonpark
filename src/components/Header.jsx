@@ -22,7 +22,7 @@ const Header = ({delay = 0.4}) => {
 
     return (
       <motion.header
-          className="fixed top-0 w-full z-30 mix-blend-difference"
+          className="fixed top-0 w-full z-30"
           initial={{y: -100, opacity: 0}}
           animate={{y: 0, opacity: 1}}
           transition={{
@@ -32,7 +32,7 @@ const Header = ({delay = 0.4}) => {
           }}>
           <motion.nav
               className="flex items-center justify-between text-xs md:text-sm p-5 xl:px-7 xl:py-4
-              uppercase font-semibold text-customWhite [&_a]:after:bg-customWhite"
+              uppercase font-semibold [&_a]:after:bg-customBlack dark:[&_a]:after:bg-customWhite"
           >
               <Link to="/" className="text-link">
                   <EncryptionText

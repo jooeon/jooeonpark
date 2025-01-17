@@ -78,7 +78,7 @@ const Art = () => {
                                                 />
                                             )}
                                             {/* Bottom captions */}
-                                            <div className="flex justify-between pt-1 font-outfit uppercase">
+                                            <div className="flex justify-between pt-1 font-poppins uppercase">
                                                 {item.caption && (
                                                     <>
                                                         {/* Bottom-Left Caption */}
