@@ -22,8 +22,8 @@ const Tech = () => {
                     {!isMobile && <AsciiAnimation/>}
                     {/* About text */}
                     <div className="xl:w-1/2 text-xl md:text-3xl lg:text-3xl 2xl:text-4xl px-5 xl:px-7">
-                        <h2 className="uppercase font-bold font-outfit mb-5 min-h-7 md:min-h-9 xl:min-h-10
-                            text-xs md:text-base lg:text-lg">
+                        <h2 className="uppercase font-bold mb-5 min-h-7 md:min-h-9 xl:min-h-10
+                            text-xs md:text-base lg:text-xl">
                             <EncryptionText
                                 text={"Skills"}
                                 delay={0.4}
@@ -31,11 +31,10 @@ const Tech = () => {
                                 speed={20}
                             />
                         </h2>
-                        <div className="flex flex-col gap-10 w-full text-xl xl:px-5 font-outfit
-                            [&_caption]:w-fit [&_caption]:mb-2 [&_caption]:text-start
-                            [&_caption]:text-lg [&_caption]md:text-xl [&_caption]:lg:text-2xl [&_caption]:uppercase
+                        <div className="flex flex-col gap-10 w-full xl:px-5 text-xs md:text-base lg:text-xl
+                            [&_caption]:w-fit [&_caption]:mb-2 [&_caption]:text-start [&_caption]:font-medium
                             [&_tr]:border-b [&_tr]:text-customGray [&_tr]:border-customGrayLight [&_tr]:dark:border-customBlackLight
-                            [&_td]:pt-2 [&_td]:pb-1 [&_td]:pl-3 [&_td]:md:pl-5 [&_td]:relative [&_td]:text-xs [&_td]:md:text-base [&_td]:lg:text-xl">
+                            [&_td]:pt-2 [&_td]:pb-1 [&_td]:pl-3 [&_td]:md:pl-5 [&_td]:relative">
                             <table className="table-fixed w-full xl:w-5/6">
                                 <caption className="">Web Development</caption>
                                 <tbody>
@@ -92,7 +91,7 @@ const Tech = () => {
                     {/* Tech stack parallax text */}
                     <div className="">
                         <h2 className="font-bold uppercase px-5 xl:px-7 mb-5 min-h-7 md:min-h-9 xl:min-h-10
-                            text-xs md:text-base lg:text-lg">
+                            text-xs md:text-base lg:text-xl">
                             <EncryptionText
                                 text={"Tech Stack & Software"}
                                 delay={0.4}
@@ -100,7 +99,7 @@ const Tech = () => {
                                 speed={20}
                             />
                         </h2>
-                        <div className="w-full flex overflow-hidden items-center font-extrabold uppercase
+                        <div className="w-full flex overflow-hidden items-center uppercase font-nick
                             text-4xl md:text-5xl lg:text-7xl 2xl:text-8xl
                             ">
                             <ParallaxText
@@ -113,7 +112,7 @@ const Tech = () => {
                     {/* Connect text */}
                     <div className="xl:w-1/2 text-xl md:text-3xl lg:text-3xl 2xl:text-4xl px-5 xl:px-7">
                         <h2 className="uppercase font-bold mb-5 min-h-7 md:min-h-9 xl:min-h-10
-                            text-xs md:text-base lg:text-lg">
+                            text-xs md:text-base lg:text-xl">
                             <EncryptionText
                                 text={"Connect"}
                                 delay={0.4}

@@ -35,39 +35,30 @@ const Index = () => {
     //     return () => clearTimeout(interval); // Cleanup timeout on unmount
     // }, [currentWordIndex, words.length]); // Re-run when the current word changes
 
-    // const carouselContent = [
-    //     "/videos/carousel/JooEon_Park_OnTheTracks_Video.mp4",
-    //     "/images/thumbnails/carousel/Recollection.jpg",
-    //     "/images/thumbnails/carousel/The_Workers.jpg",
-    //     "/videos/carousel/polychrome.mp4",
-    //     "/images/thumbnails/carousel/OnTheTracks_05.jpeg",
-    // ];
-
     const { scrollYProgress } = useScroll();
-
-    // // Map scroll progress to opacity of subtext
-    // const scrollOpacity = useTransform(scrollYProgress, [0, 0.25], [1, 0]);
-    //
-    // // Map scroll progress to width of lines (reverses from full width to 0 as you scroll)
-    // const hrWidth = useTransform(scrollYProgress, [0, 0.3], ["45%", "0%"]);
-    // const hrWidth2 = useTransform(scrollYProgress, [0, 0.3], ["20%", "0%"]);
 
     // Define the transform mappings for each title layer
     const titleLayer1Y = useTransform(scrollYProgress, [0, 0.3], [160, 5]);
     const titleLayer2Y = useTransform(scrollYProgress, [0, 0.3], [184, 5]);
     const titleLayer3Y = useTransform(scrollYProgress, [0, 0.3], [232, 5]);
     const titleLayer4Y = useTransform(scrollYProgress, [0, 0.3], [304, 5]);
-    // const titleLayer5Y = useTransform(scrollYProgress, [0, 0.3], [400, 5]);
-    // const titleLayer6Y = useTransform(scrollYProgress, [0, 0.3], [520, 5]);
 
     const titleLayer7Y = useTransform(scrollYProgress, [0, 0.3], [520, 5]);
     const titleLayer8Y = useTransform(scrollYProgress, [0, 0.3], [544, 5]);
     const titleLayer9Y = useTransform(scrollYProgress, [0, 0.3], [590, 5]);
     const titleLayer10Y = useTransform(scrollYProgress, [0, 0.3], [662, 5]);
-    // const titleLayer11Y = useTransform(scrollYProgress, [0, 0.3], [758, 5]);
-    // const titleLayer12Y = useTransform(scrollYProgress, [0, 0.3], [878, 5]);
 
     const subTitleLayer = useTransform(scrollYProgress, [0, 0.3], [1000, 130]);
+
+    // code below is for the overlapping title texts, which need backgrounds to separate the overlaps
+    // however, when it reaches the top of the screen and sticks there, the backgrounds are undesirable since
+    // they will interfere with other scrolling elements that overlap with them
+    // this ensures the background disappears once it reaches the threshold
+    const backgroundToggle = useTransform(scrollYProgress, [0, 0.3], [1, 0], {
+        clamp: true, // Ensure values stay within range
+    });
+
+    const backgroundColor = useTransform(backgroundToggle, [0, 1], ['transparent', '#000000']);
 
     return (
         <>
@@ -88,7 +79,7 @@ const Index = () => {
             </motion.div>
             <main className="relative flex flex-col px-4 md:px-7 w-full h-[300vh]">
                 {/* Main landing text */}
-                <section className="flex flex-col items-center sticky top-0 h-screen">
+                <section className="flex flex-col items-center sticky top-0 h-screen mix-blend-difference text-customWhite">
                     <motion.h1
                         className="flex justify-center w-full h-fit z-20 font-bold font-nick uppercase tracking-wide
                         text-3xl xs:text-4xl sm:text-5xl md:text-7xl lg:text-8xl xl:text-8xl 2xl:text-12xl 3xl:text-10xl 4xl:text-14xl 5xl:text-15xl
@@ -105,87 +96,66 @@ const Index = () => {
                         <div className="absolute top-0 [&_span]:left-0">
                             {/* Invisible placeholder to size the container */}
                             <div className="invisible leading-[0.68]">Multidisciplinary</div>
-                            <motion.span className="title-text absolute" style={{y: titleLayer1Y}}>Multi</motion.span>
-                            <motion.span className="title-text absolute" style={{y: titleLayer2Y}}>Multi</motion.span>
-                            <motion.span className="title-text absolute" style={{y: titleLayer3Y}}>Multi</motion.span>
-                            {/*<motion.span className="title-text absolute" style={{y: titleLayer4Y}}>Multi</motion.span>*/}
-                            {/*<motion.span className="title-text absolute" style={{y: titleLayer5Y}}>Multi</motion.span>*/}
-                            <motion.div className="absolute top-0 flex w-full" style={{y: titleLayer4Y}}>
-                                <span className="title-text text-customBlack dark:text-customWhite">Multi</span>
-                                <div className="w-full px-3 font-outfit
-                                    text-xxs md:text-xs lg:text-sm xl:text-lg">
-                                    {/*<motion.div*/}
-                                    {/*    className="absolute bottom-6 tracking-normal"*/}
-                                    {/*    style={{ opacity: scrollOpacity }} // Fade out on scroll*/}
-                                    {/*>*/}
-                                    {/*    <p className="uppercase font-semibold">Joo Eon Park</p>*/}
-                                    {/*    <p className="font-light leading-6">Artist, Designer, & Developer</p>*/}
-                                    {/*</motion.div>*/}
-                                    {/*/!* Border *!/*/}
-                                    {/*<motion.hr*/}
-                                    {/*    className="absolute bottom-3 border border-customBlack dark:border-customWhite"*/}
-                                    {/*    initial={{width: 0, opacity: 0}}*/}
-                                    {/*    animate={{width: "45%", opacity: 1}}*/}
-                                    {/*    transition={{*/}
-                                    {/*        duration: 0.8,*/}
-                                    {/*        delay: 2.0,*/}
-                                    {/*        ease: "easeInOut"*/}
-                                    {/*    }}*/}
-                                    {/*    style={{ width: hrWidth, opacity: scrollOpacity }} // Dynamic width, opacity on scroll*/}
-                                    {/*/>*/}
-                                </div>
-                            </motion.div>
+                            <motion.span className="title-text absolute" style={{y: titleLayer1Y, backgroundColor}}>Multi</motion.span>
+                            <motion.span className="title-text absolute" style={{y: titleLayer2Y, backgroundColor}}>Multi</motion.span>
+                            <motion.span className="title-text absolute" style={{y: titleLayer3Y, backgroundColor}}>Multi</motion.span>
+                            <motion.span className="title-text absolute" style={{y: titleLayer4Y, backgroundColor}}>Multi</motion.span>
                         </div>
                         <div className="absolute top-0 [&_span]:right-0">
                             {/* Invisible placeholder to size the container */}
                             <div className="invisible leading-[0.68]">Multidisciplinary</div>
-                            <motion.span className="title-text absolute" style={{y: titleLayer7Y}}>Disciplinary
-                            </motion.span>
-                            <motion.span className="title-text absolute" style={{y: titleLayer8Y}}>Disciplinary
-                            </motion.span>
-                            <motion.span className="title-text absolute" style={{y: titleLayer9Y}}>Disciplinary
-                            </motion.span>
-                            {/*<motion.span className="title-text absolute" style={{y: titleLayer10Y}}>Disciplinary</motion.span>*/}
-                            {/*<motion.span className="title-text absolute" style={{y: titleLayer11Y}}>Disciplinary</motion.span>*/}
-                            <motion.div className="absolute top-0 flex w-full" style={{y: titleLayer10Y}}>
-                                <div className="flex justify-end w-full px-3 font-outfit
-                                    text-xxs md:text-xs lg:text-sm xl:text-lg">
-                                    {/*<motion.div*/}
-                                    {/*    className="absolute bottom-6 tracking-normal"*/}
-                                    {/*    style={{ opacity: scrollOpacity }} // Fade out on scroll*/}
-                                    {/*>*/}
-                                    {/*    <p className="text-right  font-light leading-6">from Seoul, S. Korea</p>*/}
-                                    {/*</motion.div>*/}
-                                    {/*/!* Border *!/*/}
-                                    {/*<motion.hr*/}
-                                    {/*    className="absolute bottom-3 border border-customBlack dark:border-customWhite"*/}
-                                    {/*    initial={{width: 0, opacity: 0}}*/}
-                                    {/*    animate={{width: "20%", opacity: 1}}*/}
-                                    {/*    transition={{*/}
-                                    {/*        duration: 0.8,*/}
-                                    {/*        delay: 2.0,*/}
-                                    {/*        ease: "easeInOut"*/}
-                                    {/*    }}*/}
-                                    {/*    style={{ width: hrWidth2, opacity: scrollOpacity }} // Dynamic width, opacity on scroll*/}
-                                    {/*/>*/}
-                                </div>
-                                <span className="title-text text-customBlack dark:text-customWhite">Disciplinary</span>
-                            </motion.div>
+                            <motion.span className="title-text absolute" style={{y: titleLayer7Y, backgroundColor}}>Disciplinary</motion.span>
+                            <motion.span className="title-text absolute" style={{y: titleLayer8Y, backgroundColor}}>Disciplinary</motion.span>
+                            <motion.span className="title-text absolute" style={{y: titleLayer9Y, backgroundColor}}>Disciplinary</motion.span>
+                            <motion.span className="title-text absolute" style={{y: titleLayer10Y, backgroundColor}}>Disciplinary</motion.span>
                         </div>
                     </motion.h1>
                     <motion.h2
-                        className="outline-text-black dark:outline-text-white text-8xl font-nick text-customWhite dark:text-customBlack"
+                        className="outline-text-white text-8xl font-nick text-transparent"
                         style={{y: subTitleLayer}}
+                        initial={{opacity: 0}}
+                        animate={{opacity: 1}}
+                        transition={{
+                            duration: 0.4,
+                            delay: 2.0,
+                            ease: "easeIn"
+                        }}
                     >
                         Artist, Designer, & Developer
                     </motion.h2>
                 </section>
-                <section className="h-90vh text-5xl">
-                    <div className="w-1/2">
-                        <ScrollTextAnim paragraph={"in pursuit of limitless creativity, meticulous design, and flawless execution, seamlessly integrating design and technology to create experiences that are both highly functional and stylish"} />
+                <section className="flex flex-col items-center h-screen pt-52">
+                    <h3 className="w-5/6 outline-text-black dark:outline-text-white text-transparent font-nick
+                        text-6xl pb-5">01</h3>
+                    <div className="flex justify-center">
+                        <div className="w-5/12 px-24 text-6xl leading-tight font-outfit font-semibold uppercase mix-blend-difference text-customWhite">
+                            <ScrollTextAnim paragraph={"Software engineer and artist from Seoul, South Korea, specializing in Web Development, UI/UX, Graphic Design, and Visual Arts."} />
+                        </div>
+                        <motion.div
+                            className="flex gap-4 w-5/12"
+                            initial={{opacity: 0, y: 70}}
+                            whileInView={{opacity: 1, y: 0}}
+                            viewport={{once: true}}
+                            transition={{
+                                duration: 0.8,
+                                ease: "easeInOut",
+                            }}
+                        >
+                            <div className="bg-customBlack">
+                                <img src="/images/Recollection_main_cropped.jpg" alt="Recollection_art_image" loading="lazy"
+                                     className=""
+                                />
+                            </div>
+                            <div className="flex flex-col justify-end uppercase">
+                                <p className="mb-10 font-bold">Recollection</p>
+                                <p className="text-customGray">/ 2024</p>
+                            </div>
+                        </motion.div>
                     </div>
                 </section>
             </main>
+            <div className="text-10xl text-center uppercase font-nick tracking-wider leading-tight
+                outline-text-black dark:outline-text-white text-transparent">Art. Design. Code.</div>
             <Footer/>
         </>
     );
