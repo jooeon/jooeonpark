@@ -2,6 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer utilities {
+
+    .outline-text-white {
+        -webkit-text-stroke: 1px #fafafa;
+    }
+
+    .outline-text-black {
+        -webkit-text-stroke: 1px #070707;
+    }
+
+}
+
 body a {
     cursor: none;
 }
@@ -10,10 +22,10 @@ body a {
     pointer-events: none;
 }
 
-/*.title-text {*/
-/*    -webkit-text-stroke: 1px #070707;*/
-/*}*/
-
+@font-face {
+    font-family: 'Nickelodeon2001';
+    src: url('/fonts/nickelodeon2001headline.ttf') format('truetype');
+}
 
 /* Z Indices */
 /*

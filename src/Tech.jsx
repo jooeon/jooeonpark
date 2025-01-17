@@ -15,36 +15,26 @@ const Tech = () => {
     return (
         <>
             <Header/>
-            <main className="pt-16 xl:pt-24">
+            <main className="py-16 xl:py-24">
                 {/* Main landing text */}
-                <section className="relative flex flex-col gap-16 md:gap-28 lg:gap-36 h-screen">
+                <section className="relative flex flex-col gap-16 md:gap-28 lg:gap-36">
                     {/* 3D animation */}
-                    <AsciiAnimation/>
-                    {/*
-                        Swap between TransmissionModel and AsciiAnimation for different moods
-                        Use h1 below for AsciiAnimation
-                    */}
-                    {/*{!isMobile && <TransmissionModel/>}*/}
-                    {/*<h1 className="absolute flex justify-center items-center top-0 right-10 w-50vw h-[30vh] lg:h-[40vh] 4xl:h-[30vh] 5xl:h-[25vh]*/}
-                    {/*    text-red-600 text-8xl"*/}
-                    {/*>*/}
-                    {/*    Digital Experiences*/}
-                    {/*</h1>*/}
+                    {!isMobile && <AsciiAnimation/>}
                     {/* About text */}
-                    <div className="xl:w-1/2 text-xl md:text-3xl lg:text-3xl 2xl:text-4xl">
-                        <h2 className="lowercase font-semibold font-outfit px-5 mb-5 min-h-7 md:min-h-9 xl:min-h-10
+                    <div className="xl:w-1/2 text-xl md:text-3xl lg:text-3xl 2xl:text-4xl px-5 xl:px-7">
+                        <h2 className="uppercase font-bold font-outfit mb-5 min-h-7 md:min-h-9 xl:min-h-10
                             text-xs md:text-base lg:text-lg">
                             <EncryptionText
                                 text={"Skills"}
                                 delay={0.4}
-                                duration={0.75}
+                                duration={0.3}
                                 speed={20}
                             />
                         </h2>
-                        <div className="flex flex-col gap-10 w-full text-xl lowercase px-5
+                        <div className="flex flex-col gap-10 w-full text-xl xl:px-5 font-outfit
                             [&_caption]:w-fit [&_caption]:mb-2 [&_caption]:text-start
-                            [&_caption]:text-xl [&_caption]md:text-2xl [&_caption]:lg:text-3xl [&_caption]:font-bold
-                            [&_tr]:border-b [&_tr]:text-customGray [&_tr]:border-customGrayLight [&_tr]:dark:border-customBlackLight [&_tr]:font-semibold
+                            [&_caption]:text-lg [&_caption]md:text-xl [&_caption]:lg:text-2xl [&_caption]:uppercase
+                            [&_tr]:border-b [&_tr]:text-customGray [&_tr]:border-customGrayLight [&_tr]:dark:border-customBlackLight
                             [&_td]:pt-2 [&_td]:pb-1 [&_td]:pl-3 [&_td]:md:pl-5 [&_td]:relative [&_td]:text-xs [&_td]:md:text-base [&_td]:lg:text-xl">
                             <table className="table-fixed w-full xl:w-5/6">
                                 <caption className="">Web Development</caption>
@@ -100,19 +90,19 @@ const Tech = () => {
                         </div>
                     </div>
                     {/* Tech stack parallax text */}
-                    <div className="lowercase">
-                        <h2 className="font-semibold px-5 min-h-7 md:min-h-9 xl:min-h-10
+                    <div className="">
+                        <h2 className="font-bold uppercase px-5 xl:px-7 mb-5 min-h-7 md:min-h-9 xl:min-h-10
                             text-xs md:text-base lg:text-lg">
                             <EncryptionText
                                 text={"Tech Stack & Software"}
                                 delay={0.4}
-                                duration={0.75}
+                                duration={0.3}
                                 speed={20}
                             />
                         </h2>
-                        <div className="w-full flex overflow-hidden items-center font-extrabold
-                            text-4xl md:text-5xl lg:text-7xl 2xl:text-10xl
-                            h-56">
+                        <div className="w-full flex overflow-hidden items-center font-extrabold uppercase
+                            text-4xl md:text-5xl lg:text-7xl 2xl:text-8xl
+                            ">
                             <ParallaxText
                                 textArray={["react", "next.js", "tailwind", "framer motion", "sql", "prisma", "adobe cc", "figma"]}
                                 baseVelocity={isMobile ? 50 : 100}
@@ -121,17 +111,17 @@ const Tech = () => {
                         </div>
                     </div>
                     {/* Connect text */}
-                    <div className="xl:w-1/2 text-xl md:text-3xl lg:text-3xl 2xl:text-4xl">
-                        <h2 className="lowercase font-semibold px-5 mb-5 min-h-7 md:min-h-9 xl:min-h-10
+                    <div className="xl:w-1/2 text-xl md:text-3xl lg:text-3xl 2xl:text-4xl px-5 xl:px-7">
+                        <h2 className="uppercase font-bold mb-5 min-h-7 md:min-h-9 xl:min-h-10
                             text-xs md:text-base lg:text-lg">
                             <EncryptionText
                                 text={"Connect"}
                                 delay={0.4}
-                                duration={0.75}
+                                duration={0.3}
                                 speed={20}
                             />
                         </h2>
-                        <div className="flex gap-10 md:gap-20 px-5 lowercase font-semibold">
+                        <div className="flex gap-10 md:gap-20 xl:px-5 font-normal font-outfit">
                             <Link to="https://www.linkedin.com/in/joo-eon-park/" target="_blank"
                                   className="text-link text-customBlack dark:text-customWhite after:bg-customBlack dark:after:bg-customWhite">
                                 LinkedIn
