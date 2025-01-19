@@ -82,7 +82,7 @@ const Index = () => {
                 <section className="flex flex-col items-center sticky top-0 h-screen mix-blend-difference text-customWhite">
                     <motion.h1
                         className="flex justify-center w-full h-fit z-20 font-bold font-nick uppercase tracking-wide
-                        text-3xl xs:text-4xl sm:text-5xl md:text-7xl lg:text-8xl xl:text-8xl 2xl:text-12xl 3xl:text-10xl 4xl:text-14xl 5xl:text-15xl
+                        text-3xl xs:text-5xl sm:text-5xl md:text-5xl lg:text-7xl xl:text-7xl 2xl:text-8xl 3xl:text-10xl 4xl:text-11xl 5xl:text-12xl
                         [&_span]:top-0 [&_span]:leading-[0.68] [&_span]:bg-customWhite [&_span]:dark:bg-customBlack"
                         initial={{opacity: 0}}
                         animate={{opacity: 1}}
@@ -111,7 +111,8 @@ const Index = () => {
                         </div>
                     </motion.h1>
                     <motion.h2
-                        className="outline-text-white text-8xl font-nick text-transparent"
+                        className="outline-text-white
+                            sm:text-3xl md:text-3xl lg:text-4xl xl:text-6xl 2xl:text-6xl 3xl:text-8xl font-nick text-transparent"
                         style={{y: subTitleLayer}}
                         initial={{opacity: 0}}
                         animate={{opacity: 1}}
@@ -128,11 +129,12 @@ const Index = () => {
                     <h3 className="w-5/6 outline-text-black dark:outline-text-white text-transparent font-nick
                         text-6xl pb-5">01</h3>
                     <div className="flex justify-center">
-                        <div className="w-5/12 px-24 text-6xl leading-tight font-outfit font-semibold uppercase mix-blend-difference text-customWhite">
+                        <div className="lg:w-6/12 xl:w-5/12 px-12 xl:px-24 leading-tight font-outfit font-semibold uppercase mix-blend-difference text-customWhite
+                            lg:text-2xl xl:text-4xl 2xl:text-4xl 3xl:text-6xl">
                             <ScrollTextAnim paragraph={"Software engineer and artist from Seoul, South Korea, specializing in Web Development, UI/UX, Graphic Design, and Visual Arts."} />
                         </div>
                         <motion.div
-                            className="flex gap-4 w-5/12"
+                            className="lg:w-6/12 xl:w-5/12 flex gap-4"
                             initial={{opacity: 0, y: 70}}
                             whileInView={{opacity: 1, y: 0}}
                             viewport={{once: true}}
@@ -141,20 +143,21 @@ const Index = () => {
                                 ease: "easeInOut",
                             }}
                         >
-                            <div className="bg-customBlack">
+                            <div className="bg-customBlack h-fit">
                                 <img src="/images/Recollection_main_cropped.jpg" alt="Recollection_art_image" loading="lazy"
                                      className=""
                                 />
                             </div>
-                            <div className="flex flex-col justify-end uppercase">
-                                <p className="mb-10 font-bold">Recollection</p>
+                            <div className="flex flex-col justify-end uppercase text-xxs 2xl:text-lg">
+                                <p className="mb-4 2xl:mb-10 font-bold">Recollection</p>
                                 <p className="text-customGray">/ 2024</p>
                             </div>
                         </motion.div>
                     </div>
                 </section>
             </main>
-            <div className="text-10xl text-center uppercase font-nick tracking-wider leading-tight
+            <div className="text-4xl md:text-5xl lg:text-6xl 2xl:text-8xl 3xl:text-10xl
+                text-center uppercase font-nick tracking-wider leading-tight
                 outline-text-black dark:outline-text-white text-transparent">Art. Design. Code.</div>
             <Footer/>
         </>
