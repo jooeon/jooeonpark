@@ -2,11 +2,35 @@ import { NavLink, Link, useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
 import PropTypes from "prop-types";
 import EncryptionText from "./EncryptionAnim.jsx";
+import {useEffect, useState} from "react";
 
 const Header = ({delay = 0.4}) => {
 
     const location = useLocation();
     const isLandingPage = location.pathname === "/";
+
+    const [isVisible, setIsVisible] = useState(true);
+    const [lastScrollY, setLastScrollY] = useState(0);
+
+    // Handle scroll direction to show/hide the header
+    useEffect(() => {
+        const handleScroll = () => {
+            const currentScrollY = window.scrollY;
+
+            if (currentScrollY > lastScrollY) {
+                // Scrolling down, hide the header
+                setIsVisible(false);
+            } else {
+                // Scrolling up, show the header
+                setIsVisible(true);
+            }
+
+            setLastScrollY(currentScrollY);
+        };
+
+        window.addEventListener("scroll", handleScroll);
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, [lastScrollY]);
 
     const getLinkClasses = ({ isActive }) => {
         if (isLandingPage) {
@@ -22,17 +46,17 @@ const Header = ({delay = 0.4}) => {
 
     return (
       <motion.header
-          className="fixed top-0 w-full z-30 mix-blend-difference"
+          className="fixed top-0 w-full z-30"
           initial={{y: -100, opacity: 0}}
-          animate={{y: 0, opacity: 1}}
+          animate={isVisible ? { y: 0, opacity: 1 } : { y: -100, opacity: 0 }}
           transition={{
-              duration: 1.0,
+              duration: 1.4,
               delay: delay,
               ease: [0.16, 1, 0.3, 1],
           }}>
           <motion.nav
-              className="flex items-center justify-between text-xs md:text-sm p-5 xl:px-7 xl:py-4
-              uppercase font-semibold text-customWhite [&_a]:after:bg-customWhite dark:[&_a]:after:bg-customBlack"
+              className="flex items-center justify-between text-xxs sm:text-xs md:text-sm p-5 xl:px-7 xl:py-4
+              uppercase font-semibold [&_a]:after:bg-customBlack dark:[&_a]:after:bg-customWhite"
           >
               <Link to="/" className="text-link">
                   <EncryptionText
