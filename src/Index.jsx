@@ -167,7 +167,7 @@ const Index = () => {
                         Artist, Designer, & Developer
                     </motion.h2>
                 </section>
-                <section className="flex flex-col items-center md:h-screen pt-52 z-10">
+                <section className="flex flex-col items-center md:h-screen pt-52">
                     <div className="w-11/12 xl:w-5/6">
                         <h3 className="w-fit outline-text-black dark:outline-text-white text-transparent font-nick pb-5
                             text-sm xs:text-lg sm:text-3xl md:text-3xl lg:text-4xl xl:text-4xl 2xl:text-6xl 3xl:text-8xl">01</h3>
@@ -197,7 +197,7 @@ const Index = () => {
                         </motion.div>
                     </div>
                 </section>
-                <section className="flex flex-col items-center md:h-screen pt-40 z-10">
+                <section className="flex flex-col items-center md:h-screen pt-40">
                     <div className="flex justify-end w-11/12 xl:w-5/6">
                         <h3 className="w-fit outline-text-black dark:outline-text-white text-transparent font-nick pb-5
                             text-sm xs:text-lg sm:text-3xl md:text-3xl lg:text-4xl xl:text-4xl 2xl:text-6xl 3xl:text-8xl">02</h3>
@@ -234,7 +234,7 @@ const Index = () => {
                         </div>
                     </div>
                 </section>
-                <section className="flex flex-col items-center md:h-screen pt-40 z-10">
+                <section className="flex flex-col items-center md:h-screen pt-40">
                     <div className="w-11/12 xl:w-5/6">
                         <h3 className="w-fit outline-text-black dark:outline-text-white text-transparent font-nick pb-5
                             text-sm xs:text-lg sm:text-3xl md:text-3xl lg:text-4xl xl:text-4xl 2xl:text-6xl 3xl:text-8xl">03</h3>
