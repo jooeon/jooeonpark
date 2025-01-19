@@ -117,7 +117,7 @@ const AnimatedText = () => {
     };
 
     return (
-        <motion.h1
+        <motion.p
             id="animated-text"
             className="fixed w-64 top-1/2 left-1/2 text-center
                 transform -translate-x-1/2 -translate-y-1/2 text-35px z-30"
@@ -165,7 +165,7 @@ const AnimatedText = () => {
             <motion.span className="inline-block" variants={parkVariants}>
                 PARK
             </motion.span>
-        </motion.h1>
+        </motion.p>
     );
 };
 
