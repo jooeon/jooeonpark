@@ -1,9 +1,11 @@
 import Header from "./components/Header.jsx";
 import Footer from "./components/Footer.jsx";
-import {motion, useScroll, useTransform} from "framer-motion";
+import {motion, useAnimation, useScroll, useTransform} from "framer-motion";
 import EntryAnim from "./components/EntryAnim.jsx";
 import ScrollTextAnim from "./components/ScrollTextAnim.jsx";
 import {useEffect, useState} from "react";
+import EncryptionText from "./components/EncryptionAnim.jsx";
+import {Link} from "react-router-dom";
 
 
 const Index = () => {
@@ -37,10 +39,13 @@ const Index = () => {
     // }, [currentWordIndex, words.length]); // Re-run when the current word changes
 
     const { scrollYProgress } = useScroll();
+
     const [fontSize, setFontSize] = useState(0);
     const [sectionHeight, setSectionHeight] = useState(0);
     const vh = window.innerHeight;
     const vw = window.innerWidth;
+
+    console.log(fontSize);
 
     // Helper to get font size
     const getFontSize = (element) => parseFloat(window.getComputedStyle(element).fontSize);
@@ -51,33 +56,48 @@ const Index = () => {
             const calculatedFontSize = getFontSize(element);
             setFontSize(calculatedFontSize);
             // Set section height based on font size
-            setSectionHeight(calculatedFontSize * 8);
+            setSectionHeight(calculatedFontSize * 8.2);
         }
     }, [fontSize]);
 
     // Define the transform mappings for each title layer
-    const titleLayer1Y = useTransform(scrollYProgress, [0, 0.3], [fontSize*(vh/vw) + fontSize, fontSize * 0.05]);
-    const titleLayer2Y = useTransform(scrollYProgress, [0, 0.3], [fontSize*(vh/vw) + fontSize * 1.15, fontSize * 0.05]);
-    const titleLayer3Y = useTransform(scrollYProgress, [0, 0.3], [fontSize*(vh/vw) + fontSize * 1.45, fontSize * 0.05]);
-    const titleLayer4Y = useTransform(scrollYProgress, [0, 0.3], [fontSize*(vh/vw) + fontSize * 1.85, fontSize * 0.05]);
+    const titleLayer1Y = useTransform(scrollYProgress, [0, 0.15], [(vh/vw)*(2000/fontSize) + fontSize, 5]);
+    const titleLayer2Y = useTransform(scrollYProgress, [0, 0.15], [(vh/vw)*(2000/fontSize) + fontSize * 1.15, 5]);
+    const titleLayer3Y = useTransform(scrollYProgress, [0, 0.15], [(vh/vw)*(2000/fontSize) + fontSize * 1.45, 5]);
+    const titleLayer4Y = useTransform(scrollYProgress, [0, 0.15], [(vh/vw)*(2000/fontSize) + fontSize * 1.85, 5]);
 
-    const titleLayer7Y = useTransform(scrollYProgress, [0, 0.3], [fontSize*(vh/vw) + fontSize * 2.9, fontSize * 0.05]);
-    const titleLayer8Y = useTransform(scrollYProgress, [0, 0.3], [fontSize*(vh/vw) + fontSize * 3.05, fontSize * 0.05]);
-    const titleLayer9Y = useTransform(scrollYProgress, [0, 0.3], [fontSize*(vh/vw) + fontSize * 3.35, fontSize * 0.05]);
-    const titleLayer10Y = useTransform(scrollYProgress, [0, 0.3], [fontSize*(vh/vw) + fontSize * 3.75, fontSize * 0.05]);
+    const titleLayer7Y = useTransform(scrollYProgress, [0, 0.15], [(vh/vw)*(2000/fontSize) + fontSize * 2.9, 5]);
+    const titleLayer8Y = useTransform(scrollYProgress, [0, 0.15], [(vh/vw)*(2000/fontSize) + fontSize * 3.05, 5]);
+    const titleLayer9Y = useTransform(scrollYProgress, [0, 0.15], [(vh/vw)*(2000/fontSize) + fontSize * 3.35, 5]);
+    const titleLayer10Y = useTransform(scrollYProgress, [0, 0.15], [(vh/vw)*(2000/fontSize) + fontSize * 3.75, 5]);
 
-    const subTitleLayer = useTransform(scrollYProgress, [0, 0.3], [fontSize*(vh/vw) + fontSize * 6.0, fontSize * 0.8]);
+    const subTitleLayer = useTransform(scrollYProgress, [0, 0.15], [(vh/vw)*(2000/fontSize) + fontSize * 6.0, fontSize * 0.8]);
 
 
     // code below is for the overlapping title texts, which need backgrounds to separate the overlaps
     // however, when it reaches the top of the screen and sticks there, the backgrounds are undesirable since
     // they will interfere with other scrolling elements that overlap with them
     // this ensures the background disappears once it reaches the threshold
-    const backgroundToggle = useTransform(scrollYProgress, [0, 0.3], [1, 0], {
+    const titleToggle = useTransform(scrollYProgress, [0, 0.15], [1, 0], {
         clamp: true, // Ensure values stay within range
     });
 
-    const backgroundColor = useTransform(backgroundToggle, [0, 1], ['transparent', '#000000']);
+    const backgroundColor = useTransform(titleToggle, [0, 1], ['transparent', '#000000']);
+
+    // Animation controller for triggering animation when scroll reaches the bottom of the page
+    const controls = useAnimation();
+
+    useEffect(() => {
+        const unsubscribe = scrollYProgress.onChange((latest) => {
+            if (latest >= 0.99) {
+                void controls.start("visible"); // Intentionally ignore the Promise
+            } else {
+                void controls.start("hidden"); // Intentionally ignore the Promise
+            }
+        });
+
+        return () => unsubscribe(); // Cleanup listener on unmount
+    }, [scrollYProgress, controls]);
 
     return (
         <>
@@ -96,15 +116,15 @@ const Index = () => {
             >
                 <EntryAnim/>
             </motion.div>
-            <main className="relative flex flex-col px-4 md:px-7 w-full h-[300vh]">
+            <main className="relative flex flex-col px-4 md:px-7 pb-20 xl:pb-40 w-full">
                 {/* Main landing text */}
                 <section
-                    className="flex flex-col items-center sticky top-0 mix-blend-difference text-customWhite"
+                    className="sticky top-0 flex flex-col items-center mix-blend-difference text-customWhite"
                     style={{ height: `${sectionHeight}px` }} // Dynamically set height
                 >
                     <motion.h1
                         className="flex justify-center w-full h-fit z-20 font-bold font-nick uppercase tracking-wide
-                        text-2xl xs:text-3xl sm:text-5xl md:text-5xl lg:text-7xl xl:text-7xl 2xl:text-8xl 3xl:text-10xl 4xl:text-11xl 5xl:text-12xl
+                        text-2xl xs:text-2xl sm:text-5xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl 3xl:text-10xl 4xl:text-11xl 5xl:text-12xl
                         [&_span]:top-0 [&_span]:leading-[0.68] [&_span]:bg-customWhite [&_span]:dark:bg-customBlack"
                         initial={{opacity: 0}}
                         animate={{opacity: 1}}
@@ -134,7 +154,7 @@ const Index = () => {
                     </motion.h1>
                     <motion.h2
                         className="outline-text-white
-                            text-sm xs:text-lg sm:text-3xl md:text-3xl lg:text-4xl xl:text-4xl 2xl:text-6xl 3xl:text-8xl font-nick text-transparent"
+                            text-sm xs:text-md sm:text-3xl md:text-3xl lg:text-4xl xl:text-4xl 2xl:text-6xl 3xl:text-8xl font-nick text-transparent"
                         style={{y: subTitleLayer}}
                         initial={{opacity: 0}}
                         animate={{opacity: 1}}
@@ -147,40 +167,159 @@ const Index = () => {
                         Artist, Designer, & Developer
                     </motion.h2>
                 </section>
-                <section className="flex flex-col items-center h-screen pt-52">
-                    <h3 className="w-5/6 outline-text-black dark:outline-text-white text-transparent font-nick pb-5
-                        text-sm xs:text-lg sm:text-3xl md:text-3xl lg:text-4xl xl:text-4xl 2xl:text-6xl 3xl:text-8xl">01</h3>
-                    <div className="flex justify-center">
-                        <div className="lg:w-6/12 xl:w-5/12 px-12 xl:px-24 leading-tight font-outfit font-semibold uppercase mix-blend-difference text-customWhite
-                            lg:text-2xl xl:text-4xl 2xl:text-4xl 3xl:text-6xl">
+                <section className="flex flex-col items-center md:h-screen pt-52 z-10">
+                    <div className="w-11/12 xl:w-5/6">
+                        <h3 className="w-fit outline-text-black dark:outline-text-white text-transparent font-nick pb-5
+                            text-sm xs:text-lg sm:text-3xl md:text-3xl lg:text-4xl xl:text-4xl 2xl:text-6xl 3xl:text-8xl">01</h3>
+                    </div>
+                    <div className="flex flex-col xl:flex-row gap-10 xl:gap-0 justify-start xl:justify-center items-center xl:items-start">
+                        <div className="w-11/12 xl:w-5/12 xl:px-12 2xl:px-24 leading-tight font-medium uppercase mix-blend-difference text-customWhite
+                            md:text-xl lg:text-3xl xl:text-4xl 2xl:text-4xl 3xl:text-6xl">
                             <ScrollTextAnim paragraph={"Software engineer and artist from Seoul, South Korea, specializing in Web Development, UI/UX, Graphic Design, and Visual Arts."} />
                         </div>
                         <motion.div
-                            className="lg:w-6/12 xl:w-5/12 flex gap-4"
+                            className="w-11/12 xl:w-5/12 flex flex-col xl:flex-row gap-4"
                             initial={{opacity: 0, y: 70}}
                             whileInView={{opacity: 1, y: 0}}
-                            viewport={{once: true}}
+                            viewport={{once: false}}
                             transition={{
                                 duration: 0.8,
                                 ease: "easeInOut",
                             }}
                         >
-                            <div className="bg-customBlack h-fit">
-                                <img src="/images/Recollection_main_cropped.jpg" alt="Recollection_art_image" loading="lazy"
-                                     className=""
-                                />
-                            </div>
-                            <div className="flex flex-col justify-end uppercase text-xxs 2xl:text-lg">
-                                <p className="mb-4 2xl:mb-10 font-bold">Recollection</p>
+                            <img src="/images/Recollection_main_cropped.jpg" alt="Recollection_art_image" loading="lazy"
+                                 className="xl:max-w-4xl"
+                            />
+                            <div className="flex flex-col justify-end uppercase text-xxs md:text-base xl:text-lg">
+                                <p className="mb-4 2xl:mb-10 font-medium">Recollection</p>
                                 <p className="text-customGray">/ 2024</p>
                             </div>
                         </motion.div>
                     </div>
                 </section>
+                <section className="flex flex-col items-center md:h-screen pt-40 z-10">
+                    <div className="flex justify-end w-11/12 xl:w-5/6">
+                        <h3 className="w-fit outline-text-black dark:outline-text-white text-transparent font-nick pb-5
+                            text-sm xs:text-lg sm:text-3xl md:text-3xl lg:text-4xl xl:text-4xl 2xl:text-6xl 3xl:text-8xl">02</h3>
+                    </div>
+                    <div className="flex flex-col-reverse xl:flex-row gap-10 xl:gap-0 justify-start xl:justify-center items-center xl:items-start">
+                        <motion.div
+                            className="w-11/12 xl:w-5/12 flex flex-col-reverse xl:flex-row gap-4"
+                            initial={{opacity: 0, y: 70}}
+                            whileInView={{opacity: 1, y: 0}}
+                            viewport={{once: false}}
+                            transition={{
+                                duration: 0.8,
+                                ease: "easeInOut",
+                            }}
+                        >
+                            <div className="flex flex-col justify-end uppercase text-xxs md:text-base xl:text-lg xl:text-right">
+                                <p className="mb-4 2xl:mb-10 font-medium">11,182,156 Steps</p>
+                                <p className="text-customGray">/ 2024</p>
+                            </div>
+                            <video
+                                autoPlay
+                                playsInline
+                                muted
+                                loop
+                                className=""
+                            >
+                                <source src="/videos/polychrome_dark.mp4#t=70" type="video/mp4"/>
+                                Your browser does not support the video tag.
+                            </video>
+                        </motion.div>
+                        <div className="w-11/12 xl:w-5/12 xl:px-12 2xl:px-24 leading-tight font-medium uppercase mix-blend-difference text-customWhite
+                            md:text-xl lg:text-3xl xl:text-4xl 2xl:text-4xl 3xl:text-6xl xl:[&_p]:justify-end">
+                            <ScrollTextAnim paragraph={"Seamlessly integrating design and technology to create experiences that are both highly functional and stylish."} />
+                        </div>
+                    </div>
+                </section>
+                <section className="flex flex-col items-center md:h-screen pt-40 z-10">
+                    <div className="w-11/12 xl:w-5/6">
+                        <h3 className="w-fit outline-text-black dark:outline-text-white text-transparent font-nick pb-5
+                            text-sm xs:text-lg sm:text-3xl md:text-3xl lg:text-4xl xl:text-4xl 2xl:text-6xl 3xl:text-8xl">03</h3>
+                    </div>
+                    <div className="flex flex-col xl:flex-row gap-10 xl:gap-0 justify-start xl:justify-center items-center xl:items-start">
+                        <div className="w-11/12 xl:w-5/12 xl:px-12 2xl:px-24 leading-tight font-medium uppercase mix-blend-difference text-customWhite
+                            md:text-xl lg:text-3xl xl:text-4xl 2xl:text-4xl 3xl:text-6xl">
+                            <ScrollTextAnim paragraph={"In pursuit of limitless creativity, meticulous design, and flawless execution."} />
+                        </div>
+                        <motion.div
+                            className="w-11/12 xl:w-5/12 flex flex-col xl:flex-row gap-4"
+                            initial={{opacity: 0, y: 70}}
+                            whileInView={{opacity: 1, y: 0}}
+                            viewport={{once: false}}
+                            transition={{
+                                duration: 0.8,
+                                ease: "easeInOut",
+                            }}
+                        >
+                            <img src="/images/Ocular%20Prosthetic%20for%20Reading%20Another%20Human_01.jpeg" alt="Recollection_art_image" loading="lazy"
+                                 className="xl:max-w-3xl"
+                            />
+                            <div className="flex flex-col justify-end uppercase text-xxs md:text-base xl:text-lg">
+                                <p className="mb-4 2xl:mb-10 font-medium">Ocular Prosthetic for Reading Another Human</p>
+                                <p className="text-customGray">/ 2024</p>
+                            </div>
+                        </motion.div>
+                    </div>
+                </section>
+                <section className="flex justify-center items-center h-screen">
+                    <motion.div
+                        className="relative top-1/4 flex justify-center gap-5 md:gap-10 lg:gap-14 xl:gap-20 font-nick lowercase
+                        text-xxs xs:text-xs sm:text-sm md:text-lg lg:text-2xl xl:text-4xl 4xl:text-5xl px-5 xl:px-7"
+                        initial="hidden"
+                        animate={controls}
+                        variants={{
+                            hidden: { opacity: 0},
+                            visible: { opacity: 1},
+                        }}
+                        transition={{
+                            duration: 0.5,
+                            ease: "easeIn",
+                        }}
+                    >
+                        <EncryptionText
+                            text={"Connect:"}
+                            delay={0.4}
+                            duration={0.4}
+                            speed={20}
+                        />
+                        <Link to="https://www.linkedin.com/in/joo-eon-park/" target="_blank"
+                              className="text-link text-customBlack dark:text-customWhite after:bg-customBlack dark:after:bg-customWhite">
+                            <EncryptionText
+                                text={"LinkedIn"}
+                                delay={0.4}
+                                duration={0.4}
+                                speed={20}
+                            />
+                        </Link>
+                        <Link to="https://github.com/jooeon" target="_blank"
+                              className="text-link text-customBlack dark:text-customWhite after:bg-customBlack dark:after:bg-customWhite">
+                            <EncryptionText
+                                text={"GitHub"}
+                                delay={0.4}
+                                duration={0.4}
+                                speed={20}
+                            />
+                        </Link>
+                        <Link to="mailto:jooeon427@gmail.com" target="_blank"
+                              className="text-link text-customBlack dark:text-customWhite after:bg-customBlack dark:after:bg-customWhite">
+                            <EncryptionText
+                                text={"Email"}
+                                delay={0.4}
+                                duration={0.4}
+                                speed={20}
+                            />
+                        </Link>
+                    </motion.div>
+                </section>
             </main>
-            <div className="text-4xl md:text-5xl lg:text-6xl 2xl:text-8xl 3xl:text-10xl
-                text-center uppercase font-nick tracking-wider leading-tight
-                outline-text-black dark:outline-text-white text-transparent">Art. Design. Code.</div>
+            <div className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl 2xl:text-8xl 3xl:text-10xl
+                text-center uppercase font-nick tracking-wider leading-tight outline-text-black dark:outline-text-white text-transparent
+                pb-5 sm:pb-10 lg:pb-20">
+                Art. Design. Code.
+            </div>
             <Footer/>
         </>
     );

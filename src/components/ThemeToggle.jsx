@@ -5,25 +5,19 @@ const ThemeToggle = () => {
     // State to track if dark mode is enabled
     const [isDark, setIsDark] = useState(false);
 
-    // On component mount, check for saved theme or system preference
+    // On component mount, set dark theme as default
     useEffect(() => {
         // Check localStorage for theme preference
         const savedTheme = localStorage.getItem('theme');
-        if (savedTheme) {
-            if (savedTheme === 'dark') {
-                document.documentElement.classList.add('dark');
-                setIsDark(true);
-            } else {
-                document.documentElement.classList.remove('dark');
-                setIsDark(false);
-            }
+
+        if (savedTheme === 'light') {
+            // If saved preference is light, apply light theme
+            document.documentElement.classList.remove('dark');
+            setIsDark(false);
         } else {
-            // If no preference saved, check system preference
-            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-            if (prefersDark) {
-                document.documentElement.classList.add('dark');
-                setIsDark(true);
-            }
+            // Default to dark theme
+            document.documentElement.classList.add('dark');
+            setIsDark(true);
         }
     }, []);
 
