@@ -32,7 +32,7 @@ const Header = ({isVisible, delay = 0.4}) => {
           }}>
           <motion.nav
               className="flex items-center justify-between text-xxs sm:text-xs md:text-sm p-3 md:p-5 xl:px-7 xl:py-4
-              uppercase font-medium tracking-wider text-customWhite [&_a]:after:bg-customBlack dark:[&_a]:after:bg-customWhite"
+              uppercase font-roboto font-medium tracking-wide text-customWhite [&_a]:after:bg-customBlack dark:[&_a]:after:bg-customWhite"
           >
               <Link to="/" className="text-link">
                   <EncryptionText
@@ -42,7 +42,7 @@ const Header = ({isVisible, delay = 0.4}) => {
                       speed={20}
                   />
               </Link>
-              <ul className="flex gap-2 md:gap-5">
+              <ul className="flex gap-4 md:gap-10">
                   <li>
                       <NavLink to="/art" className={getLinkClasses}>
                           Art
@@ -56,8 +56,8 @@ const Header = ({isVisible, delay = 0.4}) => {
                   </li>
                   {/*<span className="font-outfit">/</span>*/}
                   <li>
-                      <NavLink to="/about" className={getLinkClasses}>
-                          About
+                      <NavLink to="/info" className={getLinkClasses}>
+                          Info
                       </NavLink>
                   </li>
               </ul>
