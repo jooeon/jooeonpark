@@ -16,7 +16,7 @@ const About = () => {
 
     return (
         <>
-            <Header/>
+            <Header isVisible={true}/>
             <main>
                 <div className="flex flex-col xl:flex-row">
                     <section className="flex justify-center items-center xl:h-screen xl:w-50vw
@@ -42,7 +42,7 @@ const About = () => {
                                     ease: "easeIn"
                                 }}
                             >
-                                Creativity.{' '}
+                                Creativity.
                             </motion.span>
                             <motion.span
                                 className=""
@@ -54,7 +54,7 @@ const About = () => {
                                     ease: "easeIn"
                                 }}
                             >
-                                Design.{' '}
+                                Design.
                             </motion.span>
                             <motion.span
                                 className=""
@@ -70,7 +70,7 @@ const About = () => {
                             </motion.span>
                         </h1>
                         <motion.div
-                            className="py-6 xl:py-8 text-sm md:text-xl leading-snug font-poppins font-medium text-customGray"
+                            className="py-6 xl:py-8 text-sm md:text-xl font-poppins font-medium text-customGray"
                             initial={{opacity: 0}}
                             animate={{opacity: 1}}
                             transition={{

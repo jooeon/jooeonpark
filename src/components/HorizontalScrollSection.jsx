@@ -1,11 +1,11 @@
 import { useRef, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
-import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
+import { motion, useScroll, useTransform } from 'framer-motion';
 
 const HorizontalScrollSection = ({
                                      children,
                                      gap = 10, // Gap between items
-                                     duration = 0.5, // Smoothness of the scroll
+                                     // duration = 0.5, // Smoothness of the scroll
                                  }) => {
     const containerRef = useRef(null);
     const [itemWidth, setItemWidth] = useState(0);
@@ -39,12 +39,12 @@ const HorizontalScrollSection = ({
     // Translate scroll progress to horizontal movement
     const x = useTransform(scrollYProgress, [0, 1], [0, -totalScrollWidth]);
 
-    // Apply smooth animation with duration
-    const smoothX = useSpring(x, {
-        damping: 10,
-        stiffness: 30,
-        duration: duration,
-    });
+    // Apply smoothing (using lenis scroll so unused, applying this sometimes induces wonky behavior)
+    // const smoothX = useSpring(x, {
+    //     damping: 10,
+    //     stiffness: 30,
+    //     duration: duration,
+    // });
 
     return (
         <div
@@ -56,7 +56,7 @@ const HorizontalScrollSection = ({
             <div className="sticky top-0 h-screen overflow-hidden pt-16 xl:pt-24 pb-10">
                 {/* Motion div for horizontal scrolling */}
                 <motion.div
-                    style={{ x: smoothX }}
+                    style={{ x: x }}
                     className="flex h-full w-max"
                 >
                     {children.map((child, index) => (
@@ -81,7 +81,7 @@ const HorizontalScrollSection = ({
 HorizontalScrollSection.propTypes = {
     children: PropTypes.arrayOf(PropTypes.node).isRequired,
     gap: PropTypes.number,
-    duration: PropTypes.number,
+    // duration: PropTypes.number,
 };
 
 export default HorizontalScrollSection;

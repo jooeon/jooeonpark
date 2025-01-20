@@ -38,14 +38,75 @@ const Index = () => {
     //     return () => clearTimeout(interval); // Cleanup timeout on unmount
     // }, [currentWordIndex, words.length]); // Re-run when the current word changes
 
+    // ************************
+    // Start of scrolling behavior logic
+    // ************************
+
     const { scrollYProgress } = useScroll();
+
+    const [isVisible, setIsVisible] = useState(false);   // tracks the visibility of title depending on scroll direction
+    const [finalVisible, setFinalVisible] = useState(true); // overrides visibility of scroll direction when hitting top of page
+    const [lastScrollY, setLastScrollY] = useState(0);
+
+    // Handle scroll direction. hide title when scrolling up to prevent overlap with navbar
+    useEffect(() => {
+        const handleScroll = () => {
+            const currentScrollY = window.scrollY;
+
+            if (currentScrollY > lastScrollY) {
+                // Scrolling down
+                setIsVisible(true);
+            } else {
+                // Scrolling up
+                setIsVisible(false);
+            }
+
+            setLastScrollY(currentScrollY);
+        };
+
+        window.addEventListener("scroll", handleScroll);
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, [lastScrollY]);
+
+    // Animation controller for triggering animation when scroll reaches the top/bottom of the page
+    const controls = useAnimation();
+    const [animationState, setAnimationState] = useState("visible"); // Track the current animation state
+
+    // Update animation state when controls.start() is triggered
+    const triggerAnimation = async (state) => {
+        await controls.start(state); // Trigger the animation
+        setAnimationState(state); // Update the local animation state
+    };
+
+    useEffect(() => {
+        const unsubscribeScroll = scrollYProgress.on("change", (latest) => {
+            if (latest >= 0.99 || latest <= 0.01) { // when hitting bottom/top of page
+                // Trigger visible animation when at the top or bottom
+                triggerAnimation("visible");
+            } else {
+                // Trigger hidden animation otherwise
+                triggerAnimation("hidden");
+            }
+        });
+
+        return () => {
+            unsubscribeScroll(); // Cleanup subscription on unmount
+        };
+    }, [controls, scrollYProgress]);
+
+    useEffect(() => {
+        // Combine `isVisible` and animation state to set `finalVisible`
+        setFinalVisible(isVisible || animationState === "visible");
+    }, [isVisible, animationState]);
+
+    // ************************
+    // End of scrolling behavior logic
+    // ************************
 
     const [fontSize, setFontSize] = useState(0);
     const [sectionHeight, setSectionHeight] = useState(0);
     const vh = window.innerHeight;
     const vw = window.innerWidth;
-
-    console.log(fontSize);
 
     // Helper to get font size
     const getFontSize = (element) => parseFloat(window.getComputedStyle(element).fontSize);
@@ -71,8 +132,7 @@ const Index = () => {
     const titleLayer9Y = useTransform(scrollYProgress, [0, 0.15], [(vh/vw)*(2000/fontSize) + fontSize * 3.35, 5]);
     const titleLayer10Y = useTransform(scrollYProgress, [0, 0.15], [(vh/vw)*(2000/fontSize) + fontSize * 3.75, 5]);
 
-    const subTitleLayer = useTransform(scrollYProgress, [0, 0.15], [(vh/vw)*(2000/fontSize) + fontSize * 6.0, fontSize * 0.8]);
-
+    const subTitleLayer = useTransform(scrollYProgress, [0, 0.15], [(vh/vw)*(2000/fontSize) + fontSize * 6.0, fontSize * 0.85]);
 
     // code below is for the overlapping title texts, which need backgrounds to separate the overlaps
     // however, when it reaches the top of the screen and sticks there, the backgrounds are undesirable since
@@ -84,24 +144,9 @@ const Index = () => {
 
     const backgroundColor = useTransform(titleToggle, [0, 1], ['transparent', '#000000']);
 
-    // Animation controller for triggering animation when scroll reaches the bottom of the page
-    const controls = useAnimation();
-
-    useEffect(() => {
-        const unsubscribe = scrollYProgress.onChange((latest) => {
-            if (latest >= 0.99) {
-                void controls.start("visible"); // Intentionally ignore the Promise
-            } else {
-                void controls.start("hidden"); // Intentionally ignore the Promise
-            }
-        });
-
-        return () => unsubscribe(); // Cleanup listener on unmount
-    }, [scrollYProgress, controls]);
-
     return (
         <>
-            <Header delay={0.2}/>
+            <Header isVisible={!isVisible} delay={0.2}/>
             {/* Overlay for "loading" animation on page load */}
             <motion.div
                 className="fixed top-0 pointer-events-none h-full w-full font-raleway font-bold uppercase
@@ -118,14 +163,24 @@ const Index = () => {
             </motion.div>
             <main className="relative flex flex-col px-4 md:px-7 pb-20 xl:pb-40 w-full">
                 {/* Main landing text */}
-                <section
-                    className="sticky top-0 flex flex-col items-center mix-blend-difference text-customWhite"
+                <motion.section
+                    className="sticky top-0 flex flex-col items-center mix-blend-difference text-customWhite pointer-events-none"
                     style={{ height: `${sectionHeight}px` }} // Dynamically set height
+                    animate={finalVisible ? "visible" : "hidden"}
+                    variants={{
+                        hidden: { opacity: 0 },
+                        visible: { opacity: 1 },
+                    }}
+                    transition={{
+                        duration: 0.4,
+                        delay: 0.2,
+                        ease: "easeIn"
+                    }}
                 >
                     <motion.h1
-                        className="flex justify-center w-full h-fit z-20 font-bold font-nick uppercase tracking-wide
+                        className="flex justify-center w-full h-fit z-20 font-bold font-nick uppercase tracking-wide pointer-events-auto
                         text-2xl xs:text-2xl sm:text-5xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl 3xl:text-10xl 4xl:text-11xl 5xl:text-12xl
-                        [&_span]:top-0 [&_span]:leading-[0.68] [&_span]:bg-customWhite [&_span]:dark:bg-customBlack"
+                        [&_span]:top-0 [&_span]:leading-[0.78] md:[&_span]:leading-[0.68] [&_span]:bg-customWhite [&_span]:dark:bg-customBlack"
                         initial={{opacity: 0}}
                         animate={{opacity: 1}}
                         transition={{
@@ -153,7 +208,7 @@ const Index = () => {
                         </div>
                     </motion.h1>
                     <motion.h2
-                        className="outline-text-white
+                        className="outline-text-white pointer-events-auto
                             text-sm xs:text-md sm:text-3xl md:text-3xl lg:text-4xl xl:text-4xl 2xl:text-6xl 3xl:text-8xl font-nick text-transparent"
                         style={{y: subTitleLayer}}
                         initial={{opacity: 0}}
@@ -166,7 +221,7 @@ const Index = () => {
                     >
                         Artist, Designer, & Developer
                     </motion.h2>
-                </section>
+                </motion.section>
                 <section className="flex flex-col items-center md:h-screen pt-52">
                     <div className="w-11/12 xl:w-5/6">
                         <h3 className="w-fit outline-text-black dark:outline-text-white text-transparent font-nick pb-5
@@ -183,7 +238,7 @@ const Index = () => {
                             whileInView={{opacity: 1, y: 0}}
                             viewport={{once: false}}
                             transition={{
-                                duration: 0.8,
+                                duration: 0.6,
                                 ease: "easeInOut",
                             }}
                         >
@@ -209,7 +264,7 @@ const Index = () => {
                             whileInView={{opacity: 1, y: 0}}
                             viewport={{once: false}}
                             transition={{
-                                duration: 0.8,
+                                duration: 0.6,
                                 ease: "easeInOut",
                             }}
                         >
@@ -230,7 +285,7 @@ const Index = () => {
                         </motion.div>
                         <div className="w-11/12 xl:w-5/12 xl:px-12 2xl:px-24 leading-tight font-medium uppercase mix-blend-difference text-customWhite
                             md:text-xl lg:text-3xl xl:text-4xl 2xl:text-4xl 3xl:text-6xl xl:[&_p]:justify-end">
-                            <ScrollTextAnim paragraph={"Seamlessly integrating design and technology to create experiences that are both highly functional and stylish."} />
+                            <ScrollTextAnim paragraph={"Seamlessly integrating design and technology to create experiences that are both highly functional and aesthetic."} />
                         </div>
                     </div>
                 </section>
@@ -250,7 +305,7 @@ const Index = () => {
                             whileInView={{opacity: 1, y: 0}}
                             viewport={{once: false}}
                             transition={{
-                                duration: 0.8,
+                                duration: 0.6,
                                 ease: "easeInOut",
                             }}
                         >
@@ -315,7 +370,7 @@ const Index = () => {
                     </motion.div>
                 </section>
             </main>
-            <div className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl 2xl:text-8xl 3xl:text-10xl
+            <div className="title-text text-2xl sm:text-3xl md:text-5xl lg:text-6xl 2xl:text-8xl 3xl:text-10xl
                 text-center uppercase font-nick tracking-wider leading-tight outline-text-black dark:outline-text-white text-transparent
                 pb-5 sm:pb-10 lg:pb-20">
                 Art. Design. Code.

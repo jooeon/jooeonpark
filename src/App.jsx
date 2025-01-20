@@ -16,11 +16,11 @@ import { CursorProvider } from "./components/CursorContext.jsx";
 const navVariants = {
     enter: {
         opacity: 1,
-        transition: { delay: 0, duration: 0.3, ease: "easeIn" },
+        transition: { delay: 0, duration: 0.5, ease: "easeIn" },
     },
     exit: {
         opacity: 0,
-        transition: { delay: 0., duration: 0.3, ease: "easeIn" },
+        transition: { delay: 0., duration: 0.5, ease: "easeIn" },
     },
 };
 

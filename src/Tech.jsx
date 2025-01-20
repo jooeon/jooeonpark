@@ -14,7 +14,7 @@ const Tech = () => {
 
     return (
         <>
-            <Header/>
+            <Header isVisible={true}/>
             <main className="py-16 xl:py-24">
                 {/* Main landing text */}
                 <section className="relative flex flex-col gap-16 md:gap-28 lg:gap-36">
