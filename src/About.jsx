@@ -2,7 +2,6 @@ import Header from "./components/Header.jsx";
 import Footer from "./components/Footer.jsx";
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
-import ScrollText from "./components/ScrollTextAnim.jsx";
 
 const About = () => {
 
