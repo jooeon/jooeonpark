@@ -47,21 +47,24 @@ const Index = () => {
     const [isVisible, setIsVisible] = useState(false);   // tracks the visibility of title depending on scroll direction
     const [finalVisible, setFinalVisible] = useState(true); // overrides visibility of scroll direction when hitting top of page
     const [lastScrollY, setLastScrollY] = useState(0);
+    const scrollThreshold = 5; // Minimum scroll change to detect direction
 
     // Handle scroll direction. hide title when scrolling up to prevent overlap with navbar
     useEffect(() => {
         const handleScroll = () => {
-            const currentScrollY = window.scrollY;
+            const currentScrollY = Math.max(0, window.scrollY);
 
-            if (currentScrollY > lastScrollY) {
-                // Scrolling down
-                setIsVisible(true);
-            } else {
-                // Scrolling up
-                setIsVisible(false);
+            if (Math.abs(currentScrollY - lastScrollY) > scrollThreshold) {
+                if (currentScrollY > lastScrollY) {
+                    // Scrolling down
+                    setIsVisible(true);
+                } else if (currentScrollY < lastScrollY) {
+                    // Scrolling up
+                    setIsVisible(false);
+                }
+
+                setLastScrollY(currentScrollY);
             }
-
-            setLastScrollY(currentScrollY);
         };
 
         window.addEventListener("scroll", handleScroll);
@@ -80,7 +83,7 @@ const Index = () => {
 
     useEffect(() => {
         const unsubscribeScroll = scrollYProgress.on("change", (latest) => {
-            if (latest >= 0.99 || latest <= 0.01) { // when hitting bottom/top of page
+            if (latest >= 0.95 || latest <= 0.01) { // when hitting bottom/top of page
                 // Trigger visible animation when at the top or bottom
                 triggerAnimation("visible");
             } else {
@@ -180,7 +183,7 @@ const Index = () => {
                     <motion.h1
                         className="flex justify-center w-full h-fit z-20 font-bold font-nick uppercase tracking-wide pointer-events-auto
                         text-2xl xs:text-2xl sm:text-5xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl 3xl:text-10xl 4xl:text-11xl 5xl:text-12xl
-                        [&_span]:top-0 [&_span]:leading-[0.78] md:[&_span]:leading-[0.68] [&_span]:bg-customWhite [&_span]:dark:bg-customBlack"
+                        [&_span]:top-0 [&_span]:leading-[0.88] md:[&_span]:leading-[0.68] [&_span]:bg-customWhite [&_span]:dark:bg-customBlack"
                         initial={{opacity: 0}}
                         animate={{opacity: 1}}
                         transition={{
