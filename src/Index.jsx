@@ -83,7 +83,7 @@ const Index = () => {
 
     useEffect(() => {
         const unsubscribeScroll = scrollYProgress.on("change", (latest) => {
-            if (latest >= 0.96 || latest <= 0.01) { // when hitting bottom/top of page
+            if (latest >= 0.96 || latest <= 0.2) { // when hitting bottom/top of page
                 // Trigger visible animation when at the top or bottom
                 void triggerAnimation("visible");
             } else {
@@ -231,7 +231,7 @@ const Index = () => {
                             text-sm xs:text-lg sm:text-3xl md:text-3xl lg:text-4xl xl:text-4xl 2xl:text-6xl 3xl:text-8xl">01</h3>
                     </div>
                     <div className="flex flex-col xl:flex-row gap-10 xl:gap-0 justify-start xl:justify-center items-center xl:items-start">
-                        <div className="w-11/12 xl:w-5/12 xl:px-12 2xl:px-24 leading-tight font-medium uppercase mix-blend-difference text-customWhite
+                        <div className="w-11/12 xl:w-5/12 xl:px-12 2xl:px-24 leading-tight font-regular mix-blend-difference text-customWhite
                             md:text-xl lg:text-3xl xl:text-4xl 2xl:text-4xl 3xl:text-6xl">
                             <ScrollTextAnim paragraph={"Software engineer and artist from Seoul, South Korea, specializing in Web Development, UI/UX, Graphic Design, and Visual Arts."} />
                         </div>
@@ -248,7 +248,7 @@ const Index = () => {
                             <img src="/images/Recollection_main_cropped.jpg" alt="Recollection_art_image" loading="lazy"
                                  className="xl:max-w-4xl"
                             />
-                            <div className="flex flex-col justify-end uppercase text-xxs md:text-base xl:text-lg">
+                            <div className="flex flex-col justify-end lowercase text-xxs md:text-base xl:text-lg">
                                 <p className="mb-4 2xl:mb-10 font-medium">Recollection</p>
                                 <p className="text-customGray">/ 2024</p>
                             </div>
@@ -271,7 +271,7 @@ const Index = () => {
                                 ease: "easeInOut",
                             }}
                         >
-                            <div className="flex flex-col justify-end uppercase text-xxs md:text-base xl:text-lg xl:text-right">
+                            <div className="flex flex-col justify-end lowercase text-xxs md:text-base xl:text-lg xl:text-right">
                                 <p className="mb-4 2xl:mb-10 font-medium">11,182,156 Steps</p>
                                 <p className="text-customGray">/ 2024</p>
                             </div>
@@ -286,7 +286,7 @@ const Index = () => {
                                 Your browser does not support the video tag.
                             </video>
                         </motion.div>
-                        <div className="w-11/12 xl:w-5/12 xl:px-12 2xl:px-24 leading-tight font-medium uppercase mix-blend-difference text-customWhite
+                        <div className="w-11/12 xl:w-5/12 xl:px-12 2xl:px-24 leading-tight font-regular mix-blend-difference text-customWhite
                             md:text-xl lg:text-3xl xl:text-4xl 2xl:text-4xl 3xl:text-6xl xl:[&_p]:justify-end">
                             <ScrollTextAnim paragraph={"Seamlessly integrating design and technology to create experiences that are both highly functional and aesthetic."} />
                         </div>
@@ -298,7 +298,7 @@ const Index = () => {
                             text-sm xs:text-lg sm:text-3xl md:text-3xl lg:text-4xl xl:text-4xl 2xl:text-6xl 3xl:text-8xl">03</h3>
                     </div>
                     <div className="flex flex-col xl:flex-row gap-10 xl:gap-0 justify-start xl:justify-center items-center xl:items-start">
-                        <div className="w-11/12 xl:w-5/12 xl:px-12 2xl:px-24 leading-tight font-medium uppercase mix-blend-difference text-customWhite
+                        <div className="w-11/12 xl:w-5/12 xl:px-12 2xl:px-24 leading-tight font-regular mix-blend-difference text-customWhite
                             md:text-xl lg:text-3xl xl:text-4xl 2xl:text-4xl 3xl:text-6xl">
                             <ScrollTextAnim paragraph={"In pursuit of limitless creativity, meticulous design, and flawless execution."} />
                         </div>
@@ -315,7 +315,7 @@ const Index = () => {
                             <img src="/images/Ocular%20Prosthetic%20for%20Reading%20Another%20Human_01.jpeg" alt="Recollection_art_image" loading="lazy"
                                  className="xl:max-w-3xl"
                             />
-                            <div className="flex flex-col justify-end uppercase text-xxs md:text-base xl:text-lg">
+                            <div className="flex flex-col justify-end lowercase text-xxs md:text-base xl:text-lg">
                                 <p className="mb-4 2xl:mb-10 font-medium">Ocular Prosthetic for Reading Another Human</p>
                                 <p className="text-customGray">/ 2024</p>
                             </div>

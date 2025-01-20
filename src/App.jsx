@@ -16,11 +16,11 @@ import { CursorProvider } from "./components/CursorContext.jsx";
 const navVariants = {
     enter: {
         opacity: 1,
-        transition: { delay: 0, duration: 0.5, ease: "easeIn" },
+        transition: { delay: 0, duration: 0.6, ease: "easeIn" },
     },
     exit: {
         opacity: 0,
-        transition: { delay: 0., duration: 0.5, ease: "easeIn" },
+        transition: { delay: 0, duration: 1, ease: "easeIn" },
     },
 };
 
@@ -30,44 +30,21 @@ const AnimatedRoutes = () => {
     return (
         <AnimatePresence mode="wait">
             <ScrollToTop>
-                <Routes location={location} key={location.pathname}>
-                    <Route path="/"
-                        element={
-                            <motion.div variants={navVariants} initial="exit" animate="enter" exit="exit">
-                                <Index />
-                            </motion.div>
-                        }
-                    />
-                    <Route path="/Art"
-                        element={
-                            <motion.div variants={navVariants} initial="exit" animate="enter" exit="exit">
-                                <Art />
-                            </motion.div>
-                        }
-                    />
-                        {/* Individual project pages */}
-                        <Route path="/steps"
-                            element={
-                                <motion.div variants={navVariants} initial="exit" animate="enter" exit="exit">
-                                    <Steps />
-                                </motion.div>
-                            }
-                        />
-                    <Route path="/tech"
-                           element={
-                               <motion.div variants={navVariants} initial="exit" animate="enter" exit="exit">
-                                   <Tech />
-                               </motion.div>
-                           }
-                    />
-                    <Route path="/about"
-                        element={
-                            <motion.div variants={navVariants} initial="exit" animate="enter" exit="exit">
-                                <About />
-                            </motion.div>
-                        }
-                    />
-                </Routes>
+                <motion.div
+                    key={location.pathname}
+                    variants={navVariants}
+                    initial="exit"
+                    animate="enter"
+                    exit="exit"
+                >
+                    <Routes location={location}>
+                        <Route path="/" element={<Index />} />
+                        <Route path="/Art" element={<Art />} />
+                        <Route path="/steps" element={<Steps />} />
+                        <Route path="/tech" element={<Tech />} />
+                        <Route path="/info" element={<About />} />
+                    </Routes>
+                </motion.div>
             </ScrollToTop>
         </AnimatePresence>
     );
