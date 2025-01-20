@@ -83,12 +83,12 @@ const Index = () => {
 
     useEffect(() => {
         const unsubscribeScroll = scrollYProgress.on("change", (latest) => {
-            if (latest >= 0.95 || latest <= 0.01) { // when hitting bottom/top of page
+            if (latest >= 0.99 || latest <= 0.01) { // when hitting bottom/top of page
                 // Trigger visible animation when at the top or bottom
-                triggerAnimation("visible");
+                void triggerAnimation("visible");
             } else {
                 // Trigger hidden animation otherwise
-                triggerAnimation("hidden");
+                void triggerAnimation("hidden");
             }
         });
 
@@ -183,7 +183,7 @@ const Index = () => {
                     <motion.h1
                         className="flex justify-center w-full h-fit z-20 font-bold font-nick uppercase tracking-wide pointer-events-auto
                         text-2xl xs:text-2xl sm:text-5xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl 3xl:text-10xl 4xl:text-11xl 5xl:text-12xl
-                        [&_span]:top-0 [&_span]:leading-[0.88] md:[&_span]:leading-[0.68] [&_span]:bg-customWhite [&_span]:dark:bg-customBlack"
+                        [&_span]:top-0 [&_span]:leading-[0.9] md:[&_span]:leading-[0.68] [&_span]:bg-customWhite [&_span]:dark:bg-customBlack"
                         initial={{opacity: 0}}
                         animate={{opacity: 1}}
                         transition={{
