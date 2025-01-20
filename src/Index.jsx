@@ -83,7 +83,7 @@ const Index = () => {
 
     useEffect(() => {
         const unsubscribeScroll = scrollYProgress.on("change", (latest) => {
-            if (latest >= 0.99 || latest <= 0.01) { // when hitting bottom/top of page
+            if (latest >= 0.96 || latest <= 0.01) { // when hitting bottom/top of page
                 // Trigger visible animation when at the top or bottom
                 void triggerAnimation("visible");
             } else {
