@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import PropTypes from "prop-types";
-import { motion, useMotionValue, useAnimationFrame,animate } from "framer-motion";
+import { motion, useMotionValue, useAnimationFrame, animate } from "framer-motion";
 import { isMobile } from "react-device-detect";
 
 /**
@@ -23,15 +23,35 @@ export default function ParallaxText({ textArray, baseVelocity = 100, scrollY })
     // A timer to revert speed after user stops scrolling.
     const revertTimerRef = useRef(null);
 
+    // Track whether the user is actively dragging the text.
+    const isDragging = useRef(false);
+
+    // Keep a MotionValue for the x-position of our container
+    const x = useMotionValue(0);
+
+    // We need to measure half the container width to know when to “loop” seamlessly.
+    const containerRef = useRef(null);
+    const [contentWidth, setContentWidth] = useState(0);
+
     useEffect(() => {
-        // Subscribe to scrollY changes so we get a callback every time it updates.
+        if (containerRef.current) {
+            // Because we duplicate textArray, half of scrollWidth is one array’s length
+            setContentWidth(containerRef.current.scrollWidth / 2);
+        }
+    }, [textArray]);
+
+    // Subscribe to scrollY changes so we get a callback every time it updates.
+    useEffect(() => {
         const unsubscribe = scrollY.on("change", (latest) => {
+            // Ignore scroll updates while dragging.
+            if (isDragging.current) return;
+
             const diff = latest - lastScrollY.current;
 
             if (diff > 0) {
                 // Scrolling down → text should accelerate left
                 setDirection("left");
-                animate(velocityMV, baseVelocity + isMobile ? 325 : 650, {
+                animate(velocityMV, baseVelocity + (isMobile ? 325 : 650), {
                     type: "spring",
                     stiffness: 50,
                     damping: 30,
@@ -39,7 +59,7 @@ export default function ParallaxText({ textArray, baseVelocity = 100, scrollY })
             } else if (diff < 0) {
                 // Scrolling up → text should accelerate right
                 setDirection("right");
-                animate(velocityMV, baseVelocity + isMobile ? 50 : 100, {
+                animate(velocityMV, baseVelocity + (isMobile ? 50 : 100), {
                     type: "spring",
                     stiffness: 50,
                     damping: 30,
@@ -52,6 +72,7 @@ export default function ParallaxText({ textArray, baseVelocity = 100, scrollY })
             if (revertTimerRef.current) {
                 clearTimeout(revertTimerRef.current);
             }
+
             // After 150ms of no scroll updates, revert to default.
             revertTimerRef.current = setTimeout(() => {
                 setDirection("left"); // back to default direction
@@ -71,22 +92,11 @@ export default function ParallaxText({ textArray, baseVelocity = 100, scrollY })
         };
     }, [scrollY, baseVelocity, velocityMV]);
 
-    // Keep a MotionValue for the x-position of our container
-    const x = useMotionValue(0);
-
-    // We need to measure half the container width to know when to “loop” seamlessly.
-    const containerRef = useRef(null);
-    const [contentWidth, setContentWidth] = useState(0);
-
-    useEffect(() => {
-        if (containerRef.current) {
-            // Because we duplicate textArray, half of scrollWidth is one array’s length
-            setContentWidth(containerRef.current.scrollWidth / 2);
-        }
-    }, [textArray]);
-
     // Use per-frame updates to move the text based on the current velocity.
     useAnimationFrame((_, delta) => {
+        // Ignore updates while dragging.
+        if (isDragging.current) return;
+
         // Convert velocity from px/s to px/frame based on delta
         const speed = velocityMV.get();
         const distance = speed * (delta / 1000);
@@ -106,6 +116,20 @@ export default function ParallaxText({ textArray, baseVelocity = 100, scrollY })
         }
     });
 
+    // Drag handling: Adjust speed and direction based on drag input
+    const handleDrag = (_, info) => {
+        isDragging.current = true; // Set dragging state
+        const dragSpeed = -info.delta.x; // Negative for reversed drag direction
+        velocityMV.set(dragSpeed); // Directly set velocity based on drag speed
+        setDirection(dragSpeed > 0 ? "right" : "left"); // Adjust direction
+    };
+
+    // Handle end of drag: Revert to base velocity
+    const handleDragEnd = () => {
+        isDragging.current = false; // Reset dragging state
+        animate(velocityMV, baseVelocity, { duration: 0.4, ease: "easeOut" }); // Smoothly return to base velocity
+    };
+
     // Duplicate the text array so that the second half follows behind the first.
     const repeatedText = [...textArray, ...textArray];
 
@@ -114,11 +138,16 @@ export default function ParallaxText({ textArray, baseVelocity = 100, scrollY })
             ref={containerRef}
             className="parallax-text flex whitespace-nowrap"
             style={{ x }} // Apply Framer Motion x transform
+            drag="x" // Allow horizontal dragging
+            dragConstraints={{ left: -contentWidth, right: contentWidth }} // Restrict drag limits
+            dragElastic={0.1} // Add slight resistance to dragging
+            onDrag={handleDrag}
+            onDragEnd={handleDragEnd}
         >
             {repeatedText.map((text, index) => (
                 <span key={index} className="mx-10 lg:mx-14 xl:mx-16">
-        {text}
-      </span>
+          {text}
+        </span>
             ))}
         </motion.div>
     );

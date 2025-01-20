@@ -2,35 +2,11 @@ import { NavLink, Link, useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
 import PropTypes from "prop-types";
 import EncryptionText from "./EncryptionAnim.jsx";
-import {useEffect, useState} from "react";
 
-const Header = ({delay = 0.4}) => {
+const Header = ({isVisible, delay = 0.4}) => {
 
     const location = useLocation();
     const isLandingPage = location.pathname === "/";
-
-    const [isVisible, setIsVisible] = useState(true);
-    const [lastScrollY, setLastScrollY] = useState(0);
-
-    // Handle scroll direction to show/hide the header
-    useEffect(() => {
-        const handleScroll = () => {
-            const currentScrollY = window.scrollY;
-
-            if (currentScrollY > lastScrollY) {
-                // Scrolling down, hide the header
-                setIsVisible(false);
-            } else {
-                // Scrolling up, show the header
-                setIsVisible(true);
-            }
-
-            setLastScrollY(currentScrollY);
-        };
-
-        window.addEventListener("scroll", handleScroll);
-        return () => window.removeEventListener("scroll", handleScroll);
-    }, [lastScrollY]);
 
     const getLinkClasses = ({ isActive }) => {
         if (isLandingPage) {
@@ -55,8 +31,8 @@ const Header = ({delay = 0.4}) => {
               ease: [0.16, 1, 0.3, 1],
           }}>
           <motion.nav
-              className="flex items-center justify-between text-xxs sm:text-xs md:text-sm p-5 xl:px-7 xl:py-4
-              uppercase font-semibold text-customWhite [&_a]:after:bg-customBlack dark:[&_a]:after:bg-customWhite"
+              className="flex items-center justify-between text-xxs sm:text-xs md:text-sm p-3 md:p-5 xl:px-7 xl:py-4
+              uppercase font-medium tracking-wider text-customWhite [&_a]:after:bg-customBlack dark:[&_a]:after:bg-customWhite"
           >
               <Link to="/" className="text-link">
                   <EncryptionText
@@ -66,19 +42,19 @@ const Header = ({delay = 0.4}) => {
                       speed={20}
                   />
               </Link>
-              <ul className="flex gap-2 md:gap-3">
+              <ul className="flex gap-2 md:gap-5">
                   <li>
                       <NavLink to="/art" className={getLinkClasses}>
                           Art
                       </NavLink>
                   </li>
-                  <span className="font-outfit">/</span>
+                  {/*<span className="font-outfit">/</span>*/}
                   <li>
                       <NavLink to="/tech" className={getLinkClasses}>
                           Tech
                       </NavLink>
                   </li>
-                  <span className="font-outfit">/</span>
+                  {/*<span className="font-outfit">/</span>*/}
                   <li>
                       <NavLink to="/about" className={getLinkClasses}>
                           About
@@ -92,6 +68,7 @@ const Header = ({delay = 0.4}) => {
 
 // Add PropTypes validation
 Header.propTypes = {
+    isVisible: PropTypes.bool.isRequired,
     delay: PropTypes.number,
 };
 

@@ -14,7 +14,7 @@ export const CursorProvider = ({ children }) => {
     useEffect(() => {
         // Hover event on specific tags
         const handleMouseEnter = (e) => {
-            if (e.target.closest(".title-text") || e.target.closest(".parallax-text")
+            if (e.target.closest(".title-text")|| e.target.closest(".parallax-text")
                     || e.target.closest("img") || e.target.closest("video") || e.target.closest(".art-image")) {
                 setIsContentHovered(true);
             } else if (e.target.closest("a") || e.target.closest("button") || e.target.closest("p")
