@@ -246,9 +246,9 @@ const Index = () => {
                             }}
                         >
                             <img src="/images/Recollection_main_cropped.jpg" alt="Recollection_art_image" loading="lazy"
-                                 className="xl:max-w-4xl"
+                                 className="w-full"
                             />
-                            <div className="flex flex-col justify-end lowercase text-xxs md:text-base xl:text-lg">
+                            <div className="flex flex-col justify-end lowercase text-xxs md:text-base 3xl:text-lg">
                                 <p className="mb-4 2xl:mb-10 font-medium">Recollection</p>
                                 <p className="text-customGray">/ 2024</p>
                             </div>
@@ -271,7 +271,7 @@ const Index = () => {
                                 ease: "easeInOut",
                             }}
                         >
-                            <div className="flex flex-col justify-end lowercase text-xxs md:text-base xl:text-lg xl:text-right">
+                            <div className="flex flex-col justify-end lowercase text-xxs md:text-base 3xl:text-lg xl:text-right">
                                 <p className="mb-4 2xl:mb-10 font-medium">11,182,156 Steps</p>
                                 <p className="text-customGray">/ 2024</p>
                             </div>
@@ -280,7 +280,7 @@ const Index = () => {
                                 playsInline
                                 muted
                                 loop
-                                className=""
+                                className="w-full"
                             >
                                 <source src="/videos/polychrome_dark.mp4#t=70" type="video/mp4"/>
                                 Your browser does not support the video tag.
@@ -313,9 +313,9 @@ const Index = () => {
                             }}
                         >
                             <img src="/images/Ocular%20Prosthetic%20for%20Reading%20Another%20Human_01.jpeg" alt="Recollection_art_image" loading="lazy"
-                                 className="xl:max-w-3xl"
+                                 className="w-full"
                             />
-                            <div className="flex flex-col justify-end lowercase text-xxs md:text-base xl:text-lg">
+                            <div className="flex flex-col justify-end lowercase text-xxs md:text-base 3xl:text-lg">
                                 <p className="mb-4 2xl:mb-10 font-medium">Ocular Prosthetic for Reading Another Human</p>
                                 <p className="text-customGray">/ 2024</p>
                             </div>
