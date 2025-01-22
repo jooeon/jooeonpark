@@ -158,13 +158,13 @@ const Index = () => {
                 animate={{opacity: 0}}
                 transition={{
                     duration: 0.8,
-                    delay: 1.8,
+                    delay: 2.3,
                     ease: [0.16, 1, 0.3, 1] // easeOutExpo
                 }}
             >
                 <EntryAnim/>
             </motion.div>
-            <main className="relative flex flex-col px-4 md:px-7 pb-20 xl:pb-40 w-full">
+            <main className="relative flex flex-col px-4 md:px-7 pb-20 xl:pb-40 w-full gap-96">
                 {/* Main landing text */}
                 <motion.section
                     className="sticky top-0 flex flex-col items-center mix-blend-difference text-customWhite pointer-events-none"
@@ -182,13 +182,13 @@ const Index = () => {
                 >
                     <motion.h1
                         className="flex justify-center w-full h-fit z-20 font-bold font-nick uppercase tracking-wide pointer-events-auto
-                        text-2xl xs:text-2xl sm:text-5xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl 3xl:text-10xl 4xl:text-11xl 5xl:text-12xl
+                        text-2xl xs:text-2xl sm:text-5xl md:text-5xl lg:text-7xl xl:text-8xl 2xl:text-9xl 3xl:text-10xl 4xl:text-11xl 5xl:text-12xl
                         [&_span]:top-0 [&_span]:leading-[0.9] md:[&_span]:leading-[0.68] [&_span]:bg-customWhite [&_span]:dark:bg-customBlack"
                         initial={{opacity: 0}}
                         animate={{opacity: 1}}
                         transition={{
                             duration: 0.4,
-                            delay: 2.0,
+                            delay: 2.5,
                             ease: "easeIn"
                         }}
                     >
@@ -212,31 +212,43 @@ const Index = () => {
                     </motion.h1>
                     <motion.h2
                         className="outline-text-white pointer-events-auto
-                            text-sm xs:text-md sm:text-3xl md:text-3xl lg:text-4xl xl:text-4xl 2xl:text-6xl 3xl:text-8xl font-nick text-transparent"
+                            text-sm xs:text-md sm:text-3xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl 3xl:text-8xl font-nick text-transparent"
                         style={{y: subTitleLayer}}
                         initial={{opacity: 0}}
                         animate={{opacity: 1}}
                         transition={{
                             duration: 0.4,
-                            delay: 2.0,
+                            delay: 2.5,
                             ease: "easeIn"
                         }}
                     >
                         Artist, Designer, & Developer
                     </motion.h2>
                 </motion.section>
-                <section className="flex flex-col items-center md:h-screen pt-52">
-                    <div className="w-11/12 xl:w-5/6">
-                        <h3 className="w-fit outline-text-black dark:outline-text-white text-transparent font-nick pb-5
-                            text-sm xs:text-lg sm:text-3xl md:text-3xl lg:text-4xl xl:text-4xl 2xl:text-6xl 3xl:text-8xl">01</h3>
+                <section className="flex flex-col items-center pt-52">
+                    <div className="w-11/12 xl:w-5/6 mb-14">
+                        <h3 className="w-fit font-nick pb-5 outline-text-black dark:outline-text-white text-transparent
+                            text-sm xs:text-lg sm:text-3xl md:text-3xl lg:text-4xl xl:text-4xl 2xl:text-6xl 3xl:text-8xl">
+                            About
+                        </h3>
                     </div>
                     <div className="flex flex-col xl:flex-row gap-10 xl:gap-0 justify-start xl:justify-center items-center xl:items-start">
-                        <div className="w-11/12 xl:w-5/12 xl:px-12 2xl:px-24 leading-tight font-regular mix-blend-difference text-customWhite
-                            md:text-xl lg:text-3xl xl:text-4xl 2xl:text-4xl 3xl:text-6xl">
-                            <ScrollTextAnim paragraph={"Software engineer and artist from Seoul, South Korea, specializing in Web Development, UI/UX, Graphic Design, and Visual Arts."} />
+                        <div className="w-11/12 xl:w-5/6 xl:px-24 font-regular mix-blend-difference text-customWhite [&_span]:mb-2
+                            md:text-xl lg:text-3xl xl:text-4xl 2xl:text-7xl 3xl:text-6xl">
+                            <ScrollTextAnim paragraph={"Creative developer and artist from Seoul, South Korea, specializing in Web Development, UI/UX, Graphic Design, and Visual Arts."} />
                         </div>
+                    </div>
+                </section>
+                <section className="flex flex-col items-center">
+                    <div className="w-11/12 xl:w-5/6 mb-14">
+                        <h3 className="w-fit outline-text-black dark:outline-text-white text-transparent font-nick pb-5
+                            text-sm xs:text-lg sm:text-3xl md:text-3xl lg:text-4xl xl:text-4xl 2xl:text-6xl 3xl:text-8xl">
+                            Selected Works
+                        </h3>
+                    </div>
+                    <div className="flex flex-col gap-10 xl:grid xl:grid-cols-2 xl:gap-x-0 xl:gap-y-40 justify-start xl:justify-center items-center xl:items-start">
                         <motion.div
-                            className="w-11/12 xl:w-5/12 flex flex-col xl:flex-row gap-4"
+                            className="w-11/12 xl:w-full flex flex-col xl:flex-row xl:row-start-1 xl:col-start-1 gap-4"
                             initial={{opacity: 0, y: 70}}
                             whileInView={{opacity: 1, y: 0}}
                             viewport={{once: false}}
@@ -250,19 +262,11 @@ const Index = () => {
                             />
                             <div className="flex flex-col justify-end lowercase text-xxs md:text-base 3xl:text-lg">
                                 <p className="mb-4 2xl:mb-10 font-medium">Recollection</p>
-                                <p className="text-customGray">/ 2024</p>
+                                <p className="text-customGray">2024</p>
                             </div>
                         </motion.div>
-                    </div>
-                </section>
-                <section className="flex flex-col items-center md:h-screen pt-40">
-                    <div className="flex justify-end w-11/12 xl:w-5/6">
-                        <h3 className="w-fit outline-text-black dark:outline-text-white text-transparent font-nick pb-5
-                            text-sm xs:text-lg sm:text-3xl md:text-3xl lg:text-4xl xl:text-4xl 2xl:text-6xl 3xl:text-8xl">02</h3>
-                    </div>
-                    <div className="flex flex-col-reverse xl:flex-row gap-10 xl:gap-0 justify-start xl:justify-center items-center xl:items-start">
                         <motion.div
-                            className="w-11/12 xl:w-5/12 flex flex-col-reverse xl:flex-row gap-4"
+                            className="w-11/12 xl:w-full flex flex-col xl:flex-row xl:row-start-2 xl:col-start-2 gap-4"
                             initial={{opacity: 0, y: 70}}
                             whileInView={{opacity: 1, y: 0}}
                             viewport={{once: false}}
@@ -273,7 +277,7 @@ const Index = () => {
                         >
                             <div className="flex flex-col justify-end lowercase text-xxs md:text-base 3xl:text-lg xl:text-right">
                                 <p className="mb-4 2xl:mb-10 font-medium">11,182,156 Steps</p>
-                                <p className="text-customGray">/ 2024</p>
+                                <p className="text-customGray">2024</p>
                             </div>
                             <video
                                 autoPlay
@@ -286,24 +290,8 @@ const Index = () => {
                                 Your browser does not support the video tag.
                             </video>
                         </motion.div>
-                        <div className="w-11/12 xl:w-5/12 xl:px-12 2xl:px-24 leading-tight font-regular mix-blend-difference text-customWhite
-                            md:text-xl lg:text-3xl xl:text-4xl 2xl:text-4xl 3xl:text-6xl xl:[&_p]:justify-end">
-                            <ScrollTextAnim paragraph={"Seamlessly integrating design and technology to create experiences that are both highly functional and aesthetic."} />
-                        </div>
-                    </div>
-                </section>
-                <section className="flex flex-col items-center md:h-screen pt-40">
-                    <div className="w-11/12 xl:w-5/6">
-                        <h3 className="w-fit outline-text-black dark:outline-text-white text-transparent font-nick pb-5
-                            text-sm xs:text-lg sm:text-3xl md:text-3xl lg:text-4xl xl:text-4xl 2xl:text-6xl 3xl:text-8xl">03</h3>
-                    </div>
-                    <div className="flex flex-col xl:flex-row gap-10 xl:gap-0 justify-start xl:justify-center items-center xl:items-start">
-                        <div className="w-11/12 xl:w-5/12 xl:px-12 2xl:px-24 leading-tight font-regular mix-blend-difference text-customWhite
-                            md:text-xl lg:text-3xl xl:text-4xl 2xl:text-4xl 3xl:text-6xl">
-                            <ScrollTextAnim paragraph={"In pursuit of limitless creativity, meticulous design, and flawless execution."} />
-                        </div>
                         <motion.div
-                            className="w-11/12 xl:w-5/12 flex flex-col xl:flex-row gap-4"
+                            className="w-11/12 xl:w-full flex flex-col xl:flex-row xl:row-start-3 xl:col-start-1 gap-4"
                             initial={{opacity: 0, y: 70}}
                             whileInView={{opacity: 1, y: 0}}
                             viewport={{once: false}}
@@ -313,11 +301,11 @@ const Index = () => {
                             }}
                         >
                             <img src="/images/Ocular%20Prosthetic%20for%20Reading%20Another%20Human_01.jpeg" alt="Recollection_art_image" loading="lazy"
-                                 className="w-full"
+                                 className="w-full xl:w-3/5"
                             />
                             <div className="flex flex-col justify-end lowercase text-xxs md:text-base 3xl:text-lg">
                                 <p className="mb-4 2xl:mb-10 font-medium">Ocular Prosthetic for Reading Another Human</p>
-                                <p className="text-customGray">/ 2024</p>
+                                <p className="text-customGray">2024</p>
                             </div>
                         </motion.div>
                     </div>

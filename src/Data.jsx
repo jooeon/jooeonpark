@@ -32,7 +32,7 @@ export const items = [
         alt: "11,182,156 Steps",
         padding: "pb-10 xl:pt-40rem",
         link: "/steps",
-        hasAnimation: true,
+        hasAnimation: false,
     },
     {
         id: "running-in-a-dream",
@@ -84,7 +84,7 @@ export const items = [
         alt: "On The Tracks",
         padding: "pb-10 xl:pt-60rem",
         link: "",
-        hasAnimation: true,
+        hasAnimation: false,
     },
     {
         id: "recollection",
