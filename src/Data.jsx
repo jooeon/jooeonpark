@@ -46,7 +46,7 @@ export const items = [
         ],
         caption: [
             "Running In a Dream",
-            "Mixed media",
+            "Mixed Media",
             "Plywood, colored pencils, fabric, nails",
             "2024"
         ],
@@ -76,7 +76,7 @@ export const items = [
         ],
         caption: [
             "On The Tracks",
-            "Street art",
+            "Street Art",
             "Paint, ink, cardboard, tape",
             "2024",
         ],
