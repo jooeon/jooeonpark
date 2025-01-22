@@ -182,8 +182,9 @@ const Index = () => {
                 >
                     <motion.h1
                         className="flex justify-center w-full h-fit z-20 font-bold font-nick uppercase tracking-wide pointer-events-auto
-                        text-2xl xs:text-2xl sm:text-5xl md:text-5xl lg:text-7xl xl:text-8xl 2xl:text-9xl 3xl:text-10xl 4xl:text-11xl 5xl:text-12xl
-                        [&_span]:top-0 [&_span]:leading-[0.9] md:[&_span]:leading-[0.68] [&_span]:bg-customWhite [&_span]:dark:bg-customBlack"
+                        text-2xl xs:text-2xl sm:text-5xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl 3xl:text-10xl 4xl:text-11xl 5xl:text-12xl
+                        [&_span]:leading-[0.9] md:[&_span]:leading-[0.68]
+                        [&_span]:top-0 [&_span]:bg-customWhite [&_span]:dark:bg-customBlack"
                         initial={{opacity: 0}}
                         animate={{opacity: 1}}
                         transition={{
@@ -246,7 +247,7 @@ const Index = () => {
                             Selected Works
                         </h3>
                     </div>
-                    <div className="flex flex-col gap-10 xl:grid xl:grid-cols-2 xl:gap-x-0 xl:gap-y-40 justify-start xl:justify-center items-center xl:items-start">
+                    <div className="flex flex-col gap-10 xl:grid xl:grid-cols-2 xl:grid-rows-3 xl:gap-x-0 xl:gap-y-0 justify-start xl:justify-center items-center xl:items-start">
                         <motion.div
                             className="w-11/12 xl:w-full flex flex-col xl:flex-row xl:row-start-1 xl:col-start-1 gap-4"
                             initial={{opacity: 0, y: 70}}
@@ -258,7 +259,7 @@ const Index = () => {
                             }}
                         >
                             <img src="/images/Recollection_main_cropped.jpg" alt="Recollection_art_image" loading="lazy"
-                                 className="w-full"
+                                 className="w-5/6"
                             />
                             <div className="flex flex-col justify-end lowercase text-xxs md:text-base 3xl:text-lg">
                                 <p className="mb-4 2xl:mb-10 font-medium">Recollection</p>
@@ -266,7 +267,7 @@ const Index = () => {
                             </div>
                         </motion.div>
                         <motion.div
-                            className="w-11/12 xl:w-full flex flex-col xl:flex-row xl:row-start-2 xl:col-start-2 gap-4"
+                            className="w-11/12 xl:w-full flex flex-col-reverse xl:flex-row xl:row-start-2 xl:col-start-2 gap-4"
                             initial={{opacity: 0, y: 70}}
                             whileInView={{opacity: 1, y: 0}}
                             viewport={{once: false}}
@@ -284,7 +285,7 @@ const Index = () => {
                                 playsInline
                                 muted
                                 loop
-                                className="w-full"
+                                className="w-5/6"
                             >
                                 <source src="/videos/polychrome_dark.mp4#t=70" type="video/mp4"/>
                                 Your browser does not support the video tag.
