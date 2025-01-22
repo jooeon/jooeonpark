@@ -13,8 +13,8 @@ const Art = () => {
             <Header isVisible={true}/>
             <main className="">
                 {!isMobile && <section className="relative flex justify-center items-center p-7 h-[60vh]">
-                    <h1 className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full text-center leading-none
-                            text-7xl uppercase font-nick">
+                    <h1 className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full text-center leading-none uppercase font-nick
+                        text-4xl xl:text-5xl 2xl:text-6xl 3xl:text-7xl">
                         Creative Works
                     </h1>
                     <div className="absolute top-0 bottom-0 flex flex-wrap w-full -z-10 *:w-1/4
@@ -44,6 +44,7 @@ const Art = () => {
                                         viewport: {once: true},
                                         transition: {
                                             duration: 0.5,
+                                            delay: 0.7,
                                             ease: "easeInOut",
                                         },
                                     }
@@ -78,7 +79,7 @@ const Art = () => {
                                                 />
                                             )}
                                             {/* Bottom captions */}
-                                            <div className="flex justify-between pt-1 font-outfit uppercase">
+                                            <div className="flex justify-between gap-10 pt-1 font-outfit uppercase text-sm">
                                                 {item.caption && (
                                                     <>
                                                         {/* Bottom-Left Caption */}
@@ -121,7 +122,7 @@ const Art = () => {
                                     }}
                                 >
                                     {/* Top captions */}
-                                    <div className="flex justify-between">
+                                    <div className="flex justify-between gap-10">
                                         {item.caption && (
                                             <>
                                                 {/* Top-Left Caption */}
@@ -164,7 +165,7 @@ const Art = () => {
                                         )}
                                     </Link>
                                     {/* Bottom captions */}
-                                    <div className="flex justify-between">
+                                    <div className="flex justify-between gap-10">
                                         {item.caption && (
                                             <>
                                                 {/* Bottom-Left Caption */}

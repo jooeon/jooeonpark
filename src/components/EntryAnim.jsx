@@ -11,7 +11,7 @@ const AnimatedText = () => {
             await controls.start('visible');
 
             // Delay before starting the abbreviation
-            await new Promise((resolve) => setTimeout(resolve, 350));
+            await new Promise((resolve) => setTimeout(resolve, 850));
 
             // Start the abbreviation animation
             await controls.start('abbreviate');

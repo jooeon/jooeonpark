@@ -37,7 +37,7 @@ const About = () => {
                                 animate={{opacity: 1, filter: 'blur(0px)'}}
                                 transition={{
                                     duration: 0.3,
-                                    delay: 0.3,
+                                    delay: 1.3,
                                     ease: "easeIn"
                                 }}
                             >
@@ -49,7 +49,7 @@ const About = () => {
                                 animate={{opacity: 1, filter: 'blur(0px)'}}
                                 transition={{
                                     duration: 0.3,
-                                    delay: 0.6,
+                                    delay: 1.6,
                                     ease: "easeIn"
                                 }}
                             >
@@ -61,7 +61,7 @@ const About = () => {
                                 animate={{opacity: 1, filter: 'blur(0px)'}}
                                 transition={{
                                     duration: 0.3,
-                                    delay: 0.9,
+                                    delay: 1.9,
                                     ease: "easeIn"
                                 }}
                             >
@@ -74,7 +74,7 @@ const About = () => {
                             animate={{opacity: 1}}
                             transition={{
                                 duration: 0.5,
-                                delay: 1.4,
+                                delay: 2.4,
                                 ease: "easeIn"
                             }}
                         >
