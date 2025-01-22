@@ -30,7 +30,7 @@ const About = () => {
                     </section>
                     <section
                         className="flex flex-col justify-center xl:h-screen xl:w-50vw px-8 md:px-12 lg:px-16 xl:pl-10 xl:pr-40">
-                        <h1 className="title-text flex flex-col gap-2 xl:gap-4 xl:flex-row text-4xl lg:text-5xl uppercase font-poppins font-bold">
+                        <h1 className="title-text flex flex-col gap-2 xl:gap-4 xl:flex-row text-4xl lg:text-5xl xl:text-4xl 2xl:text-5xl uppercase font-poppins font-bold">
                             <motion.span
                                 className=""
                                 initial={{opacity: 0, filter: 'blur(3px)'}}
