@@ -28,9 +28,9 @@ const About = () => {
                             />
                         </motion.div>
                     </section>
-                    <section
-                        className="flex flex-col justify-center xl:h-screen xl:w-50vw px-8 md:px-12 lg:px-16 xl:pl-10 xl:pr-40">
-                        <h1 className="title-text flex flex-col gap-2 xl:gap-4 xl:flex-row text-4xl lg:text-5xl xl:text-4xl 2xl:text-5xl uppercase font-poppins font-bold">
+                    <section className="flex flex-col justify-center xl:h-screen xl:w-50vw px-8 md:px-12 lg:px-16 xl:pl-10 xl:pr-40">
+                        <h1 className="title-text flex flex-col gap-2 xl:gap-4 xl:flex-row uppercase font-poppins font-bold
+                            text-4xl lg:text-5xl xl:text-4xl 2xl:text-4xl 3xl:text-5xl 4xl:text-6xl">
                             <motion.span
                                 className=""
                                 initial={{opacity: 0, filter: 'blur(3px)'}}
