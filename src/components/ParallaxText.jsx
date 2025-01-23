@@ -1,16 +1,15 @@
 import { useState, useRef, useEffect } from "react";
 import PropTypes from "prop-types";
 import { motion, useMotionValue, useAnimationFrame, animate } from "framer-motion";
-import { isMobile } from "react-device-detect";
 
 /**
  * ParallaxText component
  *
  * @param {string[]} textArray - Array of strings to scroll
  * @param {number} baseVelocity - The default speed (px/s) of horizontal scroll
- * @param {MotionValue<number>} scrollY - The scrollY motion value from Framer Motion (useScroll)
+ * [unused]@param {MotionValue<number>} scrollY - The scrollY motion value from Framer Motion (useScroll)
  */
-export default function ParallaxText({ textArray, baseVelocity = 100, scrollY }) {
+export default function ParallaxText({ textArray, baseVelocity = 100 }) {
     // We still keep a separate `direction` so we know if we should move left or right.
     const [direction, setDirection] = useState("left"); // "left" | "right"
 
@@ -18,10 +17,10 @@ export default function ParallaxText({ textArray, baseVelocity = 100, scrollY })
     const velocityMV = useMotionValue(baseVelocity);
 
     // Track our last scroll position to determine if the user is scrolling up or down.
-    const lastScrollY = useRef(0);
+    // const lastScrollY = useRef(0);
 
     // A timer to revert speed after user stops scrolling.
-    const revertTimerRef = useRef(null);
+    // const revertTimerRef = useRef(null);
 
     // Track whether the user is actively dragging the text.
     const isDragging = useRef(false);
@@ -40,57 +39,57 @@ export default function ParallaxText({ textArray, baseVelocity = 100, scrollY })
         }
     }, [textArray]);
 
-    // Subscribe to scrollY changes so we get a callback every time it updates.
-    useEffect(() => {
-        const unsubscribe = scrollY.on("change", (latest) => {
-            // Ignore scroll updates while dragging.
-            if (isDragging.current) return;
-
-            const diff = latest - lastScrollY.current;
-
-            if (diff > 0) {
-                // Scrolling down → text should accelerate left
-                setDirection("left");
-                animate(velocityMV, baseVelocity + (isMobile ? 325 : 650), {
-                    type: "spring",
-                    stiffness: 50,
-                    damping: 30,
-                });
-            } else if (diff < 0) {
-                // Scrolling up → text should accelerate right
-                setDirection("right");
-                animate(velocityMV, baseVelocity + (isMobile ? 50 : 100), {
-                    type: "spring",
-                    stiffness: 50,
-                    damping: 30,
-                });
-            }
-
-            lastScrollY.current = latest;
-
-            // Clear any existing timer so we don’t stack them.
-            if (revertTimerRef.current) {
-                clearTimeout(revertTimerRef.current);
-            }
-
-            // After 150ms of no scroll updates, revert to default.
-            revertTimerRef.current = setTimeout(() => {
-                setDirection("left"); // back to default direction
-                animate(velocityMV, baseVelocity, {
-                    duration: 0.4,
-                    ease: "easeOut",
-                });
-            }, 150);
-        });
-
-        return () => {
-            unsubscribe();
-            // Cleanup any pending timer on unmount.
-            if (revertTimerRef.current) {
-                clearTimeout(revertTimerRef.current);
-            }
-        };
-    }, [scrollY, baseVelocity, velocityMV]);
+    // // Subscribe to scrollY changes so we get a callback every time it updates.
+    // useEffect(() => {
+    //     const unsubscribe = scrollY.on("change", (latest) => {
+    //         // Ignore scroll updates while dragging.
+    //         if (isDragging.current) return;
+    //
+    //         const diff = latest - lastScrollY.current;
+    //
+    //         if (diff > 0) {
+    //             // Scrolling down → text should accelerate left
+    //             setDirection("left");
+    //             animate(velocityMV, baseVelocity + (isMobile ? 325 : 650), {
+    //                 type: "spring",
+    //                 stiffness: 50,
+    //                 damping: 30,
+    //             });
+    //         } else if (diff < 0) {
+    //             // Scrolling up → text should accelerate right
+    //             setDirection("right");
+    //             animate(velocityMV, baseVelocity + (isMobile ? 50 : 100), {
+    //                 type: "spring",
+    //                 stiffness: 50,
+    //                 damping: 30,
+    //             });
+    //         }
+    //
+    //         lastScrollY.current = latest;
+    //
+    //         // Clear any existing timer so we don’t stack them.
+    //         if (revertTimerRef.current) {
+    //             clearTimeout(revertTimerRef.current);
+    //         }
+    //
+    //         // After 150ms of no scroll updates, revert to default.
+    //         revertTimerRef.current = setTimeout(() => {
+    //             setDirection("left"); // back to default direction
+    //             animate(velocityMV, baseVelocity, {
+    //                 duration: 0.4,
+    //                 ease: "easeOut",
+    //             });
+    //         }, 150);
+    //     });
+    //
+    //     return () => {
+    //         unsubscribe();
+    //         // Cleanup any pending timer on unmount.
+    //         if (revertTimerRef.current) {
+    //             clearTimeout(revertTimerRef.current);
+    //         }
+    //     };
+    // }, [scrollY, baseVelocity, velocityMV]);
 
     // Use per-frame updates to move the text based on the current velocity.
     useAnimationFrame((_, delta) => {
