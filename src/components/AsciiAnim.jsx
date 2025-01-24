@@ -122,7 +122,7 @@ const AsciiAnimation = () => {
         <div
             ref={containerRef}
             id="ascii-shape"
-            className="absolute top-0 right-10 w-50vw h-[30vh] lg:h-[40vh] 4xl:h-[30vh] 5xl:h-[25vh] z-10
+            className="absolute top-0 right-10 w-50vw h-[30vh] lg:h-[45vh] 4xl:h-[30vh] 5xl:h-[25vh] z-10
                 *:!cursor-none touch-pinch-zoom overflow-clip"
         />
     );

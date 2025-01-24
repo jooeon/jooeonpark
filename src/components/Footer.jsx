@@ -5,7 +5,7 @@ const Footer = () => {
   return (
     <footer className="z-30">
         <motion.div
-            className="flex items-center justify-between w-full p-6 md:px-7 md:py-4 text-xs md:text-sm uppercase font-medium tracking-wider"
+            className="flex items-center justify-between w-full p-6 md:px-7 md:py-4 text-xxs sm:text-xs md:text-sm uppercase font-roboto font-medium tracking-wider"
             initial={{opacity: 0}}
             animate={{opacity: 1}}
             transition={{

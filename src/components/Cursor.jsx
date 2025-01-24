@@ -61,7 +61,7 @@ const Cursor = () => {
         default: { scale: 1, opacity: 1, transition: { duration: 0.2, ease: "easeIn" }, },
         linkHover: { scale: 2.5, opacity: 1, backgroundColor: cursorColor, transition: { duration: 0.1, ease: "easeIn" }, },
         contentHover: {
-            scale: isSmallScreen ? 2.0 : 4.0,
+            scale: isSmallScreen ? 2.0 : 3.0,
             opacity: 1,
             width: isSmallScreen ? 30 : 50,
             height: isSmallScreen ? 20 : 30,
