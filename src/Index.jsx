@@ -181,9 +181,9 @@ const Index = () => {
                     }}
                 >
                     <motion.h1
-                        className="flex justify-center w-full h-fit z-20 font-bold font-nick uppercase tracking-wide pointer-events-auto
-                        text-2xl xs:text-2xl sm:text-5xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl 3xl:text-10xl 4xl:text-11xl 5xl:text-12xl
-                        [&_span]:leading-[0.9] md:[&_span]:leading-[0.68]
+                        className="flex justify-center w-full h-fit z-20 font-extrabold font-almarai uppercase pointer-events-auto
+                        text-2xl xs:text-2xl sm:text-5xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-10xl 3xl:text-10xl 4xl:text-11xl 5xl:text-12xl
+                        [&_span]:leading-[0.9] md:[&_span]:leading-[0.82]
                         [&_span]:top-0 [&_span]:bg-customWhite [&_span]:dark:bg-customBlack"
                         initial={{opacity: 0}}
                         animate={{opacity: 1}}
@@ -212,8 +212,8 @@ const Index = () => {
                         </div>
                     </motion.h1>
                     <motion.h2
-                        className="outline-text-white pointer-events-auto
-                            text-sm xs:text-md sm:text-3xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl 3xl:text-8xl font-nick text-transparent"
+                        className="pointer-events-auto
+                            text-sm xs:text-md sm:text-3xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl 3xl:text-8xl font-almarai font-extrabold uppercase"
                         style={{y: subTitleLayer}}
                         initial={{opacity: 0}}
                         animate={{opacity: 1}}
@@ -234,8 +234,8 @@ const Index = () => {
                         </h3>
                     </div>
                     <div className="flex flex-col xl:flex-row gap-10 xl:gap-0 justify-start xl:justify-center items-center xl:items-start">
-                        <div className="w-11/12 xl:w-5/6 xl:px-24 font-regular mix-blend-difference text-customWhite [&_span]:mb-2
-                            md:text-xl lg:text-3xl xl:text-4xl 2xl:text-7xl 3xl:text-6xl">
+                        <div className="w-11/12 xl:w-5/6 xl:px-24 font-extrabold font-almarai uppercase mix-blend-difference text-customWhite [&_span]:mb-2
+                            md:text-xl lg:text-3xl xl:text-4xl 2xl:text-6xl 3xl:text-6xl">
                             <ScrollTextAnim paragraph={"Creative developer and artist from Seoul, South Korea, specializing in Web Development, UI/UX, Graphic Design, and Visual Arts."} />
                         </div>
                     </div>

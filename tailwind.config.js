@@ -4,14 +4,13 @@ export default {
     content: ["./index.html", "./src/**/*.{ts,tsx,js,jsx}"],
   theme: {
 	fontFamily: {
+		'almarai': ['Almarai', 'Outfit', 'Arial', 'system-ui', 'sans-serif'],
+		'founders': ['Founders Grotesk', 'Outfit', 'Arial', 'system-ui', 'sans-serif'],
 		'nick': ['Nickelodeon2001', 'Outfit', 'Arial', 'system-ui', 'sans-serif'],
-		'inter': ['Inter', 'Outfit', 'Arial', 'system-ui', 'sans-serif'],
 		'poppins': ['Poppins', 'Outfit', 'Arial', 'system-ui', 'sans-serif'],
 		'raleway': ['Raleway', 'Outfit', 'Arial', 'system-ui', 'sans-serif'],
 		'outfit': ['Outfit', 'Arial', 'system-ui', 'sans-serif'],
-		'aldrich': ['Aldrich', 'Outfit', 'Arial', 'system-ui', 'sans-serif'],
 		'roboto': ['Roboto Mono', 'system-ui', 'monospace'],
-		'azeret': ['Azeret Mono', 'Roboto Mono', 'system-ui', 'monospace'],
 	},
   	extend: {
 		width: {

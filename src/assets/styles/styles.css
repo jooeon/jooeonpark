@@ -27,6 +27,11 @@ body a {
     src: url('/fonts/nickelodeon2001headline.ttf') format('truetype');
 }
 
+@font-face {
+    font-family: 'Founders Grotesk';
+    src: url('/fonts/TestFoundersGrotesk-Bold.otf') format('opentype');
+}
+
 /* Z Indices */
 /*
 - z-50: overlays
