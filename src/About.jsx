@@ -18,9 +18,18 @@ const About = () => {
             <Header isVisible={true}/>
             <main>
                 <div className="flex flex-col xl:flex-row">
-                    <section className="flex justify-center items-center xl:h-screen xl:w-50vw
+                    <section className="sticky top-0 flex justify-center items-center xl:h-screen xl:w-50vw
                         py-14 md:py-24 lg:py-32 xl:py-0">
-                        <motion.div className="w-3/4 xl:w-1/2 xl:min-w-96 border border-customBlackLight">
+                        <motion.div
+                            className="w-3/4 xl:w-1/2 xl:min-w-96 border border-customBlackLight"
+                            initial={{opacity: 0, y: 20}}
+                            animate={{opacity: 1, y: 0}}
+                            transition={{
+                                duration: 0.5,
+                                delay: 0.6,
+                                ease: "easeInOut"
+                            }}
+                        >
                             <img
                                 src={isDarkMode ? "/images/profile.jpg" : "/images/profile_bw.jpg"}
                                 alt="Joo Eon Park Profile Image"
@@ -29,65 +38,65 @@ const About = () => {
                         </motion.div>
                     </section>
                     <section className="flex flex-col justify-center xl:h-screen xl:w-50vw px-8 md:px-12 lg:px-16 xl:pl-10 xl:pr-40">
-                        <h1 className="title-text flex flex-col gap-2 xl:gap-4 xl:flex-row uppercase font-poppins font-bold
-                            text-4xl lg:text-5xl xl:text-4xl 2xl:text-4xl 3xl:text-5xl 4xl:text-6xl">
-                            <motion.span
-                                className=""
-                                initial={{opacity: 0, filter: 'blur(3px)'}}
-                                animate={{opacity: 1, filter: 'blur(0px)'}}
-                                transition={{
-                                    duration: 0.3,
-                                    delay: 1.3,
-                                    ease: "easeIn"
-                                }}
-                            >
-                                Creativity.
-                            </motion.span>
-                            <motion.span
-                                className=""
-                                initial={{opacity: 0, filter: 'blur(3px)'}}
-                                animate={{opacity: 1, filter: 'blur(0px)'}}
-                                transition={{
-                                    duration: 0.3,
-                                    delay: 1.6,
-                                    ease: "easeIn"
-                                }}
-                            >
-                                Design.
-                            </motion.span>
-                            <motion.span
-                                className=""
-                                initial={{opacity: 0, filter: 'blur(3px)'}}
-                                animate={{opacity: 1, filter: 'blur(0px)'}}
-                                transition={{
-                                    duration: 0.3,
-                                    delay: 1.9,
-                                    ease: "easeIn"
-                                }}
-                            >
-                                Execution.
-                            </motion.span>
-                        </h1>
+                        {/*<h1 className="title-text flex flex-col gap-2 xl:gap-4 xl:flex-row uppercase font-poppins font-bold*/}
+                        {/*    text-4xl lg:text-5xl xl:text-4xl 2xl:text-4xl 3xl:text-5xl 4xl:text-6xl">*/}
+                        {/*    <motion.span*/}
+                        {/*        className=""*/}
+                        {/*        initial={{opacity: 0, filter: 'blur(3px)'}}*/}
+                        {/*        animate={{opacity: 1, filter: 'blur(0px)'}}*/}
+                        {/*        transition={{*/}
+                        {/*            duration: 0.3,*/}
+                        {/*            delay: 1.3,*/}
+                        {/*            ease: "easeIn"*/}
+                        {/*        }}*/}
+                        {/*    >*/}
+                        {/*        Creativity.*/}
+                        {/*    </motion.span>*/}
+                        {/*    <motion.span*/}
+                        {/*        className=""*/}
+                        {/*        initial={{opacity: 0, filter: 'blur(3px)'}}*/}
+                        {/*        animate={{opacity: 1, filter: 'blur(0px)'}}*/}
+                        {/*        transition={{*/}
+                        {/*            duration: 0.3,*/}
+                        {/*            delay: 1.6,*/}
+                        {/*            ease: "easeIn"*/}
+                        {/*        }}*/}
+                        {/*    >*/}
+                        {/*        Design.*/}
+                        {/*    </motion.span>*/}
+                        {/*    <motion.span*/}
+                        {/*        className=""*/}
+                        {/*        initial={{opacity: 0, filter: 'blur(3px)'}}*/}
+                        {/*        animate={{opacity: 1, filter: 'blur(0px)'}}*/}
+                        {/*        transition={{*/}
+                        {/*            duration: 0.3,*/}
+                        {/*            delay: 1.9,*/}
+                        {/*            ease: "easeIn"*/}
+                        {/*        }}*/}
+                        {/*    >*/}
+                        {/*        Execution.*/}
+                        {/*    </motion.span>*/}
+                        {/*</h1>*/}
                         <motion.div
-                            className="py-6 xl:py-8 text-sm md:text-xl font-poppins font-medium text-customGray"
-                            initial={{opacity: 0}}
-                            animate={{opacity: 1}}
+                            className="py-6 xl:py-8 text-sm md:text-xl 3xl:text-2xl font-outfit font-light"
+                            initial={{opacity: 0, y: 20}}
+                            animate={{opacity: 1, y: 0}}
                             transition={{
                                 duration: 0.5,
-                                delay: 2.4,
-                                ease: "easeIn"
+                                delay: 0.8,
+                                ease: "easeInOut"
                             }}
                         >
-                            <p className="">
+                            <p className="text-base md:text-2xl 3xl:text-3xl font-normal">
                                 Joo Eon Park is a South Korean artist, designer, and software engineer
-                                with a passion for design and creation, integrating his interdisciplinary expertise
+                                with a passion for creativity, integrating his interdisciplinary expertise
                                 in design and technology to build platforms for creative expression.
                             </p>
                             <p className="mt-4">
                                 With diverse backgrounds in Computer Science, Digital Media, and Studio Art,
-                                he blends his multifaceted expertise to create experiences that are both highly
+                                Park blends his multifaceted expertise to create experiences that are both highly
                                 functional and visually engaging. In pursuit of limitless creativity, attentive design,
-                                and flawless execution in his work, Park brings a perspective that integrates the minds
+                                and flawless execution in his work, he brings a perspective that integrates the minds
                                 of artists, designers, and technicians alike.
                             </p>
                             <p className="mt-4">
