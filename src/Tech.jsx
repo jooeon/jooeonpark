@@ -1,6 +1,6 @@
 import Header from "./components/Header.jsx";
 import Footer from "./components/Footer.jsx";
-import { useScroll } from "framer-motion";
+import {motion, useScroll} from "framer-motion";
 import EncryptionText from "./components/EncryptionAnim.jsx";
 import AsciiAnimation from "./components/AsciiAnim.jsx";
 import ParallaxText from "./components/ParallaxText.jsx";
@@ -15,9 +15,20 @@ const Tech = () => {
     return (
         <>
             <Header isVisible={true}/>
-            <main className="py-16 xl:py-24">
-                {/* Main landing text */}
-                <section className="relative flex flex-col gap-16 md:gap-28 lg:gap-36">
+            <main>
+                <motion.div
+                    className="pl-5 pt-10 md:pt-20 md:pl-10"
+                    initial={{opacity: 0, y: 40}}
+                    animate={{opacity: 1, y: 0}}
+                    transition={{
+                        duration: 0.3,
+                        delay: 0.6,
+                        ease: "easeOut"
+                    }}
+                >
+                    <h1 className="title-text font-nick uppercase text-4xl sm:text-5xl md:text-7xl lg:text-8xl 4xl:text-9xl">Technical</h1>
+                </motion.div>
+                <section className="relative flex flex-col gap-16 md:gap-28 lg:gap-36 pt-10">
                     {/* 3D animation */}
                     {!isMobile && <AsciiAnimation/>}
                     {/* About text */}
@@ -100,7 +111,7 @@ const Tech = () => {
                             />
                         </h2>
                         <div className="w-full flex overflow-hidden items-center uppercase font-nick
-                            text-4xl md:text-5xl lg:text-7xl 2xl:text-8xl
+                            text-3xl md:text-4xl lg:text-5xl 2xl:text-6xl
                             ">
                             <ParallaxText
                                 textArray={["react", "next.js", "tailwind", "framer motion", "sql", "prisma", "adobe cc", "figma"]}
