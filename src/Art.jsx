@@ -10,7 +10,7 @@ const Art = () => {
 
     return (
         <>
-            <Header isVisible={true}/>
+            <Header/>
             <main className="">
                 {!isMobile && <section className="relative flex justify-center items-center p-7 h-[60vh]">
                     <h1 className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full text-center leading-none uppercase font-nick

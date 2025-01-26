@@ -55,7 +55,7 @@ export default {
   		colors: {
 			customWhite: "#fafafa",
 			customBlack: "#070707",
-			customBlackLight: "#1c1c1c",
+			customBlackLight: "#111111",
 			customGray: "#9a9a9a",
 			customGrayLight: "#ececec",
 			customNavy: "#100f14",

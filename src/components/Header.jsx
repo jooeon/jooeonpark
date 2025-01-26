@@ -1,9 +1,35 @@
 import { NavLink, Link, useLocation } from "react-router-dom";
-import { motion } from "framer-motion";
+import {motion} from "framer-motion";
 import PropTypes from "prop-types";
 import EncryptionText from "./EncryptionAnim.jsx";
+import {useEffect, useState} from "react";
 
-const Header = ({isVisible, delay = 0.4}) => {
+const Header = ({delay = 0.4}) => {
+
+    const [isVisible, setIsVisible] = useState(true);   // tracks the visibility of navbar
+    const [lastScrollY, setLastScrollY] = useState(0);
+    const scrollThreshold = 5; // Minimum scroll change to detect direction
+
+    // Handle scroll direction
+    useEffect(() => {
+        const handleScroll = () => {
+            const currentScrollY = Math.max(0, window.scrollY);
+
+            if (Math.abs(currentScrollY - lastScrollY) > scrollThreshold) {
+                if (currentScrollY > lastScrollY) {
+                    // Scrolling down
+                    setIsVisible(false);
+                } else if (currentScrollY < lastScrollY) {
+                    // Scrolling up
+                    setIsVisible(true);
+                }
+                setLastScrollY(currentScrollY);
+            }
+        };
+
+        window.addEventListener("scroll", handleScroll);
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, [lastScrollY]);
 
     const location = useLocation();
     const isLandingPage = location.pathname === "/";
@@ -68,7 +94,6 @@ const Header = ({isVisible, delay = 0.4}) => {
 
 // Add PropTypes validation
 Header.propTypes = {
-    isVisible: PropTypes.bool.isRequired,
     delay: PropTypes.number,
 };
 
