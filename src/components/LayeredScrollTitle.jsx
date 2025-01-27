@@ -104,7 +104,6 @@ const ScrollTitleSection = () => {
             <motion.h1
                 className="flex justify-center w-full h-fit z-20 font-extrabold font-nick uppercase pointer-events-auto
                         text-[7vw]
-                        [&_span]:leading-[0.95] md:[&_span]:leading-[0.7]
                         [&_span]:top-0 [&_span]:bg-customWhite [&_span]:dark:bg-customBlack"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
