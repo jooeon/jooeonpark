@@ -105,81 +105,82 @@ const Art = () => {
                         </HorizontalScrollSection>
                     </section>
                     :
-                    <section className="flex flex-row flex-wrap justify-between gap-5
-                        h-min w-full xl:w-11/12 mx-auto p-5 pt-14 uppercase">
-                        <motion.div
-                            className="pl-5 pt-10 md:pt-20 md:pl-10 pb-10 md:pb-20"
-                            initial={{opacity: 0, y: 40}}
-                            animate={{opacity: 1, y: 0}}
-                            transition={{
-                                duration: 0.3,
-                                delay: 0.6,
-                                ease: "easeOut"
-                            }}
-                        >
-                            <h1 className="title-text font-nick uppercase text-4xl sm:text-5xl md:text-7xl lg:text-8xl 4xl:text-9xl">Creative Works</h1>
-                        </motion.div>
-                        {items.map((item) => (
-                            <div className={`flex flex-col w-full h-full xl:w-2/5 xl:h-2/5 ${item.padding}`}
-                                 key={item.id}>
-                                <motion.div
-                                    className="art-image"
-                                    initial={{y: 150, opacity: 0}}
-                                    whileInView={{y: 0, opacity: 1}}
-                                    viewport={{once: true, amount: 0.1}}
-                                    transition={{
-                                        duration: 0.9,
-                                        delay: 0,
-                                        ease: "easeInOut"
-                                    }}
-                                >
-                                    {/* Video/image content */}
-                                    <Link to={item.link} className="">
-                                        {item.isVideo && (
-                                            <video
-                                                autoPlay
-                                                playsInline
-                                                muted
-                                                loop
-                                                className="w-full py-3"
-                                            >
-                                                <source src={item.thumbnail} type="video/mp4"/>
-                                                Your browser does not support the video tag.
-                                            </video>
-                                        )}
-                                        {!item.isVideo && (
-                                            <img
-                                                src={item.thumbnail}
-                                                alt={item.alt}
-                                                loading="lazy" // Adds lazy loading for performance
-                                                className="w-full aspect-square md:aspect-auto object-cover py-3"
-                                            />
-                                        )}
-                                    </Link>
-                                    {/* Bottom captions */}
-                                    <div className="flex justify-between gap-10 font-almarai font-extrabold lowercase">
-                                        {item.caption && (
-                                            <>
-                                                {/* Bottom-Left Caption */}
-                                                {item.caption[0] && (
-                                                    <p className="">
-                                                        {item.caption[0]}
-                                                    </p>
-                                                )}
+                    <motion.div
+                        className="pl-5 pt-10 md:pt-20 md:pl-10 pb-2 md:pb-10"
+                        initial={{opacity: 0, y: 40}}
+                        animate={{opacity: 1, y: 0}}
+                        transition={{
+                            duration: 0.3,
+                            delay: 0.6,
+                            ease: "easeOut"
+                        }}
+                    >
+                        <h1 className="title-text font-nick uppercase text-4xl sm:text-5xl md:text-7xl lg:text-8xl 4xl:text-9xl">Creative Works</h1>
+                    </motion.div>
+                }
+                {isMobile && <section className="flex flex-row flex-wrap justify-between gap-5
+                    h-min w-full xl:w-11/12 p-5 mx-auto uppercase">
+                    {items.map((item) => (
+                        <div className={`flex flex-col w-full h-full xl:w-2/5 xl:h-2/5 ${item.padding}`}
+                             key={item.id}>
+                            <motion.div
+                                className="art-image"
+                                initial={{y: 150, opacity: 0}}
+                                whileInView={{y: 0, opacity: 1}}
+                                viewport={{once: true, amount: 0.1}}
+                                transition={{
+                                    duration: 0.9,
+                                    delay: 0,
+                                    ease: "easeInOut"
+                                }}
+                            >
+                                {/* Video/image content */}
+                                <Link to={item.link} className="">
+                                    {item.isVideo && (
+                                        <video
+                                            autoPlay
+                                            playsInline
+                                            muted
+                                            loop
+                                            className="w-full py-3"
+                                        >
+                                            <source src={item.thumbnail} type="video/mp4"/>
+                                            Your browser does not support the video tag.
+                                        </video>
+                                    )}
+                                    {!item.isVideo && (
+                                        <img
+                                            src={item.thumbnail}
+                                            alt={item.alt}
+                                            loading="lazy" // Adds lazy loading for performance
+                                            className="w-full aspect-square md:aspect-auto object-cover py-3"
+                                        />
+                                    )}
+                                </Link>
+                                {/* Bottom captions */}
+                                <div className="flex justify-between gap-10 font-almarai font-bold lowercase">
+                                    {item.caption && (
+                                        <>
+                                            {/* Bottom-Left Caption */}
+                                            {item.caption[0] && (
+                                                <p className="">
+                                                    {item.caption[0]}
+                                                </p>
+                                            )}
 
-                                                {/* Bottom-Right Caption */}
-                                                {item.caption[3] && (
-                                                    <p className="text-customGray">
-                                                        {item.caption[3]}
-                                                    </p>
-                                                )}
-                                            </>
-                                        )}
-                                    </div>
-                                </motion.div>
-                            </div>
+                                            {/* Bottom-Right Caption */}
+                                            {item.caption[3] && (
+                                                <p className="text-customGray">
+                                                    {item.caption[3]}
+                                                </p>
+                                            )}
+                                        </>
+                                    )}
+                                </div>
+                            </motion.div>
+                        </div>
                         ))}
-                    </section>
+                </section>
                 }
             </main>
             <div className="hidden"><Footer/></div>
