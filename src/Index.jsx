@@ -118,7 +118,7 @@ const Index = () => {
                             <Link to="/project/recollection" className="w-full xl:w-5/6">
                                 <img src="/images/Recollection_main_cropped.jpg" alt="Recollection_art_image" loading="lazy"/>
                             </Link>
-                            <div className="flex flex-col justify-end text-xxs md:text-base 3xl:text-lg">
+                            <div className="flex flex-col justify-end text-3xs md:text-base 3xl:text-lg">
                                 <p className="mb-4 2xl:mb-10">Recollection</p>
                                 <p className="text-customGray">2024</p>
                             </div>
@@ -133,7 +133,7 @@ const Index = () => {
                                 ease: "easeInOut",
                             }}
                         >
-                            <div className="flex flex-col justify-end text-xxs md:text-base 3xl:text-lg xl:text-right">
+                            <div className="flex flex-col justify-end text-3xs md:text-base 3xl:text-lg xl:text-right">
                                 <p className="mb-4 2xl:mb-10">11,182,156 Steps</p>
                                 <p className="text-customGray">2024</p>
                             </div>
@@ -162,7 +162,7 @@ const Index = () => {
                             <Link to="/project/ocular-prosthetic" className="w-full xl:w-5/6">
                                 <img src="/images/Ocular%20Prosthetic%20for%20Reading%20Another%20Human_01.jpeg" alt="Recollection_art_image" loading="lazy"/>
                             </Link>
-                            <div className="flex flex-col justify-end text-xxs md:text-base 3xl:text-lg">
+                            <div className="flex flex-col justify-end text-3xs md:text-base 3xl:text-lg">
                                 <p className="mb-4 2xl:mb-10">Ocular Prosthetic for Reading Another Human</p>
                                 <p className="text-customGray">2024</p>
                             </div>
@@ -172,7 +172,7 @@ const Index = () => {
                 <section className="flex justify-center items-center h-96 md:h-screen">
                     <motion.div
                         className="relative top-1/4 flex justify-center gap-5 md:gap-10 lg:gap-14 xl:gap-20 font-nick lowercase
-                        text-xxs xs:text-xs sm:text-sm md:text-lg lg:text-2xl xl:text-4xl 4xl:text-5xl px-5 xl:px-7"
+                        text-3xs xs:text-xs sm:text-sm md:text-lg lg:text-2xl xl:text-4xl 4xl:text-5xl px-5 xl:px-7"
                         initial="hidden"
                         animate={controls}
                         variants={{

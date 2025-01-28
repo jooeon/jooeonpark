@@ -122,7 +122,7 @@ export const items = [
             "Drawing & Collage",
             "Ink and collage on illustration board, ink on plastic film",
             "2024",
-            "A visual mapping of a city I resided in, based on memories and mental representations that formed through living there",
+            "A visual mapping of the city I resided in, based on memories and mental representations that formed through living there",
         ],
         thumbnail: "/images/thumbnails/Recollection_thumb.jpg",
         alt: "Recollection",
