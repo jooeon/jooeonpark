@@ -4,12 +4,12 @@ export default {
     content: ["./index.html", "./src/**/*.{ts,tsx,js,jsx}"],
   theme: {
 	fontFamily: {
-		'almarai': ['Almarai', 'Outfit', 'Arial', 'system-ui', 'sans-serif'],
+		// 'almarai': ['Almarai', 'Outfit', 'Arial', 'system-ui', 'sans-serif'],
 		'founders': ['Founders Grotesk', 'Outfit', 'Arial', 'system-ui', 'sans-serif'],
 		'nick': ['Nickelodeon2001', 'Outfit', 'Arial', 'system-ui', 'sans-serif'],
 		'poppins': ['Poppins', 'Outfit', 'Arial', 'system-ui', 'sans-serif'],
 		'raleway': ['Raleway', 'Outfit', 'Arial', 'system-ui', 'sans-serif'],
-		'outfit': ['Outfit', 'Arial', 'system-ui', 'sans-serif'],
+		// 'outfit': ['Outfit', 'Arial', 'system-ui', 'sans-serif'],
 		'roboto': ['Roboto Mono', 'system-ui', 'monospace'],
 	},
   	extend: {
@@ -38,7 +38,10 @@ export default {
 		},
 		fontSize: {
 			'35px': '35px',
-			'xxs': ['0.5rem', '0.75rem'],
+			'5xs': ['0.25rem', '0.667rem'],
+			'4xs': ['0.375rem', '0.667rem'],
+			'3xs': ['0.5rem', '0.75rem'],
+			'2xs': ['0.625rem', '0.75rem'],
 			'10xl': '10rem', /* 160px */
 			'11xl': '12rem', /* 192px */
 			'12xl': '13.5rem', /* 216px */

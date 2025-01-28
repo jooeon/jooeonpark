@@ -79,12 +79,12 @@ const Art = () => {
                                                 />
                                             )}
                                             {/* Bottom captions */}
-                                            <div className="flex justify-between gap-10 pt-1 font-outfit uppercase text-sm">
+                                            <div className="flex justify-between gap-10 pt-1 font-almarai font-bold lowercase text-sm">
                                                 {item.caption && (
                                                     <>
                                                         {/* Bottom-Left Caption */}
                                                         {item.caption[0] && (
-                                                            <p className="text-customBlack dark:text-customWhite">
+                                                            <p className="">
                                                                 {item.caption[0]}
                                                             </p>
                                                         )}
@@ -107,6 +107,18 @@ const Art = () => {
                     :
                     <section className="flex flex-row flex-wrap justify-between gap-5
                         h-min w-full xl:w-11/12 mx-auto p-5 pt-14 uppercase">
+                        <motion.div
+                            className="pl-5 pt-10 md:pt-20 md:pl-10 pb-10 md:pb-20"
+                            initial={{opacity: 0, y: 40}}
+                            animate={{opacity: 1, y: 0}}
+                            transition={{
+                                duration: 0.3,
+                                delay: 0.6,
+                                ease: "easeOut"
+                            }}
+                        >
+                            <h1 className="title-text font-nick uppercase text-4xl sm:text-5xl md:text-7xl lg:text-8xl 4xl:text-9xl">Creative Works</h1>
+                        </motion.div>
                         {items.map((item) => (
                             <div className={`flex flex-col w-full h-full xl:w-2/5 xl:h-2/5 ${item.padding}`}
                                  key={item.id}>
@@ -121,26 +133,6 @@ const Art = () => {
                                         ease: "easeInOut"
                                     }}
                                 >
-                                    {/* Top captions */}
-                                    <div className="flex justify-between gap-10">
-                                        {item.caption && (
-                                            <>
-                                                {/* Top-Left Caption */}
-                                                {item.caption[0] && (
-                                                    <p className="text-customBlack dark:text-customWhite">
-                                                        {item.caption[0]}
-                                                    </p>
-                                                )}
-
-                                                {/* Top-Right Caption */}
-                                                {item.caption[1] && (
-                                                    <p className="text-customGray">
-                                                        {item.caption[1]}
-                                                    </p>
-                                                )}
-                                            </>
-                                        )}
-                                    </div>
                                     {/* Video/image content */}
                                     <Link to={item.link} className="">
                                         {item.isVideo && (
@@ -165,19 +157,19 @@ const Art = () => {
                                         )}
                                     </Link>
                                     {/* Bottom captions */}
-                                    <div className="flex justify-between gap-10">
+                                    <div className="flex justify-between gap-10 font-almarai font-extrabold lowercase">
                                         {item.caption && (
                                             <>
                                                 {/* Bottom-Left Caption */}
-                                                {item.caption[2] && (
-                                                    <p className="text-customGray">
-                                                        {item.caption[2]}
+                                                {item.caption[0] && (
+                                                    <p className="">
+                                                        {item.caption[0]}
                                                     </p>
                                                 )}
 
                                                 {/* Bottom-Right Caption */}
                                                 {item.caption[3] && (
-                                                    <p className="text-customBlack dark:text-customWhite">
+                                                    <p className="text-customGray">
                                                         {item.caption[3]}
                                                     </p>
                                                 )}

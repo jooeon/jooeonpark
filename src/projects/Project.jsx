@@ -4,8 +4,10 @@ import Footer from "../components/Footer.jsx";
 import { motion } from "framer-motion";
 import { items } from "../Data.jsx";
 import PropTypes from "prop-types";
-import {useRef, useState} from "react"; // Import the data file
+import {useRef, useState} from "react";
 
+// Template component for individual project pages
+// Reads data from Data.jsx and displays content with consistent format
 const Project = () => {
     const { id } = useParams(); // Extract the id from the URL
     const project = items.find((item) => item.id === id); // Find the project by ID
@@ -64,7 +66,7 @@ const Project = () => {
                                         <source src={video} type="video/mp4" />
                                         Your browser does not support the video tag.
                                     </video>
-                                    {/* Add toggle button only for /videos/simple.mp4 */}
+                                    {/* Add audio toggle button only for /videos/simple.mp4 */}
                                     {id === "steps" && video === "/videos/simple.mp4" && (
                                         <button
                                             className="absolute bottom-1 right-2 w-10 h-10 p-2 cursor-none text-customWhite"
@@ -112,7 +114,7 @@ const Project = () => {
                         <motion.div
                             className="sticky top-0 grid md:grid-cols-[1fr_1fr_8fr_1fr] grid-rows-[min]
                                 gap-y-1 md:gap-y-3 lg:gap-y-4 3xl:gap-y-8 gap-x-2 md:gap-x-4 lg:gap-x-6 3xl:gap-x-10
-                                h-fit w-1/2 p-2 md:p-5 pt-16 md:pt-32 2xl:pt-48 4xl:pt-56 font-almarai font-extrabold uppercase"
+                                h-fit w-5/12 p-0 pt-16 md:p-5 md:pt-32 2xl:pt-48 4xl:pt-56 font-almarai font-extrabold uppercase"
                             initial={{opacity: 0, y: 20}}
                             animate={{opacity: 1, y: 0}}
                             transition={{
@@ -121,17 +123,17 @@ const Project = () => {
                                 ease: "easeOut",
                             }}
                         >
-                            <p className="text-right col-start-2 row-start-1 text-xxs md:text-sm lg:text-base xl:text-sm 2xl:text-lg 3xl:text-2xl 4xl:text-3xl">Year</p>
-                            <p className="col-start-3 row-start-1 text-xs md:text-lg lg:text-2xl xl:text-2xl 2xl:text-3xl 3xl:text-5xl 4xl:text-6xl font-outfit">{project.caption[3]}</p>
+                            <p className="text-right col-start-2 row-start-1 text-4xs xs:text-4xs md:text-xs lg:text-sm xl:text-sm 2xl:text-lg 3xl:text-2xl 4xl:text-3xl">Year</p>
+                            <p className="col-start-3 row-start-1 text-3xs xs:text-2xs md:text-lg lg:text-2xl xl:text-2xl 2xl:text-3xl 3xl:text-5xl 4xl:text-6xl">{project.caption[3]}</p>
 
-                            <p className="text-right col-start-2 row-start-2 text-xxs md:text-sm lg:text-base xl:text-sm 2xl:text-lg 3xl:text-2xl 4xl:text-3xl">Type</p>
-                            <p className="col-start-3 row-start-2 text-xs md:text-lg lg:text-2xl xl:text-2xl 2xl:text-3xl 3xl:text-5xl 4xl:text-6xl">{project.caption[1]}</p>
+                            <p className="text-right col-start-2 row-start-2 text-4xs xs:text-4xs md:text-xs lg:text-sm xl:text-sm 2xl:text-lg 3xl:text-2xl 4xl:text-3xl">Type</p>
+                            <p className="col-start-3 row-start-2 text-3xs xs:text-2xs md:text-lg lg:text-2xl xl:text-2xl 2xl:text-3xl 3xl:text-5xl 4xl:text-6xl">{project.caption[1]}</p>
 
-                            <p className="text-right col-start-2 row-start-3 text-xxs md:text-sm lg:text-base xl:text-sm 2xl:text-lg 3xl:text-2xl 4xl:text-3xl">Medium</p>
-                            <p className="col-start-3 row-start-3 text-xs md:text-lg lg:text-2xl xl:text-2xl 2xl:text-3xl 3xl:text-5xl 4xl:text-6xl">{project.caption[2]}</p>
+                            <p className="text-right col-start-2 row-start-3 text-4xs xs:text-4xs md:text-xs lg:text-sm xl:text-sm 2xl:text-lg 3xl:text-2xl 4xl:text-3xl">Medium</p>
+                            <p className="col-start-3 row-start-3 text-3xs xs:text-2xs md:text-lg lg:text-2xl xl:text-2xl 2xl:text-3xl 3xl:text-5xl 4xl:text-6xl">{project.caption[2]}</p>
 
-                            <p className="text-right col-start-2 row-start-4 text-xxs md:text-sm lg:text-base xl:text-sm 2xl:text-lg 3xl:text-2xl 4xl:text-3xl">Info</p>
-                            <p className="col-start-3 row-start-4 text-xs md:text-lg lg:text-2xl xl:text-2xl 2xl:text-3xl 3xl:text-5xl 4xl:text-6xl">{project.caption[4]}</p>
+                            <p className="text-right col-start-2 row-start-4 text-4xs xs:text-4xs md:text-xs lg:text-sm xl:text-sm 2xl:text-lg 3xl:text-2xl 4xl:text-3xl">Info</p>
+                            <p className="col-start-3 row-start-4 text-3xs xs:text-2xs md:text-lg lg:text-2xl xl:text-2xl 2xl:text-3xl 3xl:text-5xl 4xl:text-6xl">{project.caption[4]}</p>
                         </motion.div>
                     </section>
                     <section className="m-2 md:m-5 mt-10 md:mt-20 font-almarai font-extrabold uppercase

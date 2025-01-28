@@ -11,6 +11,7 @@ import About from "./About.jsx";
 import Cursor from "./components/Cursor.jsx";
 import { CursorProvider } from "./components/CursorContext.jsx";
 import PropTypes from "prop-types";
+import {useEffect} from "react";
 
 // animations for entering and exiting each page
 const navVariants = {
@@ -26,6 +27,19 @@ const navVariants = {
 
 const AnimatedRoutes = () => {
     const location = useLocation(); // Get current location from Router
+
+    useEffect(() => {
+        // This will run whenever the location changes (e.g., navigation)
+        window.scrollTo(0, 0); // Scroll to top on mount and route change
+
+        // Optional: smoother scroll
+        // window.scrollTo({
+        //   top: 0,
+        //   left: 0,
+        //   behavior: 'smooth' // Optional smooth scrolling
+        // });
+
+    }, [location]);
 
     return (
         <AnimatePresence mode="wait">

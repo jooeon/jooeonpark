@@ -22,6 +22,31 @@ body a {
     pointer-events: none;
 }
 
+/* Fonts */
+
+/* For using Outfit for numerical characters ONLY
+ Browser will try Outfit for unicode range for digits 0-9
+ if not in range (i.e. are letters), then will use Almarai
+ So while Outfit comes first in order, the main font is Almarai */
+.font-almarai {
+    font-family: 'OutfitNumbers', 'Almarai', 'sans-serif';
+}
+
+.font-outfit {
+    font-family: 'Outfit', 'Arial', 'system-ui', 'sans-serif';
+}
+
+@font-face {
+    font-family: 'Outfit';
+    src: url('/fonts/Outfit-VariableFont_wght.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'OutfitNumbers';
+    src: url('/fonts/Outfit-VariableFont_wght.ttf') format('truetype');
+    unicode-range: U+30-39; /* Unicode range for digits 0-9 */
+}
+
 @font-face {
     font-family: 'Nickelodeon2001';
     src: url('/fonts/nickelodeon2001headline.ttf') format('truetype');
@@ -31,17 +56,6 @@ body a {
     font-family: 'Founders Grotesk';
     src: url('/fonts/TestFoundersGrotesk-Bold.otf') format('opentype');
 }
-
-/* Z Indices */
-/*
-- z-50: overlays
-    - z-30: custom cursor
-    - z-30: Header
-    - z-30: Footer
-        - z-20: landing text
-            - -z-10: borders background
-
-*/
 
 /* Links styling  */
 
@@ -68,7 +82,7 @@ a.text-link:hover::after {
     transform: scaleX(1); /* Expands underline from left to right */
 }
 
-/* VIDEO */
+/* Video */
 
 video {
     /*clip-path: inset(20px 3px 15px 7px); !* hide small black border on video *!*/
