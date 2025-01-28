@@ -115,17 +115,17 @@ const ScrollTitleSection = () => {
             >
                 <div className="absolute top-0 [&_span]:left-0">
                     <div className="title-placeholder invisible leading-[0.68]">Multidisciplinary</div>
-                    <motion.span className="title-text absolute" style={{ y: titleLayer1Y, backgroundColor, lineHeight: `${fontSize*0.68}px`}}>Multi</motion.span>
-                    <motion.span className="title-text absolute" style={{ y: titleLayer2Y, backgroundColor, lineHeight: `${fontSize*0.68}px`}}>Multi</motion.span>
-                    <motion.span className="title-text absolute" style={{ y: titleLayer3Y, backgroundColor, lineHeight: `${fontSize*0.68}px`}}>Multi</motion.span>
-                    <motion.span className="title-text absolute" style={{ y: titleLayer4Y, backgroundColor, lineHeight: `${fontSize*0.68}px`}}>Multi</motion.span>
+                    <motion.span className="title-text absolute" style={{ y: titleLayer1Y, backgroundColor, lineHeight: `${fontSize*0.7}px`}}>Multi</motion.span>
+                    <motion.span className="title-text absolute" style={{ y: titleLayer2Y, backgroundColor, lineHeight: `${fontSize*0.7}px`}}>Multi</motion.span>
+                    <motion.span className="title-text absolute" style={{ y: titleLayer3Y, backgroundColor, lineHeight: `${fontSize*0.7}px`}}>Multi</motion.span>
+                    <motion.span className="title-text absolute" style={{ y: titleLayer4Y, backgroundColor, lineHeight: `${fontSize*0.7}px`}}>Multi</motion.span>
                 </div>
                 <div className="absolute top-0 [&_span]:right-0">
                     <div className="invisible leading-[0.68]">Multidisciplinary</div>
-                    <motion.span className="title-text absolute" style={{ y: titleLayer7Y, backgroundColor, lineHeight: `${fontSize*0.68}px`}}>Disciplinary</motion.span>
-                    <motion.span className="title-text absolute" style={{ y: titleLayer8Y, backgroundColor, lineHeight: `${fontSize*0.68}px`}}>Disciplinary</motion.span>
-                    <motion.span className="title-text absolute" style={{ y: titleLayer9Y, backgroundColor, lineHeight: `${fontSize*0.68}px`}}>Disciplinary</motion.span>
-                    <motion.span className="title-text absolute" style={{ y: titleLayer10Y, backgroundColor, lineHeight: `${fontSize*0.68}px`}}>Disciplinary</motion.span>
+                    <motion.span className="title-text absolute" style={{ y: titleLayer7Y, backgroundColor, lineHeight: `${fontSize*0.7}px`}}>Disciplinary</motion.span>
+                    <motion.span className="title-text absolute" style={{ y: titleLayer8Y, backgroundColor, lineHeight: `${fontSize*0.7}px`}}>Disciplinary</motion.span>
+                    <motion.span className="title-text absolute" style={{ y: titleLayer9Y, backgroundColor, lineHeight: `${fontSize*0.7}px`}}>Disciplinary</motion.span>
+                    <motion.span className="title-text absolute" style={{ y: titleLayer10Y, backgroundColor, lineHeight: `${fontSize*0.7}px`}}>Disciplinary</motion.span>
                 </div>
             </motion.h1>
             <motion.h2

@@ -6,7 +6,7 @@ import { ReactLenis } from 'lenis/react'
 import Index from "./Index.jsx";
 import Art from "./Art.jsx";
 import Tech from "./Tech.jsx";
-import Steps from "./projects/Steps.jsx";
+import Project from "./projects/Project.jsx";
 import About from "./About.jsx";
 import Cursor from "./components/Cursor.jsx";
 import { CursorProvider } from "./components/CursorContext.jsx";
@@ -32,8 +32,8 @@ const AnimatedRoutes = () => {
             {/*<ScrollToTop>*/}
                 <Routes location={location} key={location.pathname}>
                     <Route path="/" element={<PageWrapper><Index /></PageWrapper>} />
-                    <Route path="/Art" element={<PageWrapper><Art /></PageWrapper>} />
-                    <Route path="/steps" element={<PageWrapper><Steps /></PageWrapper>} />
+                    <Route path="/art" element={<PageWrapper><Art /></PageWrapper>} />
+                    <Route path="/project/:id" element={<PageWrapper><Project /></PageWrapper>} />
                     <Route path="/tech" element={<PageWrapper><Tech /></PageWrapper>} />
                     <Route path="/info" element={<PageWrapper><About /></PageWrapper>} />
                 </Routes>

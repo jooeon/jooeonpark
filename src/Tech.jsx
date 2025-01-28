@@ -28,7 +28,7 @@ const Tech = () => {
                 >
                     <h1 className="title-text font-nick uppercase text-4xl sm:text-5xl md:text-7xl lg:text-8xl 4xl:text-9xl">Technical</h1>
                 </motion.div>
-                <section className="relative flex flex-col gap-16 md:gap-28 lg:gap-36 pt-10">
+                <section className="relative flex flex-col gap-16 md:gap-28 lg:gap-36 pt-10 md:pt-20">
                     {/* 3D animation */}
                     {!isMobile && <AsciiAnimation/>}
                     {/* About text */}
@@ -121,7 +121,7 @@ const Tech = () => {
                         </div>
                     </div>
                     {/* Connect text */}
-                    <div className="xl:w-1/2 text-xl md:text-3xl lg:text-3xl 2xl:text-4xl px-5 xl:px-7">
+                    <div className="xl:w-1/2 text-xl md:text-3xl lg:text-3xl 2xl:text-4xl px-5 xl:px-7 mb-10 md:mb-20">
                         <h2 className="uppercase font-bold mb-5 min-h-7 md:min-h-9 xl:min-h-10
                             text-xs md:text-base lg:text-xl">
                             <EncryptionText
@@ -133,15 +133,15 @@ const Tech = () => {
                         </h2>
                         <div className="flex gap-10 md:gap-20 xl:px-5 font-light font-outfit">
                             <Link to="https://www.linkedin.com/in/joo-eon-park/" target="_blank"
-                                  className="text-link text-customBlack dark:text-customWhite after:bg-customBlack dark:after:bg-customWhite">
+                                  className="text-link after:bg-customBlack dark:after:bg-customWhite">
                                 LinkedIn
                             </Link>
                             <Link to="https://github.com/jooeon" target="_blank"
-                                  className="text-link text-customBlack dark:text-customWhite after:bg-customBlack dark:after:bg-customWhite">
+                                  className="text-link after:bg-customBlack dark:after:bg-customWhite">
                                 GitHub
                             </Link>
                             <Link to="mailto:jooeon427@gmail.com" target="_blank"
-                                  className="text-link text-customBlack dark:text-customWhite after:bg-customBlack dark:after:bg-customWhite">
+                                  className="text-link after:bg-customBlack dark:after:bg-customWhite">
                                 Email
                             </Link>
                         </div>
