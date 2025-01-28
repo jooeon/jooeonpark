@@ -17,8 +17,8 @@ export const CursorProvider = ({ children }) => {
             if (e.target.closest(".title-text")|| e.target.closest(".parallax-text")
                     || e.target.closest("img") || e.target.closest("video") || e.target.closest(".art-image")) {
                 setIsContentHovered(true);
-            } else if (e.target.closest("a") || e.target.closest("button") || e.target.closest("p")
-                    || e.target.closest("h2") || e.target.closest("h3") || e.target.closest("caption")) {
+            } else if (e.target.closest("a") || e.target.closest("button")
+                    || e.target.closest("h2") || e.target.closest("h3")) {
                 setIsLinkHovered(true);
             } else if (e.target.closest("#ascii-shape")) {
                 setIsInteractiveHovered(true)

@@ -77,7 +77,7 @@ const Index = () => {
             >
                 <EntryAnim/>
             </motion.div>
-            <main className="relative flex flex-col px-4 md:px-7 pb-20 xl:pb-40 w-full gap-96">
+            <main className="relative flex flex-col px-4 md:px-7 pb-20 xl:pb-40 w-full gap-48 md:gap-96">
                 {/* Main landing text */}
                 <LayeredScrollTitle />
                 <section className="flex flex-col items-center">
@@ -115,9 +115,9 @@ const Index = () => {
                                 ease: "easeInOut",
                             }}
                         >
-                            <img src="/images/Recollection_main_cropped.jpg" alt="Recollection_art_image" loading="lazy"
-                                 className="w-full xl:w-5/6"
-                            />
+                            <Link to="/project/recollection" className="w-full xl:w-5/6">
+                                <img src="/images/Recollection_main_cropped.jpg" alt="Recollection_art_image" loading="lazy"/>
+                            </Link>
                             <div className="flex flex-col justify-end text-xxs md:text-base 3xl:text-lg">
                                 <p className="mb-4 2xl:mb-10">Recollection</p>
                                 <p className="text-customGray">2024</p>
@@ -137,16 +137,17 @@ const Index = () => {
                                 <p className="mb-4 2xl:mb-10">11,182,156 Steps</p>
                                 <p className="text-customGray">2024</p>
                             </div>
-                            <video
-                                autoPlay
-                                playsInline
-                                muted
-                                loop
-                                className="w-full xl:w-5/6"
-                            >
-                                <source src="/videos/polychrome_dark.mp4#t=70" type="video/mp4"/>
-                                Your browser does not support the video tag.
-                            </video>
+                            <Link to="/project/steps" className="w-full xl:w-5/6">
+                                <video
+                                    autoPlay
+                                    playsInline
+                                    muted
+                                    loop
+                                >
+                                    <source src="/videos/polychrome_dark.mp4#t=70" type="video/mp4"/>
+                                    Your browser does not support the video tag.
+                                </video>
+                            </Link>
                         </motion.div>
                         <motion.div
                             className="w-11/12 xl:w-full flex flex-col xl:flex-row xl:row-start-3 xl:col-start-1 gap-4"
@@ -158,9 +159,9 @@ const Index = () => {
                                 ease: "easeInOut",
                             }}
                         >
-                            <img src="/images/Ocular%20Prosthetic%20for%20Reading%20Another%20Human_01.jpeg" alt="Recollection_art_image" loading="lazy"
-                                 className="w-full xl:w-3/5"
-                            />
+                            <Link to="/project/ocular-prosthetic" className="w-full xl:w-5/6">
+                                <img src="/images/Ocular%20Prosthetic%20for%20Reading%20Another%20Human_01.jpeg" alt="Recollection_art_image" loading="lazy"/>
+                            </Link>
                             <div className="flex flex-col justify-end text-xxs md:text-base 3xl:text-lg">
                                 <p className="mb-4 2xl:mb-10">Ocular Prosthetic for Reading Another Human</p>
                                 <p className="text-customGray">2024</p>
@@ -168,7 +169,7 @@ const Index = () => {
                         </motion.div>
                     </div>
                 </section>
-                <section className="flex justify-center items-center h-screen">
+                <section className="flex justify-center items-center h-96 md:h-screen">
                     <motion.div
                         className="relative top-1/4 flex justify-center gap-5 md:gap-10 lg:gap-14 xl:gap-20 font-nick lowercase
                         text-xxs xs:text-xs sm:text-sm md:text-lg lg:text-2xl xl:text-4xl 4xl:text-5xl px-5 xl:px-7"

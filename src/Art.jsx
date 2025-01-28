@@ -106,7 +106,7 @@ const Art = () => {
                     </section>
                     :
                     <section className="flex flex-row flex-wrap justify-between gap-5
-                        h-min w-full xl:w-11/12 mx-auto p-5 uppercase">
+                        h-min w-full xl:w-11/12 mx-auto p-5 pt-14 uppercase">
                         {items.map((item) => (
                             <div className={`flex flex-col w-full h-full xl:w-2/5 xl:h-2/5 ${item.padding}`}
                                  key={item.id}>
