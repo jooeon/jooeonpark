@@ -104,7 +104,7 @@ const Index = () => {
                         </h3>
                     </div>
                     <div className="flex flex-col gap-10 xl:grid xl:grid-cols-2 xl:grid-rows-3 xl:gap-x-0 xl:gap-y-0 justify-start xl:justify-center items-center xl:items-start
-                        font-almarai font-extrabold lowercase">
+                        font-almarai font-bold lowercase">
                         <motion.div
                             className="w-11/12 xl:w-full flex flex-col xl:flex-row xl:row-start-1 xl:col-start-1 gap-4"
                             initial={{opacity: 0, y: 70}}
