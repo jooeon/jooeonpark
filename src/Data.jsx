@@ -145,9 +145,9 @@ export const items = [
         caption: [
             "Encapsulated",
             "Artist Book",
-            "Folded construction paper and etching and collagraph prints on card stock",
+            "Etching and collagraph prints on card stock encased in folded construction paper",
             "2024",
-            "A series of experiences represented through fourteen unique prints, arranged and enclosed in the form of a book",
+            "A series of experiences represented through fourteen unique prints, arranged and enclosed in a book",
         ],
         thumbnail: "/images/thumbnails/JooEon_Park_Encapsulation_thumb.jpg",
         alt: "Encapsulated, 2024",
@@ -168,7 +168,7 @@ export const items = [
             "Printmaking",
             "Linocut",
             "2023",
-            "",
+            "N/A",
         ],
         thumbnail: "/images/thumbnails/The_Workers_thumb.jpg",
         alt: "The Workers",
@@ -189,7 +189,7 @@ export const items = [
             "Printmaking",
             "Collagraph",
             "2023",
-            ""
+            "N/A"
         ],
         thumbnail:  "/images/thumbnails/Trapped_thumb.jpg",
         alt: "Trapped",
