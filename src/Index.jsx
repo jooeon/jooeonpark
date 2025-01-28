@@ -81,7 +81,7 @@ const Index = () => {
                 {/* Main landing text */}
                 <LayeredScrollTitle />
                 <section className="flex flex-col items-center">
-                    <div className="w-11/12 xl:w-5/6 mb-14">
+                    <div className="w-11/12 xl:w-5/6 md:mb-14">
                         <h3 className="w-fit outline-text-black dark:outline-text-white text-transparent font-nick pb-5
                             text-sm xs:text-lg sm:text-3xl md:text-3xl lg:text-4xl xl:text-4xl 2xl:text-6xl 3xl:text-8xl">
                             About
@@ -97,16 +97,16 @@ const Index = () => {
                     </div>
                 </section>
                 <section className="flex flex-col items-center">
-                    <div className="w-11/12 xl:w-5/6 mb-14">
+                    <div className="w-11/12 xl:w-5/6 md:mb-14">
                         <h3 className="w-fit outline-text-black dark:outline-text-white text-transparent font-nick pb-5
                             text-sm xs:text-lg sm:text-3xl md:text-3xl lg:text-4xl xl:text-4xl 2xl:text-6xl 3xl:text-8xl">
                             Selected Works
                         </h3>
                     </div>
-                    <div className="flex flex-col gap-10 xl:grid xl:grid-cols-2 xl:grid-rows-3 xl:gap-x-0 xl:gap-y-0 justify-start xl:justify-center items-center xl:items-start
+                    <div className="flex flex-col gap-10 xl:grid xl:grid-cols-2 xl:grid-rows-13 xl:gap-x-0 xl:gap-y-24 justify-start xl:justify-center items-center xl:items-start
                         font-almarai font-bold lowercase">
                         <motion.div
-                            className="w-11/12 xl:w-full flex flex-col xl:flex-row xl:row-start-1 xl:col-start-1 gap-4"
+                            className="w-11/12 xl:w-full flex flex-col xl:flex-row xl:row-start-1 xl:row-end-5 xl:col-start-1 gap-4"
                             initial={{opacity: 0, y: 70}}
                             whileInView={{opacity: 1, y: 0}}
                             viewport={{once: false}}
@@ -124,7 +124,7 @@ const Index = () => {
                             </div>
                         </motion.div>
                         <motion.div
-                            className="w-11/12 xl:w-full flex flex-col-reverse xl:flex-row xl:row-start-2 xl:col-start-2 gap-4"
+                            className="w-11/12 xl:w-full flex flex-col-reverse xl:flex-row xl:row-start-4 xl:row-end-8 xl:col-start-2 gap-4"
                             initial={{opacity: 0, y: 70}}
                             whileInView={{opacity: 1, y: 0}}
                             viewport={{once: false}}
@@ -150,7 +150,7 @@ const Index = () => {
                             </Link>
                         </motion.div>
                         <motion.div
-                            className="w-11/12 xl:w-full flex flex-col xl:flex-row xl:row-start-3 xl:col-start-1 gap-4"
+                            className="w-11/12 xl:w-full flex flex-col xl:flex-row xl:row-start-7 xl:row-end-11 xl:col-start-1 gap-4"
                             initial={{opacity: 0, y: 70}}
                             whileInView={{opacity: 1, y: 0}}
                             viewport={{once: false}}
@@ -167,9 +167,35 @@ const Index = () => {
                                 <p className="text-customGray">2024</p>
                             </div>
                         </motion.div>
+                        <motion.div
+                            className="w-11/12 xl:w-full flex flex-col-reverse xl:flex-row xl:row-start-10 xl:row-end-13 xl:col-start-2 gap-4"
+                            initial={{opacity: 0, y: 70}}
+                            whileInView={{opacity: 1, y: 0}}
+                            viewport={{once: false}}
+                            transition={{
+                                duration: 0.6,
+                                ease: "easeInOut",
+                            }}
+                        >
+                            <div className="flex flex-col justify-end text-3xs md:text-base 3xl:text-lg xl:text-right">
+                                <p className="mb-4 2xl:mb-10">11,182,156 Steps</p>
+                                <p className="text-customGray">2024</p>
+                            </div>
+                            <Link to="/project/on-the-tracks" className="w-full xl:w-5/6">
+                                <video
+                                    autoPlay
+                                    playsInline
+                                    muted
+                                    loop
+                                >
+                                    <source src="/videos/JooEon_Park_OnTheTracks_Video.MOV#t=70" type="video/mp4"/>
+                                    Your browser does not support the video tag.
+                                </video>
+                            </Link>
+                        </motion.div>
                     </div>
                 </section>
-                <section className="flex justify-center items-center h-96 md:h-screen">
+                <section className="flex justify-center items-center h-96 md:h-[80vh]">
                     <motion.div
                         className="relative top-1/4 flex justify-center gap-5 md:gap-10 lg:gap-14 xl:gap-20 font-nick lowercase
                         text-3xs xs:text-xs sm:text-sm md:text-lg lg:text-2xl xl:text-4xl 4xl:text-5xl px-5 xl:px-7"
@@ -220,9 +246,9 @@ const Index = () => {
                     </motion.div>
                 </section>
             </main>
-            <div className="title-text text-2xl sm:text-3xl md:text-5xl lg:text-6xl 2xl:text-8xl 3xl:text-10xl
+            <div className="title-text text-[6vw]
                 text-center uppercase font-nick tracking-wider leading-tight outline-text-black dark:outline-text-white text-transparent
-                pb-5 sm:pb-10 lg:pb-20">
+                pb-2 sm:pb-5 lg:pb-10">
                 Art. Design. Code.
             </div>
             <Footer/>
