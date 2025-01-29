@@ -67,7 +67,7 @@ const Project = () => {
                                         Your browser does not support the video tag.
                                     </video>
                                     {/* Add audio toggle button only for /videos/simple.mp4 */}
-                                    {id === "steps" && video === "/videos/simple.mp4" && (
+                                    {(video === "/videos/JooEon_Park_OnTheTracks_Video.MOV" || video === "/videos/simple.mp4") && (
                                         <button
                                             className="absolute bottom-1 right-2 w-10 h-10 p-2 cursor-none text-customWhite"
                                             onClick={toggleMute}
