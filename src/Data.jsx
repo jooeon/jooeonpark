@@ -122,7 +122,7 @@ export const items = [
             "Drawing & Collage",
             "Ink and collage on illustration board, ink on plastic film",
             "2024",
-            "A visual mapping of the city I resided in, based on memories and mental representations that formed through living there",
+            "Exhibited at the \"Frame of Mind\" exhibition at Field Projects Gallery, New York, NY",
         ],
         thumbnail: "/images/thumbnails/Recollection_thumb.jpg",
         alt: "Recollection",
@@ -187,9 +187,9 @@ export const items = [
         caption: [
             "Trapped",
             "Printmaking",
-            "Collagraph",
+            "Collagraph with strings, textiles, cardboard, and artist tape",
             "2023",
-            "N/A"
+            "An impression using the collagraph technique folded into an accordion book"
         ],
         thumbnail:  "/images/thumbnails/Trapped_thumb.jpg",
         alt: "Trapped",
@@ -238,7 +238,7 @@ export const items = [
             "Printmaking",
             "Woodcut",
             "2023",
-            "Inspired by men who throw temper tantrums",
+            "Exhibited at the \"One Heart: Korean Art and History Across the Pacific\" exhibition at Wailoa Center, Hilo, HI.",
         ],
         thumbnail: "/images/thumbnails/Man-child_thumb.jpg",
         alt: "Man-child",

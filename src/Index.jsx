@@ -178,7 +178,7 @@ const Index = () => {
                             }}
                         >
                             <div className="flex flex-col justify-end text-3xs md:text-base 3xl:text-lg xl:text-right">
-                                <p className="mb-4 2xl:mb-10">11,182,156 Steps</p>
+                                <p className="mb-4 2xl:mb-10">On The Tracks</p>
                                 <p className="text-customGray">2024</p>
                             </div>
                             <Link to="/project/on-the-tracks" className="w-full xl:w-5/6">
