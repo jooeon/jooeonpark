@@ -33,17 +33,30 @@ const Header = ({delay = 0.4}) => {
 
     const location = useLocation();
     const isLandingPage = location.pathname === "/";
+    const isArtPage = location.pathname.startsWith("/project/") || location.pathname === "/art";
+    const isTechPage = location.pathname === "/tech";
+    const isInfoPage = location.pathname === "/info";
 
-    const getLinkClasses = ({ isActive }) => {
+    const getLinkClasses = (path) => {
         if (isLandingPage) {
             // On the landing page, all links are full opacity
             return "text-link";
         }
 
-        // Inactive links are greyed out
-        return isActive
-            ? "text-link"
-            : "text-link opacity-50 hover:opacity-100 transition-opacity duration-500";
+        if (path === "/art" && isArtPage) {
+            return "text-link"; // Art should be active when /art or /project/*
+        }
+
+        if (path === "/tech" && isTechPage) {
+            return "text-link"; // Tech is active on /tech
+        }
+
+        if (path === "/info" && isInfoPage) {
+            return "text-link"; // Info is active on /info
+        }
+
+        // Otherwise, make inactive links greyed out
+        return "text-link opacity-50 hover:opacity-100 transition-opacity duration-500";
     };
 
     return (
@@ -70,19 +83,19 @@ const Header = ({delay = 0.4}) => {
               </Link>
               <ul className="flex gap-4 md:gap-10">
                   <li>
-                      <NavLink to="/art" className={getLinkClasses}>
+                      <NavLink to="/art" className={() => getLinkClasses("/art")}>
                           Art
                       </NavLink>
                   </li>
                   {/*<span className="font-outfit">/</span>*/}
                   <li>
-                      <NavLink to="/tech" className={getLinkClasses}>
+                      <NavLink to="/tech" className={() => getLinkClasses("/tech")}>
                           Tech
                       </NavLink>
                   </li>
                   {/*<span className="font-outfit">/</span>*/}
                   <li>
-                      <NavLink to="/info" className={getLinkClasses}>
+                      <NavLink to="/info" className={() => getLinkClasses("/info")}>
                           Info
                       </NavLink>
                   </li>

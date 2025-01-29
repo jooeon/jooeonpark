@@ -35,7 +35,7 @@ const Project = () => {
                 <div className="flex flex-col">
                     <section className="relative flex m-2 md:m-5 h-full pt-10 md:pt-20">
                         {/* Image/Video content scroll section */}
-                        <div className="flex flex-col gap-8 w-7/12">
+                        <div className="flex flex-col gap-3 md:gap-6 w-7/12">
                             {/* Project title */}
                             <motion.div
                                 className="mb-4 md:mb-20"
@@ -134,18 +134,46 @@ const Project = () => {
 
                             <p className="text-right col-start-2 row-start-4 text-4xs xs:text-4xs md:text-xs lg:text-sm xl:text-sm 2xl:text-lg 3xl:text-2xl 4xl:text-3xl">Info</p>
                             <p className="col-start-3 row-start-4 text-3xs xs:text-2xs md:text-lg lg:text-2xl xl:text-2xl 2xl:text-3xl 3xl:text-5xl 4xl:text-6xl">{project.caption[4]}</p>
+
+                            {id === "recollection" && (
+                                <div className=" col-start-3 row-start-5 pt-2 md:pt-4">
+                                    <Link to="https://www.fieldprojectsgallery.com/frame-of-mind"
+                                          target="_blank"
+                                          className="text-link after:bg-customBlack dark:after:bg-customWhite w-fit
+                                            text-4xs xs:text-4xs md:text-xs lg:text-sm xl:text-sm 2xl:text-lg 3xl:text-2xl 4xl:text-3xl"
+                                    >
+                                        More info
+                                    </Link>
+                                </div>
+                            )}
+                            {id === "man-child" && (
+                                <div className=" col-start-3 row-start-5 pt-2 md:pt-4">
+                                    <Link to="https://hilo.hawaii.edu/chancellor/stories/2024/05/07/collaborative-korean-art-history-exhibition/"
+                                          target="_blank"
+                                          className="text-link after:bg-customBlack dark:after:bg-customWhite w-fit
+                                            text-4xs xs:text-4xs md:text-xs lg:text-sm xl:text-sm 2xl:text-lg 3xl:text-2xl 4xl:text-3xl"
+                                    >
+                                        More info
+                                    </Link>
+                                </div>
+                            )}
                         </motion.div>
                     </section>
-                    <section className="m-2 md:m-5 mt-10 md:mt-20 font-almarai font-extrabold uppercase
-                        text-sm sm:text-base md:text-xl lg:text-2xl xl:text-3xl 2xl:text-4xl 3xl:text-5xl 4xl:text-6xl">
-                        <span>Next:</span>
-                        <br/>
-                        <Link
-                            to={`/project/${nextProject.id}`}
-                            className="text-link after:bg-customBlack dark:after:bg-customWhite ml-10"
-                        >
-                            {nextProject.caption[0]}
-                        </Link>
+                    <section className="flex justify-between m-2 md:m-5 mt-10 md:mt-20 font-almarai font-extrabold uppercase">
+                        <div className="text-sm sm:text-base md:text-xl lg:text-2xl xl:text-3xl 2xl:text-4xl 3xl:text-5xl 4xl:text-6xl">
+                            <span>Next:</span>
+                            <br/>
+                            <Link
+                                to={`/project/${nextProject.id}`}
+                                className="text-link after:bg-customBlack dark:after:bg-customWhite ml-10"
+                            >
+                                {nextProject.caption[0]}
+                            </Link>
+                        </div>
+                        <div className="flex items-end pr-2
+                            text-3xs sm:text-2xs md:text-sm lg:text-sm xl:text-lg 2xl:text-xl 3xl:text-2xl 4xl:text-3xl">
+                            <Link to="/art" className="text-link after:bg-customBlack dark:after:bg-customWhite">Back to Gallery</Link>
+                        </div>
                     </section>
                 </div>
             </main>
