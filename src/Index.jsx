@@ -188,7 +188,7 @@ const Index = () => {
                                     muted
                                     loop
                                 >
-                                    <source src="/videos/JooEon_Park_OnTheTracks_Video.MOV#t=70" type="video/mp4"/>
+                                    <source src="/videos/JooEon_Park_OnTheTracks_Video.MOV#t=4" type="video/mp4"/>
                                     Your browser does not support the video tag.
                                 </video>
                             </Link>
