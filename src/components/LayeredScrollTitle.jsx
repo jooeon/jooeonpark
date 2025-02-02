@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { motion, useScroll, useTransform, useAnimation } from "framer-motion";
-import { isMobile } from "react-device-detect";
 
 const ScrollTitleSection = () => {
     const { scrollYProgress } = useScroll();
@@ -12,10 +11,10 @@ const ScrollTitleSection = () => {
     const [fontSize, setFontSize] = useState(0);
     const [sectionHeight, setSectionHeight] = useState(0);
 
-    let lineHeightMultiplier = 0.68;
-    if (isMobile) {
-        lineHeightMultiplier = 1;
-    }
+    let lineHeightMultiplier = 0.86;
+    // if (isMobile) {
+    //     lineHeightMultiplier = 1;
+    // }
 
     const vh = window.innerHeight;
     const vw = window.innerWidth;
