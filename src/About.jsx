@@ -91,7 +91,8 @@ const About = () => {
                             {/*    </motion.span>*/}
                             {/*</h1>*/}
                             <motion.div
-                                className="py-2 xl:py-8 text-sm md:text-xl lg:text-2xl xl:text-xl 2xl:text-3xl font-outfit"
+                                className="py-2 xl:py-8 font-outfit
+                                    text-sm md:text-xl lg:text-2xl xl:text-xl 2xl:text-2xl 3xl:text-3xl 4xl:text-4xl 5xl:text-5xl"
                                 initial={{opacity: 0, y: 40}}
                                 animate={{opacity: 1, y: 0}}
                                 transition={{
