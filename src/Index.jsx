@@ -28,17 +28,6 @@ const Index = () => {
     //     }
     // }, []);
 
-    // const words = ["artist", "designer", "developer"];
-    // const [currentWordIndex, setCurrentWordIndex] = useState(0);
-    //
-    // useEffect(() => {
-    //     const interval = setTimeout(() => {
-    //         setCurrentWordIndex((prevIndex) => (prevIndex + 1) % words.length); // Cycle through words
-    //     }, 3000); // Delay of 4 seconds before switching words
-    //
-    //     return () => clearTimeout(interval); // Cleanup timeout on unmount
-    // }, [currentWordIndex, words.length]); // Re-run when the current word changes
-
     // ************************
     // Start of scrolling behavior logic
     // ************************
@@ -62,7 +51,7 @@ const Index = () => {
 
     return (
         <>
-            <Header delay={0.2}/>
+            <Header delay={2.5}/>
             {/* Overlay for "loading" animation on page load */}
             <motion.div
                 className="fixed top-0 pointer-events-none h-full w-full font-raleway font-bold uppercase
