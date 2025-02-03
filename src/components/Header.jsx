@@ -1,5 +1,5 @@
 import { NavLink, Link, useLocation } from "react-router-dom";
-import {motion} from "framer-motion";
+import {motion, useScroll} from "framer-motion";
 import PropTypes from "prop-types";
 import EncryptionText from "./EncryptionAnim.jsx";
 import {useEffect, useState} from "react";
@@ -10,7 +10,20 @@ const Header = ({delay = 0.4}) => {
     const [lastScrollY, setLastScrollY] = useState(0);
     const scrollThreshold = 5; // Minimum scroll change to detect direction
 
-    // Handle scroll direction
+    const { scrollYProgress } = useScroll();
+
+    // check if scrolled to bottom of the screen, then set visible true
+    useEffect(() => {
+        const unsubscribe = scrollYProgress.onChange((latest) => {
+            if (latest >= 0.96) {
+                setIsVisible(true);
+            }
+        });
+
+        return () => unsubscribe(); // Cleanup listener on unmount
+    }, [scrollYProgress]);
+
+    // Handle scroll direction, set visible when scrolling down, hide when scrolling up
     useEffect(() => {
         const handleScroll = () => {
             const currentScrollY = Math.max(0, window.scrollY);
