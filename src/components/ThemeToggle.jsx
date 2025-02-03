@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { motion } from "framer-motion";
 
+// Theme toggle functionality and button
 const ThemeToggle = () => {
     // State to track if dark mode is enabled
     const [isDark, setIsDark] = useState(false);
