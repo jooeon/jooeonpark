@@ -216,7 +216,7 @@ const Index = () => {
                             duration={0.4}
                             speed={20}
                         />
-                        <Link to="https://www.linkedin.com/in/joo-eon-park/" target="_blank"
+                        <Link to="https://www.linkedin.com/in/joo-eon-park/" target="_blank" rel="noopener noreferrer"
                               className="text-link text-customBlack dark:text-customWhite after:bg-customBlack dark:after:bg-customWhite">
                             <EncryptionText
                                 text={"LinkedIn"}
@@ -225,7 +225,7 @@ const Index = () => {
                                 speed={20}
                             />
                         </Link>
-                        <Link to="https://github.com/jooeon" target="_blank"
+                        <Link to="https://github.com/jooeon" target="_blank" rel="noopener noreferrer"
                               className="text-link text-customBlack dark:text-customWhite after:bg-customBlack dark:after:bg-customWhite">
                             <EncryptionText
                                 text={"GitHub"}
@@ -234,7 +234,7 @@ const Index = () => {
                                 speed={20}
                             />
                         </Link>
-                        <Link to="mailto:jooeon427@gmail.com" target="_blank"
+                        <Link to="mailto:jooeon427@gmail.com" target="_blank" rel="noopener noreferrer"
                               className="text-link text-customBlack dark:text-customWhite after:bg-customBlack dark:after:bg-customWhite">
                             <EncryptionText
                                 text={"Email"}

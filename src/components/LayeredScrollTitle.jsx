@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 import { motion, useScroll, useTransform, useAnimation } from "framer-motion";
+import { Link } from "react-router-dom";
+import {useCursor} from "./CursorContext.jsx";
 
 const ScrollTitleSection = () => {
     const { scrollYProgress } = useScroll();
@@ -10,11 +12,10 @@ const ScrollTitleSection = () => {
     const scrollThreshold = 5; // Minimum scroll change to detect direction
     const [fontSize, setFontSize] = useState(0);
     const [sectionHeight, setSectionHeight] = useState(0);
-
     let lineHeightMultiplier = 0.86;
-    // if (isMobile) {
-    //     lineHeightMultiplier = 1;
-    // }
+    const { isLinkHovered } = useCursor();
+    const [linkColor, setLinkColor] = useState("#fafafa");
+    const colors = ["#ff800c", "#78e2ff", "#ba3bff", "#ff33a1", "#0dff86", "#6021ff", "#ffed5e"];
 
     const vh = window.innerHeight;
     const vw = window.innerWidth;
@@ -91,6 +92,14 @@ const ScrollTitleSection = () => {
     const titleToggle = useTransform(scrollYProgress, [0, 0.15], [1, 0], { clamp: true });
     const backgroundColor = useTransform(titleToggle, [0, 1], ["transparent", "#000000"]);
 
+    // Randomize cursor color
+    useEffect(() => {
+        if (isLinkHovered) {
+            const randomColor = colors[Math.floor(Math.random() * colors.length)];
+            setLinkColor(randomColor);
+        }
+    }, [isLinkHovered]);
+
     return (
         <motion.section
             className="sticky top-0 flex flex-col items-center mix-blend-difference text-customWhite pointer-events-none"
@@ -145,7 +154,31 @@ const ScrollTitleSection = () => {
                     ease: "easeIn",
                 }}
             >
-                Artist, Designer, & Developer
+                <Link to="/art" className="outline-text-white">
+                    <motion.span
+                        whileHover={{
+                            color: `${linkColor}`,
+                            opacity: 0.9,
+                            transition: { duration: 0.2 },
+                        }}
+                        whileTap={{ scale: 0.9 }}
+                    >
+                        Artist
+                    </motion.span>
+                </Link>
+                &nbsp;&&nbsp;
+                <Link to="/tech" className="outline-text-white">
+                    <motion.span
+                        whileHover={{
+                            color: `${linkColor}`,
+                            opacity: 0.9,
+                            transition: { duration: 0.2 },
+                        }}
+                        whileTap={{ scale: 0.9 }}
+                    >
+                        Creative Developer
+                    </motion.span>
+                </Link>
             </motion.h2>
         </motion.section>
     );

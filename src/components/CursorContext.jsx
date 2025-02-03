@@ -15,10 +15,9 @@ export const CursorProvider = ({ children }) => {
         // Hover event on specific tags
         const handleMouseEnter = (e) => {
             if (e.target.closest(".title-text")|| e.target.closest(".parallax-text")
-                    || e.target.closest("img") || e.target.closest("video") || e.target.closest(".art-image")) {
+                    || e.target.closest("img") || e.target.closest("video")) {
                 setIsContentHovered(true);
-            } else if (e.target.closest("a") || e.target.closest("button")
-                    || e.target.closest("h2") || e.target.closest("h3")) {
+            } else if (e.target.closest("a") || e.target.closest("button")) {
                 setIsLinkHovered(true);
             } else if (e.target.closest("#ascii-shape")) {
                 setIsInteractiveHovered(true)

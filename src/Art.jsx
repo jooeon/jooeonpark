@@ -124,7 +124,7 @@ const Art = () => {
                         <div className={`flex flex-col w-full h-full xl:w-2/5 xl:h-2/5 ${item.padding}`}
                              key={item.id}>
                             <motion.div
-                                className="art-image"
+                                className=""
                                 initial={{y: 150, opacity: 0}}
                                 whileInView={{y: 0, opacity: 1}}
                                 viewport={{once: true, amount: 0.1}}

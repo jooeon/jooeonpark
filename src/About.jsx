@@ -2,6 +2,7 @@ import Header from "./components/Header.jsx";
 import Footer from "./components/Footer.jsx";
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
+import ExternalLinkButton from "./components/ExternalLinkButton.jsx";
 
 const About = () => {
 
@@ -91,7 +92,7 @@ const About = () => {
                             {/*    </motion.span>*/}
                             {/*</h1>*/}
                             <motion.div
-                                className="py-2 xl:py-8 font-outfit
+                                className="py-2 xl:py-8 font-outfit mb-4 2xl:mb-8
                                     text-sm md:text-xl lg:text-2xl xl:text-xl 2xl:text-2xl 3xl:text-3xl 4xl:text-4xl 5xl:text-5xl"
                                 initial={{opacity: 0, y: 40}}
                                 animate={{opacity: 1, y: 0}}
@@ -118,26 +119,21 @@ const About = () => {
                                     Human-Computer Interaction, Graphic Design, UI/UX, and Visual Arts.
                                 </p>
                             </motion.div>
+                            <motion.div
+                                className="flex justify-end"
+                                initial={{opacity: 0, y: 20}}
+                                animate={{opacity: 1, y: 0}}
+                                transition={{
+                                    duration: 0.3,
+                                    delay: 1.2,
+                                    ease: "easeOut"
+                                }}
+                            >
+                                <ExternalLinkButton href="/files/Park_JooEon_Resume.pdf" className="uppercase font-roboto text-xs md:text-sm lg:text-md xl:text-md 2xl:text-lg 3xl:text-xl 4xl:text-2xl 5xl:text-3xl">
+                                    Resume↗
+                                </ExternalLinkButton>
+                            </motion.div>
                         </section>
-                        {/*<section className="flex flex-col gap-14 sm:gap-20 px-7 pb-20 mt-60 h-fit">*/}
-                        {/*    /!* About text *!/*/}
-                        {/*    <motion.div*/}
-                        {/*        className="xl:w-2/3 text-xl md:text-3xl lg:text-3xl 2xl:text-8xl font-outfit font-semibold"*/}
-                        {/*        initial={{opacity: 0}}*/}
-                        {/*        animate={{opacity: 1}}*/}
-                        {/*        transition={{*/}
-                        {/*            duration: 0.3,*/}
-                        {/*            delay: 3.0,*/}
-                        {/*            ease: "easeIn"*/}
-                        {/*        }}*/}
-                        {/*    >*/}
-                        {/*        <h2 className="text-customGray mb-2 ml-1 min-h-7 md:min-h-9 xl:min-h-10 text-lg lowercase">*/}
-                        {/*            [ About ]*/}
-                        {/*        </h2>*/}
-                        {/*        <ScrollText*/}
-                        {/*            paragraph={"in pursuit of limitless creativity, meticulous design, and flawless execution."}/>*/}
-                        {/*    </motion.div>*/}
-                        {/*</section>*/}
                     </div>
                 </div>
             </main>

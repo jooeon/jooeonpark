@@ -48,7 +48,15 @@ const Tech = () => {
                             [&_caption]:w-fit [&_caption]:mb-2 [&_caption]:text-start [&_caption]:font-extrabold
                             [&_tr]:border-b [&_tr]:text-customGray [&_tr]:border-customGrayLight [&_tr]:dark:border-customBlackLight
                             [&_td]:pt-2 [&_td]:pb-1 [&_td]:pl-3 [&_td]:md:pl-5 [&_td]:relative">
-                            <table className="table-fixed w-full xl:w-5/6">
+                            <motion.table
+                                className="table-fixed w-full xl:w-5/6"
+                                initial={{opacity: 0, y: 20}}
+                                animate={{opacity: 1, y: 0}}
+                                transition={{
+                                    duration: 0.3,
+                                    delay: 0.8,
+                                    ease: "easeOut"
+                                }}>
                                 <caption className="font-almarai">Web Development</caption>
                                 <tbody>
                                     <tr>
@@ -64,8 +72,17 @@ const Tech = () => {
                                         <td>CMS</td>
                                     </tr>
                                 </tbody>
-                            </table>
-                            <table className="table-fixed w-full xl:w-5/6">
+                            </motion.table>
+                            <motion.table
+                                className="table-fixed w-full xl:w-5/6"
+                                initial={{opacity: 0, y: 20}}
+                                animate={{opacity: 1, y: 0}}
+                                transition={{
+                                    duration: 0.3,
+                                    delay: 1.0,
+                                    ease: "easeOut"
+                                }}
+                            >
                                 <caption className="font-almarai">UI/UX & Design</caption>
                                 <tbody>
                                     <tr>
@@ -81,8 +98,17 @@ const Tech = () => {
                                         <td>User Study</td>
                                     </tr>
                                 </tbody>
-                            </table>
-                            <table className="table-fixed w-full xl:w-5/6">
+                            </motion.table>
+                            <motion.table
+                                className="table-fixed w-full xl:w-5/6"
+                                initial={{opacity: 0, y: 20}}
+                                animate={{opacity: 1, y: 0}}
+                                transition={{
+                                    duration: 0.3,
+                                    delay: 1.2,
+                                    ease: "easeOut"
+                                }}
+                            >
                                 <caption className="font-almarai">Back-end & Technical</caption>
                                 <tbody>
                                     <tr>
@@ -98,7 +124,7 @@ const Tech = () => {
                                         <td>Security</td>
                                     </tr>
                                 </tbody>
-                            </table>
+                            </motion.table>
                         </div>
                     </div>
                     {/* Tech stack parallax text */}
@@ -112,15 +138,23 @@ const Tech = () => {
                                 speed={20}
                             />
                         </h2>
-                        <div className="w-full flex overflow-hidden items-center uppercase font-nick
-                            text-3xl md:text-4xl lg:text-5xl 2xl:text-6xl
-                            ">
+                        <motion.div
+                            className="w-full flex overflow-hidden items-center uppercase font-nick
+                            text-3xl md:text-4xl lg:text-5xl 2xl:text-6xl"
+                            initial={{opacity: 0, y: 20}}
+                            animate={{opacity: 1, y: 0}}
+                            transition={{
+                                duration: 0.5,
+                                delay: 1.4,
+                                ease: "easeOut"
+                            }}
+                        >
                             <ParallaxText
                                 textArray={["react", "next.js", "tailwind", "framer motion", "sql", "prisma", "adobe cc", "figma"]}
                                 baseVelocity={isMobile ? 50 : 100}
                                 scrollY={scrollY}
                             />
-                        </div>
+                        </motion.div>
                     </div>
                     {/* Connect text */}
                     <div className="xl:w-1/2 text-xl md:text-3xl lg:text-3xl 2xl:text-4xl px-5 xl:px-7 mb-10 md:mb-20">
@@ -133,20 +167,29 @@ const Tech = () => {
                                 speed={20}
                             />
                         </h2>
-                        <div className="flex gap-10 md:gap-20 xl:px-5 font-light">
-                            <Link to="https://www.linkedin.com/in/joo-eon-park/" target="_blank"
+                        <motion.div
+                            className="flex gap-10 md:gap-20 xl:px-5 font-light"
+                            initial={{opacity: 0, y: 20}}
+                            animate={{opacity: 1, y: 0}}
+                            transition={{
+                                duration: 0.5,
+                                delay: 1.6,
+                                ease: "easeOut"
+                            }}
+                        >
+                            <Link to="https://www.linkedin.com/in/joo-eon-park/" target="_blank" rel="noopener noreferrer"
                                   className="text-link after:bg-customBlack dark:after:bg-customWhite">
                                 LinkedIn
                             </Link>
-                            <Link to="https://github.com/jooeon" target="_blank"
+                            <Link to="https://github.com/jooeon" target="_blank" rel="noopener noreferrer"
                                   className="text-link after:bg-customBlack dark:after:bg-customWhite">
                                 GitHub
                             </Link>
-                            <Link to="mailto:jooeon427@gmail.com" target="_blank"
+                            <Link to="mailto:jooeon427@gmail.com" target="_blank" rel="noopener noreferrer"
                                   className="text-link after:bg-customBlack dark:after:bg-customWhite">
                                 Email
                             </Link>
-                        </div>
+                        </motion.div>
                     </div>
                 </section>
             </main>

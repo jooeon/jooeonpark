@@ -7,7 +7,7 @@ const Cursor = () => {
     const [position, setPosition] = useState({ x: window.innerWidth / 2, y: window.innerHeight * 3 / 4 });
     const [isActive, setIsActive] = useState(false); // Cursor activation
     const [isSmallScreen, setIsSmallScreen] = useState(window.innerWidth <= 768);
-    const [cursorColor, setCursorColor] = useState("#f1f1f1"); // Default cursor color
+    const [cursorColor, setCursorColor] = useState("#fafafa"); // Default cursor color
     const { isLinkHovered, isContentHovered, isInteractiveHovered, isClicked, leftViewport } = useCursor();
     const location = useLocation(); // Get the current route
     const colors = ["#ff5733", "#33c4ff", "#a633ff", "#ff33a1", "#33ff57", "#fc0834", "#4a21ff", "#ffef73"];
