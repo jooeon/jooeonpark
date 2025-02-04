@@ -51,7 +51,7 @@ const Index = () => {
 
     return (
         <>
-            <Header delay={2.5}/>
+            <Header/>
             {/* Overlay for "loading" animation on page load */}
             <motion.div
                 className="fixed top-0 pointer-events-none h-full w-full font-raleway font-bold uppercase

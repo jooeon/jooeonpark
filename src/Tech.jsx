@@ -14,7 +14,7 @@ const Tech = () => {
 
     return (
         <>
-            <Header isVisible={true}/>
+            <Header/>
             <main>
                 <motion.div
                     className="pl-5 pt-10 md:pt-20 md:pl-10"
