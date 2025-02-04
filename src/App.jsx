@@ -17,7 +17,7 @@ import {useEffect} from "react";
 const navVariants = {
     enter: {
         opacity: 1,
-        transition: { delay: 0.7, duration: 0.3, ease: "easeIn" },
+        transition: { delay: 0.6, duration: 0.3, ease: "easeIn" },
     },
     exit: {
         opacity: 0,
