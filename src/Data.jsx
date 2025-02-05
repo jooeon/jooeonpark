@@ -4,8 +4,8 @@ export const items = [
         nextItem: "steps",
         isVideo: false,
         images: [
-            "/images/Ocular Prosthetic for Reading Another Human_01.jpeg",
-            "/images/Ocular Prosthetic for Reading Another Human_02.jpeg",
+            "/images/Ocular Prosthetic for Reading Another Human_01.jpg",
+            "/images/Ocular Prosthetic for Reading Another Human_02.jpg",
         ],
         videos: [],
         caption: [
@@ -51,11 +51,11 @@ export const items = [
         nextItem: "on-the-tracks",
         isVideo: false,
         images: [
-            "/images/Running In a Dream.png",
-            "/images/Running In a Dream_Detail_01.png",
-            "/images/Running In a Dream_Detail_02.png",
-            "/images/Running In a Dream_Detail_03.png",
-            "/images/Running In a Dream_Detail_04.png",
+            "/images/Running In a Dream.jpg",
+            "/images/Running In a Dream_Detail_01.jpg",
+            "/images/Running In a Dream_Detail_02.jpg",
+            "/images/Running In a Dream_Detail_03.jpg",
+            "/images/Running In a Dream_Detail_04.jpg",
         ],
         videos: [],
         caption: [
@@ -65,7 +65,7 @@ export const items = [
             "2024",
             "Have you ever tried running in a dream?",
         ],
-        thumbnail: "/images/Running In a Dream.png",
+        thumbnail: "/images/Running In a Dream.jpg",
         alt: "Running In a Dream, 2024",
         padding: "pb-10 ",
         link: "/project/running-in-a-dream",
