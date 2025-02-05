@@ -48,7 +48,7 @@ const Word = ({children, progress, range}) => {
     const amount = range[1] - range[0]
     const step = amount / children.length
     return (
-        <span className="relative mr-3">
+        <span className="relative mr-3 xl:mr-4 3xl:mr-5 5xl:mr-8">
       {
           children.split("").map((char, i) => {
               const start = range[0] + (i * step);

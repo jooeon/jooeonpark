@@ -15,7 +15,7 @@ export const items = [
             "2024",
             "Inspired by the universal struggle to communicate and understand human thoughts and emotions",
         ],
-        thumbnail: "/images/thumbnails/Ocular Prosthetic for Reading Another Human_thumb.jpeg",
+        thumbnail: "/images/thumbnails/Ocular Prosthetic for Reading Another Human_thumb.jpg",
         alt: "Ocular Prosthetic for Reading Another Human",
         padding: "pb-10 ",
         link: "/project/ocular-prosthetic",
@@ -140,6 +140,7 @@ export const items = [
             "/images/JooEon_Park_Encapsulation_06.jpg",
             "/images/JooEon_Park_Encapsulation_11.jpg",
             "/images/JooEon_Park_Encapsulation_13.jpg",
+            "/images/JooEon_Park_Encapsulation_16.jpg"
         ],
         videos: [],
         caption: [

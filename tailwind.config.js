@@ -69,6 +69,8 @@ export default {
 			'3xl': '2560px',
 			'4xl': '3024px',
 			'5xl': '3456px',
+			'6xl': '3840px',	// 4k
+			'7xl': '5120px',	// Studio Display
 		},
   	}
   },

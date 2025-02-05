@@ -144,7 +144,7 @@ const ScrollTitleSection = () => {
             </motion.h1>
             <motion.h2
                 className="pointer-events-auto font-nick outline-text-white text-transparent
-                    text-sm xs:text-md sm:text-3xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl 3xl:text-8xl"
+                    text-[3vw] leading-none"
                 style={{ y: subTitleLayer }}
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
