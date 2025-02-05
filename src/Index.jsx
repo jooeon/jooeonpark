@@ -72,13 +72,13 @@ const Index = () => {
                 <section className="flex flex-col items-center">
                     <div className="w-11/12 xl:w-5/6 md:mb-14">
                         <h3 className="w-fit outline-text-black dark:outline-text-white text-transparent font-nick pb-5
-                            text-sm xs:text-lg sm:text-3xl md:text-3xl lg:text-4xl xl:text-4xl 2xl:text-6xl 3xl:text-8xl">
+                            text-[3vw] leading-none">
                             About
                         </h3>
                     </div>
                     <div className="flex flex-col xl:flex-row gap-10 xl:gap-0 justify-start xl:justify-center items-center xl:items-start">
                         <div className="w-11/12 xl:w-11/12 xl:px-24 font-extrabold font-almarai uppercase mix-blend-difference text-customWhite [&_span]:lg:mb-2
-                            md:text-xl lg:text-3xl xl:text-4xl 2xl:text-6xl 3xl:text-6xl">
+                            md:text-xl lg:text-3xl xl:text-4xl 2xl:text-6xl 3xl:text-6xl 5xl:text-8xl 6xl:text-9xl 7xl:text-11xl">
                             <ScrollTextAnim
                                 paragraph={"Creative developer and artist from Seoul, South Korea, specializing in Web Development, UI/UX, and Visual Arts.\nSeamlessly integrating design and technology to create experiences that are both highly functional and stylish."}
                             />
@@ -88,7 +88,7 @@ const Index = () => {
                 <section className="flex flex-col items-center">
                     <div className="w-11/12 xl:w-5/6 md:mb-14">
                         <h3 className="w-fit outline-text-black dark:outline-text-white text-transparent font-nick pb-5
-                            text-sm xs:text-lg sm:text-3xl md:text-3xl lg:text-4xl xl:text-4xl 2xl:text-6xl 3xl:text-8xl">
+                            text-[3vw] leading-none">
                             Selected Works
                         </h3>
                     </div>
@@ -107,7 +107,7 @@ const Index = () => {
                             <Link to="/project/recollection" className="w-full xl:w-5/6">
                                 <img src="/images/Recollection_main_cropped.jpg" alt="Recollection_art_image" loading="lazy"/>
                             </Link>
-                            <div className="flex flex-col justify-end text-3xs md:text-base 3xl:text-lg">
+                            <div className="flex flex-col justify-end text-3xs md:text-base 3xl:text-lg 5xl:text-2xl">
                                 <p className="mb-4 2xl:mb-10">Recollection</p>
                                 <p className="text-customGray">2024</p>
                             </div>
@@ -122,7 +122,7 @@ const Index = () => {
                                 ease: "easeInOut",
                             }}
                         >
-                            <div className="flex flex-col justify-end text-3xs md:text-base 3xl:text-lg xl:text-right">
+                            <div className="flex flex-col justify-end text-3xs md:text-base 3xl:text-lg 5xl:text-2xl xl:text-right">
                                 <p className="mb-4 2xl:mb-10">11,182,156 Steps</p>
                                 <p className="text-customGray">2024</p>
                             </div>
@@ -149,9 +149,9 @@ const Index = () => {
                             }}
                         >
                             <Link to="/project/ocular-prosthetic" className="w-full xl:w-5/6">
-                                <img src="/images/Ocular%20Prosthetic%20for%20Reading%20Another%20Human_01.jpeg" alt="Recollection_art_image" loading="lazy"/>
+                                <img src="/images/Ocular Prosthetic for Reading Another Human_01.jpg" alt="Ocular_prostetic_art_image" loading="lazy"/>
                             </Link>
-                            <div className="flex flex-col justify-end text-3xs md:text-base 3xl:text-lg">
+                            <div className="flex flex-col justify-end text-3xs md:text-base 3xl:text-lg 5xl:text-2xl">
                                 <p className="mb-4 2xl:mb-10">Ocular Prosthetic for Reading Another Human</p>
                                 <p className="text-customGray">2024</p>
                             </div>
@@ -166,7 +166,7 @@ const Index = () => {
                                 ease: "easeInOut",
                             }}
                         >
-                            <div className="flex flex-col justify-end text-3xs md:text-base 3xl:text-lg xl:text-right">
+                            <div className="flex flex-col justify-end text-3xs md:text-base 3xl:text-lg 5xl:text-2xl xl:text-right">
                                 <p className="mb-4 2xl:mb-10">On The Tracks</p>
                                 <p className="text-customGray">2024</p>
                             </div>
@@ -186,8 +186,8 @@ const Index = () => {
                 </section>
                 <section className="flex justify-center items-center h-96 md:h-[80vh]">
                     <motion.div
-                        className="relative top-1/4 flex justify-center gap-5 md:gap-10 lg:gap-14 xl:gap-20 font-nick lowercase
-                        text-3xs xs:text-xs sm:text-sm md:text-lg lg:text-2xl xl:text-4xl 4xl:text-5xl px-5 xl:px-7"
+                        className="relative top-1/4 flex justify-center gap-5 md:gap-10 lg:gap-14 xl:gap-20 3xl:gap-30 font-nick lowercase
+                        text-[2vw] px-5 xl:px-7"
                         initial="hidden"
                         animate={controls}
                         variants={{
