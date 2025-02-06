@@ -17,7 +17,7 @@ const Tech = () => {
             <Header/>
             <main>
                 <motion.div
-                    className="pl-5 pt-10 md:pt-20 md:pl-10"
+                    className="pt-10 pl-5 md:pt-20 md:pl-10 4xl:pt-36 7xl:pt-40"
                     initial={{opacity: 0, y: 40}}
                     animate={{opacity: 1, y: 0}}
                     transition={{
@@ -26,15 +26,16 @@ const Tech = () => {
                         ease: "easeOut"
                     }}
                 >
-                    <h1 className="title-text font-nick uppercase text-4xl sm:text-5xl md:text-7xl lg:text-8xl 4xl:text-9xl">Technical</h1>
+                    <h1 className="title-text font-nick uppercase text-[5vw] leading-none">
+                        Technical
+                    </h1>
                 </motion.div>
                 <section className="relative flex flex-col gap-16 md:gap-28 lg:gap-36 pt-10 md:pt-20">
                     {/* 3D animation */}
                     {!isMobile && <AsciiAnimation/>}
                     {/* About text */}
-                    <div className="xl:w-1/2 text-xl md:text-3xl lg:text-3xl 2xl:text-4xl px-5 xl:px-7">
-                        <h2 className="uppercase font-almarai font-extrabold mb-5 min-h-7 md:min-h-9 xl:min-h-10
-                            text-xs md:text-base lg:text-xl">
+                    <div className="xl:w-1/2 7xl:w-7/12 px-5 xl:px-7 text-xs md:text-base lg:text-xl 3xl:text-2xl 4xl:text-3xl 5xl:text-4xl 7xl:text-6xl">
+                        <h2 className="uppercase font-almarai font-extrabold mb-5 5xl:mb-14 7xl:mb-24 min-h-7 md:min-h-9 xl:min-h-10">
                             <EncryptionText
                                 text={"Skills"}
                                 delay={0.4}
@@ -44,12 +45,12 @@ const Tech = () => {
                         </h2>
                         {/* Cannot use selector for almarai font e.g. [&_caption]:font-almarai because it isn't a tailwind class
                           See styles.css, font-almarai class */}
-                        <div className="flex flex-col gap-10 w-full xl:px-5 text-xs md:text-base lg:text-xl
-                            [&_caption]:w-fit [&_caption]:mb-2 [&_caption]:text-start [&_caption]:font-extrabold
+                        <div className="flex flex-col gap-10 w-full xl:px-5
+                            [&_caption]:w-fit [&_caption]:mb-2 [&_caption]:7xl:mb-10 [&_caption]:text-start [&_caption]:font-extrabold
                             [&_tr]:border-b [&_tr]:text-customGray [&_tr]:border-customGrayLight [&_tr]:dark:border-customBlackLight
-                            [&_td]:pt-2 [&_td]:pb-1 [&_td]:pl-3 [&_td]:md:pl-5 [&_td]:relative">
+                            [&_td]:pt-2 [&_td]:pb-1 [&_td]:7xl:pb-12 [&_td]:pl-3 [&_td]:md:pl-5 [&_td]:relative">
                             <motion.table
-                                className="table-fixed w-full xl:w-5/6"
+                                className="table-fixed w-full"
                                 initial={{opacity: 0, y: 20}}
                                 animate={{opacity: 1, y: 0}}
                                 transition={{
@@ -74,7 +75,7 @@ const Tech = () => {
                                 </tbody>
                             </motion.table>
                             <motion.table
-                                className="table-fixed w-full xl:w-5/6"
+                                className="table-fixed w-full"
                                 initial={{opacity: 0, y: 20}}
                                 animate={{opacity: 1, y: 0}}
                                 transition={{
@@ -100,7 +101,7 @@ const Tech = () => {
                                 </tbody>
                             </motion.table>
                             <motion.table
-                                className="table-fixed w-full xl:w-5/6"
+                                className="table-fixed w-full"
                                 initial={{opacity: 0, y: 20}}
                                 animate={{opacity: 1, y: 0}}
                                 transition={{
@@ -129,8 +130,8 @@ const Tech = () => {
                     </div>
                     {/* Tech stack parallax text */}
                     <div className="">
-                        <h2 className="uppercase font-almarai font-extrabold px-5 xl:px-7 mb-5 min-h-7 md:min-h-9 xl:min-h-10
-                            text-xs md:text-base lg:text-xl">
+                        <h2 className="uppercase font-almarai font-extrabold px-5 xl:px-7 mb-5 5xl:mb-14 7xl:mb-24 min-h-7 md:min-h-9 xl:min-h-10
+                            text-xs md:text-base lg:text-xl 5xl:text-4xl 7xl:text-6xl">
                             <EncryptionText
                                 text={"Tech Stack & Software"}
                                 delay={0.4}
@@ -140,7 +141,7 @@ const Tech = () => {
                         </h2>
                         <motion.div
                             className="w-full flex overflow-hidden items-center uppercase font-nick
-                            text-3xl md:text-4xl lg:text-5xl 2xl:text-6xl"
+                            text-3xl md:text-4xl lg:text-5xl 2xl:text-6xl 5xl:text-8xl 7xl:text-10xl"
                             initial={{opacity: 0, y: 20}}
                             animate={{opacity: 1, y: 0}}
                             transition={{
@@ -157,9 +158,8 @@ const Tech = () => {
                         </motion.div>
                     </div>
                     {/* Connect text */}
-                    <div className="xl:w-1/2 text-xl md:text-3xl lg:text-3xl 2xl:text-4xl px-5 xl:px-7 mb-10 md:mb-20">
-                        <h2 className="uppercase font-almarai font-extrabold mb-5 min-h-7 md:min-h-9 xl:min-h-10
-                            text-xs md:text-base lg:text-xl">
+                    <div className="px-5 xl:px-7 mb-10 md:mb-20 text-xs md:text-base lg:text-xl 5xl:text-4xl 7xl:text-6xl">
+                        <h2 className="uppercase font-almarai font-extrabold mb-5 5xl:mb-14 7xl:mb-24 min-h-7 md:min-h-9 xl:min-h-10">
                             <EncryptionText
                                 text={"Connect"}
                                 delay={0.4}

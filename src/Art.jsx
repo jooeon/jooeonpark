@@ -14,7 +14,7 @@ const Art = () => {
             <main className="">
                 {!isMobile && <section className="relative flex justify-center items-center p-7 h-[60vh]">
                     <h1 className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full text-center leading-none uppercase font-nick
-                        text-4xl xl:text-5xl 2xl:text-6xl 3xl:text-7xl">
+                        text-[3vw]">
                         Creative Works
                     </h1>
                     <div className="absolute top-0 bottom-0 flex flex-wrap w-full -z-10 *:w-1/4
@@ -106,7 +106,7 @@ const Art = () => {
                     </section>
                     :
                     <motion.div
-                        className="pl-5 pt-10 md:pt-20 md:pl-10 pb-2 md:pb-10"
+                        className="pt-10 pl-5 md:pt-20 md:pl-10 pb-2 md:pb-10"
                         initial={{opacity: 0, y: 40}}
                         animate={{opacity: 1, y: 0}}
                         transition={{

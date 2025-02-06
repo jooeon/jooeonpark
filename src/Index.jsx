@@ -66,7 +66,7 @@ const Index = () => {
             >
                 <EntryAnim/>
             </motion.div>
-            <main className="relative flex flex-col px-4 md:px-7 pb-20 xl:pb-40 w-full gap-48 md:gap-96">
+            <main className="relative flex flex-col px-4 md:px-7 6xl:px-12 7xl:px-14 pb-20 xl:pb-40 w-full gap-48 md:gap-96">
                 {/* Main landing text */}
                 <LayeredScrollTitle />
                 <section className="flex flex-col items-center">
@@ -105,15 +105,19 @@ const Index = () => {
                             }}
                         >
                             <Link to="/project/recollection" className="w-full xl:w-5/6">
-                                <img src="/images/Recollection_main_cropped.jpg" alt="Recollection_art_image" loading="lazy"/>
+                                <img
+                                    src="/images/Recollection_main_cropped.jpg"
+                                    alt="Recollection_art_image"
+                                    loading="lazy"
+                                    className="w-full"/>
                             </Link>
-                            <div className="flex flex-col justify-end text-3xs md:text-base 3xl:text-lg 5xl:text-2xl">
+                            <div className="flex flex-col justify-end text-3xs md:text-base 3xl:text-lg 5xl:text-2xl 6xl:text-3xl">
                                 <p className="mb-4 2xl:mb-10">Recollection</p>
                                 <p className="text-customGray">2024</p>
                             </div>
                         </motion.div>
                         <motion.div
-                            className="w-11/12 xl:w-full flex flex-col-reverse xl:flex-row xl:row-start-4 xl:row-end-8 xl:col-start-2 gap-4"
+                            className="w-11/12 xl:w-full flex flex-col-reverse xl:flex-row xl:justify-end xl:row-start-4 xl:row-end-8 xl:col-start-2 gap-4"
                             initial={{opacity: 0, y: 70}}
                             whileInView={{opacity: 1, y: 0}}
                             viewport={{once: false}}
@@ -122,7 +126,7 @@ const Index = () => {
                                 ease: "easeInOut",
                             }}
                         >
-                            <div className="flex flex-col justify-end text-3xs md:text-base 3xl:text-lg 5xl:text-2xl xl:text-right">
+                            <div className="flex flex-col justify-end text-3xs md:text-base 3xl:text-lg 5xl:text-2xl 6xl:text-3xl xl:text-right">
                                 <p className="mb-4 2xl:mb-10">11,182,156 Steps</p>
                                 <p className="text-customGray">2024</p>
                             </div>
@@ -132,6 +136,7 @@ const Index = () => {
                                     playsInline
                                     muted
                                     loop
+                                    className="w-full"
                                 >
                                     <source src="/videos/polychrome_dark.mp4#t=70" type="video/mp4"/>
                                     Your browser does not support the video tag.
@@ -149,15 +154,19 @@ const Index = () => {
                             }}
                         >
                             <Link to="/project/ocular-prosthetic" className="w-full xl:w-5/6">
-                                <img src="/images/Ocular Prosthetic for Reading Another Human_01.jpg" alt="Ocular_prostetic_art_image" loading="lazy"/>
+                                <img
+                                    src="/images/Ocular Prosthetic for Reading Another Human_01.jpg"
+                                    alt="Ocular_prostetic_art_image"
+                                    loading="lazy"
+                                    className="w-full"/>
                             </Link>
-                            <div className="flex flex-col justify-end text-3xs md:text-base 3xl:text-lg 5xl:text-2xl">
+                            <div className="flex flex-col justify-end text-3xs md:text-base 3xl:text-lg 5xl:text-2xl 6xl:text-3xl">
                                 <p className="mb-4 2xl:mb-10">Ocular Prosthetic for Reading Another Human</p>
                                 <p className="text-customGray">2024</p>
                             </div>
                         </motion.div>
                         <motion.div
-                            className="w-11/12 xl:w-full flex flex-col-reverse xl:flex-row xl:row-start-10 xl:row-end-13 xl:col-start-2 gap-4"
+                            className="w-11/12 xl:w-full flex flex-col-reverse xl:flex-row xl:justify-end xl:row-start-10 xl:row-end-13 xl:col-start-2 gap-4"
                             initial={{opacity: 0, y: 70}}
                             whileInView={{opacity: 1, y: 0}}
                             viewport={{once: false}}
@@ -166,7 +175,7 @@ const Index = () => {
                                 ease: "easeInOut",
                             }}
                         >
-                            <div className="flex flex-col justify-end text-3xs md:text-base 3xl:text-lg 5xl:text-2xl xl:text-right">
+                            <div className="flex flex-col justify-end text-3xs md:text-base 3xl:text-lg 5xl:text-2xl 6xl:text-3xl xl:text-right">
                                 <p className="mb-4 2xl:mb-10">On The Tracks</p>
                                 <p className="text-customGray">2024</p>
                             </div>
@@ -176,6 +185,7 @@ const Index = () => {
                                     playsInline
                                     muted
                                     loop
+                                    className="w-full"
                                 >
                                     <source src="/videos/JooEon_Park_OnTheTracks_Video.MOV#t=4" type="video/mp4"/>
                                     Your browser does not support the video tag.
