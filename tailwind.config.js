@@ -66,10 +66,10 @@ export default {
   		},
 		screens: {
 			'xs': '390px',
-			'3xl': '2560px',
-			'4xl': '3024px',
-			'5xl': '3456px',
-			'6xl': '3840px',	// 4k
+			'3xl': '2560px',	// 1440p (QHD)
+			'4xl': '3024px',	// MacBook Pro 14"
+			'5xl': '3456px',	// MacBook Pro 16"
+			'6xl': '3840px',	// 4k (UHD)
 			'7xl': '5120px',	// Studio Display
 		},
   	}

@@ -20,7 +20,7 @@ const About = () => {
             <main>
                 <div className="flex flex-col">
                     <motion.div
-                        className="pl-5 pt-10 md:pt-20 md:pl-10"
+                        className="pt-10 pl-5 md:pt-20 md:pl-10 4xl:pt-36 7xl:pt-40"
                         initial={{opacity: 0, y: 40}}
                         animate={{opacity: 1, y: 0}}
                         transition={{
@@ -29,7 +29,7 @@ const About = () => {
                             ease: "easeOut"
                         }}
                     >
-                        <h1 className="title-text font-nick uppercase text-4xl sm:text-5xl md:text-7xl lg:text-8xl 4xl:text-9xl">About</h1>
+                        <h1 className="title-text font-nick uppercase text-[5vw] leading-none">About</h1>
                     </motion.div>
                     <div className="flex flex-col xl:flex-row xl:pt-10 2xl:pt-16 xl:pb-20">
                         <section className="flex justify-center items-center xl:w-50vw
