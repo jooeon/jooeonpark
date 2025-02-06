@@ -94,7 +94,7 @@ const Header = ({delay = 0.4}) => {
                       speed={20}
                   />
               </Link>
-              <ul className="flex gap-4 md:gap-10 xl:gap-12 3xl:gap-14 4xl:gap-20 6xl:gap-28">
+              <ul className="flex gap-4 md:gap-10 3xl:gap-14 4xl:gap-20 6xl:gap-28">
                   <li>
                       <NavLink to="/art" className={() => getLinkClasses("/art")}>
                           Art
