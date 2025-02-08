@@ -92,7 +92,7 @@ const ScrollTitleSection = () => {
     const titleToggle = useTransform(scrollYProgress, [0, 0.15], [1, 0], { clamp: true });
     const backgroundColor = useTransform(titleToggle, [0, 1], ["transparent", "#000000"]);
 
-    // Randomize cursor color
+    // Randomize subtitle color
     useEffect(() => {
         if (isLinkHovered) {
             const randomColor = colors[Math.floor(Math.random() * colors.length)];
@@ -176,7 +176,7 @@ const ScrollTitleSection = () => {
                         }}
                         whileTap={{ scale: 0.9 }}
                     >
-                        Creative Developer
+                        Design Technologist
                     </motion.span>
                 </Link>
             </motion.h2>
