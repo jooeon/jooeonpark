@@ -103,12 +103,12 @@ const About = () => {
                                 }}
                             >
                                 <p className="">
-                                    Joo Eon Park is a South Korean artist, designer, and software engineer
+                                    Joo Eon Park is a South Korean artist and design technologist
                                     with a passion for creativity, integrating his interdisciplinary expertise
-                                    in design and technology to build platforms for creative expression.
+                                    in design and technology to build platforms for functional use and creative expression.
                                 </p>
                                 <p className="mt-4">
-                                    With diverse backgrounds in Computer Science, Digital Media, and Studio Art,
+                                    With diverse backgrounds in Computer Science, Digital Media, and Visual Arts,
                                     Park blends his multifaceted expertise to create experiences that are both highly
                                     functional and visually engaging. In pursuit of limitless creativity, attentive design,
                                     and flawless execution in his work, he brings a perspective that integrates the minds
@@ -116,7 +116,7 @@ const About = () => {
                                 </p>
                                 <p className="mt-4">
                                     Park offers professional skills and knowledge in Full-Stack Web Development,
-                                    Human-Computer Interaction, Graphic Design, UI/UX, and Visual Arts.
+                                    Human-Computer Interaction, UI/UX Design, Graphic Design, and Visual Arts.
                                 </p>
                             </motion.div>
                             <motion.div
