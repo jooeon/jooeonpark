@@ -80,7 +80,7 @@ const Index = () => {
                         <div className="w-11/12 xl:w-11/12 xl:px-24 font-extrabold font-almarai uppercase mix-blend-difference text-customWhite [&_span]:lg:mb-2
                             md:text-xl lg:text-3xl xl:text-4xl 2xl:text-6xl 3xl:text-6xl 5xl:text-8xl 6xl:text-9xl 7xl:text-11xl">
                             <ScrollTextAnim
-                                paragraph={"Creative developer and artist from Seoul, South Korea, specializing in Web Development, UI/UX, and Visual Arts.\nSeamlessly integrating design and technology to create experiences that are both highly functional and stylish."}
+                                paragraph={"Artist and Design Technologist from Seoul, South Korea, specializing in Web Development, UI/UX Design, and Visual Arts.\nSeamlessly integrating design and technology to create experiences that are both highly functional and stylish."}
                             />
                         </div>
                     </div>
