@@ -58,18 +58,18 @@ const Tech = () => {
                                     delay: 0.8,
                                     ease: "easeOut"
                                 }}>
-                                <caption className="font-almarai">Web Development</caption>
+                                <caption className="font-almarai">Development</caption>
                                 <tbody>
                                     <tr>
-                                        <td>Full-Stack</td>
-                                        <td>Web Design</td>
-                                        <td>Semantics & Accessibility</td>
+                                        <td>Full-Stack Web</td>
+                                        <td>Responsive Design</td>
                                         <td>HTML/CSS</td>
+                                        <td>JavaScript</td>
                                     </tr>
                                     <tr>
-                                        <td>JavaScript</td>
-                                        <td>Frameworks & Libraries</td>
+                                        <td>Accessibility</td>
                                         <td>Web Animations</td>
+                                        <td>Mobile App</td>
                                         <td>CMS</td>
                                     </tr>
                                 </tbody>
@@ -87,16 +87,16 @@ const Tech = () => {
                                 <caption className="font-almarai">UI/UX & Design</caption>
                                 <tbody>
                                     <tr>
-                                        <td>Graphic Design</td>
+                                        <td>Figma</td>
                                         <td>Adobe Illustrator</td>
                                         <td>Adobe Photoshop</td>
-                                        <td>Figma</td>
+                                        <td>Graphic Design</td>
                                     </tr>
                                     <tr>
                                         <td>Needfinding</td>
                                         <td>Prototyping</td>
                                         <td>Usability Testing</td>
-                                        <td>User Study</td>
+                                        <td>User Research</td>
                                     </tr>
                                 </tbody>
                             </motion.table>
@@ -113,16 +113,16 @@ const Tech = () => {
                                 <caption className="font-almarai">Back-end & Technical</caption>
                                 <tbody>
                                     <tr>
-                                        <td>PHP</td>
-                                        <td>JSP</td>
+                                        <td>Data Structures</td>
+                                        <td>Algorithms</td>
+                                        <td>OOP</td>
                                         <td>Git</td>
-                                        <td>Linux</td>
                                     </tr>
                                     <tr>
+                                        <td>Code Readability</td>
                                         <td>Databases</td>
-                                        <td>Networks</td>
-                                        <td>Hardware</td>
-                                        <td>Security</td>
+                                        <td>Java</td>
+                                        <td>Linux</td>
                                     </tr>
                                 </tbody>
                             </motion.table>
@@ -151,7 +151,7 @@ const Tech = () => {
                             }}
                         >
                             <ParallaxText
-                                textArray={["react", "next.js", "tailwind", "framer motion", "sql", "prisma", "adobe cc", "figma"]}
+                                textArray={["react", "next.js", "tailwind", "framer motion", "sql", "android", "adobe cc", "figma"]}
                                 baseVelocity={isMobile ? 50 : 100}
                                 scrollY={scrollY}
                             />
