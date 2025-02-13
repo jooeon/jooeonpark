@@ -103,7 +103,7 @@ const About = () => {
                                 }}
                             >
                                 <p className="">
-                                    Joo Eon Park is a South Korean artist and design technologist
+                                    Joo Eon Park is a South Korean artist and developer
                                     with a passion for creativity, integrating his interdisciplinary expertise
                                     in design and technology to build platforms for functional use and creative expression.
                                 </p>
