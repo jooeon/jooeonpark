@@ -4,12 +4,24 @@ import { AsciiEffect } from "three/addons/effects/AsciiEffect.js";
 import { TrackballControls } from "three/addons/controls/TrackballControls.js";
 import PropTypes from "prop-types";
 
+const checkWebGL = () => {
+    try {
+        const canvas = document.createElement("canvas");
+        return !!(window.WebGLRenderingContext && canvas.getContext("webgl"));
+    } catch {
+        return false;
+    }
+};
+
 // Rotating shape animation in ASCII style
 // Parameters: container width, container height (doesn't need to be square)
 const AsciiAnimation = () => {
     const containerRef = useRef(null);
 
     useEffect(() => {
+
+        if (!checkWebGL()) return; // **Exit early if WebGL is not supported**
+
         let camera, controls, scene, renderer, effect;
         let shape;
         const start = Date.now();

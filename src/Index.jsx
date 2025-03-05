@@ -3,7 +3,7 @@ import Footer from "./components/Footer.jsx";
 import {motion, useAnimation, useScroll} from "framer-motion";
 import EntryAnim from "./components/EntryAnim.jsx";
 import ScrollTextAnim from "./components/ScrollTextAnim.jsx";
-import {useEffect} from "react";
+import {useEffect, useState} from "react";
 import EncryptionText from "./components/EncryptionAnim.jsx";
 import {Link} from "react-router-dom";
 import LayeredScrollTitle from "./components/LayeredScrollTitle.jsx";
@@ -27,6 +27,21 @@ const Index = () => {
     //         sessionStorage.setItem('hasSeenAnimation', 'true');
     //     }
     // }, []);
+
+    // 4k or larger, for rendering full resolution images if screen resolution is large
+    const [isXLargeScreen, setIsXLargeScreen] = useState(window.innerWidth >= 3840);
+
+    useEffect(() => {
+        const handleResize = () => {
+            setIsXLargeScreen(window.innerWidth >= 3840);
+        };
+
+        window.addEventListener("resize", handleResize);
+
+        return () => {
+            window.removeEventListener("resize", handleResize);
+        };
+    }, []);
 
     // ************************
     // Start of scrolling behavior logic
@@ -105,11 +120,19 @@ const Index = () => {
                             }}
                         >
                             <Link to="/project/recollection" className="w-full xl:w-5/6">
-                                <img
-                                    src="/images/Recollection_main_cropped.jpg"
-                                    alt="Recollection_art_image"
-                                    loading="lazy"
-                                    className="w-full"/>
+                                { isXLargeScreen ?
+                                    <img
+                                        src="/images/Recollection_main_cropped.jpg"
+                                        alt="Recollection_art_image"
+                                        loading="lazy"
+                                        className="w-full"/>
+                                    :
+                                    <img
+                                        src="/images/Recollection_main_cropped_smaller.jpg"
+                                        alt="Recollection_art_image"
+                                        loading="lazy"
+                                        className="w-full"/>
+                                }
                             </Link>
                             <div className="flex flex-col justify-end text-3xs md:text-base 3xl:text-lg 5xl:text-2xl 6xl:text-3xl">
                                 <p className="mb-4 2xl:mb-10">Recollection</p>
@@ -154,11 +177,19 @@ const Index = () => {
                             }}
                         >
                             <Link to="/project/ocular-prosthetic" className="w-full xl:w-5/6">
-                                <img
-                                    src="/images/Ocular Prosthetic for Reading Another Human_01.jpg"
-                                    alt="Ocular_prostetic_art_image"
-                                    loading="lazy"
-                                    className="w-full"/>
+                                { isXLargeScreen ?
+                                    <img
+                                        src="/images/Ocular%20Prosthetic%20for%20Reading%20Another%20Human_01.jpg"
+                                        alt="Ocular_prostetic_art_image"
+                                        loading="lazy"
+                                        className="w-full"/>
+                                    :
+                                    <img
+                                        src="/images/thumbnails/Ocular%20Prosthetic%20for%20Reading%20Another%20Human_thumb.jpg"
+                                        alt="Ocular_prostetic_art_image"
+                                        loading="lazy"
+                                        className="w-full"/>
+                                }
                             </Link>
                             <div className="flex flex-col justify-end text-3xs md:text-base 3xl:text-lg 5xl:text-2xl 6xl:text-3xl">
                                 <p className="mb-4 2xl:mb-10">Ocular Prosthetic for Reading Another Human</p>
