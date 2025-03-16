@@ -9,7 +9,8 @@ import {Link} from "react-router-dom";
 
 const Tech = () => {
 
-    // check if WebGL is compatible to browser, if not don't load Three.js animation
+    // for checking if WebGL is compatible to browser
+    // return true if
     const checkWebGL = () => {
         try {
             const canvas = document.createElement("canvas");
@@ -42,7 +43,7 @@ const Tech = () => {
                 </motion.div>
                 <section className="relative flex flex-col gap-16 md:gap-28 lg:gap-36 pt-10 md:pt-20">
                     {/* 3D animation */}
-                    {!isMobile && !checkWebGL && <AsciiAnimation/>}
+                    {!isMobile && checkWebGL && <AsciiAnimation/>}
                     {/* About text */}
                     <div className="xl:w-1/2 7xl:w-7/12 px-5 xl:px-7 text-xs md:text-base lg:text-xl 3xl:text-2xl 4xl:text-3xl 5xl:text-4xl 7xl:text-6xl">
                         <h2 className="uppercase font-almarai font-extrabold mb-5 5xl:mb-14 7xl:mb-24 min-h-7 md:min-h-9 xl:min-h-10">
