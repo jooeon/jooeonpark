@@ -48,7 +48,7 @@ export const items = [
     },
     {
         id: "running-in-a-dream",
-        nextItem: "on-the-tracks",
+        nextItem: "transitions",
         isVideo: false,
         images: [
             "/images/Running In a Dream.jpg",
@@ -70,6 +70,34 @@ export const items = [
         padding: "pb-10 ",
         link: "/project/running-in-a-dream",
         hasAnimation: true,
+    },
+    {
+        id: "transitions",
+        nextItem: "on-the-tracks",
+        isVideo: false,
+        images: [
+            "/images/transition_01.jpg",
+            "/images/transition_02.jpg",
+            "/images/transition_03.jpg",
+            "/images/transition_04.jpg",
+            "/images/transition_05.jpg",
+            "/images/transition_06.jpg",
+            "/images/transition_07.jpg",
+            "/images/transition_08.jpg",
+        ],
+        videos: [],
+        caption: [
+            "Transitions",
+            "Artist Book",
+            "Book board, ink on paper, thread",
+            "2024",
+            "An artist book about the passage of time, taking on a form that defies the conventional structure of books.",
+        ],
+        thumbnail: "/images/thumbnails/transition_thumb.jpg",
+        alt: "Transitions, 2024",
+        padding: "pb-10 ",
+        link: "/project/transitions",
+        hasAnimation: false,
     },
     {
         id: "on-the-tracks",
@@ -104,7 +132,7 @@ export const items = [
         alt: "On The Tracks",
         padding: "pb-10 xl:pt-60rem",
         link: "/project/on-the-tracks",
-        hasAnimation: false,
+        hasAnimation: true,
     },
     {
         id: "recollection",
@@ -128,7 +156,7 @@ export const items = [
         alt: "Recollection",
         padding: "pb-10 ",
         link: "/project/recollection",
-        hasAnimation: true,
+        hasAnimation: false,
     },
     {
         id: "encapsulated",

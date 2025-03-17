@@ -99,12 +99,28 @@ const Project = () => {
                             {/* Render images */}
                             {project.images.map((image, index) => (
                                 <div key={index} className="overflow-hidden">
-                                    <img
-                                        src={image}
-                                        alt={project.alt}
-                                        className="w-full h-full object-cover"
-                                        loading="lazy"
-                                    />
+                                    {index === 0 ? (
+                                        <motion.img
+                                            src={image}
+                                            alt={project.alt}
+                                            className="w-full h-full object-cover"
+                                            loading="lazy"
+                                            initial={{opacity: 0, y: 20}}
+                                            animate={{opacity: 1, y: 0}}
+                                            transition={{
+                                                duration: 0.3,
+                                                delay: 1.1,
+                                                ease: "easeOut",
+                                            }}
+                                        />
+                                    ) : (
+                                        <img
+                                            src={image}
+                                            alt={project.alt}
+                                            className="w-full h-full object-cover"
+                                            loading="lazy"
+                                        />
+                                    )}
                                 </div>
                             ))}
 
