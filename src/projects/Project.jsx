@@ -151,6 +151,17 @@ const Project = () => {
                             <p className="text-right col-start-2 row-start-4 text-4xs xs:text-4xs md:text-xs lg:text-sm xl:text-sm 2xl:text-lg 3xl:text-2xl 4xl:text-3xl">Info</p>
                             <p className="col-start-3 row-start-4 text-3xs xs:text-2xs md:text-lg lg:text-2xl xl:text-2xl 2xl:text-3xl 3xl:text-5xl 4xl:text-6xl">{project.caption[4]}</p>
 
+                            {id === "filter-cigarettes" && (
+                                <div className=" col-start-3 row-start-5 pt-2 md:pt-4">
+                                    <Link to="https://www.cdc.gov/tobacco/campaign/tips/quit-smoking/quitline/index.html"
+                                          target="_blank"
+                                          className="text-link after:bg-customBlack dark:after:bg-customWhite w-fit
+                                            text-4xs xs:text-4xs md:text-xs lg:text-sm xl:text-sm 2xl:text-lg 3xl:text-2xl 4xl:text-3xl"
+                                    >
+                                        1-800-784-8669
+                                    </Link>
+                                </div>
+                            )}
                             {id === "recollection" && (
                                 <div className=" col-start-3 row-start-5 pt-2 md:pt-4">
                                     <Link to="https://www.fieldprojectsgallery.com/frame-of-mind"
