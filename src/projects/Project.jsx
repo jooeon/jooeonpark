@@ -55,8 +55,15 @@ const Project = () => {
                             {/* Render videos */}
                             {project.videos.map((video, index) => (
                                 <div key={index} className="relative overflow-hidden">
-                                    <video
+                                    <motion.video
                                         className="w-full h-full object-cover"
+                                        initial={{opacity: 0, y: 40}}
+                                        animate={{opacity: 1, y: 0}}
+                                        transition={{
+                                            duration: 0.5,
+                                            delay: 1.0,
+                                            ease: "easeOut",
+                                        }}
                                         ref={videoRef}
                                         autoPlay
                                         playsInline
@@ -65,7 +72,7 @@ const Project = () => {
                                     >
                                         <source src={video} type="video/mp4" />
                                         Your browser does not support the video tag.
-                                    </video>
+                                    </motion.video>
                                     {/* Add audio toggle button only for /videos/simple.mp4 */}
                                     {(video === "/videos/JooEon_Park_OnTheTracks_Video.MOV" || video === "/videos/simple.mp4") && (
                                         <button
@@ -99,28 +106,19 @@ const Project = () => {
                             {/* Render images */}
                             {project.images.map((image, index) => (
                                 <div key={index} className="overflow-hidden">
-                                    {index === 0 ? (
-                                        <motion.img
-                                            src={image}
-                                            alt={project.alt}
-                                            className="w-full h-full object-cover"
-                                            loading="lazy"
-                                            initial={{opacity: 0, y: 20}}
-                                            animate={{opacity: 1, y: 0}}
-                                            transition={{
-                                                duration: 0.3,
-                                                delay: 1.1,
-                                                ease: "easeOut",
-                                            }}
-                                        />
-                                    ) : (
-                                        <img
-                                            src={image}
-                                            alt={project.alt}
-                                            className="w-full h-full object-cover"
-                                            loading="lazy"
-                                        />
-                                    )}
+                                    <motion.img
+                                        src={image}
+                                        alt={project.alt}
+                                        className="w-full h-full object-cover"
+                                        loading="lazy"
+                                        initial={{opacity: 0, y: 40}}
+                                        animate={{opacity: 1, y: 0}}
+                                        transition={{
+                                            duration: 0.5,
+                                            delay: 1.0,
+                                            ease: "easeOut",
+                                        }}
+                                    />
                                 </div>
                             ))}
 
