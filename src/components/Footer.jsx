@@ -14,7 +14,7 @@ const Footer = () => {
                 ease: "linear"
             }}
         >
-            <p>&copy; MMXXV. Joo Eon Park</p>
+            <p>&copy; {new Date().getFullYear()}. Joo Eon Park</p>
             <div className="flex items-center"><p className="p-2 font-azeret">-----></p><ThemeToggle /></div>
         </motion.div>
     </footer>
