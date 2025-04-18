@@ -1,16 +1,22 @@
 import { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
-import { motion } from "framer-motion";
+import {motion, useMotionValue, useSpring} from "framer-motion";
 import { useCursor } from "./CursorContext";
 
 const Cursor = () => {
-    const [position, setPosition] = useState({ x: window.innerWidth / 2, y: window.innerHeight * 3 / 4 });
     const [isActive, setIsActive] = useState(false); // Cursor activation
     const [isSmallScreen, setIsSmallScreen] = useState(window.innerWidth <= 768);
     const [cursorColor, setCursorColor] = useState("#fafafa"); // Default cursor color
     const { isLinkHovered, isContentHovered, isInteractiveHovered, isClicked, leftViewport } = useCursor();
     const location = useLocation(); // Get the current route
     const colors = ["#ff5733", "#33c4ff", "#a633ff", "#ff33a1", "#33ff57", "#fc0834", "#4a21ff", "#ffef73"];
+
+    const mouseX = useMotionValue(window.innerWidth / 2);
+    const mouseY = useMotionValue(window.innerHeight / 2);
+
+    // Apply smoothing/spring to the motion values
+    const springX = useSpring(mouseX, { stiffness: 400, damping: 35, mass: 0.5 });
+    const springY = useSpring(mouseY, { stiffness: 400, damping: 35, mass: 0.5 });
 
     useEffect(() => {
         // Activate the cursor after a delay (ms)
@@ -25,7 +31,8 @@ const Cursor = () => {
         }
 
         const handleMouseMove = (e) => {
-            setPosition({ x: e.clientX, y: e.clientY });
+            mouseX.set(e.clientX - 8); // Offset to center the cursor
+            mouseY.set(e.clientY - 8);
         };
 
         window.addEventListener("mousemove", handleMouseMove);
@@ -97,7 +104,7 @@ const Cursor = () => {
             variants={cursorVariants}
             initial="initial"
             animate={getCursorVariant()}
-            style={{ x: position.x - 8, y: position.y - 8 }}
+            style={{ x: springX, y: springY }}
         >
             {getCursorVariant() === "interactiveHover" && (
                 <motion.span
