@@ -14,7 +14,7 @@ const Header = ({delay = 0.4}) => {
 
     // check if scrolled to bottom of the screen, then set visible true
     useEffect(() => {
-        const unsubscribe = scrollYProgress.onChange((latest) => {
+        const unsubscribe = scrollYProgress.on("change",(latest) => {
             if (latest >= 0.96) {
                 setIsVisible(true);
             }

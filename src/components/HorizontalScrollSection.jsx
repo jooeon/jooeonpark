@@ -1,6 +1,6 @@
 import { useRef, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import {motion, useMotionValue, useScroll, useTransform} from 'framer-motion';
 
 const HorizontalScrollSection = ({
                                      children,
@@ -36,15 +36,19 @@ const HorizontalScrollSection = ({
         offset: ['start start', 'end end'],
     });
 
-    // Translate scroll progress to horizontal movement
-    const x = useTransform(scrollYProgress, [0, 1], [0, -totalScrollWidth]);
+    const zeroBased = useMotionValue(0);
 
-    // Apply smoothing (using lenis scroll so unused, applying this sometimes induces wonky behavior)
-    // const smoothX = useSpring(x, {
-    //     damping: 10,
-    //     stiffness: 30,
-    //     duration: duration,
-    // });
+    // whenever scrollYProgress changes, push it into zeroBased
+    useEffect(() => {
+        return scrollYProgress.on("change",(v) => zeroBased.set(v));
+    }, [scrollYProgress, zeroBased]);
+
+    // ensure x *always* starts from zero
+    const x = useTransform(
+        zeroBased,
+        [0, 1],
+        [0, -totalScrollWidth]
+    );
 
     return (
         <div
