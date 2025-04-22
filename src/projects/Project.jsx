@@ -126,7 +126,7 @@ const Project = () => {
 
                         {/* Description section */}
                         <motion.div
-                            className="sticky top-0 grid md:grid-cols-[1fr_1fr_8fr_1fr] grid-rows-[min]
+                            className="sticky top-0 grid md:grid-cols-[1fr_1fr_8fr_1fr] auto-rows-min
                                 gap-y-1 md:gap-y-3 lg:gap-y-4 3xl:gap-y-8 gap-x-2 md:gap-x-4 lg:gap-x-6 3xl:gap-x-10
                                 h-fit w-5/12 p-0 pt-16 md:p-5 md:pt-32 2xl:pt-48 4xl:pt-56 font-almarai font-extrabold uppercase"
                             initial={{opacity: 0, y: 20}}
@@ -137,17 +137,17 @@ const Project = () => {
                                 ease: "easeOut",
                             }}
                         >
-                            <p className="text-right col-start-2 row-start-1 text-4xs xs:text-4xs md:text-xs lg:text-sm xl:text-sm 2xl:text-lg 3xl:text-2xl 4xl:text-3xl">Year</p>
-                            <p className="col-start-3 row-start-1 text-3xs xs:text-2xs md:text-lg lg:text-2xl xl:text-2xl 2xl:text-3xl 3xl:text-5xl 4xl:text-6xl">{project.caption[3]}</p>
+                            <p className="text-right col-start-2 text-4xs xs:text-4xs md:text-xs lg:text-sm xl:text-sm 2xl:text-lg 3xl:text-2xl 4xl:text-3xl">Year</p>
+                            <p className="col-start-3 text-3xs xs:text-2xs md:text-lg lg:text-2xl xl:text-2xl 2xl:text-3xl 3xl:text-5xl 4xl:text-6xl">{project.caption[3]}</p>
 
-                            <p className="text-right col-start-2 row-start-2 text-4xs xs:text-4xs md:text-xs lg:text-sm xl:text-sm 2xl:text-lg 3xl:text-2xl 4xl:text-3xl">Type</p>
-                            <p className="col-start-3 row-start-2 text-3xs xs:text-2xs md:text-lg lg:text-2xl xl:text-2xl 2xl:text-3xl 3xl:text-5xl 4xl:text-6xl">{project.caption[1]}</p>
+                            <p className="text-right col-start-2 text-4xs xs:text-4xs md:text-xs lg:text-sm xl:text-sm 2xl:text-lg 3xl:text-2xl 4xl:text-3xl">Type</p>
+                            <p className="col-start-3 text-3xs xs:text-2xs md:text-lg lg:text-2xl xl:text-2xl 2xl:text-3xl 3xl:text-5xl 4xl:text-6xl">{project.caption[1]}</p>
 
-                            <p className="text-right col-start-2 row-start-3 text-4xs xs:text-4xs md:text-xs lg:text-sm xl:text-sm 2xl:text-lg 3xl:text-2xl 4xl:text-3xl">Medium</p>
-                            <p className="col-start-3 row-start-3 text-3xs xs:text-2xs md:text-lg lg:text-2xl xl:text-2xl 2xl:text-3xl 3xl:text-5xl 4xl:text-6xl">{project.caption[2]}</p>
+                            <p className="text-right col-start-2 text-4xs xs:text-4xs md:text-xs lg:text-sm xl:text-sm 2xl:text-lg 3xl:text-2xl 4xl:text-3xl">Medium</p>
+                            <p className="col-start-3 text-3xs xs:text-2xs md:text-lg lg:text-2xl xl:text-2xl 2xl:text-3xl 3xl:text-5xl 4xl:text-6xl">{project.caption[2]}</p>
 
-                            <p className="text-right col-start-2 row-start-4 text-4xs xs:text-4xs md:text-xs lg:text-sm xl:text-sm 2xl:text-lg 3xl:text-2xl 4xl:text-3xl">Info</p>
-                            <p className="col-start-3 row-start-4 text-3xs xs:text-2xs md:text-lg lg:text-2xl xl:text-2xl 2xl:text-3xl 3xl:text-5xl 4xl:text-6xl">{project.caption[4]}</p>
+                            <p className="text-right col-start-2 text-4xs xs:text-4xs md:text-xs lg:text-sm xl:text-sm 2xl:text-lg 3xl:text-2xl 4xl:text-3xl">Info</p>
+                            <p className="col-start-3 text-3xs xs:text-2xs md:text-lg lg:text-2xl xl:text-2xl 2xl:text-3xl 3xl:text-5xl 4xl:text-6xl">{project.caption[4]}</p>
 
                             {id === "filter-cigarettes" && (
                                 <div className=" col-start-3 row-start-5 pt-2 md:pt-4">
