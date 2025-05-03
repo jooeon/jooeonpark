@@ -38,7 +38,7 @@ const About = () => {
                                 src={isDarkMode ? "/images/profile.jpg" : "/images/profile_bw.jpg"}
                                 alt="Joo Eon Park Profile Image"
                                 loading="lazy" // Adds lazy loading for performance
-                                className="w-3/4 xl:w-1/2 xl:min-w-96 h-fit border border-customBlackLight"
+                                className="w-3/4 xl:w-1/2 xl:min-w-96 border border-customBlackLight"
                                 initial={{opacity: 0, y: 40}}
                                 animate={{opacity: 1, y: 0}}
                                 transition={{
