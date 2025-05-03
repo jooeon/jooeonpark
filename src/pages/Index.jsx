@@ -123,7 +123,7 @@ const Index = () => {
                         <div className="w-full xl:col-start-2 xl:px-10">
                             <Link to="/project/atopol" className="w-full">
                                 <img
-                                    src="/images/thumbnails/atopol_thumb.JPG"
+                                    src="/images/thumbnails/atopol_thumb.jpg"
                                     alt="Allen_Topolski_portfolio_website_image"
                                     loading="lazy"
                                     className="w-full"/>
