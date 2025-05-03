@@ -53,7 +53,7 @@ const Index = () => {
     const controls = useAnimation();
 
     useEffect(() => {
-        const unsubscribe = scrollYProgress.onChange((latest) => {
+        const unsubscribe = scrollYProgress.on("change",(latest) => {
             if (latest >= 0.96) {
                 controls.start("visible").catch(() => {}); // Suppress warning
             } else {
@@ -130,7 +130,7 @@ const Index = () => {
                             </Link>
                         </div>
                         <div
-                            className="flex flex-col justify-end h-full xl:col-start-1 xl:row-start-1 xl:text-right text-3xs md:text-base 3xl:text-lg 5xl:text-2xl 6xl:text-3xl">
+                            className="flex flex-col justify-end h-full w-full xl:col-start-1 xl:row-start-1 xl:text-right text-3xs md:text-base 3xl:text-lg 5xl:text-2xl 6xl:text-3xl">
                             <p className="mb-4 2xl:mb-10">Allen Topolski&apos;s Portfolio</p>
                             <p className="text-customGray">2025</p>
                         </div>
