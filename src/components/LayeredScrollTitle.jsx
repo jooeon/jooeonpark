@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { motion, useScroll, useTransform, useAnimation } from "framer-motion";
 import { Link } from "react-router-dom";
-import {useCursor} from "./CursorContext.jsx";
+import {useCursor} from "./cursor/CursorContext.jsx";
 
 const ScrollTitleSection = () => {
     const { scrollYProgress } = useScroll();

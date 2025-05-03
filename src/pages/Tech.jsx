@@ -1,9 +1,9 @@
-import Header from "./components/Header.jsx";
-import Footer from "./components/Footer.jsx";
+import Header from "../components/Header.jsx";
+import Footer from "../components/Footer.jsx";
 import {motion, useScroll} from "framer-motion";
-import EncryptionText from "./components/EncryptionAnim.jsx";
-import AsciiAnimation from "./components/AsciiAnim.jsx";
-import ParallaxText from "./components/ParallaxText.jsx";
+import EncryptionText from "../components/EncryptionAnim.jsx";
+import AsciiAnimation from "../components/AsciiAnim.jsx";
+import ParallaxText from "../components/ParallaxText.jsx";
 import { isMobile } from "react-device-detect";
 import {Link} from "react-router-dom";
 

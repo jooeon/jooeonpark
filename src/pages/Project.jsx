@@ -1,17 +1,16 @@
-import {Link, useParams} from "react-router-dom";
+import {Link, Navigate, useParams} from "react-router-dom";
 import Header from "../components/Header.jsx";
 import Footer from "../components/Footer.jsx";
 import { motion } from "framer-motion";
-import { items } from "../Data.jsx";
+import artData from "../data/ArtData.jsx";
+import projectData from "../data/ProjectsData.jsx";
 import PropTypes from "prop-types";
 import {useRef, useState} from "react";
 
 // Template component for individual project pages
-// Reads data from Data.jsx and displays content with consistent format
+// Reads data from data files in src/data and displays content with consistent format
 const Project = () => {
-    const { id } = useParams(); // Extract the id from the URL
-    const project = items.find((item) => item.id === id); // Find the project by ID
-    const nextProject = items.find((item) => item.id === project.nextItem); // Project ID of next project
+    const { type, id } = useParams(); // Extract the id from the URL
 
     // Audio toggle functionality for "steps" project
     const videoRef = useRef(null);
@@ -23,6 +22,27 @@ const Project = () => {
             setIsMuted(videoRef.current.muted);
         }
     };
+
+    // choose the correct data array
+    const items = type === "art"
+        ? artData
+        : type === "project"
+            ? projectData
+            : null;
+
+    // if the “type” wasn’t recognized, you can optionally redirect or show an error
+    if (items === null) {
+        return <Navigate to="/404" replace />;
+    }
+
+    // find the one item whose id matches
+    const project = items.find(item => item.id === id);
+    if (!project) {
+        return <p>Project not found.</p>;
+    }
+
+    // find next if you have a nextItem pointer
+    const nextProject = items.find(item => item.id === project.nextItem);
 
     if (!project) {
         return <p>Project not found</p>; // Fallback if ID is invalid
@@ -143,63 +163,50 @@ const Project = () => {
                             <p className="text-right col-start-2 text-4xs xs:text-4xs md:text-xs lg:text-sm xl:text-sm 2xl:text-lg 3xl:text-2xl 4xl:text-3xl">Type</p>
                             <p className="col-start-3 text-3xs xs:text-2xs md:text-lg lg:text-2xl xl:text-2xl 2xl:text-3xl 3xl:text-5xl 4xl:text-6xl">{project.caption[1]}</p>
 
-                            <p className="text-right col-start-2 text-4xs xs:text-4xs md:text-xs lg:text-sm xl:text-sm 2xl:text-lg 3xl:text-2xl 4xl:text-3xl">Medium</p>
-                            <p className="col-start-3 text-3xs xs:text-2xs md:text-lg lg:text-2xl xl:text-2xl 2xl:text-3xl 3xl:text-5xl 4xl:text-6xl">{project.caption[2]}</p>
+                            {type === "art" && (
+                                <>
+                                    <p className="text-right col-start-2 text-4xs xs:text-4xs md:text-xs lg:text-sm xl:text-sm 2xl:text-lg 3xl:text-2xl 4xl:text-3xl">Medium</p>
+                                    <p className="col-start-3 text-3xs xs:text-2xs md:text-lg lg:text-2xl xl:text-2xl 2xl:text-3xl 3xl:text-5xl 4xl:text-6xl">{project.caption[2]}</p>
+                                </>
+                            )}
 
                             <p className="text-right col-start-2 text-4xs xs:text-4xs md:text-xs lg:text-sm xl:text-sm 2xl:text-lg 3xl:text-2xl 4xl:text-3xl">Info</p>
                             <p className="col-start-3 text-3xs xs:text-2xs md:text-lg lg:text-2xl xl:text-2xl 2xl:text-3xl 3xl:text-5xl 4xl:text-6xl">{project.caption[4]}</p>
 
-                            {id === "filter-cigarettes" && (
+                            {project.externalLink && (
                                 <div className=" col-start-3 row-start-5 pt-2 md:pt-4">
-                                    <Link to="https://www.cdc.gov/tobacco/campaign/tips/quit-smoking/quitline/index.html"
-                                          target="_blank"
-                                          className="text-link after:bg-customBlack dark:after:bg-customWhite w-fit
+                                    <Link
+                                        to={project.externalLink}
+                                        target="_blank"
+                                        className="text-link after:bg-customBlack dark:after:bg-customWhite w-fit
                                             text-4xs xs:text-4xs md:text-xs lg:text-sm xl:text-sm 2xl:text-lg 3xl:text-2xl 4xl:text-3xl"
                                     >
-                                        1-800-784-8669
-                                    </Link>
-                                </div>
-                            )}
-                            {id === "recollection" && (
-                                <div className=" col-start-3 row-start-5 pt-2 md:pt-4">
-                                    <Link to="https://www.fieldprojectsgallery.com/frame-of-mind"
-                                          target="_blank"
-                                          className="text-link after:bg-customBlack dark:after:bg-customWhite w-fit
-                                            text-4xs xs:text-4xs md:text-xs lg:text-sm xl:text-sm 2xl:text-lg 3xl:text-2xl 4xl:text-3xl"
-                                    >
-                                        More info
-                                    </Link>
-                                </div>
-                            )}
-                            {id === "man-child" && (
-                                <div className=" col-start-3 row-start-5 pt-2 md:pt-4">
-                                    <Link to="https://hilo.hawaii.edu/chancellor/stories/2024/05/07/collaborative-korean-art-history-exhibition/"
-                                          target="_blank"
-                                          className="text-link after:bg-customBlack dark:after:bg-customWhite w-fit
-                                            text-4xs xs:text-4xs md:text-xs lg:text-sm xl:text-sm 2xl:text-lg 3xl:text-2xl 4xl:text-3xl"
-                                    >
-                                        More info
+                                        {project.externalLinkLabel}
                                     </Link>
                                 </div>
                             )}
                         </motion.div>
                     </section>
-                    <section className="flex justify-between m-2 md:m-5 mt-10 md:mt-20 font-almarai font-extrabold uppercase">
-                        <div className="text-sm sm:text-base md:text-xl lg:text-2xl xl:text-3xl 2xl:text-4xl 3xl:text-5xl 4xl:text-6xl">
-                            <span>Next:</span>
-                            <br/>
-                            <Link
-                                to={`/project/${nextProject.id}`}
-                                className="text-link after:bg-customBlack dark:after:bg-customWhite ml-10"
-                            >
-                                {nextProject.caption[0]}
-                            </Link>
-                        </div>
-                        <div className="flex items-end pr-2
-                            text-3xs sm:text-2xs md:text-sm lg:text-sm xl:text-lg 2xl:text-xl 3xl:text-2xl 4xl:text-3xl">
-                            <Link to="/art" className="text-link after:bg-customBlack dark:after:bg-customWhite">Back to Gallery</Link>
-                        </div>
-                    </section>
+                    {type === "art" && (
+                        <section
+                            className="flex justify-between m-2 md:m-5 mt-10 md:mt-20 font-almarai font-extrabold uppercase">
+                            <div
+                                className="text-sm sm:text-base md:text-xl lg:text-2xl xl:text-3xl 2xl:text-4xl 3xl:text-5xl 4xl:text-6xl">
+                                <span>Next:</span>
+                                <br/>
+                                <Link
+                                    to={`/project/${nextProject.id}`}
+                                    className="text-link after:bg-customBlack dark:after:bg-customWhite ml-10"
+                                >
+                                    {nextProject.caption[0]}
+                                </Link>
+                            </div>
+                            <div className="flex items-end pr-2
+                                text-3xs sm:text-2xs md:text-sm lg:text-sm xl:text-lg 2xl:text-xl 3xl:text-2xl 4xl:text-3xl">
+                                <Link to="/art" className="text-link after:bg-customBlack dark:after:bg-customWhite">Back to Gallery</Link>
+                            </div>
+                        </section>
+                    )}
                 </div>
             </main>
             <Footer />
