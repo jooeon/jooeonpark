@@ -33,9 +33,12 @@ const About = () => {
                     </motion.div>
                     <div className="flex flex-col xl:flex-row xl:pt-10 2xl:pt-16 xl:pb-20">
                         <section className="flex justify-center xl:w-50vw
-                            py-10 md:py-20 lg:py-28 xl:py-0">
-                            <motion.div
-                                className="w-3/4 xl:w-1/2 xl:min-w-96 h-fit border border-customBlackLight pt-2 2xl:pt-8"
+                            py-10 md:py-20 lg:py-28 xl:pt-8">
+                            <motion.img
+                                src={isDarkMode ? "/images/profile.jpg" : "/images/profile_bw.jpg"}
+                                alt="Joo Eon Park Profile Image"
+                                loading="lazy" // Adds lazy loading for performance
+                                className="w-3/4 xl:w-1/2 xl:min-w-96 h-fit border border-customBlackLight"
                                 initial={{opacity: 0, y: 40}}
                                 animate={{opacity: 1, y: 0}}
                                 transition={{
@@ -43,13 +46,7 @@ const About = () => {
                                     delay: 0.8,
                                     ease: "easeOut"
                                 }}
-                            >
-                                <img
-                                    src={isDarkMode ? "/images/profile.jpg" : "/images/profile_bw.jpg"}
-                                    alt="Joo Eon Park Profile Image"
-                                    loading="lazy" // Adds lazy loading for performance
-                                />
-                            </motion.div>
+                            />
                         </section>
                         <section
                             className="flex flex-col justify-center xl:w-50vw pb-10 px-8 md:px-12 lg:px-16 xl:pl-10 xl:pr-40">
