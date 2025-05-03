@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import {motion, useMotionValue, useSpring} from "framer-motion";
-import { useCursor } from "./CursorContext";
+import { useCursor } from "./CursorContext.jsx";
 
 const Cursor = () => {
     const [isActive, setIsActive] = useState(false); // Cursor activation

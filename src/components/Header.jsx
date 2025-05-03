@@ -46,7 +46,7 @@ const Header = ({delay = 0.4}) => {
 
     const location = useLocation();
     const isLandingPage = location.pathname === "/";
-    const isArtPage = location.pathname.startsWith("/project/") || location.pathname === "/art";
+    const isArtPage = location.pathname.startsWith("/art/") || location.pathname === "/art";
     const isTechPage = location.pathname === "/tech";
     const isInfoPage = location.pathname === "/info";
 

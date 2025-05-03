@@ -25,7 +25,9 @@ export const items = [
         thumbnail: "/images/thumbnails/filter_cigarettes_thumb.jpg",
         alt: "Filter Cigarettes",
         padding: "pb-10 ",
-        link: "/project/filter-cigarettes",
+        link: "/art/filter-cigarettes",
+        externalLink: "https://www.cdc.gov/tobacco/campaign/tips/quit-smoking/quitline/index.html",
+        externalLinkLabel: "1-800-784-8669",
         hasAnimation: true,
     },
     {
@@ -50,7 +52,7 @@ export const items = [
         thumbnail: "/videos/polychrome_dark.mp4",
         alt: "11,182,156 Steps",
         padding: "pb-10 xl:pt-40rem",
-        link: "/project/steps",
+        link: "/art/steps",
         hasAnimation: false,
     },
     {
@@ -75,7 +77,7 @@ export const items = [
         thumbnail: "/images/Running In a Dream.jpg",
         alt: "Running In a Dream, 2024",
         padding: "pb-10 ",
-        link: "/project/running-in-a-dream",
+        link: "/art/running-in-a-dream",
         hasAnimation: true,
     },
     {
@@ -103,7 +105,7 @@ export const items = [
         thumbnail: "/images/thumbnails/transition_thumb.jpg",
         alt: "Transitions, 2024",
         padding: "pb-10 ",
-        link: "/project/transitions",
+        link: "/art/transitions",
         hasAnimation: false,
     },
     {
@@ -141,7 +143,7 @@ export const items = [
         thumbnail: "/images/thumbnails/Ocular Prosthetic for Reading Another Human_thumb.jpg",
         alt: "Photo of sculpture: Ocular Prosthetic for Reading Another Human",
         padding: "pb-10 ",
-        link: "/project/ocular-prosthetic",
+        link: "/art/ocular-prosthetic",
         hasAnimation: true,
     },
     {
@@ -176,7 +178,7 @@ export const items = [
         thumbnail: "/videos/JooEon_Park_OnTheTracks_Video.MOV",
         alt: "On The Tracks",
         padding: "pb-10 xl:pt-60rem",
-        link: "/project/on-the-tracks",
+        link: "/art/on-the-tracks",
         hasAnimation: false,
     },
     {
@@ -200,7 +202,9 @@ export const items = [
         thumbnail: "/images/thumbnails/Recollection_thumb.jpg",
         alt: "Recollection",
         padding: "pb-10 ",
-        link: "/project/recollection",
+        link: "/art/recollection",
+        externalLink: "https://www.fieldprojectsgallery.com/frame-of-mind",
+        externalLinkLabel: "More info",
         hasAnimation: false,
     },
     {
@@ -226,7 +230,7 @@ export const items = [
         thumbnail: "/images/thumbnails/JooEon_Park_Encapsulation_thumb.jpg",
         alt: "Encapsulated, 2024",
         padding: "",
-        link: "/project/encapsulated",
+        link: "/art/encapsulated",
         hasAnimation: false,
     },
     {
@@ -254,7 +258,9 @@ export const items = [
         thumbnail: "/images/thumbnails/Man-child_thumb.jpg",
         alt: "Man-child",
         padding: "pb-10 xl:pt-96",
-        link: "/project/man-child",
+        link: "/art/man-child",
+        externalLink: "https://hilo.hawaii.edu/chancellor/stories/2024/05/07/collaborative-korean-art-history-exhibition/",
+        externalLinkLabel: "More info",
         hasAnimation: false,
     },
     {
@@ -275,7 +281,7 @@ export const items = [
         thumbnail:  "/images/thumbnails/Trapped_thumb.jpg",
         alt: "Trapped",
         padding: "pb-10 ",
-        link: "/project/trapped",
+        link: "/art/trapped",
         hasAnimation: false,
     },
     {
@@ -296,7 +302,7 @@ export const items = [
         thumbnail:  "/images/thumbnails/BehindYou!_thumb.jpg",
         alt: "Behind You!",
         padding: "",
-        link: "/project/behind-you",
+        link: "/art/behind-you",
         hasAnimation: false,
     },
     {
@@ -317,7 +323,7 @@ export const items = [
         thumbnail: "/images/thumbnails/The_Workers_thumb.jpg",
         alt: "The Workers",
         padding: "pb-10 xl:pt-40rem",
-        link: "/project/the-workers",
+        link: "/art/the-workers",
         hasAnimation: false,
     },
     {
@@ -339,7 +345,9 @@ export const items = [
         thumbnail: "/images/thumbnails/Symbiosis_thumb.jpg",
         alt: "Symbiosis",
         padding: "pb-10 ",
-        link: "/project/symbiosis",
+        link: "/art/symbiosis",
         hasAnimation: false,
     },
 ];
+
+export default items;

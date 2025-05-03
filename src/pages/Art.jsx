@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom";
-import Header from "./components/Header.jsx";
-import Footer from "./components/Footer.jsx";
+import Header from "../components/Header.jsx";
+import Footer from "../components/Footer.jsx";
 import { motion } from "framer-motion";
-import {items} from "./Data.jsx";
+import {items} from "../data/ArtData.jsx";
 import {isMobile} from "react-device-detect";
-import HorizontalScrollSection from './components/HorizontalScrollSection.jsx';
+import HorizontalScrollSection from '../components/HorizontalScrollSection.jsx';
 
 const Art = () => {
 
