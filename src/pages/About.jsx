@@ -38,7 +38,7 @@ const About = () => {
                                 src={isDarkMode ? "/images/profile.jpg" : "/images/profile_bw.jpg"}
                                 alt="Joo Eon Park Profile Image"
                                 loading="lazy" // Adds lazy loading for performance
-                                className="w-3/4 xl:w-1/2 xl:min-w-96 border border-customBlackLight"
+                                className="w-3/4 xl:w-1/2 object-cover border border-customBlackLight"
                                 initial={{opacity: 0, y: 40}}
                                 animate={{opacity: 1, y: 0}}
                                 transition={{
@@ -92,8 +92,8 @@ const About = () => {
                                 }}
                             >
                                 <ExternalLinkButton href="/files/Park_JooEon_Resume.pdf"
-                                                    className="uppercase font-roboto text-xs md:text-sm lg:text-md xl:text-md 2xl:text-lg 3xl:text-xl 4xl:text-2xl 5xl:text-3xl">
-                                    Resume↗
+                                                    className="uppercase text-xs md:text-sm lg:text-md xl:text-md 2xl:text-lg 3xl:text-xl 4xl:text-2xl 5xl:text-3xl">
+                                    Resume ↗
                                 </ExternalLinkButton>
                             </motion.div>
                         </section>
