@@ -135,7 +135,7 @@ export default function ParallaxText({ textArray, baseVelocity = 100 }) {
     return (
         <motion.div
             ref={containerRef}
-            className="parallax-text flex whitespace-nowrap"
+            className="parallax-text flex whitespace-nowrap cursor-grab"
             style={{ x }} // Apply Framer Motion x transform
             drag="x" // Allow horizontal dragging
             dragConstraints={{ left: -contentWidth, right: contentWidth }} // Restrict drag limits
@@ -145,8 +145,8 @@ export default function ParallaxText({ textArray, baseVelocity = 100 }) {
         >
             {repeatedText.map((text, index) => (
                 <span key={index} className="mx-10 lg:mx-14 xl:mx-16">
-          {text}
-        </span>
+                  {text}
+                </span>
             ))}
         </motion.div>
     );
