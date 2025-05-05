@@ -1,7 +1,7 @@
 import { NavLink, Link, useLocation } from "react-router-dom";
 import {motion, useScroll} from "framer-motion";
 import PropTypes from "prop-types";
-import EncryptionText from "./EncryptionAnim.jsx";
+import EncryptionText from "../EncryptionAnim.jsx";
 import {useEffect, useState} from "react";
 
 const Header = ({delay = 0.4}) => {

@@ -1,6 +1,6 @@
 import {Link, Navigate, useParams} from "react-router-dom";
-import Header from "../components/Header.jsx";
-import Footer from "../components/Footer.jsx";
+import Header from "../components/templates/Header.jsx";
+import Footer from "../components/templates/Footer.jsx";
 import { motion } from "framer-motion";
 import artData from "../data/ArtData.jsx";
 import projectData from "../data/ProjectsData.jsx";

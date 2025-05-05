@@ -1,5 +1,5 @@
 import { motion } from "framer-motion"
-import ThemeToggle from "./ThemeToggle.jsx";
+import ThemeToggle from "../ThemeToggle.jsx";
 
 const Footer = () => {
   return (
