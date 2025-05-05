@@ -1,5 +1,5 @@
-import Header from "../components/Header.jsx";
-import Footer from "../components/Footer.jsx";
+import Header from "../components/templates/Header.jsx";
+import Footer from "../components/templates/Footer.jsx";
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import ExternalLinkButton from "../components/ExternalLinkButton.jsx";

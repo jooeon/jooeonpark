@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { motion, useScroll, useTransform, useAnimation } from "framer-motion";
 import { Link } from "react-router-dom";
 import {useCursor} from "./cursor/CursorContext.jsx";
+import {MaskText} from "./MaskText.jsx";
 
 const ScrollTitleSection = () => {
     const { scrollYProgress } = useScroll();
@@ -129,17 +130,17 @@ const ScrollTitleSection = () => {
             >
                 <div className="absolute top-0 [&_span]:left-0">
                     <div className="title-placeholder invisible leading-[0.68]">Multidisciplinary</div>
-                    <motion.span className="title-text absolute" style={{ y: titleLayer1Y, backgroundColor, lineHeight: `${fontSize*lineHeightMultiplier}px`}}>Multi</motion.span>
-                    <motion.span className="title-text absolute" style={{ y: titleLayer2Y, backgroundColor, lineHeight: `${fontSize*lineHeightMultiplier}px`}}>Multi</motion.span>
-                    <motion.span className="title-text absolute" style={{ y: titleLayer3Y, backgroundColor, lineHeight: `${fontSize*lineHeightMultiplier}px`}}>Multi</motion.span>
-                    <motion.span className="title-text absolute" style={{ y: titleLayer4Y, backgroundColor, lineHeight: `${fontSize*lineHeightMultiplier}px`}}>Multi</motion.span>
+                    <motion.span className="title-text absolute" style={{ y: titleLayer1Y, backgroundColor, lineHeight: `${fontSize*lineHeightMultiplier}px`}}><MaskText phrase={"Multi"} duration={0.8} delay={3.1}/></motion.span>
+                    <motion.span className="title-text absolute" style={{ y: titleLayer2Y, backgroundColor, lineHeight: `${fontSize*lineHeightMultiplier}px`}}><MaskText phrase={"Multi"} duration={1.0} delay={3.0}/></motion.span>
+                    <motion.span className="title-text absolute" style={{ y: titleLayer3Y, backgroundColor, lineHeight: `${fontSize*lineHeightMultiplier}px`}}><MaskText phrase={"Multi"} duration={1.2} delay={2.9}/></motion.span>
+                    <motion.span className="title-text absolute" style={{ y: titleLayer4Y, backgroundColor, lineHeight: `${fontSize*lineHeightMultiplier}px`}}><MaskText phrase={"Multi"} duration={1.5} delay={2.6}/></motion.span>
                 </div>
                 <div className="absolute top-0 [&_span]:right-0">
                     <div className="invisible leading-[0.68]">Multidisciplinary</div>
-                    <motion.span className="title-text absolute" style={{ y: titleLayer7Y, backgroundColor, lineHeight: `${fontSize*lineHeightMultiplier}px`}}>Disciplinary</motion.span>
-                    <motion.span className="title-text absolute" style={{ y: titleLayer8Y, backgroundColor, lineHeight: `${fontSize*lineHeightMultiplier}px`}}>Disciplinary</motion.span>
-                    <motion.span className="title-text absolute" style={{ y: titleLayer9Y, backgroundColor, lineHeight: `${fontSize*lineHeightMultiplier}px`}}>Disciplinary</motion.span>
-                    <motion.span className="title-text absolute" style={{ y: titleLayer10Y, backgroundColor, lineHeight: `${fontSize*lineHeightMultiplier}px`}}>Disciplinary</motion.span>
+                    <motion.span className="title-text absolute" style={{ y: titleLayer7Y, backgroundColor, lineHeight: `${fontSize*lineHeightMultiplier}px`}}><MaskText phrase={"Disciplinary"} duration={0.8} delay={3.1}/></motion.span>
+                    <motion.span className="title-text absolute" style={{ y: titleLayer8Y, backgroundColor, lineHeight: `${fontSize*lineHeightMultiplier}px`}}><MaskText phrase={"Disciplinary"} duration={1.0} delay={3.0}/></motion.span>
+                    <motion.span className="title-text absolute" style={{ y: titleLayer9Y, backgroundColor, lineHeight: `${fontSize*lineHeightMultiplier}px`}}><MaskText phrase={"Disciplinary"} duration={1.2} delay={2.9}/></motion.span>
+                    <motion.span className="title-text absolute" style={{ y: titleLayer10Y, backgroundColor, lineHeight: `${fontSize*lineHeightMultiplier}px`}}><MaskText phrase={"Disciplinary"} duration={1.5} delay={2.6}/></motion.span>
                 </div>
             </motion.h1>
             <motion.h2
@@ -149,8 +150,8 @@ const ScrollTitleSection = () => {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{
-                    duration: 0.4,
-                    delay: 2.5,
+                    duration: 0.5,
+                    delay: 3.6,
                     ease: "easeIn",
                 }}
             >
