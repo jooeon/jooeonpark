@@ -181,7 +181,7 @@ const Project = () => {
                                         className="text-link after:bg-customBlack dark:after:bg-customWhite w-fit
                                             text-4xs xs:text-4xs md:text-xs lg:text-sm xl:text-sm 2xl:text-lg 3xl:text-2xl 4xl:text-3xl"
                                     >
-                                        {project.externalLinkLabel}
+                                        {project.externalLinkLabel} ↗
                                     </Link>
                                 </div>
                             )}
