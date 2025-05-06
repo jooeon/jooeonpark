@@ -6,6 +6,7 @@ import AsciiAnimation from "../components/AsciiAnim.jsx";
 import ParallaxText from "../components/ParallaxText.jsx";
 import { isMobile } from "react-device-detect";
 import {Link} from "react-router-dom";
+import {MaskText} from "../components/MaskText.jsx";
 
 const Tech = () => {
 
@@ -29,8 +30,8 @@ const Tech = () => {
             <main>
                 <motion.div
                     className="pt-10 pl-5 md:pt-20 md:pl-10 4xl:pt-36 7xl:pt-40"
-                    initial={{opacity: 0, y: 40}}
-                    animate={{opacity: 1, y: 0}}
+                    initial={{opacity: 0}}
+                    animate={{opacity: 1}}
                     transition={{
                         duration: 0.3,
                         delay: 0.6,
@@ -38,7 +39,7 @@ const Tech = () => {
                     }}
                 >
                     <h1 className="title-text font-nick uppercase text-[5vw] leading-none">
-                        Technical
+                        <MaskText phrase={"Technical"} duration={1} delay={0.8}/>
                     </h1>
                 </motion.div>
                 <section className="relative flex flex-col gap-16 md:gap-28 lg:gap-36 pt-10 md:pt-20">
@@ -66,7 +67,7 @@ const Tech = () => {
                                 animate={{opacity: 1, y: 0}}
                                 transition={{
                                     duration: 0.3,
-                                    delay: 0.8,
+                                    delay: 1.2,
                                     ease: "easeOut"
                                 }}>
                                 <caption className="font-almarai">Development</caption>
@@ -91,7 +92,7 @@ const Tech = () => {
                                 animate={{opacity: 1, y: 0}}
                                 transition={{
                                     duration: 0.3,
-                                    delay: 1.0,
+                                    delay: 1.4,
                                     ease: "easeOut"
                                 }}
                             >
@@ -117,7 +118,7 @@ const Tech = () => {
                                 animate={{opacity: 1, y: 0}}
                                 transition={{
                                     duration: 0.3,
-                                    delay: 1.2,
+                                    delay: 1.6,
                                     ease: "easeOut"
                                 }}
                             >
@@ -157,7 +158,7 @@ const Tech = () => {
                             animate={{opacity: 1, y: 0}}
                             transition={{
                                 duration: 0.5,
-                                delay: 1.4,
+                                delay: 1.8,
                                 ease: "easeOut"
                             }}
                         >
@@ -184,7 +185,7 @@ const Tech = () => {
                             animate={{opacity: 1, y: 0}}
                             transition={{
                                 duration: 0.5,
-                                delay: 1.6,
+                                delay: 2.0,
                                 ease: "easeOut"
                             }}
                         >

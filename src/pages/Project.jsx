@@ -5,7 +5,9 @@ import { motion } from "framer-motion";
 import artData from "../data/ArtData.jsx";
 import projectData from "../data/ProjectsData.jsx";
 import PropTypes from "prop-types";
-import {useRef, useState} from "react";
+import {useEffect, useRef, useState} from "react";
+import {MaskText} from "../components/MaskText.jsx";
+import { useLenis } from 'lenis/react';
 
 // Template component for individual project pages
 // Reads data from data files in src/data and displays content with consistent format
@@ -15,6 +17,18 @@ const Project = () => {
     // Audio toggle functionality for "steps" project
     const videoRef = useRef(null);
     const [isMuted, setIsMuted] = useState(true);
+
+    const lenis = useLenis();
+
+    useEffect(() => {
+        if (lenis) {
+            // immediate: true will skip the smooth animation
+            lenis.scrollTo(0, { immediate: true });
+        } else {
+            // fallback
+            window.scrollTo(0, 0);
+        }
+    }, [lenis]);
 
     const toggleMute = () => {
         if (videoRef.current) {
@@ -58,17 +72,17 @@ const Project = () => {
                         <div className="flex flex-col gap-3 md:gap-6 w-7/12">
                             {/* Project title */}
                             <motion.div
-                                className="mb-4 md:mb-20"
-                                initial={{ opacity: 0, y: 40 }}
-                                animate={{ opacity: 1, y: 0 }}
+                                className="mb-4 md:mb-10 xl:mb-20"
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: 1 }}
                                 transition={{
                                     duration: 0.3,
                                     delay: 0.8,
                                     ease: "easeOut",
                                 }}
                             >
-                                <h1 className="title-text font-nick uppercase text-[7vw] leading-none">
-                                    {project.caption[0]}
+                                <h1 className="title-text font-nick uppercase text-[4.5vh] md:text-[6vw] 2xl:text-[5.4vw] leading-none">
+                                    <MaskText phrase={project.caption[0]} duration={1} delay={0.8}/>
                                 </h1>
                             </motion.div>
 
@@ -81,7 +95,7 @@ const Project = () => {
                                         animate={{opacity: 1, y: 0}}
                                         transition={{
                                             duration: 0.3,
-                                            delay: 1.0,
+                                            delay: 1.2,
                                             ease: "easeOut",
                                         }}
                                         ref={videoRef}
@@ -135,7 +149,7 @@ const Project = () => {
                                         animate={{opacity: 1, y: 0}}
                                         transition={{
                                             duration: 0.3,
-                                            delay: 1.0,
+                                            delay: 1.2,
                                             ease: "easeOut",
                                         }}
                                     />
@@ -153,7 +167,7 @@ const Project = () => {
                             animate={{opacity: 1, y: 0}}
                             transition={{
                                 duration: 0.3,
-                                delay: 0.9,
+                                delay: 1.1,
                                 ease: "easeOut",
                             }}
                         >
@@ -173,8 +187,8 @@ const Project = () => {
                             <p className="text-right col-start-2 text-4xs xs:text-4xs md:text-xs lg:text-sm xl:text-sm 2xl:text-lg 3xl:text-2xl 4xl:text-3xl">Info</p>
                             <p className="col-start-3 text-3xs xs:text-2xs md:text-lg lg:text-2xl xl:text-2xl 2xl:text-3xl 3xl:text-5xl 4xl:text-6xl">{project.caption[4]}</p>
 
-                            {project.externalLink && (
-                                <div className=" col-start-3 row-start-5 pt-2 md:pt-4">
+                            <div className="flex flex-col gap-1 md:gap-4 col-start-3 pt-2 md:pt-4">
+                                {project.externalLink && (
                                     <Link
                                         to={project.externalLink}
                                         target="_blank"
@@ -183,19 +197,28 @@ const Project = () => {
                                     >
                                         {project.externalLinkLabel} ↗
                                     </Link>
-                                </div>
-                            )}
+                                )}
+                                {project.externalLink_2 && (
+                                    <Link
+                                        to={project.externalLink_2}
+                                        target="_blank"
+                                        className="text-link after:bg-customBlack dark:after:bg-customWhite w-fit
+                                            text-4xs xs:text-4xs md:text-xs lg:text-sm xl:text-sm 2xl:text-lg 3xl:text-2xl 4xl:text-3xl"
+                                    >
+                                        {project.externalLinkLabel_2} ↗
+                                    </Link>
+                                )}
+                            </div>
                         </motion.div>
                     </section>
                     {type === "art" && (
-                        <section
-                            className="flex justify-between m-2 md:m-5 mt-10 md:mt-20 font-almarai font-extrabold uppercase">
+                        <section className="flex justify-between m-2 md:m-5 mt-10 md:mt-20 font-almarai font-extrabold uppercase">
                             <div
                                 className="text-sm sm:text-base md:text-xl lg:text-2xl xl:text-3xl 2xl:text-4xl 3xl:text-5xl 4xl:text-6xl">
                                 <span>Next:</span>
                                 <br/>
                                 <Link
-                                    to={`/project/${nextProject.id}`}
+                                    to={`/art/${nextProject.id}`}
                                     className="text-link after:bg-customBlack dark:after:bg-customWhite ml-10"
                                 >
                                     {nextProject.caption[0]}

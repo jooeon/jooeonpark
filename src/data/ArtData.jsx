@@ -205,6 +205,8 @@ export const items = [
         link: "/art/recollection",
         externalLink: "https://www.fieldprojectsgallery.com/frame-of-mind",
         externalLinkLabel: "More info",
+        externalLink_2: "https://galinavyrva.com/",
+        externalLinkLabel_2: "Photos by Galina Vyrva",
         hasAnimation: false,
     },
     {

@@ -14,21 +14,28 @@ export function MaskText({
                              animate = "visible",
                              initial = "hidden",
                          }) {
+
+    const wordArray = phrase.split(" ");
+
     return (
-        <div className="overflow-hidden">
-            <motion.p
-                className="m-0"
-                variants={maskVariants}
-                initial={initial}
-                animate={animate}
-                transition={{
-                    duration: duration,
-                    ease: [0.25, 1, 0.5, 1], // easeOutQuart
-                    delay: delay,
-                }}
-            >
-                {phrase}
-            </motion.p>
+        <div className="flex flex-wrap gap-x-2 md:gap-x-5 xl:gap-x-8 4xl:gap-x-10">
+        {wordArray.map((word, i) => (
+            <div key={i} className="overflow-hidden w-fit">
+                <motion.p
+                    className="m-0"
+                    variants={maskVariants}
+                    initial={initial}
+                    animate={animate}
+                    transition={{
+                        duration: duration,
+                        ease: [0.25, 1, 0.5, 1], // easeOutQuart
+                        delay: delay+=0.1,
+                    }}
+                >
+                    {word}
+                </motion.p>
+            </div>
+        ))}
         </div>
     );
 }
