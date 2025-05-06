@@ -2,7 +2,7 @@ import {BrowserRouter, Navigate, Route, Routes, useLocation} from "react-router-
 import { AnimatePresence } from "framer-motion";
 import { motion } from "framer-motion";
 import { isMobile } from "react-device-detect";
-import { ReactLenis } from 'lenis/react'
+import {ReactLenis, useLenis} from 'lenis/react'
 import Index from "./pages/Index.jsx";
 import Art from "./pages/Art.jsx";
 import Tech from "./pages/Tech.jsx";
@@ -97,7 +97,13 @@ const App = () => {
     }, []);
 
     return (
-        <ReactLenis root>
+        <ReactLenis
+            root
+            options={{
+                lerp:         0.075,    // default 0.1, smaller=slower catch-up
+                wheelMultiplier:  0.75, // default 1
+            }}
+        >
             <BrowserRouter>
                 <CursorProvider>
                     <AnimatedRoutes />

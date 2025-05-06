@@ -1,6 +1,7 @@
 import { useRef, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import {motion, useMotionValue, useScroll, useTransform} from 'framer-motion';
+import {useLenis} from "lenis/react";
 
 const HorizontalScrollSection = ({
                                      children,
@@ -9,6 +10,18 @@ const HorizontalScrollSection = ({
                                  }) => {
     const containerRef = useRef(null);
     const [itemWidth, setItemWidth] = useState(0);
+
+    const lenis = useLenis();
+
+    useEffect(() => {
+        if (lenis) {
+            // immediate: true will skip the smooth animation
+            lenis.scrollTo(0, { immediate: true });
+        } else {
+            // fallback
+            window.scrollTo(0, 0);
+        }
+    }, [lenis]);
 
     useEffect(() => {
         // Calculate dynamic item width so that ~4.5 items fit in the viewport

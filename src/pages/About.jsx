@@ -3,6 +3,7 @@ import Footer from "../components/templates/Footer.jsx";
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import ExternalLinkButton from "../components/ExternalLinkButton.jsx";
+import {MaskText} from "../components/MaskText.jsx";
 
 const About = () => {
 
@@ -19,18 +20,11 @@ const About = () => {
             <Header/>
             <main>
                 <div className="flex flex-col">
-                    <motion.div
-                        className="pt-10 pl-5 md:pt-20 md:pl-10 4xl:pt-36 7xl:pt-40"
-                        initial={{opacity: 0, y: 40}}
-                        animate={{opacity: 1, y: 0}}
-                        transition={{
-                            duration: 0.3,
-                            delay: 0.6,
-                            ease: "easeOut"
-                        }}
-                    >
-                        <h1 className="title-text font-nick uppercase text-[5vw] leading-none">About</h1>
-                    </motion.div>
+                    <div className="pt-10 pl-5 md:pt-20 md:pl-10 4xl:pt-36 7xl:pt-40">
+                        <h1 className="title-text font-nick uppercase text-[5vw] leading-none">
+                            <MaskText phrase={"About"} duration={1} delay={0.8}/>
+                        </h1>
+                    </div>
                     <div className="flex flex-col xl:flex-row xl:pt-10 2xl:pt-16 xl:pb-20">
                         <section className="flex justify-center xl:w-50vw
                             py-10 md:py-20 lg:py-28 xl:pt-8">
@@ -42,8 +36,8 @@ const About = () => {
                                 initial={{opacity: 0, y: 40}}
                                 animate={{opacity: 1, y: 0}}
                                 transition={{
-                                    duration: 0.3,
-                                    delay: 0.8,
+                                    duration: 0.5,
+                                    delay: 1.2,
                                     ease: "easeOut"
                                 }}
                             />
@@ -56,8 +50,8 @@ const About = () => {
                                 initial={{opacity: 0, y: 40}}
                                 animate={{opacity: 1, y: 0}}
                                 transition={{
-                                    duration: 0.3,
-                                    delay: 1.0,
+                                    duration: 0.5,
+                                    delay: 1.4,
                                     ease: "easeOut"
                                 }}
                             >
@@ -86,8 +80,8 @@ const About = () => {
                                 initial={{opacity: 0, y: 20}}
                                 animate={{opacity: 1, y: 0}}
                                 transition={{
-                                    duration: 0.3,
-                                    delay: 1.2,
+                                    duration: 0.5,
+                                    delay: 1.7,
                                     ease: "easeOut"
                                 }}
                             >
