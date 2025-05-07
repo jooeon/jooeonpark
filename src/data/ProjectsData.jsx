@@ -8,8 +8,14 @@ export const items = [
             "/images/atopol_detail_3.JPG",
         ],
         videos: [
-            "/videos/atopol_detail_01.mp4",
-            "/videos/atopol_detail_02.mp4",
+            {
+                source: "/videos/atopol_detail_01.mp4",
+                hasAudio: false
+            },
+            {
+                source: "/videos/atopol_detail_02.mp4",
+                hasAudio: false
+            },
         ],
         caption: [
             "Allen Topolski's Portfolio",

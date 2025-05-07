@@ -39,8 +39,14 @@ export const items = [
             "/images/Steps_Detail_02.jpg",
         ],
         videos: [
-            "/videos/steps_tv.mp4",
-            "/videos/simple.mp4"
+            {
+                source: "/videos/simple.mp4",
+                hasAudio: true
+            },
+            {
+                source: "/videos/steps_tv.mp4",
+                hasAudio: false
+            },
         ],
         caption: [
             "11,182,156 Steps",
@@ -166,7 +172,10 @@ export const items = [
             "/images/JooEon_Park_OnTheTracks_10.JPEG",
         ],
         videos: [
-            "/videos/JooEon_Park_OnTheTracks_Video.MOV",
+            {
+                source: "/videos/JooEon_Park_OnTheTracks_Video.MOV",
+                hasAudio: true
+            }
         ],
         caption: [
             "On The Tracks",
