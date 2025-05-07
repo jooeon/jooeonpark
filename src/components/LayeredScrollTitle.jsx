@@ -3,8 +3,9 @@ import { motion, useScroll, useTransform, useAnimation } from "framer-motion";
 import { Link } from "react-router-dom";
 import {useCursor} from "./cursor/CursorContext.jsx";
 import {MaskText} from "./MaskText.jsx";
+import PropTypes from "prop-types";
 
-const ScrollTitleSection = () => {
+const ScrollTitleSection = ({showEntryAnimation}) => {
     const { scrollYProgress } = useScroll();
 
     const [isVisible, setIsVisible] = useState(false); // Tracks visibility of title depending on scroll direction
@@ -17,6 +18,12 @@ const ScrollTitleSection = () => {
     const { isLinkHovered } = useCursor();
     const [linkColor, setLinkColor] = useState("#fafafa");
     const colors = ["#ff800c", "#78e2ff", "#ba3bff", "#ff33a1", "#0dff86", "#6021ff", "#ffed5e"];
+    // index 0~4, title text (multidisciplinary), index 5 subtitle text (artist & creative developer)
+    const baseDelays = [3.1, 3.0, 2.9, 2.6, 3.5];
+    const newDelays = [1.1, 1.0, 0.9, 0.6, 1.5];
+    const delays = showEntryAnimation
+        ? baseDelays
+        : newDelays;
 
     const vh = window.innerHeight;
     const vw = window.innerWidth;
@@ -124,23 +131,23 @@ const ScrollTitleSection = () => {
                 animate={{ opacity: 1 }}
                 transition={{
                     duration: 0.4,
-                    delay: 2.5,
+                    delay: showEntryAnimation ? 2.5 : 0,
                     ease: "easeIn",
                 }}
             >
                 <div className="absolute top-0 [&_span]:left-0">
                     <div className="title-placeholder invisible leading-[0.68]">Multidisciplinary</div>
-                    <motion.span className="title-text absolute" style={{ y: titleLayer1Y, backgroundColor, lineHeight: `${fontSize*lineHeightMultiplier}px`}}><MaskText phrase={"Multi"} duration={0.8} delay={3.1}/></motion.span>
-                    <motion.span className="title-text absolute" style={{ y: titleLayer2Y, backgroundColor, lineHeight: `${fontSize*lineHeightMultiplier}px`}}><MaskText phrase={"Multi"} duration={1.0} delay={3.0}/></motion.span>
-                    <motion.span className="title-text absolute" style={{ y: titleLayer3Y, backgroundColor, lineHeight: `${fontSize*lineHeightMultiplier}px`}}><MaskText phrase={"Multi"} duration={1.2} delay={2.9}/></motion.span>
-                    <motion.span className="title-text absolute" style={{ y: titleLayer4Y, backgroundColor, lineHeight: `${fontSize*lineHeightMultiplier}px`}}><MaskText phrase={"Multi"} duration={1.5} delay={2.6}/></motion.span>
+                    <motion.span className="title-text absolute" style={{ y: titleLayer1Y, backgroundColor, lineHeight: `${fontSize*lineHeightMultiplier}px`}}><MaskText phrase={"Multi"} duration={0.8} delay={delays[0]}/></motion.span>
+                    <motion.span className="title-text absolute" style={{ y: titleLayer2Y, backgroundColor, lineHeight: `${fontSize*lineHeightMultiplier}px`}}><MaskText phrase={"Multi"} duration={1.0} delay={delays[1]}/></motion.span>
+                    <motion.span className="title-text absolute" style={{ y: titleLayer3Y, backgroundColor, lineHeight: `${fontSize*lineHeightMultiplier}px`}}><MaskText phrase={"Multi"} duration={1.2} delay={delays[2]}/></motion.span>
+                    <motion.span className="title-text absolute" style={{ y: titleLayer4Y, backgroundColor, lineHeight: `${fontSize*lineHeightMultiplier}px`}}><MaskText phrase={"Multi"} duration={1.5} delay={delays[3]}/></motion.span>
                 </div>
                 <div className="absolute top-0 [&_span]:right-0">
                     <div className="invisible leading-[0.68]">Multidisciplinary</div>
-                    <motion.span className="title-text absolute" style={{ y: titleLayer7Y, backgroundColor, lineHeight: `${fontSize*lineHeightMultiplier}px`}}><MaskText phrase={"Disciplinary"} duration={0.8} delay={3.1}/></motion.span>
-                    <motion.span className="title-text absolute" style={{ y: titleLayer8Y, backgroundColor, lineHeight: `${fontSize*lineHeightMultiplier}px`}}><MaskText phrase={"Disciplinary"} duration={1.0} delay={3.0}/></motion.span>
-                    <motion.span className="title-text absolute" style={{ y: titleLayer9Y, backgroundColor, lineHeight: `${fontSize*lineHeightMultiplier}px`}}><MaskText phrase={"Disciplinary"} duration={1.2} delay={2.9}/></motion.span>
-                    <motion.span className="title-text absolute" style={{ y: titleLayer10Y, backgroundColor, lineHeight: `${fontSize*lineHeightMultiplier}px`}}><MaskText phrase={"Disciplinary"} duration={1.5} delay={2.6}/></motion.span>
+                    <motion.span className="title-text absolute" style={{ y: titleLayer7Y, backgroundColor, lineHeight: `${fontSize*lineHeightMultiplier}px`}}><MaskText phrase={"Disciplinary"} duration={0.8} delay={delays[0]}/></motion.span>
+                    <motion.span className="title-text absolute" style={{ y: titleLayer8Y, backgroundColor, lineHeight: `${fontSize*lineHeightMultiplier}px`}}><MaskText phrase={"Disciplinary"} duration={1.0} delay={delays[1]}/></motion.span>
+                    <motion.span className="title-text absolute" style={{ y: titleLayer9Y, backgroundColor, lineHeight: `${fontSize*lineHeightMultiplier}px`}}><MaskText phrase={"Disciplinary"} duration={1.2} delay={delays[2]}/></motion.span>
+                    <motion.span className="title-text absolute" style={{ y: titleLayer10Y, backgroundColor, lineHeight: `${fontSize*lineHeightMultiplier}px`}}><MaskText phrase={"Disciplinary"} duration={1.5} delay={delays[3]}/></motion.span>
                 </div>
             </motion.h1>
             <motion.h2
@@ -151,7 +158,7 @@ const ScrollTitleSection = () => {
                 animate={{ opacity: 1 }}
                 transition={{
                     duration: 0.5,
-                    delay: 3.6,
+                    delay: delays[4],
                     ease: "easeIn",
                 }}
             >
@@ -183,6 +190,10 @@ const ScrollTitleSection = () => {
             </motion.h2>
         </motion.section>
     );
+};
+
+ScrollTitleSection.propTypes = {
+    showEntryAnimation: PropTypes.bool,
 };
 
 export default ScrollTitleSection;

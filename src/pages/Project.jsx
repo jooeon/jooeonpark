@@ -8,6 +8,7 @@ import PropTypes from "prop-types";
 import {useEffect, useRef, useState} from "react";
 import {MaskText} from "../components/MaskText.jsx";
 import { useLenis } from 'lenis/react';
+import {scrollToTop} from "../Utils.jsx";
 
 // Template component for individual project pages
 // Reads data from data files in src/data and displays content with consistent format
@@ -18,16 +19,11 @@ const Project = () => {
     const videoRef = useRef(null);
     const [isMuted, setIsMuted] = useState(true);
 
+    // always begin page from top on load
     const lenis = useLenis();
 
     useEffect(() => {
-        if (lenis) {
-            // immediate: true will skip the smooth animation
-            lenis.scrollTo(0, { immediate: true });
-        } else {
-            // fallback
-            window.scrollTo(0, 0);
-        }
+        scrollToTop(lenis);
     }, [lenis]);
 
     const toggleMute = () => {

@@ -7,41 +7,48 @@ import {useEffect, useState} from "react";
 import EncryptionText from "../components/EncryptionAnim.jsx";
 import {Link} from "react-router-dom";
 import LayeredScrollTitle from "../components/LayeredScrollTitle.jsx";
+import {useLenis} from "lenis/react";
+import {scrollToTop} from "../Utils.jsx";
 
 
 const Index = () => {
 
     //  Use below for playing intro animation only once per session
 
-    // const [showAnimation, setShowAnimation] = useState(false);un
-    //
-    // useEffect(() => {
-    //     // Check if the 'hasSeenAnimation' key exists in sessionStorage
-    //     const hasSeenAnimation = sessionStorage.getItem('hasSeenAnimation');
-    //
-    //     if (!hasSeenAnimation) {
-    //         // If not seen, show the animation
-    //         setShowAnimation(true);
-    //
-    //         // Set the 'hasSeenAnimation' flag in sessionStorage
-    //         sessionStorage.setItem('hasSeenAnimation', 'true');
-    //     }
-    // }, []);
-
-    // 4k or larger, for rendering full resolution images if screen resolution is large
-    const [isXLargeScreen, setIsXLargeScreen] = useState(window.innerWidth >= 3840);
+    const [showAnimation] = useState(() => {
+        // if there is no flag yet, we want to animate immediately
+        const seen = sessionStorage.getItem("hasSeenAnimation");
+        return !seen;
+    });
 
     useEffect(() => {
-        const handleResize = () => {
-            setIsXLargeScreen(window.innerWidth >= 3840);
-        };
+        if (showAnimation) {
+            // mark it so next full‑reload in this tab won’t re‑animate
+            sessionStorage.setItem("hasSeenAnimation","true");
+        }
+    }, [showAnimation]);
 
-        window.addEventListener("resize", handleResize);
+    // 4k or larger, for rendering full resolution images if screen resolution is large
+    // const [isXLargeScreen, setIsXLargeScreen] = useState(window.innerWidth >= 3840);
+    //
+    // useEffect(() => {
+    //     const handleResize = () => {
+    //         setIsXLargeScreen(window.innerWidth >= 3840);
+    //     };
+    //
+    //     window.addEventListener("resize", handleResize);
+    //
+    //     return () => {
+    //         window.removeEventListener("resize", handleResize);
+    //     };
+    // }, []);
 
-        return () => {
-            window.removeEventListener("resize", handleResize);
-        };
-    }, []);
+    // always begin page from top on load
+    const lenis = useLenis();
+
+    useEffect(() => {
+        scrollToTop(lenis);
+    }, [lenis]);
 
     // ************************
     // Start of scrolling behavior logic
@@ -68,23 +75,24 @@ const Index = () => {
         <>
             <Header/>
             {/* Overlay for "loading" animation on page load */}
-            <motion.div
-                className="fixed top-0 pointer-events-none h-full w-full font-raleway font-bold uppercase
-                        bg-customWhite text-customBlack dark:bg-customBlack dark:text-customWhite z-50"
-                initial={{opacity: 1}}
-                animate={{opacity: 0}}
-                transition={{
-                    duration: 0.8,
-                    delay: 2.3,
-                    ease: [0.16, 1, 0.3, 1] // easeOutExpo
-                }}
-            >
-                <EntryAnim/>
-            </motion.div>
-            <main
-                className="relative flex flex-col px-4 md:px-7 6xl:px-12 7xl:px-14 pb-20 xl:pb-40 w-full gap-48 md:gap-96">
+            {showAnimation &&
+                <motion.div
+                    className="fixed top-0 pointer-events-none h-full w-full font-raleway font-bold uppercase
+                            bg-customWhite text-customBlack dark:bg-customBlack dark:text-customWhite z-50"
+                    initial={{opacity: 1}}
+                    animate={{opacity: 0}}
+                    transition={{
+                        duration: 0.8,
+                        delay: 2.3,
+                        ease: [0.16, 1, 0.3, 1] // easeOutExpo
+                    }}
+                >
+                    <EntryAnim/>
+                </motion.div>
+            }
+            <main className="relative flex flex-col px-4 md:px-7 6xl:px-12 7xl:px-14 pb-20 xl:pb-40 w-full gap-48 md:gap-96">
                 {/* Main landing text */}
-                <LayeredScrollTitle/>
+                <LayeredScrollTitle showEntryAnimation={showAnimation}/>
                 <section className="flex flex-col items-center">
                     <div className="w-11/12 xl:w-5/6 md:mb-14">
                         <h3 className="w-fit outline-text-black dark:outline-text-white text-transparent font-nick pb-5

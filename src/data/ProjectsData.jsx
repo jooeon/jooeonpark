@@ -4,12 +4,13 @@ export const items = [
         nextItem: "",
         isVideo: false,
         images: [
-            "/images/atopol_index.png",
-            "/images/atopol_detail_1.JPG",
             "/images/atopol_detail_2.JPG",
             "/images/atopol_detail_3.JPG",
         ],
-        videos: [],
+        videos: [
+            "/videos/atopol_detail_01.mp4",
+            "/videos/atopol_detail_02.mp4",
+        ],
         caption: [
             "Allen Topolski's Portfolio",
             "Art Portfolio",
