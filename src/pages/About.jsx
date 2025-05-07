@@ -54,7 +54,7 @@ const About = () => {
                         <section
                             className="flex flex-col justify-center xl:w-50vw pb-10 px-8 md:px-12 lg:px-16 xl:pl-10 xl:pr-40">
                             <motion.div
-                                className="font-outfit mb-4 2xl:mb-8
+                                className="mb-4 2xl:mb-8
                                     text-sm md:text-xl lg:text-2xl xl:text-xl 2xl:text-2xl 3xl:text-3xl 4xl:text-4xl 5xl:text-5xl"
                                 initial={{opacity: 0, y: 40}}
                                 animate={{opacity: 1, y: 0}}

@@ -102,7 +102,7 @@ const Index = () => {
                     </div>
                     <div
                         className="flex flex-col xl:flex-row gap-10 xl:gap-0 justify-start xl:justify-center items-center xl:items-start">
-                        <div className="w-11/12 xl:w-11/12 xl:px-24 font-extrabold font-almarai uppercase mix-blend-difference text-customWhite [&_span]:lg:mb-2
+                        <div className="w-11/12 xl:w-11/12 xl:px-24 font-extrabold font-neueHaasGrotesk uppercase mix-blend-difference text-customWhite [&_span]:lg:mb-2
                             md:text-xl lg:text-3xl xl:text-4xl 2xl:text-6xl 3xl:text-6xl 5xl:text-8xl 6xl:text-9xl 7xl:text-11xl">
                             <ScrollTextAnim
                                 paragraph={"Artist and Creative Developer from Seoul, South Korea, specializing in Web Development, UI/UX Design, and Visual Arts.\nSeamlessly integrating design and technology to create experiences that are both highly functional and stylish."}
@@ -118,7 +118,7 @@ const Index = () => {
                         </h3>
                     </div>
                     <motion.div
-                        className="w-11/12 xl:w-5/6 font-almarai font-bold lowercase
+                        className="w-11/12 xl:w-5/6 font-neueHaasGrotesk font-bold lowercase
                         flex flex-col xl:grid xl:grid-cols-[1fr_6fr_1fr] justify-start xl:justify-center items-center xl:items-start"
                         initial={{opacity: 0, y: 70}}
                         whileInView={{opacity: 1, y: 0}}
@@ -153,7 +153,7 @@ const Index = () => {
                         {/*        </h3>*/}
                         {/*    </div>*/}
                         {/*    <div className="flex flex-col gap-10 xl:grid xl:grid-cols-2 xl:grid-rows-13 xl:gap-x-0 xl:gap-y-24 justify-start xl:justify-center items-center xl:items-start*/}
-                        {/*        font-almarai font-bold lowercase">*/}
+                        {/*        font-neueHaasGrotesk font-bold lowercase">*/}
                         {/*        <motion.div*/}
                         {/*            className="w-11/12 xl:w-full flex flex-col xl:flex-row xl:row-start-1 xl:row-end-5 xl:col-start-1 gap-4"*/}
                         {/*            initial={{opacity: 0, y: 70}}*/}
@@ -272,7 +272,7 @@ const Index = () => {
                         {/*</section>*/}
                         <section className="flex justify-center items-center h-96 md:h-[80vh]">
                             <motion.div
-                                className="relative top-1/4 flex justify-center gap-5 md:gap-10 lg:gap-14 xl:gap-20 3xl:gap-30 font-nick lowercase
+                                className="relative top-1/4 flex justify-center gap-5 md:gap-10 lg:gap-14 xl:gap-20 3xl:gap-30 6xl:gap-72 font-nick lowercase
                         text-[2vw] px-5 xl:px-7"
                                 initial="hidden"
                                 animate={controls}
