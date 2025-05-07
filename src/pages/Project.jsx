@@ -53,9 +53,9 @@ const Project = () => {
             <Header />
             <main>
                 <div className="flex flex-col">
-                    <section className="relative flex m-2 md:m-5 h-full pt-10 md:pt-20">
+                    <section className="relative flex m-2 md:m-5 6xl:m-10 h-full pt-10 md:pt-20 3xl:pt-32 6xl:pt-40 7xl:pt-52">
                         {/* Image/Video content scroll section */}
-                        <div className="flex flex-col gap-3 md:gap-6 w-7/12">
+                        <div className="flex flex-col gap-3 md:gap-6 6xl:gap-12 w-7/12">
                             {/* Project title */}
                             <motion.div
                                 className="mb-4 md:mb-10 xl:mb-20"
@@ -67,7 +67,7 @@ const Project = () => {
                                     ease: "easeOut",
                                 }}
                             >
-                                <h1 className="title-text font-nick uppercase text-[4.5vh] md:text-[6vw] 2xl:text-[5.4vw] leading-none">
+                                <h1 className="title-text font-nick uppercase text-[5vw] 2xl:text-[5.4vw] leading-none">
                                     <MaskText phrase={project.caption[0]} duration={1} delay={0.8}/>
                                 </h1>
                             </motion.div>
@@ -106,7 +106,8 @@ const Project = () => {
                         <motion.div
                             className="sticky top-0 grid md:grid-cols-[1fr_1fr_8fr_1fr] auto-rows-min
                                 gap-y-1 md:gap-y-3 lg:gap-y-4 3xl:gap-y-8 gap-x-2 md:gap-x-4 lg:gap-x-6 3xl:gap-x-10
-                                h-fit w-5/12 p-0 pt-16 md:p-5 md:pt-32 2xl:pt-48 4xl:pt-56 font-almarai font-extrabold uppercase"
+                                h-fit w-5/12 p-0 pt-16 md:p-5 md:pt-32 2xl:pt-48 4xl:pt-56 font-almarai font-extrabold uppercase
+                                text-3xs xs:text-2xs md:text-lg lg:text-2xl xl:text-2xl 2xl:text-3xl 3xl:text-5xl 4xl:text-6xl 6xl:text-7xl 7xl:text-8xl"
                             initial={{opacity: 0, y: 20}}
                             animate={{opacity: 1, y: 0}}
                             transition={{
@@ -115,21 +116,21 @@ const Project = () => {
                                 ease: "easeOut",
                             }}
                         >
-                            <p className="text-right col-start-2 text-4xs xs:text-4xs md:text-xs lg:text-sm xl:text-sm 2xl:text-lg 3xl:text-2xl 4xl:text-3xl">Year</p>
-                            <p className="col-start-3 text-3xs xs:text-2xs md:text-lg lg:text-2xl xl:text-2xl 2xl:text-3xl 3xl:text-5xl 4xl:text-6xl">{project.caption[3]}</p>
+                            <p className="text-right md:p-1.5 4xl:p-2 6xl:p-3 7xl:p-6 col-start-2 text-4xs xs:text-4xs md:text-xs lg:text-sm xl:text-sm 2xl:text-lg 3xl:text-2xl 4xl:text-3xl 6xl:text-4xl 7xl:text-5xl">Year</p>
+                            <p className="col-start-3">{project.caption[3]}</p>
 
-                            <p className="text-right col-start-2 text-4xs xs:text-4xs md:text-xs lg:text-sm xl:text-sm 2xl:text-lg 3xl:text-2xl 4xl:text-3xl">Type</p>
-                            <p className="col-start-3 text-3xs xs:text-2xs md:text-lg lg:text-2xl xl:text-2xl 2xl:text-3xl 3xl:text-5xl 4xl:text-6xl">{project.caption[1]}</p>
+                            <p className="text-right md:p-1.5 4xl:p-2 6xl:p-3 7xl:p-6 col-start-2 text-4xs xs:text-4xs md:text-xs lg:text-sm xl:text-sm 2xl:text-lg 3xl:text-2xl 4xl:text-3xl 6xl:text-4xl 7xl:text-5xl">Type</p>
+                            <p className="col-start-3">{project.caption[1]}</p>
 
                             {type === "art" && (
                                 <>
-                                    <p className="text-right col-start-2 text-4xs xs:text-4xs md:text-xs lg:text-sm xl:text-sm 2xl:text-lg 3xl:text-2xl 4xl:text-3xl">Medium</p>
-                                    <p className="col-start-3 text-3xs xs:text-2xs md:text-lg lg:text-2xl xl:text-2xl 2xl:text-3xl 3xl:text-5xl 4xl:text-6xl">{project.caption[2]}</p>
+                                    <p className="text-right md:p-1.5 4xl:p-2 6xl:p-3 7xl:p-6 col-start-2 text-4xs xs:text-4xs md:text-xs lg:text-sm xl:text-sm 2xl:text-lg 3xl:text-2xl 4xl:text-3xl 6xl:text-4xl 7xl:text-5xl">Medium</p>
+                                    <p className="col-start-3">{project.caption[2]}</p>
                                 </>
                             )}
 
-                            <p className="text-right col-start-2 text-4xs xs:text-4xs md:text-xs lg:text-sm xl:text-sm 2xl:text-lg 3xl:text-2xl 4xl:text-3xl">Info</p>
-                            <p className="col-start-3 text-3xs xs:text-2xs md:text-lg lg:text-2xl xl:text-2xl 2xl:text-3xl 3xl:text-5xl 4xl:text-6xl">{project.caption[4]}</p>
+                            <p className="text-right md:p-1.5 4xl:p-2 6xl:p-3 7xl:p-6 col-start-2 text-4xs xs:text-4xs md:text-xs lg:text-sm xl:text-sm 2xl:text-lg 3xl:text-2xl 4xl:text-3xl 6xl:text-4xl 7xl:text-5xl">Info</p>
+                            <p className="col-start-3">{project.caption[4]}</p>
 
                             <div className="flex flex-col gap-1 md:gap-4 col-start-3 pt-2 md:pt-4">
                                 {project.externalLink && (
