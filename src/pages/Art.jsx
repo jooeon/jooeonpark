@@ -79,7 +79,7 @@ const Art = () => {
                                                 />
                                             )}
                                             {/* Bottom captions */}
-                                            <div className="flex justify-between gap-10 pt-1 font-almarai font-bold lowercase text-sm">
+                                            <div className="flex justify-between gap-10 pt-1 font-neueHaasGrotesk font-bold lowercase text-sm">
                                                 {item.caption && (
                                                     <>
                                                         {/* Bottom-Left Caption */}
@@ -158,7 +158,7 @@ const Art = () => {
                                     )}
                                 </Link>
                                 {/* Bottom captions */}
-                                <div className="flex justify-between gap-10 font-almarai font-bold lowercase">
+                                <div className="flex justify-between gap-10 font-neueHaasGrotesk font-bold lowercase">
                                     {item.caption && (
                                         <>
                                             {/* Bottom-Left Caption */}

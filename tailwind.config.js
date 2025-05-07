@@ -4,13 +4,14 @@ export default {
     content: ["./index.html", "./src/**/*.{ts,tsx,js,jsx}"],
   theme: {
 	fontFamily: {
-		// 'almarai': ['Almarai', 'Outfit', 'Arial', 'system-ui', 'sans-serif'],
-		'founders': ['Founders Grotesk', 'Outfit', 'Arial', 'system-ui', 'sans-serif'],
-		'nick': ['Nickelodeon2001', 'Outfit', 'Arial', 'system-ui', 'sans-serif'],
-		'poppins': ['Poppins', 'Outfit', 'Arial', 'system-ui', 'sans-serif'],
-		'raleway': ['Raleway', 'Outfit', 'Arial', 'system-ui', 'sans-serif'],
-		// 'outfit': ['Outfit', 'Arial', 'system-ui', 'sans-serif'],
+		// Google fonts
+		'outfit': ['Outfit', 'Arial', 'system-ui', 'sans-serif'],
 		'roboto': ['Roboto Mono', 'system-ui', 'monospace'],
+		'raleway': ['Raleway', 'Outfit', 'Arial', 'system-ui', 'sans-serif'],
+		// Adobe fonts
+		'neueHaasGrotesk': ['neue-haas-grotesk-display', 'Arial', 'sans-serif'],
+		// File
+		'nick': ['Nickelodeon2001', 'Outfit', 'Arial', 'system-ui', 'sans-serif'],
 	},
   	extend: {
 		width: {

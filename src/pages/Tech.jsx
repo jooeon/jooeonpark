@@ -55,9 +55,9 @@ const Tech = () => {
                 <section className="relative flex flex-col gap-16 md:gap-28 lg:gap-36 pt-10 md:pt-20">
                     {/* 3D animation */}
                     {!isMobile && checkWebGL() && <AsciiAnimation/>}
-                    {/* About text */}
-                    <div className="xl:w-1/2 7xl:w-7/12 px-5 xl:px-7 text-xs md:text-base lg:text-xl 3xl:text-2xl 4xl:text-3xl 5xl:text-4xl 7xl:text-6xl">
-                        <h2 className="uppercase font-almarai font-extrabold mb-5 5xl:mb-14 7xl:mb-24 min-h-7 md:min-h-9 xl:min-h-10">
+                    <div className="xl:w-7/12 px-5 xl:px-7 6xl:px-14
+                        text-xs md:text-base lg:text-xl 3xl:text-2xl 4xl:text-3xl 5xl:text-4xl 7xl:text-6xl">
+                        <h2 className="uppercase font-neueHaasGrotesk font-extrabold mb-5 5xl:mb-14 7xl:mb-24 min-h-7 md:min-h-9 xl:min-h-10">
                             <EncryptionText
                                 text={"Skills"}
                                 delay={0.4}
@@ -65,12 +65,11 @@ const Tech = () => {
                                 speed={20}
                             />
                         </h2>
-                        {/* Cannot use selector for almarai font e.g. [&_caption]:font-almarai because it isn't a tailwind class
-                          See styles.css, font-almarai class */}
                         <div className="flex flex-col gap-10 w-full xl:px-5
                             [&_caption]:w-fit [&_caption]:mb-2 [&_caption]:7xl:mb-10 [&_caption]:text-start [&_caption]:font-extrabold
                             [&_tr]:border-b [&_tr]:text-customGray [&_tr]:border-customGrayLight [&_tr]:dark:border-customBlackLight
-                            [&_td]:pt-2 [&_td]:pb-1 [&_td]:7xl:pb-12 [&_td]:pl-3 [&_td]:md:pl-5 [&_td]:relative">
+                            [&_td]:pt-2 [&_td]:pb-1 [&_td]:7xl:pb-12 [&_td]:pl-3 [&_td]:md:pl-5 [&_td]:relative
+                            [&_td]:text-2xs [&_td]:md:text-sm [&_td]:lg:text-lg [&_td]:3xl:text-xl [&_td]:4xl:text-2xl [&_td]:5xl:text-3xl [&_td]:7xl:text-5xl">
                             <motion.table
                                 className="table-fixed w-full"
                                 initial={{opacity: 0, y: 20}}
@@ -80,7 +79,7 @@ const Tech = () => {
                                     delay: 1.2,
                                     ease: "easeOut"
                                 }}>
-                                <caption className="font-almarai">Development</caption>
+                                <caption>Development</caption>
                                 <tbody>
                                     <tr>
                                         <td>Full-Stack Web</td>
@@ -106,7 +105,7 @@ const Tech = () => {
                                     ease: "easeOut"
                                 }}
                             >
-                                <caption className="font-almarai">UI/UX & Design</caption>
+                                <caption>UI/UX & Design</caption>
                                 <tbody>
                                     <tr>
                                         <td>Figma</td>
@@ -132,7 +131,7 @@ const Tech = () => {
                                     ease: "easeOut"
                                 }}
                             >
-                                <caption className="font-almarai">Back-end & Technical</caption>
+                                <caption>Back-end & Technical</caption>
                                 <tbody>
                                     <tr>
                                         <td>Data Structures</td>
@@ -151,8 +150,8 @@ const Tech = () => {
                         </div>
                     </div>
                     {/* Tech stack parallax text */}
-                    <div className="">
-                        <h2 className="uppercase font-almarai font-extrabold px-5 xl:px-7 mb-5 5xl:mb-14 7xl:mb-24 min-h-7 md:min-h-9 xl:min-h-10
+                    <div>
+                        <h2 className="uppercase font-neueHaasGrotesk font-extrabold px-5 xl:px-7 6xl:px-14 mb-5 5xl:mb-14 7xl:mb-24 min-h-7 md:min-h-9 xl:min-h-10
                             text-xs md:text-base lg:text-xl 5xl:text-4xl 7xl:text-6xl">
                             <EncryptionText
                                 text={"Tech Stack & Software"}
@@ -180,8 +179,9 @@ const Tech = () => {
                         </motion.div>
                     </div>
                     {/* Connect text */}
-                    <div className="px-5 xl:px-7 mb-10 md:mb-20 text-xs md:text-base lg:text-xl 5xl:text-4xl 7xl:text-6xl">
-                        <h2 className="uppercase font-almarai font-extrabold mb-5 5xl:mb-14 7xl:mb-24 min-h-7 md:min-h-9 xl:min-h-10">
+                    <div className="px-5 xl:px-7 6xl:px-14 mb-10 md:mb-20
+                        text-xs md:text-base lg:text-xl 5xl:text-4xl 7xl:text-6xl">
+                        <h2 className="uppercase font-neueHaasGrotesk font-extrabold mb-5 5xl:mb-14 7xl:mb-24 min-h-7 md:min-h-9 xl:min-h-10">
                             <EncryptionText
                                 text={"Connect"}
                                 delay={0.4}
@@ -190,7 +190,7 @@ const Tech = () => {
                             />
                         </h2>
                         <motion.div
-                            className="flex gap-10 md:gap-20 xl:px-5 font-light"
+                            className="flex gap-10 md:gap-20 xl:px-5 text-customGray"
                             initial={{opacity: 0, y: 20}}
                             animate={{opacity: 1, y: 0}}
                             transition={{

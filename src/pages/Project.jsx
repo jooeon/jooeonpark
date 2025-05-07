@@ -106,7 +106,7 @@ const Project = () => {
                         <motion.div
                             className="sticky top-0 grid md:grid-cols-[1fr_1fr_8fr_1fr] auto-rows-min
                                 gap-y-1 md:gap-y-3 lg:gap-y-4 3xl:gap-y-8 gap-x-2 md:gap-x-4 lg:gap-x-6 3xl:gap-x-10
-                                h-fit w-5/12 p-0 pt-16 md:p-5 md:pt-32 2xl:pt-48 4xl:pt-56 font-almarai font-extrabold uppercase
+                                h-fit w-5/12 p-0 pt-16 md:p-5 md:pt-32 2xl:pt-48 4xl:pt-56 font-neueHaasGrotesk font-extrabold uppercase
                                 text-3xs xs:text-2xs md:text-lg lg:text-2xl xl:text-2xl 2xl:text-3xl 3xl:text-5xl 4xl:text-6xl 6xl:text-7xl 7xl:text-8xl"
                             initial={{opacity: 0, y: 20}}
                             animate={{opacity: 1, y: 0}}
@@ -157,23 +157,23 @@ const Project = () => {
                         </motion.div>
                     </section>
                     {type === "art" && (
-                        <section className="flex justify-between m-2 md:m-5 mt-10 md:mt-20 font-almarai font-extrabold uppercase">
-                            <div
-                                className="text-sm sm:text-base md:text-xl lg:text-2xl xl:text-3xl 2xl:text-4xl 3xl:text-5xl 4xl:text-6xl">
-                                <span>Next:</span>
-                                <br/>
-                                <Link
-                                    to={`/art/${nextProject.id}`}
-                                    className="text-link after:bg-customBlack dark:after:bg-customWhite ml-10"
-                                >
-                                    {nextProject.caption[0]}
-                                </Link>
-                            </div>
-                            <div className="flex items-end pr-2
-                                text-3xs sm:text-2xs md:text-sm lg:text-sm xl:text-lg 2xl:text-xl 3xl:text-2xl 4xl:text-3xl">
-                                <Link to="/art" className="text-link after:bg-customBlack dark:after:bg-customWhite">Back to Gallery</Link>
-                            </div>
-                        </section>
+                    <section className="flex justify-between m-2 md:m-5 mt-10 md:mt-20 font-neueHaasGrotesk font-extrabold uppercase">
+                        <div
+                            className="text-sm sm:text-base md:text-xl lg:text-2xl xl:text-3xl 2xl:text-4xl 3xl:text-5xl 4xl:text-6xl">
+                            <span>Next:</span>
+                            <br/>
+                            <Link
+                                to={`/art/${nextProject.id}`}
+                                className="text-link after:bg-customBlack dark:after:bg-customWhite ml-10"
+                            >
+                                {nextProject.caption[0]}
+                            </Link>
+                        </div>
+                        <div className="flex items-end pr-2
+                            text-3xs sm:text-2xs md:text-sm lg:text-sm xl:text-lg 2xl:text-xl 3xl:text-2xl 4xl:text-3xl">
+                            <Link to="/art" className="text-link after:bg-customBlack dark:after:bg-customWhite">Back to Gallery</Link>
+                        </div>
+                    </section>
                     )}
                 </div>
             </main>
