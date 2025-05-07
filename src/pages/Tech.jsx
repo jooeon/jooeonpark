@@ -7,6 +7,9 @@ import ParallaxText from "../components/ParallaxText.jsx";
 import { isMobile } from "react-device-detect";
 import {Link} from "react-router-dom";
 import {MaskText} from "../components/MaskText.jsx";
+import {useLenis} from "lenis/react";
+import {useEffect} from "react";
+import {scrollToTop} from "../Utils.jsx";
 
 const Tech = () => {
 
@@ -23,6 +26,13 @@ const Tech = () => {
 
     // get absolute scroll position in pixels
     const { scrollY } = useScroll();
+
+    // always begin page from top on load
+    const lenis = useLenis();
+
+    useEffect(() => {
+        scrollToTop(lenis);
+    }, [lenis]);
 
     return (
         <>

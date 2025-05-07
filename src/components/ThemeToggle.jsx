@@ -39,7 +39,7 @@ const ThemeToggle = () => {
         <button
             onClick={toggleTheme}
             data-isdark={isDark}
-            className="switch bg-customBlack dark:bg-customWhite m-1.5 cursor-none"
+            className="switch bg-customBlack dark:bg-customWhite m-1.5"
             aria-label="Toggle Dark Mode"
         >
             <motion.div

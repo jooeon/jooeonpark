@@ -4,6 +4,8 @@ import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import ExternalLinkButton from "../components/ExternalLinkButton.jsx";
 import {MaskText} from "../components/MaskText.jsx";
+import {useLenis} from "lenis/react";
+import {scrollToTop} from "../Utils.jsx";
 
 const About = () => {
 
@@ -14,6 +16,13 @@ const About = () => {
         const html = document.documentElement;
         setIsDarkMode(html.classList.contains("dark"));
     }, []);
+
+    // always begin page from top on load
+    const lenis = useLenis();
+
+    useEffect(() => {
+        scrollToTop(lenis);
+    }, [lenis]);
 
     return (
         <>
