@@ -59,6 +59,8 @@ export const items = [
         alt: "11,182,156 Steps",
         padding: "pb-10 xl:pt-40rem",
         link: "/art/steps",
+        externalLink: "https://github.com/jooeon/steps",
+        externalLinkLabel: "More Info",
         hasAnimation: false,
     },
     {
