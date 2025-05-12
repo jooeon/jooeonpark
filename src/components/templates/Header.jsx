@@ -1,54 +1,38 @@
 import { NavLink, Link, useLocation } from "react-router-dom";
-import {motion, useScroll} from "framer-motion";
+import {motion, useMotionValueEvent, useScroll} from "framer-motion";
 import PropTypes from "prop-types";
 import EncryptionText from "../EncryptionAnim.jsx";
-import {useEffect, useState} from "react";
+import {useRef, useState} from "react";
 
 const Header = ({delay = 0.4}) => {
-
-    const [isVisible, setIsVisible] = useState(true);   // tracks the visibility of navbar
-    const [lastScrollY, setLastScrollY] = useState(0);
-    const scrollThreshold = 5; // Minimum scroll change to detect direction
-
-    const { scrollYProgress } = useScroll();
-
-    // check if scrolled to bottom of the screen, then set visible true
-    useEffect(() => {
-        const unsubscribe = scrollYProgress.on("change",(latest) => {
-            if (latest >= 0.96) {
-                setIsVisible(true);
-            }
-        });
-
-        return () => unsubscribe(); // Cleanup listener on unmount
-    }, [scrollYProgress]);
-
-    // Handle scroll direction, set visible when scrolling down, hide when scrolling up
-    useEffect(() => {
-        const handleScroll = () => {
-            const currentScrollY = Math.max(0, window.scrollY);
-
-            if (Math.abs(currentScrollY - lastScrollY) > scrollThreshold) {
-                if (currentScrollY > lastScrollY) {
-                    // Scrolling down
-                    setIsVisible(false);
-                } else if (currentScrollY < lastScrollY) {
-                    // Scrolling up
-                    setIsVisible(true);
-                }
-                setLastScrollY(currentScrollY);
-            }
-        };
-
-        window.addEventListener("scroll", handleScroll);
-        return () => window.removeEventListener("scroll", handleScroll);
-    }, [lastScrollY]);
 
     const location = useLocation();
     const isLandingPage = location.pathname === "/";
     const isArtPage = location.pathname.startsWith("/art/") || location.pathname === "/art";
     const isTechPage = location.pathname === "/tech";
     const isInfoPage = location.pathname === "/info";
+
+    const [isVisible, setIsVisible] = useState(true);   // tracks the visibility of navbar
+    const scrollThreshold = 5; // Minimum scroll change to detect direction
+
+    const { scrollY } = useScroll();
+    const lastY = useRef(0);
+
+    // check if scrolled to bottom of the screen, then set visible true
+    useMotionValueEvent(scrollY, "change", latest => {
+        if (latest >= 0.96) setIsVisible(true);
+    });
+
+    // Handle scroll direction, set visible when scrolling down, hide when scrolling up
+    useMotionValueEvent(scrollY, "change", latest => {
+        if (!isLandingPage) return; // only for landing page
+
+        if (Math.abs(latest - lastY.current) > scrollThreshold) {
+            // Positive velocity = scrolling down
+            setIsVisible(latest < lastY.current); // show when scrolling up, hide when scrolling down
+            lastY.current = latest;
+        }
+    });
 
     const getLinkClasses = (path) => {
         if (isLandingPage) {
