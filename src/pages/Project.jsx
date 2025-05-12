@@ -1,20 +1,32 @@
 import {Link, Navigate, useParams} from "react-router-dom";
 import Header from "../components/templates/Header.jsx";
 import Footer from "../components/templates/Footer.jsx";
-import { motion } from "framer-motion";
+import {AnimatePresence, motion} from "framer-motion";
 import artData from "../data/ArtData.jsx";
 import projectData from "../data/ProjectsData.jsx";
 import PropTypes from "prop-types";
-import {useEffect} from "react";
+import {useEffect, useState} from "react";
 import {MaskText} from "../components/MaskText.jsx";
 import { useLenis } from 'lenis/react';
 import {scrollToTop} from "../Utils.jsx";
 import VideoPlayer from "../components/templates/VideoPlayer.jsx";
+import Overlay from "../components/unused/Overlay.jsx";
 
 // Template component for individual project pages
 // Reads data from data files in src/data and displays content with consistent format
 const Project = () => {
     const { type, id } = useParams(); // Extract the id from the URL
+
+    // functions and variables for image overlay on click
+    const [overlayVisible, setOverlayVisible] = useState(false);
+    const [currentIndex, setCurrentIndex] = useState(0);
+
+    const openOverlay = (index) => {
+        setCurrentIndex(index);
+        setOverlayVisible(true);
+    };
+
+    const closeOverlay = () => setOverlayVisible(false);
 
     // always begin page from top on load
     const lenis = useLenis();
@@ -83,11 +95,17 @@ const Project = () => {
 
                             {/* Render images */}
                             {project.images.map((image, index) => (
-                                <div key={index} className="overflow-hidden">
+                                <div
+                                    key={index}
+                                    onClick={() => openOverlay(index)}
+                                    tabIndex={0}
+                                    aria-label={`Open overlay for fullscreen image view`}
+                                    className="overflow-hidden"
+                                >
                                     <motion.img
                                         src={image}
                                         alt={project.alt}
-                                        className="w-full h-full object-cover"
+                                        className="w-full h-full object-cover cursor-pointer"
                                         loading="lazy"
                                         initial={{opacity: 0, y: 40}}
                                         animate={{opacity: 1, y: 0}}
@@ -177,6 +195,19 @@ const Project = () => {
                     )}
                 </div>
             </main>
+
+            {/* Image overlay */}
+            <AnimatePresence>
+                {overlayVisible && (
+                    <Overlay
+                        images={project.images}
+                        currentIndex={currentIndex}
+                        closeOverlay={closeOverlay}
+                        key="overlay" // Key is necessary for AnimatePresence
+                    />
+                )}
+            </AnimatePresence>
+
             <Footer />
         </>
     );
