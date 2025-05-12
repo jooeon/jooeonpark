@@ -6,11 +6,11 @@ import artData from "../data/ArtData.jsx";
 import projectData from "../data/ProjectsData.jsx";
 import PropTypes from "prop-types";
 import {useEffect, useState} from "react";
-import {MaskText} from "../components/MaskText.jsx";
+import {MaskText} from "../components/textEffects/MaskText.jsx";
 import { useLenis } from 'lenis/react';
 import {scrollToTop} from "../Utils.jsx";
 import VideoPlayer from "../components/templates/VideoPlayer.jsx";
-import Overlay from "../components/unused/Overlay.jsx";
+import Overlay from "../components/Overlay.jsx";
 
 // Template component for individual project pages
 // Reads data from data files in src/data and displays content with consistent format

@@ -3,7 +3,7 @@ import Footer from "../components/templates/Footer.jsx";
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import ExternalLinkButton from "../components/ExternalLinkButton.jsx";
-import {MaskText} from "../components/MaskText.jsx";
+import {MaskText} from "../components/textEffects/MaskText.jsx";
 import {useLenis} from "lenis/react";
 import {scrollToTop} from "../Utils.jsx";
 
