@@ -1,7 +1,6 @@
-import { useState, useEffect } from "react";
-import { motion, useScroll, useTransform, useAnimation } from "framer-motion";
+import {useState, useEffect, useRef} from "react";
+import {motion, useScroll, useTransform, useAnimation, useMotionValueEvent} from "framer-motion";
 import { Link } from "react-router-dom";
-import {useCursor} from "./cursor/CursorContext.jsx";
 import {MaskText} from "./textEffects/MaskText.jsx";
 import PropTypes from "prop-types";
 
@@ -10,12 +9,12 @@ const ScrollTitleSection = ({showEntryAnimation}) => {
 
     const [isVisible, setIsVisible] = useState(false); // Tracks visibility of title depending on scroll direction
     const [finalVisible, setFinalVisible] = useState(true); // Overrides visibility when hitting top of page
-    const [lastScrollY, setLastScrollY] = useState(0);
+    const { scrollY } = useScroll();
+    const lastY = useRef(0);
     const scrollThreshold = 5; // Minimum scroll change to detect direction
     const [fontSize, setFontSize] = useState(0);
     const [sectionHeight, setSectionHeight] = useState(0);
     let lineHeightMultiplier = 0.86;
-    const { isLinkHovered } = useCursor();
     const [linkColor, setLinkColor] = useState("#fafafa");
     const colors = ["#ff800c", "#78e2ff", "#ba3bff", "#ff33a1", "#0dff86", "#6021ff", "#ffed5e"];
     // index 0~4, title text (multidisciplinary), index 5 subtitle text (artist & creative developer)
@@ -32,25 +31,13 @@ const ScrollTitleSection = ({showEntryAnimation}) => {
     const [animationState, setAnimationState] = useState("visible"); // Track the current animation state
 
     // Handle scroll direction, hide title when scrolling up to prevent overlap with navbar
-    useEffect(() => {
-        const handleScroll = () => {
-            const currentScrollY = Math.max(0, window.scrollY);
-
-            if (Math.abs(currentScrollY - lastScrollY) > scrollThreshold) {
-                if (currentScrollY > lastScrollY) {
-                    // Scrolling down
-                    setIsVisible(true);
-                } else if (currentScrollY < lastScrollY) {
-                    // Scrolling up
-                    setIsVisible(false);
-                }
-                setLastScrollY(currentScrollY);
-            }
-        };
-
-        window.addEventListener("scroll", handleScroll);
-        return () => window.removeEventListener("scroll", handleScroll);
-    }, [lastScrollY]);
+    useMotionValueEvent(scrollY, "change", latest => {
+        if (Math.abs(latest - lastY.current) > scrollThreshold) {
+            // Positive velocity = scrolling down
+            setIsVisible(latest > lastY.current); // hide when scrolling up, show when scrolling down
+            lastY.current = latest;
+        }
+    });
 
     // Animation controller for triggering animation when scroll reaches the top of the page
     const triggerAnimation = async (state) => {
@@ -101,12 +88,10 @@ const ScrollTitleSection = ({showEntryAnimation}) => {
     const backgroundColor = useTransform(titleToggle, [0, 1], ["transparent", "#000000"]);
 
     // Randomize subtitle color
-    useEffect(() => {
-        if (isLinkHovered) {
-            const randomColor = colors[Math.floor(Math.random() * colors.length)];
-            setLinkColor(randomColor);
-        }
-    }, [isLinkHovered]);
+    const pickRandomColour = () => {
+        const random = colors[Math.floor(Math.random() * colors.length)];
+        setLinkColor(random);
+    };
 
     return (
         <motion.section
@@ -164,8 +149,9 @@ const ScrollTitleSection = ({showEntryAnimation}) => {
             >
                 <Link to="/art" className="outline-text-white">
                     <motion.span
+                        onHoverStart={pickRandomColour}
                         whileHover={{
-                            color: `${linkColor}`,
+                            color: linkColor,
                             opacity: 0.9,
                             transition: { duration: 0.2 },
                         }}
@@ -177,8 +163,9 @@ const ScrollTitleSection = ({showEntryAnimation}) => {
                 &nbsp;&&nbsp;
                 <Link to="/tech" className="outline-text-white">
                     <motion.span
+                        onHoverStart={pickRandomColour}
                         whileHover={{
-                            color: `${linkColor}`,
+                            color: linkColor,
                             opacity: 0.9,
                             transition: { duration: 0.2 },
                         }}
