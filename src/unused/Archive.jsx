@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Header from "../components/templates/Header.jsx";
 import Footer from "../components/templates/Footer.jsx";
-import Overlay from "../components/unused/Overlay.jsx";
+import Overlay from "../components/Overlay.jsx";
 import { items } from "../data/ArtData.jsx";
 import { motion, AnimatePresence } from "framer-motion";
 

@@ -2,7 +2,7 @@ import Header from "../components/templates/Header.jsx";
 import Footer from "../components/templates/Footer.jsx";
 import {motion, useAnimation, useScroll} from "framer-motion";
 import EntryAnim from "../components/EntryAnim.jsx";
-import ScrollTextAnim from "../components/ScrollTextAnim.jsx";
+import ScrollTextAnim from "../components/textEffects/ScrollTextAnim.jsx";
 import {useEffect, useState} from "react";
 import EncryptionText from "../components/EncryptionAnim.jsx";
 import {Link} from "react-router-dom";

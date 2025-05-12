@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { motion, useScroll, useTransform, useAnimation } from "framer-motion";
 import { Link } from "react-router-dom";
 import {useCursor} from "./cursor/CursorContext.jsx";
-import {MaskText} from "./MaskText.jsx";
+import {MaskText} from "./textEffects/MaskText.jsx";
 import PropTypes from "prop-types";
 
 const ScrollTitleSection = ({showEntryAnimation}) => {
