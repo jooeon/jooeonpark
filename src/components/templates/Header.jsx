@@ -8,6 +8,7 @@ const Header = ({delay = 0.4}) => {
 
     const location = useLocation();
     const isLandingPage = location.pathname === "/";
+    const isWorkPage = location.pathname.startsWith("/work/") || location.pathname === "/work";
     const isArtPage = location.pathname.startsWith("/art/") || location.pathname === "/art";
     const isTechPage = location.pathname === "/tech";
     const isInfoPage = location.pathname === "/info";
@@ -40,8 +41,12 @@ const Header = ({delay = 0.4}) => {
             return "text-link";
         }
 
+        if (path === "/work" && isWorkPage) {
+            return "text-link"; // Work should be active when /work/*
+        }
+
         if (path === "/art" && isArtPage) {
-            return "text-link"; // Art should be active when /art or /project/*
+            return "text-link"; // Art should be active when /art/*
         }
 
         if (path === "/tech" && isTechPage) {
@@ -79,6 +84,11 @@ const Header = ({delay = 0.4}) => {
                   />
               </Link>
               <ul className="flex gap-4 md:gap-10 3xl:gap-14 4xl:gap-20 6xl:gap-28">
+                  <li>
+                      <NavLink to="/work" className={() => getLinkClasses("/work")}>
+                          Work
+                      </NavLink>
+                  </li>
                   <li>
                       <NavLink to="/art" className={() => getLinkClasses("/art")}>
                           Art
