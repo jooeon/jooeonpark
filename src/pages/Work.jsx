@@ -4,8 +4,19 @@ import {MaskText} from "../components/textEffects/MaskText.jsx";
 import {motion} from "framer-motion";
 import {Link} from "react-router-dom";
 import EncryptionText from "../components/EncryptionAnim.jsx";
+import {useLenis} from "lenis/react";
+import {scrollToTop} from "../Utils.jsx";
+import {useEffect} from "react";
 
 const Work = () => {
+
+    // always begin page from top on load
+    const lenis = useLenis();
+
+    useEffect(() => {
+        scrollToTop(lenis);
+    }, [lenis]);
+
     return (
         <>
             <Header/>
