@@ -24,7 +24,7 @@ export const items = [
             "2025",
             "Designed and developed artist Allen Topolski's portfolio, with seamless CMS integration for user-centered, autonomous content management",
         ],
-        thumbnail: "/images/thumbnails/filter_cigarettes_thumb.jpg",
+        thumbnail: "/images/thumbnails/atopol_thumb.jpg",
         alt: "Allen Topolski's Portfolio",
         padding: "pb-10 ",
         link: "/project/atopol",

@@ -5,7 +5,7 @@ const Footer = () => {
   return (
     <footer className="z-30">
         <motion.div
-            className="flex items-center justify-between w-full p-3 md:p-5 text-3xs sm:text-xs md:text-sm uppercase font-neueHaasGrotesk font-extrabold tracking-wider"
+            className="flex items-center justify-between w-full p-3 md:p-5 text-3xs sm:text-xs md:text-sm 4xl:text-2xl 6xl:text-4xl uppercase font-neueHaasGrotesk font-extrabold tracking-wider"
             initial={{opacity: 0}}
             animate={{opacity: 1}}
             transition={{
@@ -15,7 +15,7 @@ const Footer = () => {
             }}
         >
             <p>&copy;{new Date().getFullYear()}. Joo Eon Park</p>
-            <div className="flex items-center"><p className="p-2">-----></p><ThemeToggle /></div>
+            <div className="flex items-center"><ThemeToggle /></div>
         </motion.div>
     </footer>
   );
