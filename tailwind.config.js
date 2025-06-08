@@ -36,7 +36,6 @@ export default {
 			'40rem' : '40rem',
 			'50rem' : '50rem',
 			'60rem' : '60rem',
-			'112': '28rem', /* 448px */
 		},
 		fontSize: {
 			'35px': '35px',

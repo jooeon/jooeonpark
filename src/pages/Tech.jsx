@@ -38,20 +38,11 @@ const Tech = () => {
         <>
             <Header/>
             <main>
-                <motion.div
-                    className="pt-20 pl-5 md:pt-32 lg:pt-40 xl:pt-48 2xl:pt-56 3xl:pt-64 4xl:pt-72 5xl:pt-80 6xl:pt-96 7xl:pt-112 md:pl-10"
-                    initial={{opacity: 0}}
-                    animate={{opacity: 1}}
-                    transition={{
-                        duration: 0.3,
-                        delay: 0.6,
-                        ease: "easeOut"
-                    }}
-                >
+                <div className="pt-10 pl-5 md:pt-20 md:pl-10 4xl:pt-36 7xl:pt-40">
                     <h1 className="title-text font-nick uppercase text-[5vw] leading-none">
                         <MaskText phrase={"Technical"} duration={1} delay={0.8}/>
                     </h1>
-                </motion.div>
+                </div>
                 <section className="relative flex flex-col gap-16 md:gap-28 lg:gap-36 pt-10 md:pt-20">
                     {/* 3D animation */}
                     {!isMobile && checkWebGL() && <AsciiAnimation/>}
