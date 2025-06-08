@@ -33,12 +33,10 @@ export default {
 			'90vh': '90vh',
 		},
 		spacing: {
-			'15': '3.75rem', /* 60px */
-			'30': '7.5rem', /* 120px */
 			'40rem' : '40rem',
 			'50rem' : '50rem',
 			'60rem' : '60rem',
-			'68': '17rem', /* 272px */
+			'112': '28rem', /* 448px */
 		},
 		fontSize: {
 			'35px': '35px',
