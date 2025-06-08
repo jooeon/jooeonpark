@@ -33,7 +33,7 @@ const Work = () => {
                         }}
                     >
                         <h1 className="title-text font-nick uppercase text-[5vw] leading-none">
-                            <MaskText phrase={"Work"} duration={1} delay={0.8}/>
+                            <MaskText phrase={"Projects"} duration={1} delay={0.8}/>
                         </h1>
                     </motion.div>
                     <div className="w-full px-2 xl:px-10 mt-20 xl:mt-32 font-neueHaasGrotesk font-bold lowercase

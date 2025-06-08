@@ -49,6 +49,8 @@ const ScrollTitleSection = ({showEntryAnimation}) => {
         const unsubscribeScroll = scrollYProgress.on("change", (latest) => {
             if (latest <= 0.2) {
                 void triggerAnimation("visible");
+            } else if (latest >= 0.96) {    // hide when hitting bottom of screen
+                setIsVisible(false);
             } else {
                 void triggerAnimation("hidden");
             }
@@ -82,7 +84,7 @@ const ScrollTitleSection = ({showEntryAnimation}) => {
     const titleLayer9Y = useTransform(scrollYProgress, [0, 0.15], [(vh/vw)*(2000/fontSize) + fontSize/1.2 * 3.35, 5]);
     const titleLayer10Y = useTransform(scrollYProgress, [0, 0.15], [(vh/vw)*(2000/fontSize) + fontSize/1.2 * 3.75, 5]);
 
-    const subTitleLayer = useTransform(scrollYProgress, [0, 0.15], [(vh / vw) * (2000 / fontSize) + fontSize * 5.0, fontSize * 0.9]);
+    const subTitleLayer = useTransform(scrollYProgress, [0, 0.15], [(vh / vw) * (2000 / fontSize) + fontSize * 5.0, fontSize * 1.0]);
 
     const titleToggle = useTransform(scrollYProgress, [0, 0.15], [1, 0], { clamp: true });
     const backgroundColor = useTransform(titleToggle, [0, 1], ["transparent", "#000000"]);

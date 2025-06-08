@@ -72,7 +72,7 @@ const Header = ({delay = 0.4}) => {
               ease: [0.16, 1, 0.3, 1],
           }}>
           <motion.nav
-              className="flex items-center justify-between text-3xs sm:text-xs md:text-sm 4xl:text-2xl 6xl:text-4xl p-3 md:p-5 xl:px-7 xl:py-4 4xl:px-10 4xl:py-8 7xl:px-14 7xl:py-12
+              className="flex items-center justify-between text-3xs sm:text-xs md:text-sm 4xl:text-2xl 6xl:text-4xl px-3 py-5 md:px-5 md:py-7 xl:px-5 xl:py-6 3xl:px-7 3xl:py-8 4xl:px-10 4xl:py-10 7xl:px-14 7xl:py-16
               uppercase font-roboto font-medium tracking-wide text-customWhite [&_a]:after:bg-customBlack dark:[&_a]:after:bg-customWhite"
           >
               <Link to="/" className="text-link">
