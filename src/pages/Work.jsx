@@ -22,20 +22,11 @@ const Work = () => {
             <Header/>
             <main>
                 <section>
-                    <motion.div
-                        className="pt-20 pl-5 md:pt-32 lg:pt-40 xl:pt-48 2xl:pt-56 3xl:pt-64 4xl:pt-72 5xl:pt-80 6xl:pt-96 7xl:pt-112 md:pl-10"
-                        initial={{opacity: 0}}
-                        animate={{opacity: 1}}
-                        transition={{
-                            duration: 0.3,
-                            delay: 0.6,
-                            ease: "easeOut"
-                        }}
-                    >
+                    <div className="pt-10 pl-5 md:pt-20 md:pl-10 4xl:pt-36 7xl:pt-40">
                         <h1 className="title-text font-nick uppercase text-[5vw] leading-none">
                             <MaskText phrase={"Projects"} duration={1} delay={0.8}/>
                         </h1>
-                    </motion.div>
+                    </div>
                     <div className="w-full px-2 xl:px-10 mt-20 xl:mt-32 font-neueHaasGrotesk font-bold lowercase
                         flex flex-col justify-start items-center">
                         <motion.div
