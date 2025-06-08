@@ -29,7 +29,7 @@ const About = () => {
             <Header/>
             <main>
                 <div className="flex flex-col">
-                    <div className="pt-20 pl-5 md:pt-32 lg:pt-40 xl:pt-48 2xl:pt-56 3xl:pt-64 4xl:pt-72 5xl:pt-80 6xl:pt-96 7xl:pt-112 md:pl-10">
+                    <div className="pt-15 pl-5 md:pt-30 md:pl-10 lg:pt-36 xl:pt-40 2xl:pt-44 3xl:pt-48 4xl:pt-54 5xl:pt-60 6xl:pt-64 7xl:pt-68">
                         <h1 className="title-text font-nick uppercase text-[5vw] leading-none">
                             <MaskText phrase={"About"} duration={1} delay={0.8}/>
                         </h1>
