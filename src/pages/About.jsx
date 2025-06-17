@@ -3,7 +3,6 @@ import Footer from "../components/templates/Footer.jsx";
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import ExternalLinkButton from "../components/ExternalLinkButton.jsx";
-import {MaskText} from "../components/textEffects/MaskText.jsx";
 import {useLenis} from "lenis/react";
 import {scrollToTop} from "../Utils.jsx";
 import TitleText from "../components/templates/TitleText.jsx";
@@ -31,14 +30,14 @@ const About = () => {
             <main>
                 <div className="flex flex-col">
                     <TitleText phrase={"About"} />
-                    <div className="flex flex-col xl:flex-row xl:pt-10 2xl:pt-16 xl:pb-20">
+                    <div className="flex flex-col xl:flex-row xl:pt-10 2xl:pt-16 xl:pb-20 4xl:py-28 7xl:py-40">
                         <section className="flex justify-center xl:w-50vw
-                            py-10 md:py-20 lg:py-28 xl:pt-8">
+                            py-10 md:py-20 lg:py-20 xl:pt-0">
                             <motion.img
                                 src={isDarkMode ? "/images/profile.jpg" : "/images/profile_bw.jpg"}
                                 alt="Joo Eon Park Profile Image"
                                 loading="lazy" // Adds lazy loading for performance
-                                className="w-3/4 xl:w-1/2 object-cover border border-customBlackLight"
+                                className="w-11/12 xl:w-1/2 object-cover border border-customBlackLight"
                                 initial={{opacity: 0, y: 40}}
                                 animate={{opacity: 1, y: 0}}
                                 transition={{
@@ -49,10 +48,10 @@ const About = () => {
                             />
                         </section>
                         <section
-                            className="flex flex-col justify-center xl:w-50vw pb-10 px-8 md:px-12 lg:px-16 xl:pl-10 xl:pr-40">
+                            className="flex flex-col justify-center xl:w-50vw pb-10 px-5 md:px-10 lg:px-14 xl:pl-10 xl:pr-40 4xl:pr-72">
                             <motion.div
                                 className="mb-4 2xl:mb-8
-                                    text-sm md:text-xl lg:text-2xl xl:text-xl 2xl:text-2xl 3xl:text-3xl 4xl:text-4xl 5xl:text-5xl"
+                                    text-sm md:text-xl lg:text-2xl xl:text-xl 2xl:text-2xl 3xl:text-3xl 4xl:text-4xl 5xl:text-5xl 7xl:text-7xl"
                                 initial={{opacity: 0, y: 40}}
                                 animate={{opacity: 1, y: 0}}
                                 transition={{
@@ -92,7 +91,7 @@ const About = () => {
                                 }}
                             >
                                 <ExternalLinkButton href="/files/Park_JooEon_Resume.pdf"
-                                                    className="uppercase text-xs md:text-sm lg:text-md xl:text-md 2xl:text-lg 3xl:text-xl 4xl:text-2xl 5xl:text-3xl">
+                                                    className="uppercase text-xs md:text-sm lg:text-md xl:text-md 2xl:text-lg 3xl:text-xl 4xl:text-2xl 5xl:text-3xl 7xl:text-5xl">
                                     Resume ↗
                                 </ExternalLinkButton>
                             </motion.div>
