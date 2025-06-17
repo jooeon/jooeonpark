@@ -5,11 +5,10 @@ import {MaskText} from "./textEffects/MaskText.jsx";
 import PropTypes from "prop-types";
 
 const ScrollTitleSection = ({showEntryAnimation}) => {
-    const { scrollYProgress } = useScroll();
+    const { scrollY, scrollYProgress } = useScroll();
 
     const [isVisible, setIsVisible] = useState(false); // Tracks visibility of title depending on scroll direction
     const [finalVisible, setFinalVisible] = useState(true); // Overrides visibility when hitting top of page
-    const { scrollY } = useScroll();
     const lastY = useRef(0);
     const scrollThreshold = 5; // Minimum scroll change to detect direction
     const [fontSize, setFontSize] = useState(0);

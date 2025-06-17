@@ -1,8 +1,8 @@
 import { NavLink, Link, useLocation } from "react-router-dom"
-import { motion, useMotionValueEvent, useScroll } from "framer-motion"
+import {motion, useMotionValueEvent, useScroll} from "framer-motion"
 import PropTypes from "prop-types"
 import EncryptionText from "../EncryptionAnim.jsx"
-import { useRef, useState } from "react"
+import {useEffect, useRef, useState} from "react"
 
 const Header = ({ delay = 0.4 }) => {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
@@ -16,29 +16,31 @@ const Header = ({ delay = 0.4 }) => {
 
     const [isVisible, setIsVisible] = useState(true) // tracks the visibility of navbar
     const scrollThreshold = 5 // Minimum scroll change to detect direction
+    const scrollMobileThreshold = 8 // Minimum scroll change to detect direction
 
-    const { scrollY } = useScroll()
+    const { scrollY, scrollYProgress } = useScroll();
     const lastY = useRef(0)
 
     // Handle scroll direction, set visible when scrolling down, hide when scrolling up
-    useMotionValueEvent(scrollY, "change", (latest) => {
-        // check if scrolled to top/bottom of the screen, then set visible true
-        if (latest >= 0.96 || latest <= 0.04) setIsVisible(true)
+    useMotionValueEvent(scrollY, "change", latest => {
 
         // Close mobile menu when scrolling (at least 8px in one scroll)
-        if (isMobileMenuOpen && Math.abs(latest - lastY.current) > 8) {
+        if (isMobileMenuOpen && Math.abs(latest - lastY.current) > scrollMobileThreshold) {
             setIsMobileMenuOpen(false)
         }
 
         // Below only for landing page
-        if (!isLandingPage) return
-
-        if (Math.abs(latest - lastY.current) > scrollThreshold) {
+        if (isLandingPage && Math.abs(latest - lastY.current) > scrollThreshold) {
             // Positive velocity = scrolling down
             setIsVisible(latest < lastY.current) // show when scrolling up, hide when scrolling down
-            lastY.current = latest
+            lastY.current = latest;
         }
-    })
+    });
+
+    useMotionValueEvent(scrollYProgress, "change", latest => {
+        // check if scrolled to bottom of the screen, then set visible true
+        if (latest >= 0.96 || latest <= 0.04) setIsVisible(true)
+    });
 
     const getLinkClasses = (path) => {
         if (isLandingPage) {
