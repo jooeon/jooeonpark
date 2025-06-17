@@ -44,7 +44,7 @@ const Art = () => {
                                         viewport: {once: true},
                                         transition: {
                                             duration: 0.5,
-                                            delay: 0.7,
+                                            delay: 0.7 + item.animationDelay,
                                             ease: "easeInOut",
                                         },
                                     }
