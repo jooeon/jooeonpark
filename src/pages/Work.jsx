@@ -7,6 +7,7 @@ import EncryptionText from "../components/EncryptionAnim.jsx";
 import {useLenis} from "lenis/react";
 import {scrollToTop} from "../Utils.jsx";
 import {useEffect} from "react";
+import TitleText from "../components/templates/TitleText.jsx";
 
 const Work = () => {
 
@@ -22,12 +23,8 @@ const Work = () => {
             <Header/>
             <main>
                 <section>
-                    <div className="pt-10 pl-5 md:pt-20 md:pl-10 4xl:pt-36 7xl:pt-40">
-                        <h1 className="title-text font-nick uppercase text-[5vw] leading-none">
-                            <MaskText phrase={"Projects"} duration={1} delay={0.8}/>
-                        </h1>
-                    </div>
-                    <div className="w-full px-2 xl:px-10 mt-20 xl:mt-32 font-neueHaasGrotesk font-bold lowercase
+                    <TitleText phrase={"Projects"} />
+                    <div className="w-full px-4 md:px-6 xl:px-10 mt-20 xl:mt-32 font-neueHaasGrotesk font-bold lowercase
                         flex flex-col justify-start items-center">
                         <motion.div
                             className="w-full xl:w-1/2"
