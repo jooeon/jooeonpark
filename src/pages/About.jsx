@@ -6,6 +6,7 @@ import ExternalLinkButton from "../components/ExternalLinkButton.jsx";
 import {MaskText} from "../components/textEffects/MaskText.jsx";
 import {useLenis} from "lenis/react";
 import {scrollToTop} from "../Utils.jsx";
+import TitleText from "../components/templates/TitleText.jsx";
 
 const About = () => {
 
@@ -29,11 +30,7 @@ const About = () => {
             <Header/>
             <main>
                 <div className="flex flex-col">
-                    <div className="pt-10 pl-5 md:pt-20 md:pl-10 4xl:pt-36 7xl:pt-40">
-                        <h1 className="title-text font-nick uppercase text-[5vw] leading-none">
-                            <MaskText phrase={"About"} duration={1} delay={0.8}/>
-                        </h1>
-                    </div>
+                    <TitleText phrase={"About"} />
                     <div className="flex flex-col xl:flex-row xl:pt-10 2xl:pt-16 xl:pb-20">
                         <section className="flex justify-center xl:w-50vw
                             py-10 md:py-20 lg:py-28 xl:pt-8">

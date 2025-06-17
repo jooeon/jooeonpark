@@ -10,6 +10,7 @@ import {MaskText} from "../components/textEffects/MaskText.jsx";
 import {useLenis} from "lenis/react";
 import {useEffect} from "react";
 import {scrollToTop} from "../Utils.jsx";
+import TitleText from "../components/templates/TitleText.jsx";
 
 const Tech = () => {
 
@@ -38,11 +39,7 @@ const Tech = () => {
         <>
             <Header/>
             <main>
-                <div className="pt-10 pl-5 md:pt-20 md:pl-10 4xl:pt-36 7xl:pt-40">
-                    <h1 className="title-text font-nick uppercase text-[5vw] leading-none">
-                        <MaskText phrase={"Technical"} duration={1} delay={0.8}/>
-                    </h1>
-                </div>
+                <TitleText phrase={"Technical"} />
                 <section className="relative flex flex-col gap-16 md:gap-28 lg:gap-36 pt-10 md:pt-20">
                     {/* 3D animation */}
                     {!isMobile && checkWebGL() && <AsciiAnimation/>}
