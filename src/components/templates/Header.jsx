@@ -22,8 +22,8 @@ const Header = ({ delay = 0.4 }) => {
 
     // Handle scroll direction, set visible when scrolling down, hide when scrolling up
     useMotionValueEvent(scrollY, "change", (latest) => {
-        // check if scrolled to bottom of the screen, then set visible true
-        if (latest >= 0.96) setIsVisible(true)
+        // check if scrolled to top/bottom of the screen, then set visible true
+        if (latest >= 0.96 || latest <= 0.04) setIsVisible(true)
 
         // Close mobile menu when scrolling (at least 8px in one scroll)
         if (isMobileMenuOpen && Math.abs(latest - lastY.current) > 8) {
