@@ -8,10 +8,12 @@ import EncryptionText from "../components/EncryptionAnim.jsx";
 import {Link} from "react-router-dom";
 import LayeredScrollTitle from "../components/LayeredScrollTitle.jsx";
 import {useLenis} from "lenis/react";
-import {scrollToTop} from "../Utils.jsx";
+import {pickRandomColor, scrollToTop} from "../Utils.jsx";
 
 
 const Index = () => {
+
+    const [linkColor, setLinkColor] = useState("#fafafa");
 
     //  Use below for playing intro animation only once per session
 
@@ -325,7 +327,57 @@ const Index = () => {
             <div className="title-text text-[6vw]
                 text-center uppercase font-nick tracking-wider leading-tight outline-text-black dark:outline-text-white text-transparent
                 pb-2 sm:pb-5 lg:pb-10">
-                Art. Design. Code.
+                <Link to="/art" className="outline-text-white">
+                    <motion.span
+                        onHoverStart={() => {
+                            const newColor = pickRandomColor();
+                            setLinkColor(newColor);
+                        }}
+                        whileHover={{
+                            color: linkColor,
+                            opacity: 0.9,
+                            transition: {duration: 0.2},
+                        }}
+                        whileTap={{scale: 0.9}}
+                    >
+                        Art
+                    </motion.span>
+                </Link>
+                <span>. </span>
+                <Link to="/work" className="outline-text-white">
+                    <motion.span
+                        onHoverStart={() => {
+                            const newColor = pickRandomColor();
+                            setLinkColor(newColor);
+                        }}
+                        whileHover={{
+                            color: linkColor,
+                            opacity: 0.9,
+                            transition: {duration: 0.2},
+                        }}
+                        whileTap={{scale: 0.9}}
+                    >
+                        Design
+                    </motion.span>
+                </Link>
+                <span>. </span>
+                <Link to="/tech" className="outline-text-white">
+                    <motion.span
+                        onHoverStart={() => {
+                            const newColor = pickRandomColor();
+                            setLinkColor(newColor);
+                        }}
+                        whileHover={{
+                            color: linkColor,
+                            opacity: 0.9,
+                            transition: {duration: 0.2},
+                        }}
+                        whileTap={{scale: 0.9}}
+                    >
+                        Code
+                    </motion.span>
+                </Link>
+                <span>.</span>
             </div>
             <Footer/>
         </>
