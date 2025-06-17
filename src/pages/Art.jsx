@@ -79,7 +79,7 @@ const Art = () => {
                                                 />
                                             )}
                                             {/* Bottom captions */}
-                                            <div className="flex justify-between gap-10 pt-1 font-neueHaasGrotesk font-bold lowercase text-sm">
+                                            <div className="flex justify-between gap-10 pt-1 font-neueHaasGrotesk font-bold lowercase text-sm 4xl:text-xl">
                                                 {item.caption && (
                                                     <>
                                                         {/* Bottom-Left Caption */}

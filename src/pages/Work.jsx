@@ -1,6 +1,5 @@
 import Header from "../components/templates/Header.jsx";
 import Footer from "../components/templates/Footer.jsx";
-import {MaskText} from "../components/textEffects/MaskText.jsx";
 import {motion} from "framer-motion";
 import {Link} from "react-router-dom";
 import EncryptionText from "../components/EncryptionAnim.jsx";
@@ -24,7 +23,7 @@ const Work = () => {
             <main>
                 <section>
                     <TitleText phrase={"Projects"} />
-                    <div className="w-full px-4 md:px-6 xl:px-10 mt-20 xl:mt-32 font-neueHaasGrotesk font-bold lowercase
+                    <div className="w-full px-3 md:px-4 xl:px-10 mt-20 xl:mt-32 font-neueHaasGrotesk font-bold lowercase
                         flex flex-col justify-start items-center">
                         <motion.div
                             className="w-full xl:w-1/2"

@@ -5,7 +5,7 @@ const ExternalLinkButton = ({ href, children, className = '', ...props }) => (
         href={href}
         target="_blank"
         rel="noopener noreferrer"
-        className={`inline-block px-4 py-1
+        className={`inline-block px-4 py-1 4xl:px-6 4xl:py-2 7xl:px-8 7xl:py-4
             text-customWhite dark:text-customBlack bg-customBlack dark:bg-customWhite rounded-full hover:opacity-80
             ${className}`}
         {...props}

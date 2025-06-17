@@ -6,6 +6,7 @@ import { useCursor } from "./CursorContext.jsx";
 const Cursor = () => {
     const [isActive, setIsActive] = useState(false); // Cursor activation
     const [isSmallScreen, setIsSmallScreen] = useState(window.innerWidth <= 768);
+    const [isLargeScreen, setIsLargeScreen] = useState(window.innerWidth >= 3840);
     const [cursorColor, setCursorColor] = useState("#fafafa"); // Default cursor color
     const { isLinkHovered, isContentHovered, isInteractiveHovered, isClicked, leftViewport } = useCursor();
     const location = useLocation(); // Get the current route
@@ -41,7 +42,7 @@ const Cursor = () => {
             clearTimeout(timeout);
             window.removeEventListener("mousemove", handleMouseMove);
         };
-    }, []);
+    }, [location.pathname, mouseX, mouseY]);
 
     // Randomize cursor color
     useEffect(() => {
@@ -49,11 +50,12 @@ const Cursor = () => {
             const randomColor = colors[Math.floor(Math.random() * colors.length)];
             setCursorColor(randomColor);
         }
-    }, [isLinkHovered, isContentHovered, isInteractiveHovered, isClicked]);
+    }, [isLinkHovered, isContentHovered, isInteractiveHovered, isClicked, colors]);
 
     useEffect(() => {
         const handleResize = () => {
             setIsSmallScreen(window.innerWidth <= 768);
+            setIsLargeScreen(window.innerWidth >= 3840);
         };
 
         window.addEventListener("resize", handleResize);
@@ -65,10 +67,10 @@ const Cursor = () => {
 
     const cursorVariants = {
         initial: { scale: 1, opacity: 0 },
-        default: { scale: 1, opacity: 1, transition: { duration: 0.2, ease: "easeIn" }, },
-        linkHover: { scale: 2.5, opacity: 1, backgroundColor: cursorColor, transition: { duration: 0.1, ease: "easeIn" }, },
+        default: { scale: isLargeScreen ? 2 : 1, opacity: 1, transition: { duration: 0.2, ease: "easeIn" }, },
+        linkHover: { scale: isLargeScreen ? 5 : 2.5, opacity: 1, backgroundColor: cursorColor, transition: { duration: 0.1, ease: "easeIn" }, },
         contentHover: {
-            scale: isSmallScreen ? 2.0 : 3.0,
+            scale: isSmallScreen ? 2.0 : isLargeScreen ? 6.0 : 3.0,
             opacity: 1,
             width: isSmallScreen ? 30 : 50,
             height: isSmallScreen ? 20 : 30,
@@ -76,7 +78,7 @@ const Cursor = () => {
             transition: { duration: 0.2, ease: "easeOut" },
         },
         interactiveHover: {
-            scale: isSmallScreen ? 3.0 : 6.0,
+            scale: isSmallScreen ? 3.0 : isLargeScreen ? 12.0 : 6.0,
             opacity: 1,
             borderRadius: "50%",
             backgroundColor: cursorColor,

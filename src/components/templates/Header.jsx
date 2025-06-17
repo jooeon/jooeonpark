@@ -2,14 +2,14 @@ import { NavLink, Link, useLocation } from "react-router-dom"
 import {motion, useMotionValueEvent, useScroll} from "framer-motion"
 import PropTypes from "prop-types"
 import EncryptionText from "../EncryptionAnim.jsx"
-import {useEffect, useRef, useState} from "react"
+import {useRef, useState} from "react"
 
 const Header = ({ delay = 0.4 }) => {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
 
     const location = useLocation()
     const isLandingPage = location.pathname === "/"
-    const isWorkPage = location.pathname.startsWith("/work/") || location.pathname === "/work"
+    const isWorkPage = location.pathname.startsWith("/project/") || location.pathname === "/work"
     const isArtPage = location.pathname.startsWith("/art/") || location.pathname === "/art"
     const isTechPage = location.pathname === "/tech"
     const isInfoPage = location.pathname === "/info"
@@ -88,10 +88,9 @@ const Header = ({ delay = 0.4 }) => {
                     ease: [0.16, 1, 0.3, 1],
                 }}
             >
-                <motion.nav
-                    className="flex items-center justify-between text-xs md:text-base 4xl:text-2xl 6xl:text-4xl px-4 py-5 md:px-6 md:py-7 xl:px-5 xl:py-6 3xl:px-7 3xl:py-8 4xl:px-10 4xl:py-10 7xl:px-14 7xl:py-16
-                    uppercase font-roboto font-medium tracking-wide text-customWhite [&_a]:after:bg-customBlack dark:[&_a]:after:bg-customWhite"
-                >
+                <nav className="flex items-center justify-between text-xs md:text-base 4xl:text-2xl 6xl:text-4xl
+                        px-3 py-5 md:px-4 md:py-7 xl:px-4 xl:py-6 3xl:px-5 3xl:py-8 4xl:px-6 4xl:py-10 7xl:px-10 7xl:py-16
+                        uppercase font-roboto font-medium tracking-wide text-customWhite [&_a]:after:bg-customBlack dark:[&_a]:after:bg-customWhite">
                     <Link to="/" className="text-link font-neueHaasGrotesk font-bold lg:font-roboto lg:font-medium" onClick={closeMobileMenu}>
                         <EncryptionText text={"Joo Eon Park"} delay={0} duration={0.3} speed={20} />
                     </Link>
@@ -127,7 +126,7 @@ const Header = ({ delay = 0.4 }) => {
                     >
                         Menu
                     </button>
-                </motion.nav>
+                </nav>
             </motion.header>
 
             {/* Mobile Menu Overlay */}
