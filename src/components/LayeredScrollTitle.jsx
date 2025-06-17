@@ -3,6 +3,7 @@ import {motion, useScroll, useTransform, useAnimation, useMotionValueEvent} from
 import { Link } from "react-router-dom";
 import {MaskText} from "./textEffects/MaskText.jsx";
 import PropTypes from "prop-types";
+import {pickRandomColor} from "../Utils.jsx";
 
 const ScrollTitleSection = ({showEntryAnimation}) => {
     const { scrollY, scrollYProgress } = useScroll();
@@ -15,7 +16,6 @@ const ScrollTitleSection = ({showEntryAnimation}) => {
     const [sectionHeight, setSectionHeight] = useState(0);
     let lineHeightMultiplier = 0.86;
     const [linkColor, setLinkColor] = useState("#fafafa");
-    const colors = ["#ff800c", "#78e2ff", "#ba3bff", "#ff33a1", "#0dff86", "#6021ff", "#ffed5e"];
     // index 0~4, title text (multidisciplinary), index 5 subtitle text (artist & creative developer)
     const baseDelays = [3.1, 3.0, 2.9, 2.6, 3.5];
     const newDelays = [1.1, 1.0, 0.9, 0.6, 1.5];
@@ -88,12 +88,6 @@ const ScrollTitleSection = ({showEntryAnimation}) => {
     const titleToggle = useTransform(scrollYProgress, [0, 0.15], [1, 0], { clamp: true });
     const backgroundColor = useTransform(titleToggle, [0, 1], ["transparent", "#000000"]);
 
-    // Randomize subtitle color
-    const pickRandomColour = () => {
-        const random = colors[Math.floor(Math.random() * colors.length)];
-        setLinkColor(random);
-    };
-
     return (
         <motion.section
             className="sticky top-0 flex flex-col items-center mix-blend-difference text-customWhite pointer-events-none"
@@ -150,27 +144,33 @@ const ScrollTitleSection = ({showEntryAnimation}) => {
             >
                 <Link to="/art" className="outline-text-white">
                     <motion.span
-                        onHoverStart={pickRandomColour}
+                        onHoverStart={() => {
+                            const newColor = pickRandomColor();
+                            setLinkColor(newColor);
+                        }}
                         whileHover={{
                             color: linkColor,
                             opacity: 0.9,
-                            transition: { duration: 0.2 },
+                            transition: {duration: 0.2},
                         }}
-                        whileTap={{ scale: 0.9 }}
+                        whileTap={{scale: 0.9}}
                     >
                         Artist
                     </motion.span>
                 </Link>
                 &nbsp;&&nbsp;
-                <Link to="/tech" className="outline-text-white">
+                <Link to="/work" className="outline-text-white">
                     <motion.span
-                        onHoverStart={pickRandomColour}
+                        onHoverStart={() => {
+                            const newColor = pickRandomColor();
+                            setLinkColor(newColor);
+                        }}
                         whileHover={{
                             color: linkColor,
                             opacity: 0.9,
-                            transition: { duration: 0.2 },
+                            transition: {duration: 0.2},
                         }}
-                        whileTap={{ scale: 0.9 }}
+                        whileTap={{scale: 0.9}}
                     >
                         Creative Developer
                     </motion.span>
