@@ -97,7 +97,7 @@ const Index = () => {
                 <LayeredScrollTitle showEntryAnimation={showAnimation}/>
                 <section className="flex flex-col items-center">
                     <div className="w-11/12 xl:w-5/6 md:mb-14">
-                        <h3 className="w-fit outline-text-black dark:outline-text-white text-transparent font-nick pb-5
+                        <h3 className="w-fit outline-text-black dark:outline-text-lack dark:outline-text-white text-transparent font-nick pb-5
                             text-[3vw] leading-none">
                             About
                         </h3>
@@ -114,7 +114,7 @@ const Index = () => {
                 </section>
                 <section className="flex flex-col items-center">
                     <div className="w-11/12 xl:w-5/6 md:mb-14">
-                        <h3 className="w-fit outline-text-black dark:outline-text-white text-transparent font-nick pb-5
+                        <h3 className="w-fit outline-text-black dark:outline-text-lack dark:outline-text-white text-transparent font-nick pb-5
                             text-[3vw] leading-none">
                             Recent Work
                         </h3>
@@ -149,7 +149,7 @@ const Index = () => {
                 {/* Art scroll gallery, use this format once more web projects are added */}
                 {/*<section className="flex flex-col items-center">*/}
                 {/*    <div className="w-11/12 xl:w-5/6 md:mb-14">*/}
-                {/*        <h3 className="w-fit outline-text-black dark:outline-text-white text-transparent font-nick pb-5*/}
+                {/*        <h3 className="w-fit outline-text-black dark:outline-text-black dark:outline-text-white text-transparent font-nick pb-5*/}
                 {/*            text-[3vw] leading-none">*/}
                         {/*            Selected Works*/}
                         {/*        </h3>*/}
@@ -325,9 +325,9 @@ const Index = () => {
                         </section>
             </main>
             <div className="title-text text-[6vw]
-                text-center uppercase font-nick tracking-wider leading-tight outline-text-black dark:outline-text-white text-transparent
+                text-center uppercase font-nick tracking-wider leading-tight outline-text-black dark:outline-text-lack dark:outline-text-white text-transparent
                 pb-2 sm:pb-5 lg:pb-10">
-                <Link to="/art" className="outline-text-white">
+                <Link to="/art" className="outline-text-b lack dark:outline-text-white">
                     <motion.span
                         onHoverStart={() => {
                             const newColor = pickRandomColor();
@@ -344,7 +344,7 @@ const Index = () => {
                     </motion.span>
                 </Link>
                 <span>. </span>
-                <Link to="/work" className="outline-text-white">
+                <Link to="/work" className="outline-text-black dark:outline-text-white">
                     <motion.span
                         onHoverStart={() => {
                             const newColor = pickRandomColor();
@@ -361,7 +361,7 @@ const Index = () => {
                     </motion.span>
                 </Link>
                 <span>. </span>
-                <Link to="/tech" className="outline-text-white">
+                <Link to="/tech" className="outline-text-black dark:outline-text-white">
                     <motion.span
                         onHoverStart={() => {
                             const newColor = pickRandomColor();
