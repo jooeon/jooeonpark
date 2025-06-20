@@ -17,3 +17,8 @@ const colors = ["#ff800c", "#78e2ff", "#ba3bff", "#ff33a1", "#0dff86", "#6021ff"
 export function pickRandomColor() {
     return colors[Math.floor(Math.random() * colors.length)];
 };
+
+// convert to lowercase and remove special characters
+export function formatString(str) {
+    return str.toLowerCase().replace(/[^a-z0-9]/g, "") // Remove all non-alphanumeric characters
+}
