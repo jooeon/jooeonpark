@@ -11,6 +11,7 @@ const Header = ({ delay = 0.4 }) => {
     const isLandingPage = location.pathname === "/"
     const isWorkPage = location.pathname.startsWith("/project/") || location.pathname === "/work"
     const isArtPage = location.pathname.startsWith("/art/") || location.pathname === "/art"
+    const isInspoPage = location.pathname === "/inspo"
     const isTechPage = location.pathname === "/tech"
     const isInfoPage = location.pathname === "/info"
 
@@ -54,6 +55,10 @@ const Header = ({ delay = 0.4 }) => {
 
         if (path === "/art" && isArtPage) {
             return "text-link" // Art should be active when /art/*
+        }
+
+        if (path === "/inspo" && isInspoPage) {
+            return "text-link" // Inspo is active on /inspo
         }
 
         if (path === "/tech" && isTechPage) {
@@ -108,6 +113,11 @@ const Header = ({ delay = 0.4 }) => {
                             </NavLink>
                         </li>
                         <li>
+                            <NavLink to="/inspo" className={() => getLinkClasses("/inspo")}>
+                                Inspo
+                            </NavLink>
+                        </li>
+                        <li>
                             <NavLink to="/tech" className={() => getLinkClasses("/tech")}>
                                 Tech
                             </NavLink>
@@ -151,8 +161,9 @@ const Header = ({ delay = 0.4 }) => {
                             { to: "/", text: "Joo Eon Park", delay: 0.2 },
                             { to: "/work", text: "Work", delay: 0.25 },
                             { to: "/art", text: "Art", delay: 0.3 },
-                            { to: "/tech", text: "Tech", delay: 0.35 },
-                            { to: "/info", text: "Info", delay: 0.4 },
+                            { to: "/inspo", text: "Inspo", delay: 0.35 },
+                            { to: "/tech", text: "Tech", delay: 0.4 },
+                            { to: "/info", text: "Info", delay: 0.45 },
                         ].map((link, index) => {
                             const Component = index === 0 ? Link : NavLink
                             return (

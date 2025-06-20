@@ -6,7 +6,6 @@ import AsciiAnimation from "../components/AsciiAnim.jsx";
 import ParallaxText from "../components/textEffects/ParallaxText.jsx";
 import { isMobile } from "react-device-detect";
 import {Link} from "react-router-dom";
-import {MaskText} from "../components/textEffects/MaskText.jsx";
 import {useLenis} from "lenis/react";
 import {useEffect} from "react";
 import {scrollToTop} from "../Utils.jsx";

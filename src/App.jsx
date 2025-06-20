@@ -14,6 +14,7 @@ import PropTypes from "prop-types";
 import {useEffect} from "react";
 import Page404 from "./pages/Page404.jsx";
 import Work from "./pages/Work.jsx";
+import Inspo from "./pages/Inspo.jsx";
 
 // animations for entering and exiting each page
 const navVariants = {
@@ -37,6 +38,7 @@ const AnimatedRoutes = () => {
                 <Route path="/work" element={<PageWrapper><Work /></PageWrapper>} />
                 <Route path="/art" element={<PageWrapper><Art /></PageWrapper>} />
                 <Route path="/:type/:id" element={<PageWrapper><Project /></PageWrapper>} />
+                <Route path="/inspo" element={<PageWrapper><Inspo /></PageWrapper>} />
                 <Route path="/tech" element={<PageWrapper><Tech /></PageWrapper>} />
                 <Route path="/info" element={<PageWrapper><About /></PageWrapper>} />
                 <Route path="/404" element={<PageWrapper><Page404 /></PageWrapper>} />
