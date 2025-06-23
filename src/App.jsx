@@ -6,14 +6,14 @@ import {ReactLenis} from 'lenis/react'
 import Index from "./pages/Index.jsx";
 import Art from "./pages/Art.jsx";
 import Tech from "./pages/Tech.jsx";
-import Project from "./pages/Project.jsx";
+import ProjectDetail from "./pages/ProjectDetail.jsx";
 import About from "./pages/About.jsx";
 import Cursor from "./components/cursor/Cursor.jsx";
 import { CursorProvider } from "./components/cursor/CursorContext.jsx";
 import PropTypes from "prop-types";
 import {useEffect} from "react";
 import Page404 from "./pages/Page404.jsx";
-import Work from "./pages/Work.jsx";
+import Projects from "./pages/Projects.jsx";
 import Inspo from "./pages/Inspo.jsx";
 
 // animations for entering and exiting each page
@@ -35,9 +35,9 @@ const AnimatedRoutes = () => {
         <AnimatePresence mode="wait">
             <Routes location={location} key={location.pathname}>
                 <Route path="/" element={<PageWrapper><Index /></PageWrapper>} />
-                <Route path="/work" element={<PageWrapper><Work /></PageWrapper>} />
+                <Route path="/projects" element={<PageWrapper><Projects /></PageWrapper>} />
                 <Route path="/art" element={<PageWrapper><Art /></PageWrapper>} />
-                <Route path="/:type/:id" element={<PageWrapper><Project /></PageWrapper>} />
+                <Route path="/:type/:id" element={<PageWrapper><ProjectDetail /></PageWrapper>} />
                 <Route path="/inspo" element={<PageWrapper><Inspo /></PageWrapper>} />
                 <Route path="/tech" element={<PageWrapper><Tech /></PageWrapper>} />
                 <Route path="/info" element={<PageWrapper><About /></PageWrapper>} />

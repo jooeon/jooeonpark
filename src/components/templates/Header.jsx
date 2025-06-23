@@ -9,7 +9,7 @@ const Header = ({ delay = 0.4 }) => {
 
     const location = useLocation()
     const isLandingPage = location.pathname === "/"
-    const isWorkPage = location.pathname.startsWith("/project/") || location.pathname === "/work"
+    const isProjectsPage = location.pathname.startsWith("/projects/") || location.pathname === "/projects"
     const isArtPage = location.pathname.startsWith("/art/") || location.pathname === "/art"
     const isInspoPage = location.pathname === "/inspo"
     const isTechPage = location.pathname === "/tech"
@@ -49,8 +49,8 @@ const Header = ({ delay = 0.4 }) => {
             return "text-link"
         }
 
-        if (path === "/work" && isWorkPage) {
-            return "text-link" // Work should be active when /work/*
+        if (path === "/projects" && isProjectsPage) {
+            return "text-link" // projects should be active when /projects/*
         }
 
         if (path === "/art" && isArtPage) {
@@ -103,8 +103,8 @@ const Header = ({ delay = 0.4 }) => {
                     {/* Desktop Navigation */}
                     <ul className="hidden lg:flex gap-4 md:gap-10 3xl:gap-14 4xl:gap-20 6xl:gap-28">
                         <li>
-                            <NavLink to="/work" className={() => getLinkClasses("/work")}>
-                                Work
+                            <NavLink to="/projects" className={() => getLinkClasses("/projects")}>
+                                Projects
                             </NavLink>
                         </li>
                         <li>
@@ -159,7 +159,7 @@ const Header = ({ delay = 0.4 }) => {
                     <nav className="flex flex-col text-left gap-0.5 md:gap-1">
                         {[
                             { to: "/", text: "Joo Eon Park", delay: 0.2 },
-                            { to: "/work", text: "Work", delay: 0.25 },
+                            { to: "/projects", text: "Projects", delay: 0.25 },
                             { to: "/art", text: "Art", delay: 0.3 },
                             { to: "/inspo", text: "Inspo", delay: 0.35 },
                             { to: "/tech", text: "Tech", delay: 0.4 },
