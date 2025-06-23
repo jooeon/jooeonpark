@@ -53,10 +53,10 @@ const Tech = () => {
                             />
                         </h2>
                         <div className="flex flex-col gap-10 w-full xl:px-5
-                            [&_caption]:w-fit [&_caption]:mb-2 [&_caption]:7xl:mb-10 [&_caption]:text-start [&_caption]:font-extrabold
+                            [&_caption]:w-fit [&_caption]:mb-2 [&_caption]:7xl:mb-10 [&_caption]:text-start [&_caption]:font-neueHaasGrotesk [&_caption]:font-semibold
                             [&_tr]:border-b [&_tr]:text-customGray [&_tr]:border-customGrayLight [&_tr]:dark:border-customBlackLight
-                            [&_td]:pt-2 [&_td]:pb-1 [&_td]:7xl:pb-12 [&_td]:pl-3 [&_td]:md:pl-5 [&_td]:relative
-                            [&_td]:text-2xs [&_td]:md:text-sm [&_td]:lg:text-lg [&_td]:3xl:text-xl [&_td]:4xl:text-2xl [&_td]:5xl:text-3xl [&_td]:7xl:text-5xl">
+                            [&_td]:pt-2 [&_td]:pb-1 [&_td]:7xl:pb-12 [&_td]:pl-3 [&_td]:md:pl-5 [&_td]:relative [&_td]:font-roboto [&_td]:uppercase
+                            [&_td]:tracking-wide [&_td]:text-[1vh] [&_td]:xl:text-[1vw]">
                             <motion.table
                                 className="table-fixed w-full"
                                 initial={{opacity: 0, y: 20}}
@@ -177,7 +177,7 @@ const Tech = () => {
                             />
                         </h2>
                         <motion.div
-                            className="flex gap-10 md:gap-20 xl:px-5 text-customGray"
+                            className="flex gap-10 md:gap-20 xl:px-5 text-customGray font-roboto uppercase tracking-wide text-[1vh] xl:text-[1vw]"
                             initial={{opacity: 0, y: 20}}
                             animate={{opacity: 1, y: 0}}
                             transition={{

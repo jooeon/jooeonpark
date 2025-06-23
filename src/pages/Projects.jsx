@@ -8,7 +8,7 @@ import {scrollToTop} from "../Utils.jsx";
 import {useEffect} from "react";
 import TitleText from "../components/templates/TitleText.jsx";
 
-const Work = () => {
+const Projects = () => {
 
     // always begin page from top on load
     const lenis = useLenis();
@@ -23,7 +23,7 @@ const Work = () => {
             <main>
                 <section>
                     <TitleText phrase={"Projects"} />
-                    <div className="w-full px-3 md:px-4 xl:px-10 mt-20 xl:mt-32 font-neueHaasGrotesk font-bold lowercase
+                    <div className="w-full px-3 md:px-4 xl:px-10 mt-[10vh] md:mt-[14vh] xl:mt-[18vh] font-neueHaasGrotesk font-bold lowercase
                         flex flex-col justify-start items-center">
                         <motion.div
                             className="w-full xl:w-1/2"
@@ -37,7 +37,7 @@ const Work = () => {
                             }}
                         >
                             <div className="">
-                                <Link to="/project/atopol" className="w-full">
+                                <Link to="/projects/atopol" className="w-full">
                                     <img
                                         src="/images/thumbnails/atopol_thumb.jpg"
                                         alt="Allen_Topolski_portfolio_website_image"
@@ -77,4 +77,4 @@ const Work = () => {
 );
 };
 
-export default Work;
+export default Projects;

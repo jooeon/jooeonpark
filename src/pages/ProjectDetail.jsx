@@ -14,7 +14,7 @@ import Overlay from "../components/Overlay.jsx";
 
 // Template component for individual project pages
 // Reads data from data files in src/data and displays content with consistent format
-const Project = () => {
+const ProjectDetail = () => {
     const { type, id } = useParams(); // Extract the id from the URL
 
     // functions and variables for image overlay on click
@@ -38,7 +38,7 @@ const Project = () => {
     // choose the correct data array
     const items = type === "art"
         ? artData
-        : type === "project"
+        : type === "projects"
             ? projectData
             : null;
 
@@ -68,7 +68,7 @@ const Project = () => {
                     <section className="relative flex m-2 md:m-5 6xl:m-10 h-full pt-10 md:pt-20 3xl:pt-32 6xl:pt-40 7xl:pt-52">
                         {/* Image/Video content scroll section */}
                         <div className="flex flex-col gap-3 md:gap-6 6xl:gap-12 w-7/12">
-                            {/* Project title */}
+                            {/* ProjectDetail title */}
                             <motion.div
                                 className="mb-4 md:mb-10 xl:mb-20"
                                 initial={{ opacity: 0 }}
@@ -124,7 +124,7 @@ const Project = () => {
                         <motion.div
                             className="sticky top-0 grid md:grid-cols-[1fr_1fr_8fr_1fr] auto-rows-min
                                 gap-y-1 md:gap-y-3 lg:gap-y-4 3xl:gap-y-8 gap-x-2 md:gap-x-4 lg:gap-x-6 3xl:gap-x-10
-                                h-fit w-5/12 p-0 pt-16 md:p-5 md:pt-32 2xl:pt-48 4xl:pt-56 font-neueHaasGrotesk font-extrabold uppercase
+                                h-fit w-5/12 p-0 pt-16 md:p-5 md:pt-32 2xl:pt-48 4xl:pt-56 font-neueHaasGrotesk font-bold uppercase
                                 text-3xs xs:text-2xs md:text-lg lg:text-2xl xl:text-2xl 2xl:text-3xl 3xl:text-5xl 4xl:text-6xl 6xl:text-7xl 7xl:text-8xl"
                             initial={{opacity: 0, y: 20}}
                             animate={{opacity: 1, y: 0}}
@@ -214,8 +214,8 @@ const Project = () => {
 };
 
 // PropTypes validation
-Project.propTypes = {
+ProjectDetail.propTypes = {
     id: PropTypes.number,
 };
 
-export default Project;
+export default ProjectDetail;

@@ -103,7 +103,7 @@ const Inspo = () => {
             <Header />
             <main>
                 <section>
-                    <TitleText phrase={"Music"} className={"pl-3 md:pl-3.5 xl:pl-3.5 4xl:pl-8 7xl:pl-10"}/>
+                    <TitleText phrase={"inspo"} className={"pl-3 md:pl-3.5 xl:pl-3.5 4xl:pl-8 7xl:pl-10"}/>
                     <motion.div
                         className="flex justify-end"
                         initial={{ opacity: 0, y: 20 }}
@@ -115,7 +115,7 @@ const Inspo = () => {
                         }}
                     >
                         <div className="flex flex-col items-end w-5/6 md:w-1/2 pt-10 xl:pt-0
-                            font-neueHaasGrotesk font-bold lowercase text-[3vh] xl:text-[2.5vw] text-left">
+                            font-neueHaasGrotesk font-semibold lowercase text-[3vh] xl:text-[2.5vw] text-left">
                             <p className="leading-none w-11/12 xl:w-9/12">Songs & albums</p>
                             <p className="leading-none w-10/12 xl:w-7/12">recently in my queue.</p>
                         </div>
