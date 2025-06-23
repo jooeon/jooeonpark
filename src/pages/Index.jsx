@@ -104,7 +104,7 @@ const Index = () => {
                     </div>
                     <div
                         className="flex flex-col xl:flex-row gap-10 xl:gap-0 justify-start xl:justify-center items-center xl:items-start">
-                        <div className="w-11/12 xl:w-11/12 xl:px-24 font-extrabold font-neueHaasGrotesk uppercase mix-blend-difference text-customWhite [&_span]:lg:mb-2
+                        <div className="w-11/12 xl:w-11/12 xl:px-24 font-bold font-neueHaasGrotesk uppercase mix-blend-difference text-customWhite [&_span]:lg:mb-2
                             md:text-xl lg:text-3xl xl:text-4xl 2xl:text-6xl 3xl:text-6xl 5xl:text-8xl 6xl:text-9xl 7xl:text-11xl">
                             <ScrollTextAnim
                                 paragraph={"Artist and Creative Developer from Seoul, South Korea, specializing in Web Development, UI/UX Design, and Visual Arts.\nSeamlessly integrating design and technology to create experiences that are both highly functional and stylish."}
