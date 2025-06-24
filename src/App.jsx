@@ -15,6 +15,7 @@ import {useEffect} from "react";
 import Page404 from "./pages/Page404.jsx";
 import Projects from "./pages/Projects.jsx";
 import Inspo from "./pages/Inspo.jsx";
+import CitibikeProcess from "./components/CitibikeProcess.jsx";
 
 // animations for entering and exiting each page
 const navVariants = {
@@ -43,6 +44,7 @@ const AnimatedRoutes = () => {
                 <Route path="/info" element={<PageWrapper><About /></PageWrapper>} />
                 <Route path="/404" element={<PageWrapper><Page404 /></PageWrapper>} />
                 <Route path="/404" element={<Page404 />} />
+                <Route path="/citibike-process" element={<CitibikeProcess />} />
                 {/* catch‑all: redirect to /404 */}
                 <Route path="*" element={<Navigate to="/404" replace />} />
             </Routes>
