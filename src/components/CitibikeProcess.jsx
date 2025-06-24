@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight, ExternalLink } from 'lucide-react';
+import {Link} from "react-router-dom";
 
 const CitibikeProcess = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -493,8 +494,14 @@ const CitibikeProcess = () => {
 
                   {/* Attribution text below button */}
                   <p className="text-[1.5vw] text-gray-500">
-                    This presentation was built with Claude and bolt.new
+                    This presentation was built with Claude and Bolt.new
                   </p>
+
+                  <Link to={"/"}
+                        className="text-link after:bg-customBlack dark:after:bg-customWhite text-[1.5vw]">
+                    jooeonpark.com
+                  </Link>
+
                 </div>
               </div>
             </div>
