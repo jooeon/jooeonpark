@@ -61,7 +61,7 @@ export const items = [
         externalLink: "https://www.cdc.gov/tobacco/campaign/tips/quit-smoking/quitline/index.html",
         externalLinkLabel: "1-800-784-8669",
         hasAnimation: false,
-        animationDelay: 0,
+        animationDelay: 0.1,
     },
     {
         id: "running-in-a-dream",
@@ -87,7 +87,7 @@ export const items = [
         padding: "pb-10 ",
         link: "/art/running-in-a-dream",
         hasAnimation: true,
-        animationDelay: 0.2,
+        animationDelay: 0.3,
     },
     {
         id: "steps",
@@ -160,7 +160,7 @@ export const items = [
         padding: "pb-10 ",
         link: "/art/ocular-prosthetic",
         hasAnimation: true,
-        animationDelay: 0.1,
+        animationDelay: 0.2,
     },
     {
         id: "transitions",

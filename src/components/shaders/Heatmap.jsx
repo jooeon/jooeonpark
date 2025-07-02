@@ -133,7 +133,7 @@ void main() {
 }
 `;
 
-const ShimmerShader = () => {
+const HeatmapShader = () => {
     const canvasRef = useRef(null);
     const animationRef = useRef(null);
     const mousePosRef = useRef({ x: 0, y: 0 });
@@ -281,4 +281,4 @@ const ShimmerShader = () => {
     );
 };
 
-export default ShimmerShader;
+export default HeatmapShader;

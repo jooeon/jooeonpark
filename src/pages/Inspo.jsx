@@ -8,7 +8,9 @@ import CustomTable from "../components/templates/CustomTable.jsx";
 import {motion} from "framer-motion";
 import TopographicShader from "../components/shaders/Topographic.jsx";
 import HalftoneShader from "../components/shaders/Halftone.jsx";
-import ShimmerShader from "../components/shaders/Shimmer.jsx";
+import HeatmapShader from "../components/shaders/Heatmap.jsx";
+import LiquidMetalShader from "../components/shaders/LiquidGrain.jsx";
+import LiquidGrainShader from "../components/shaders/LiquidGrain.jsx";
 
 const Inspo = () => {
     // always begin page from top on load
@@ -105,7 +107,7 @@ const Inspo = () => {
         <>
             <Header />
             <main>
-                <TitleText phrase={"inspo"} className={"pl-3 md:pl-3.5 xl:pl-3.5 4xl:pl-8 7xl:pl-10"}/>
+                <TitleText phrase={"Inspiration"} className={"pl-3 md:pl-3.5 xl:pl-3.5 4xl:pl-8 7xl:pl-10"}/>
                 <section>
                     <motion.div
                         className="flex justify-end"
@@ -143,8 +145,9 @@ const Inspo = () => {
                             ease: "easeOut",
                         }}
                     >
-                        <div className="font-neueHaasGrotesk font-semibold lowercase text-[6vh] xl:text-[4.5vw]">
-                            <p className="leading-none">visual experiments</p>
+                        <div className="flex items-baseline gap-[3vw] xl:gap-[1vw] font-neueHaasGrotesk font-semibold lowercase">
+                            <p className="leading-none text-[6vh] xl:text-[4.5vw]">Visual Experiments</p>
+                            <p className="leading-none text-[2vh] xl:text-[1vw]">/WebGL</p>
                         </div>
                     </motion.div>
                     <div className="flex flex-wrap justify-center gap-3 md:gap-3.5 xl:gap-[3vw]">
@@ -160,7 +163,12 @@ const Inspo = () => {
                         </div>
                         <div className="hover-shader aspect-square overflow-hidden w-full xl:w-5/12">
                             <div className="inset-0 w-full xl:w-[50vw] h-full xl:h-[50vw]">
-                                <ShimmerShader/>
+                                <HeatmapShader/>
+                            </div>
+                        </div>
+                        <div className="hover-shader aspect-square overflow-hidden w-full xl:w-5/12">
+                            <div className="inset-0 w-full xl:w-[50vw] h-full xl:h-[50vw]">
+                                <LiquidGrainShader/>
                             </div>
                         </div>
                     </div>
