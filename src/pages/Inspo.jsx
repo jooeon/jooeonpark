@@ -154,7 +154,7 @@ const Inspo = () => {
                             </div>
                         </div>
                         <div className="hover-shader aspect-square overflow-hidden w-full xl:w-5/12">
-                            <div className="inset-0 w-full xl:w-[50vw] h-full xl:h-[50vw]">
+                            <div className="inset-0 w-[200vw] xl:w-[50vw] h-[200vw] xl:h-[50vw]">
                                 <TopographicShader/>
                             </div>
                         </div>
