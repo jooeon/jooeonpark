@@ -150,23 +150,23 @@ const Inspo = () => {
                             <p className="leading-none text-[2vh] xl:text-[1vw]">/WebGL</p>
                         </div>
                     </motion.div>
-                    <div className="flex flex-wrap justify-center gap-3 md:gap-3.5 xl:gap-[3vw]">
-                        <div className="hover-shader aspect-square overflow-hidden w-full xl:w-5/12">
+                    <div className="flex flex-wrap justify-center gap-3 md:gap-3.5 xl:gap-[2vw]">
+                        <div className="hover-shader aspect-square overflow-hidden w-full xl:w-[47vw]">
                             <div className="inset-0 w-full xl:w-[50vw] h-full xl:h-[50vw]">
                                 <HalftoneShader/>
                             </div>
                         </div>
-                        <div className="hover-shader aspect-square overflow-hidden w-full xl:w-5/12">
+                        <div className="hover-shader aspect-square overflow-hidden w-full xl:w-[47vw]">
                             <div className="inset-0 w-[200vw] xl:w-[50vw] h-[200vw] xl:h-[50vw]">
                                 <TopographicShader/>
                             </div>
                         </div>
-                        <div className="hover-shader aspect-square overflow-hidden w-full xl:w-5/12">
+                        <div className="hover-shader aspect-square overflow-hidden w-full xl:w-[47vw]">
                             <div className="inset-0 w-full xl:w-[50vw] h-full xl:h-[50vw]">
                                 <HeatmapShader/>
                             </div>
                         </div>
-                        <div className="hover-shader aspect-square overflow-hidden w-full xl:w-5/12">
+                        <div className="hover-shader aspect-square overflow-hidden w-full xl:w-[47vw]">
                             <div className="inset-0 w-full xl:w-[50vw] h-full xl:h-[50vw]">
                                 <LiquidGrainShader/>
                             </div>
