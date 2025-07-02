@@ -8,6 +8,7 @@ export const CursorProvider = ({ children }) => {
     const [isLinkHovered, setIsLinkHovered] = useState(false)
     const [isContentHovered, setIsContentHovered] = useState(false)
     const [isInteractiveHovered, setIsInteractiveHovered] = useState(false)
+    const [isShaderHovered, setIsShaderHovered] = useState(false)
     const [isClicked, setIsClicked] = useState(false)
     const [leftViewport, setLeftViewport] = useState(false)
     const [isAlbumHovered, setIsAlbumHovered] = useState(false)
@@ -37,6 +38,8 @@ export const CursorProvider = ({ children }) => {
                 setIsLinkHovered(true)
             } else if (e.target.closest("#ascii-shape")) {
                 setIsInteractiveHovered(true)
+            } else if (e.target.closest(".hover-shader")) {
+                setIsShaderHovered(true);
             }
         }
         // Mouse leaves the target elements
@@ -44,6 +47,7 @@ export const CursorProvider = ({ children }) => {
             setIsLinkHovered(false)
             setIsContentHovered(false)
             setIsInteractiveHovered(false)
+            setIsShaderHovered(false)
         }
 
         // Mouse click event
@@ -88,6 +92,7 @@ export const CursorProvider = ({ children }) => {
         isLinkHovered,
         isContentHovered,
         isInteractiveHovered,
+        isShaderHovered,
         isClicked,
         leftViewport,
         isAlbumHovered,

@@ -1,11 +1,14 @@
 import Header from "../components/templates/Header.jsx"
 import Footer from "../components/templates/Footer.jsx"
 import { useLenis } from "lenis/react"
-import { scrollToTop } from "../Utils.jsx"
+import {checkWebGL, scrollToTop} from "../Utils.jsx"
 import { useEffect } from "react"
 import TitleText from "../components/templates/TitleText.jsx"
 import CustomTable from "../components/templates/CustomTable.jsx";
 import {motion} from "framer-motion";
+import TopographicShader from "../components/shaders/Topographic.jsx";
+import HalftoneShader from "../components/shaders/Halftone.jsx";
+import ShimmerShader from "../components/shaders/Shimmer.jsx";
 
 const Inspo = () => {
     // always begin page from top on load
@@ -102,20 +105,20 @@ const Inspo = () => {
         <>
             <Header />
             <main>
+                <TitleText phrase={"inspo"} className={"pl-3 md:pl-3.5 xl:pl-3.5 4xl:pl-8 7xl:pl-10"}/>
                 <section>
-                    <TitleText phrase={"inspo"} className={"pl-3 md:pl-3.5 xl:pl-3.5 4xl:pl-8 7xl:pl-10"}/>
                     <motion.div
                         className="flex justify-end"
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
+                        initial={{opacity: 0, y: 20}}
+                        animate={{opacity: 1, y: 0}}
                         transition={{
                             delay: 1.2,
                             duration: 0.3,
                             ease: "easeOut",
                         }}
                     >
-                        <div className="flex flex-col items-end w-5/6 md:w-1/2 pt-10 xl:pt-0
-                            font-neueHaasGrotesk font-semibold lowercase text-[3vh] xl:text-[2.5vw] text-left">
+                        <div className="flex flex-col items-end w-3/4 md:w-7/12 lg:w-2/3 xl:w-1/2 pt-10 xl:pt-0 mr-2 xl:mr-0
+                            font-neueHaasGrotesk font-semibold lowercase text-[3vh] md:text-[4vh] xl:text-[2.5vw] text-left">
                             <p className="leading-none w-11/12 xl:w-9/12">Songs & albums</p>
                             <p className="leading-none w-10/12 xl:w-7/12">recently in my queue.</p>
                         </div>
@@ -128,8 +131,43 @@ const Inspo = () => {
                         <CustomTable data={musicData} headings={tableHeadings} imageField="albumArt" enableCursorHover={true} />
                     </div>
                 </section>
+                { checkWebGL() &&
+                <section className="mt-[8vh] mb-[2vh] xl:mb-[4vh] p-3 md:p-3.5 xl:p-3.5 4xl:p-8 7xl:p-10">
+                    <motion.div
+                        className="mb-[8vh]"
+                        initial={{opacity: 0, y: 20}}
+                        animate={{opacity: 1, y: 0}}
+                        transition={{
+                            delay: 1.2,
+                            duration: 0.3,
+                            ease: "easeOut",
+                        }}
+                    >
+                        <div className="font-neueHaasGrotesk font-semibold lowercase text-[6vh] xl:text-[4.5vw]">
+                            <p className="leading-none">visual experiments</p>
+                        </div>
+                    </motion.div>
+                    <div className="flex flex-wrap justify-center gap-3 md:gap-3.5 xl:gap-[3vw]">
+                        <div className="hover-shader aspect-square overflow-hidden w-full xl:w-5/12">
+                            <div className="inset-0 w-full xl:w-[50vw] h-full xl:h-[50vw]">
+                                <HalftoneShader/>
+                            </div>
+                        </div>
+                        <div className="hover-shader aspect-square overflow-hidden w-full xl:w-5/12">
+                            <div className="inset-0 w-full xl:w-[50vw] h-full xl:h-[50vw]">
+                                <TopographicShader/>
+                            </div>
+                        </div>
+                        <div className="hover-shader aspect-square overflow-hidden w-full xl:w-5/12">
+                            <div className="inset-0 w-full xl:w-[50vw] h-full xl:h-[50vw]">
+                                <ShimmerShader/>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                }
             </main>
-            <Footer />
+            <Footer/>
         </>
     )
 }

@@ -8,21 +8,10 @@ import { isMobile } from "react-device-detect";
 import {Link} from "react-router-dom";
 import {useLenis} from "lenis/react";
 import {useEffect} from "react";
-import {scrollToTop} from "../Utils.jsx";
+import {checkWebGL, scrollToTop} from "../Utils.jsx";
 import TitleText from "../components/templates/TitleText.jsx";
 
 const Tech = () => {
-
-    // for checking if WebGL is compatible to browser
-    // return true if
-    const checkWebGL = () => {
-        try {
-            const canvas = document.createElement("canvas");
-            return !!(window.WebGLRenderingContext && canvas.getContext("webgl"));
-        } catch {
-            return false;
-        }
-    };
 
     // get absolute scroll position in pixels
     const { scrollY } = useScroll();
@@ -54,7 +43,7 @@ const Tech = () => {
                         </h2>
                         <div className="flex flex-col gap-10 w-full xl:px-5
                             [&_caption]:w-fit [&_caption]:mb-2 [&_caption]:7xl:mb-10 [&_caption]:text-start [&_caption]:font-neueHaasGrotesk [&_caption]:font-semibold
-                            [&_tr]:border-b [&_tr]:text-customGray [&_tr]:border-customGrayLight [&_tr]:dark:border-customBlackLight
+                            {/*[&_tr]:border-b [&_tr]:text-customGray [&_tr]:border-customGrayLight [&_tr]:dark:border-customBlackLight*/}
                             [&_td]:pt-2 [&_td]:pb-1 [&_td]:7xl:pb-12 [&_td]:pl-3 [&_td]:md:pl-5 [&_td]:relative [&_td]:font-roboto [&_td]:uppercase
                             [&_td]:tracking-wide [&_td]:text-[1vh] [&_td]:xl:text-[1vw]">
                             <motion.table

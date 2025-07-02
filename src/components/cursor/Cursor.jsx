@@ -12,6 +12,7 @@ const Cursor = () => {
         isLinkHovered,
         isContentHovered,
         isInteractiveHovered,
+        isShaderHovered,
         isClicked,
         leftViewport,
         isAlbumHovered,
@@ -97,6 +98,7 @@ const Cursor = () => {
             backgroundColor: cursorColor,
             transition: { duration: 0.2, ease: "easeIn" },
         },
+        isShaderHovered: { scale: 1, opacity: 0, transition: { duration: 0.2, ease: "easeOut" } },
         albumHover: {
             scale: isSmallScreen ? 4.0 : isLargeScreen ? 18.0 : 10.0,
             opacity: 1,
@@ -111,6 +113,7 @@ const Cursor = () => {
         if (isLinkHovered) return "linkHover"
         if (isContentHovered) return "contentHover"
         if (isInteractiveHovered) return "interactiveHover"
+        if (isShaderHovered) return "shaderHover";
         if (isClicked) return "click"
         if (leftViewport) return "leftViewport"
         return "default"

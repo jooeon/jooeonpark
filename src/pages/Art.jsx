@@ -45,7 +45,7 @@ const Art = () => {
                                         transition: {
                                             duration: 0.5,
                                             delay: 0.7 + item.animationDelay,
-                                            ease: "easeInOut",
+                                            ease: "easeOut",
                                         },
                                     }
                                     : {};

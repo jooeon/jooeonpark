@@ -22,3 +22,14 @@ export function pickRandomColor() {
 export function formatString(str) {
     return str.toLowerCase().replace(/[^a-z0-9]/g, "") // Remove all non-alphanumeric characters
 }
+
+// for checking if WebGL is compatible to browser
+// return true if
+export function checkWebGL() {
+    try {
+        const canvas = document.createElement("canvas");
+        return !!(window.WebGLRenderingContext && canvas.getContext("webgl"));
+    } catch {
+        return false;
+    }
+};

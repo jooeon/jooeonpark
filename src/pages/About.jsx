@@ -28,14 +28,14 @@ const About = () => {
 
     const aboutData = [
         "I am an artist & creative developer specializing in Web Development, UI/UX Design, and Visual Arts.",
-        "I build modern, stylish websites using industry-leading technologies to create stunning first impressions that are designed to last.",
+        "I build modern, stylish websites using industry-leading technologies, delivering stunning first impressions that are designed to last.",
         "Don't hesitate to reach out for project inquiries."
     ];
 
     const skillsData = {
-        DESIGN: ["UI / UX", "RESPONSIVENESS", "ACCESSIBILITY", "WIREFRAMING", "LOGO DESIGN"],
-        TECHNOLOGY: ["FRONT-END DEVELOPMENT", "BACK-END DEVELOPMENT", "CMS INTEGRATION", "CREATIVE CODING", "3D"],
-        "TOOLS & SOFTWARE": ["ADOBE CREATIVE CLOUD", "FIGMA"],
+        DESIGN: ["UI / UX", "Responsiveness", "Accessibility", "Wireframing", "Logo Design"],
+        TECHNOLOGY: ["Front-end Development", "Back-end Development", "CMS Integration", "Creative Coding", "3D"],
+        "TOOLS & SOFTWARE": ["Adobe Creative Cloud", "Figma", "Generative AI"],
     }
 
     const linksData = [
