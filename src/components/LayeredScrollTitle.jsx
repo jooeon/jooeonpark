@@ -160,7 +160,7 @@ const ScrollTitleSection = ({showEntryAnimation}) => {
                     </motion.span>
                 </Link>
                 &nbsp;&&nbsp;
-                <Link to="/work" className="outline-text-white">
+                <Link to="/projects" className="outline-text-white">
                     <motion.span
                         onHoverStart={() => {
                             const newColor = pickRandomColor();

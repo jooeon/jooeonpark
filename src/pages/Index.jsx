@@ -344,7 +344,7 @@ const Index = () => {
                     </motion.span>
                 </Link>
                 <span>. </span>
-                <Link to="/work" className="outline-text-black dark:outline-text-white">
+                <Link to="/projects" className="outline-text-black dark:outline-text-white">
                     <motion.span
                         onHoverStart={() => {
                             const newColor = pickRandomColor();
