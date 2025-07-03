@@ -74,7 +74,7 @@ const About = () => {
                                 Info
                             </h3>
                             <div
-                                className="flex flex-col gap-[4vh] font-neueHaasGrotesk font-semibold text-white text-[2vh] xl:text-[2.5vw] leading-tight">
+                                className="flex flex-col gap-[4vh] font-neueHaasGrotesk font-semibold text-[2vh] xl:text-[2.5vw] leading-tight">
                                 {aboutData.map((item, index) => (
                                     <motion.p
                                         key={index}

@@ -29,6 +29,11 @@ body a {
     src: url('/fonts/nickelodeon2001headline.ttf') format('truetype');
 }
 
+@font-face {
+    font-family: Switzer-Variable;
+    src: url('/fonts/Switzer-Variable.ttf') format('truetype');
+}
+
 /* Links styling  */
 
 a.text-link {

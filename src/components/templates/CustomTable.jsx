@@ -43,7 +43,7 @@ const CustomTable = ({
             <table className="w-full hidden xl:table">
                 <thead>
                     <motion.tr
-                        className="bg-black text-white text-left lowercase text-[0.75vh] xl:text-[1vw]
+                        className="text-left lowercase text-[0.75vh] xl:text-[1vw]
                             [&_th]:px-3.5 [&_th]:3xl:px-5 [&_th]:4xl:px-7 [&_th]:7xl:px-10
                             [&_th]:pb-[3.5vh]"
                         initial={{ opacity: 0, y: 20 }}
@@ -63,7 +63,7 @@ const CustomTable = ({
                 {data.map((item, index) => (
                     <motion.tr
                         key={index}
-                        className="bg-black text-white hover:bg-white hover:text-black
+                        className="hover:bg-customBlack hover:text-customWhite dark:hover:bg-customWhite dark:hover:text-customBlack
                                 transition-colors duration-200
                                 [&_td]:pointer-events-auto [&_td]:leading-none
                                 [&_td]:py-1 [&_td]:xl:py-3 [&_td]:3xl:py-4 [&_td]:4xl:py-5 [&_td]:7xl:py-8
@@ -92,7 +92,7 @@ const CustomTable = ({
                 {data.map((item, index) => (
                     <motion.div
                         key={index}
-                        className="bg-black text-white hover:bg-white hover:text-black
+                        className="hover:bg-customBlack hover:text-customWhite dark:hover:bg-customWhite dark:hover:text-customBlack
                             transition-colors duration-200
                             px-3.5 py-3 md:py-4 xl:mb-2 pointer-events-auto"
                         initial={{ opacity: 0, y: 20 }}

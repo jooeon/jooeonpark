@@ -5,13 +5,14 @@ export default {
   theme: {
 	fontFamily: {
 		// Google fonts
-		'outfit': ['Outfit', 'Arial', 'system-ui', 'sans-serif'],
-		'roboto': ['Roboto Mono', 'system-ui', 'monospace'],
-		'raleway': ['Raleway', 'Outfit', 'Arial', 'system-ui', 'sans-serif'],
+		'roboto': ['Roboto Mono', 'monospace'],
+		'outfit': ['Outfit', 'Arial', 'sans-serif'],
+		'raleway': ['Raleway', 'Outfit', 'Arial', 'sans-serif'],
 		// Adobe fonts
-		'neueHaasGrotesk': ['neue-haas-grotesk-display', 'Arial', 'sans-serif'],
+		'neueHaasGrotesk': ['neue-haas-grotesk-display', 'Switzer-Variable', 'Arial', 'sans-serif'],
 		// File
-		'nick': ['Nickelodeon2001', 'Outfit', 'Arial', 'system-ui', 'sans-serif'],
+		'nick': ['Nickelodeon2001', 'Outfit', 'Arial', 'sans-serif'],
+		'switzer': ['Switzer-Variable', 'neue-haas-grotesk-display', 'Arial', 'sans-serif'],
 	},
   	extend: {
 		width: {

@@ -34,7 +34,11 @@ export const CursorProvider = ({ children }) => {
                 e.target.closest("video")
             ) {
                 setIsContentHovered(true)
-            } else if (e.target.closest("a") || e.target.closest("button")) {
+            } else if (
+                e.target.closest("a") ||
+                e.target.closest("button") ||
+                e.target.closest(".interact-shader")
+            ) {
                 setIsLinkHovered(true)
             } else if (e.target.closest("#ascii-shape")) {
                 setIsInteractiveHovered(true)

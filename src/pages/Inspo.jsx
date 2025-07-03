@@ -9,8 +9,8 @@ import {motion} from "framer-motion";
 import TopographicShader from "../components/shaders/Topographic.jsx";
 import HalftoneShader from "../components/shaders/Halftone.jsx";
 import HeatmapShader from "../components/shaders/Heatmap.jsx";
-import LiquidMetalShader from "../components/shaders/LiquidGrain.jsx";
 import LiquidGrainShader from "../components/shaders/LiquidGrain.jsx";
+import RandomImageHalftone from "../components/RandomImageHalftone.jsx";
 
 const Inspo = () => {
     // always begin page from top on load
@@ -171,6 +171,12 @@ const Inspo = () => {
                                 <LiquidGrainShader/>
                             </div>
                         </div>
+                        {/*<div className="hover-shader aspect-square overflow-hidden w-full xl:w-[47vw]">*/}
+                        {/*    <div className="inset-0 w-full h-full">*/}
+                        {/*        <HalftoneOverlayShader imageUrl="images/thumbnails/album_covers/fka-twigs_eusexua.jpg"/>*/}
+                        {/*    </div>*/}
+                        {/*</div>*/}
+                        <RandomImageHalftone />
                     </div>
                 </section>
                 }
