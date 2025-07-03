@@ -181,7 +181,7 @@ const RandomImageHalftone = () => {
                         rel="noopener noreferrer"
                         className="hover:opacity-80 transition-opacity"
                     >
-                        {imageTitle.replace('File:', '').replace(/\.(jpg|png|jpeg|gif|webp)$/i, '')}
+                        {imageTitle.replace('File:', '').replace(/\.(jpg|png|jpeg|gif|webp)$/i, '')} ↗
                     </a>
                 )}
             </div>
