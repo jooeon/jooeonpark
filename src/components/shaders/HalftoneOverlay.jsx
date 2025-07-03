@@ -58,7 +58,7 @@ const halftoneImageFragmentShader = `
     vec2 mouse = u_mouse / u_resolution;
     
     // Fixed grid size for dots
-    float gridSize = 60.0; // Adjust for dot density
+    float gridSize = 80.0; // Adjust for dot density
     vec2 grid = fract(st * gridSize);
     vec2 gridIndex = floor(st * gridSize);
     

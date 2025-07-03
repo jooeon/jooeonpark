@@ -7,7 +7,7 @@ import TitleText from "../components/templates/TitleText.jsx"
 import CustomTable from "../components/templates/CustomTable.jsx";
 import {motion} from "framer-motion";
 import TopographicShader from "../components/shaders/Topographic.jsx";
-import HalftoneShader from "../components/shaders/Halftone.jsx";
+import HalftoneWavesShader from "../components/shaders/HalftoneWaves.jsx";
 import HeatmapShader from "../components/shaders/Heatmap.jsx";
 import LiquidGrainShader from "../components/shaders/LiquidGrain.jsx";
 import RandomImageHalftone from "../components/RandomImageHalftone.jsx";
@@ -153,7 +153,7 @@ const Inspo = () => {
                     <div className="flex flex-wrap justify-center gap-3 md:gap-3.5 xl:gap-[2vw]">
                         <div className="hover-shader aspect-square overflow-hidden w-full xl:w-[47vw]">
                             <div className="inset-0 w-full xl:w-[50vw] h-full xl:h-[50vw]">
-                                <HalftoneShader/>
+                                <HalftoneWavesShader/>
                             </div>
                         </div>
                         <div className="hover-shader aspect-square overflow-hidden w-full xl:w-[47vw]">

@@ -216,7 +216,7 @@ const RandomImageHalftone = () => {
                 className="hidden xl:flex absolute top-0 left-[calc(50%+23.5vw)] h-full w-[calc(50%-23.5vw)]
                     flex-col justify-center items-center xl:px-[2vw]
                     font-roboto font-light uppercase tracking-wide xl:text-[1vw] leading-relaxed">
-                <p>This interactive visualization explores Wikipedia&#39;s vast collection of 7,017,489 English articles
+                <p>This interactive visualization explores Wikipedia&#39;s vast collection of 7,017,561 English articles
                     (as of July 3, 2025)
                     <a
                         href={"https://en.wikipedia.org/wiki/Wikipedia:Size_of_Wikipedia"}

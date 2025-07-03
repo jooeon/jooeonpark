@@ -93,7 +93,7 @@ const halftoneFragmentShader = `
   }
 `;
 
-const HalftoneShader = () => {
+const HalftoneWavesShader = () => {
     const canvasRef = useRef(null);
     const animationRef = useRef(null);
     const mousePosRef = useRef({ x: -1000, y: -1000 }); // Start far off screen
@@ -248,4 +248,4 @@ const HalftoneShader = () => {
     );
 };
 
-export default HalftoneShader;
+export default HalftoneWavesShader;
