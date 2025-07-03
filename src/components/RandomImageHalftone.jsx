@@ -105,17 +105,17 @@ const RandomImageHalftone = () => {
         setLoading(true);
 
         // Try category method first
-        let result = await getRandomCategoryImage();
-        if (result) {
-            setImageUrl(result.url);
-            setImageTitle(result.title);
-            setImageSource('commons');
-            setLoading(false);
-            return;
-        }
+        // let result = await getRandomCategoryImage();
+        // if (result) {
+        //     setImageUrl(result.url);
+        //     setImageTitle(result.title);
+        //     setImageSource('commons');
+        //     setLoading(false);
+        //     return;
+        // }
 
         // Fallback to random article
-        result = await getRandomWikipediaImage();
+        let result = await getRandomWikipediaImage();
         if (result) {
             setImageUrl(result.url);
             setImageTitle(result.title);
@@ -158,13 +158,13 @@ const RandomImageHalftone = () => {
                         </div>
                     )}
 
-                    <button
-                        onClick={fetchRandomImage}
-                        disabled={loading}
-                        className="absolute hover:opacity-70 transition-opacity disabled:opacity-50"
-                    >
-                        {loading ? 'Loading...' : 'Next Random Image'}
-                    </button>
+                    {/*<button*/}
+                    {/*    onClick={fetchRandomImage}*/}
+                    {/*    disabled={loading}*/}
+                    {/*    className="hover:opacity-70 transition-opacity disabled:opacity-50"*/}
+                    {/*>*/}
+                    {/*    {loading ? 'Loading...' : 'Next Random Image'}*/}
+                    {/*</button>*/}
                 </div>
             </div>
 

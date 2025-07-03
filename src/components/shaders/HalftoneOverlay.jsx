@@ -1,4 +1,4 @@
-import { useRef, useEffect, useState } from 'react';
+import { useRef, useEffect } from 'react';
 import PropTypes from "prop-types";
 
 // Vertex shader - positions vertices
@@ -58,7 +58,7 @@ const halftoneImageFragmentShader = `
     vec2 mouse = u_mouse / u_resolution;
     
     // Fixed grid size for dots
-    float gridSize = 80.0; // Adjust for dot density
+    float gridSize = 60.0; // Adjust for dot density
     vec2 grid = fract(st * gridSize);
     vec2 gridIndex = floor(st * gridSize);
     
@@ -86,16 +86,16 @@ const halftoneImageFragmentShader = `
     float distFromCenter = distance(st, center);
     
     // Multiple wave sources for complex patterns
-    float wave1 = sin(u_time * 2.0 + distFromCenter * 15.0) * 0.15;
-    float wave2 = sin(u_time * 1.5 + st.x * 10.0) * 0.1;
-    float wave3 = sin(u_time * 1.8 + st.y * 12.0) * 0.1;
-    float wave4 = sin(u_time * 2.5 + (st.x + st.y) * 8.0) * 0.08;
+    float wave1 = sin(u_time * 1.8 + distFromCenter * 15.0) * 0.11;
+    float wave2 = sin(u_time * 1.3 + st.x * 10.0) * 0.06;
+    float wave3 = sin(u_time * 1.6 + st.y * 12.0) * 0.06;
+    float wave4 = sin(u_time * 2.3 + (st.x + st.y) * 8.0) * 0.04;
     
     // Combine waves for complex breathing pattern
     float breathingEffect = 1.0 + wave1 + wave2 + wave3 + wave4;
     
     // Clamp the breathing effect to prevent negative or extreme values
-    breathingEffect = clamp(breathingEffect, 0.5, 1.5);
+    breathingEffect = clamp(breathingEffect, 0.6, 1.5);
     
     // Apply breathing effect to radius
     radius *= breathingEffect;
@@ -124,8 +124,55 @@ const HalftoneOverlayShader = ({ imageUrl }) => {
     const canvasRef = useRef(null);
     const animationRef = useRef(null);
     const mousePosRef = useRef({ x: 0, y: 0 });
-    const [texture, setTexture] = useState(null);
-    const [hasImage, setHasImage] = useState(false);
+    const glRef = useRef(null);
+    const programRef = useRef(null);
+    const textureRef = useRef(null);
+    const startTimeRef = useRef(Date.now());
+    const hasImageRef = useRef(false); // Replaces useState for immediate effect
+
+    // Cleanup function for WebGL resources
+    const cleanupWebGL = () => {
+        const gl = glRef.current;
+        if (!gl) return;
+
+        // Delete texture if it exists
+        if (textureRef.current) gl.deleteTexture(textureRef.current);
+
+        // Delete program if it exists
+        if (programRef.current) gl.deleteProgram(programRef.current);
+
+        // Cancel animation frame
+        if (animationRef.current) cancelAnimationFrame(animationRef.current);
+    };
+
+    // Load image and create texture
+    const loadImageTexture = (gl, url) => {
+        if (!url) {
+            if (textureRef.current) {
+                gl.deleteTexture(textureRef.current);
+                textureRef.current = null;
+            }
+            hasImageRef.current = false;
+            return;
+        }
+
+        const image = new Image();
+        image.crossOrigin = 'anonymous';
+        image.onload = () => {
+            const newTexture = gl.createTexture();
+            gl.bindTexture(gl.TEXTURE_2D, newTexture);
+            gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, image);
+            gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE);
+            gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
+            gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR);
+            gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.LINEAR);
+
+            if (textureRef.current) gl.deleteTexture(textureRef.current);
+            textureRef.current = newTexture;
+            hasImageRef.current = true;
+        };
+        image.src = url;
+    };
 
     useEffect(() => {
         const canvas = canvasRef.current;
@@ -136,28 +183,7 @@ const HalftoneOverlayShader = ({ imageUrl }) => {
             return;
         }
 
-        // Load image if provided
-        if (imageUrl) {
-            const image = new Image();
-            image.crossOrigin = 'anonymous'; // Enable CORS
-            image.onload = () => {
-                const texture = gl.createTexture();
-                gl.bindTexture(gl.TEXTURE_2D, texture);
-
-                // Upload image to texture
-                gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, image);
-
-                // Set texture parameters
-                gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE);
-                gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
-                gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR);
-                gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.LINEAR);
-
-                setTexture(texture);
-                setHasImage(true);
-            };
-            image.src = imageUrl;
-        }
+        glRef.current = gl;
 
         // Set canvas size
         const resize = () => {
@@ -168,55 +194,37 @@ const HalftoneOverlayShader = ({ imageUrl }) => {
         resize();
         window.addEventListener('resize', resize);
 
-        // Compile shader function
+        // Compile shaders
         const compileShader = (source, type) => {
             const shader = gl.createShader(type);
             gl.shaderSource(shader, source);
             gl.compileShader(shader);
-
             if (!gl.getShaderParameter(shader, gl.COMPILE_STATUS)) {
                 console.error('Shader compilation error:', gl.getShaderInfoLog(shader));
-                gl.deleteShader(shader);
                 return null;
             }
-
             return shader;
         };
 
-        // Create shader program
         const vertexShader = compileShader(vertexShaderSource, gl.VERTEX_SHADER);
         const fragmentShader = compileShader(halftoneImageFragmentShader, gl.FRAGMENT_SHADER);
+        if (!vertexShader || !fragmentShader) return;
 
         const program = gl.createProgram();
         gl.attachShader(program, vertexShader);
         gl.attachShader(program, fragmentShader);
         gl.linkProgram(program);
-
         if (!gl.getProgramParameter(program, gl.LINK_STATUS)) {
             console.error('Program linking error:', gl.getProgramInfoLog(program));
             return;
         }
 
-        // Setup geometry (two triangles making a rectangle)
-        const positions = new Float32Array([
-            -1, -1,
-            1, -1,
-            -1,  1,
-            -1,  1,
-            1, -1,
-            1,  1,
-        ]);
+        programRef.current = program;
 
-        const texCoords = new Float32Array([
-            0, 1,
-            1, 1,
-            0, 0,
-            0, 0,
-            1, 1,
-            1, 0,
-        ]);
+        // Geometry (two triangles)
+        const positions = new Float32Array([-1, -1, 1, -1, -1, 1, -1, 1, 1, -1, 1, 1]);
+        const texCoords = new Float32Array([0, 1, 1, 1, 0, 0, 0, 0, 1, 1, 1, 0]);
 
-        // Create buffers
         const positionBuffer = gl.createBuffer();
         gl.bindBuffer(gl.ARRAY_BUFFER, positionBuffer);
         gl.bufferData(gl.ARRAY_BUFFER, positions, gl.STATIC_DRAW);
@@ -225,54 +233,52 @@ const HalftoneOverlayShader = ({ imageUrl }) => {
         gl.bindBuffer(gl.ARRAY_BUFFER, texCoordBuffer);
         gl.bufferData(gl.ARRAY_BUFFER, texCoords, gl.STATIC_DRAW);
 
-        // Get attribute locations
         const positionLocation = gl.getAttribLocation(program, 'a_position');
         const texCoordLocation = gl.getAttribLocation(program, 'a_texCoord');
 
-        // Get uniform locations
         const timeLocation = gl.getUniformLocation(program, 'u_time');
         const resolutionLocation = gl.getUniformLocation(program, 'u_resolution');
         const mouseLocation = gl.getUniformLocation(program, 'u_mouse');
         const imageLocation = gl.getUniformLocation(program, 'u_image');
         const hasImageLocation = gl.getUniformLocation(program, 'u_hasImage');
 
-        // Animation loop
-        let startTime = Date.now();
-        const animate = () => {
-            const currentTime = (Date.now() - startTime) * 0.001;
+        // Load image if provided
+        if (imageUrl) loadImageTexture(gl, imageUrl);
 
-            // Clear canvas
+        // Reset time
+        startTimeRef.current = Date.now();
+
+        // Animation loop
+        const animate = () => {
+            const currentTime = (Date.now() - startTimeRef.current) * 0.001;
+
             gl.clearColor(0, 0, 0, 1);
             gl.clear(gl.COLOR_BUFFER_BIT);
 
-            // Use program
             gl.useProgram(program);
-
-            // Set uniforms
             gl.uniform1f(timeLocation, currentTime);
             gl.uniform2f(resolutionLocation, canvas.width, canvas.height);
             gl.uniform2f(mouseLocation, mousePosRef.current.x, mousePosRef.current.y);
-            gl.uniform1i(hasImageLocation, hasImage ? 1 : 0);
+            gl.uniform1i(hasImageLocation, hasImageRef.current ? 1 : 0);
 
-            // Bind texture if available
-            if (texture && hasImage) {
+            if (hasImageRef.current && textureRef.current) {
                 gl.activeTexture(gl.TEXTURE0);
-                gl.bindTexture(gl.TEXTURE_2D, texture);
+                gl.bindTexture(gl.TEXTURE_2D, textureRef.current);
                 gl.uniform1i(imageLocation, 0);
             }
 
-            // Bind position buffer
             gl.bindBuffer(gl.ARRAY_BUFFER, positionBuffer);
             gl.enableVertexAttribArray(positionLocation);
             gl.vertexAttribPointer(positionLocation, 2, gl.FLOAT, false, 0, 0);
 
-            // Bind texture coordinate buffer
             gl.bindBuffer(gl.ARRAY_BUFFER, texCoordBuffer);
             gl.enableVertexAttribArray(texCoordLocation);
             gl.vertexAttribPointer(texCoordLocation, 2, gl.FLOAT, false, 0, 0);
 
-            // Draw
-            gl.drawArrays(gl.TRIANGLES, 0, 6);
+            // Only draw when image is ready
+            if (hasImageRef.current) {
+                gl.drawArrays(gl.TRIANGLES, 0, 6);
+            }
 
             animationRef.current = requestAnimationFrame(animate);
         };
@@ -281,22 +287,20 @@ const HalftoneOverlayShader = ({ imageUrl }) => {
 
         return () => {
             window.removeEventListener('resize', resize);
-            if (animationRef.current) {
-                cancelAnimationFrame(animationRef.current);
-            }
+            cleanupWebGL();
         };
-    }, [imageUrl, texture, hasImage]);
+    }, []);
+
+    useEffect(() => {
+        if (glRef.current) loadImageTexture(glRef.current, imageUrl);
+    }, [imageUrl]);
 
     const handleMouseMove = (e) => {
         const rect = canvasRef.current.getBoundingClientRect();
         mousePosRef.current = {
             x: e.clientX - rect.left,
-            y: e.clientY - rect.top
+            y: e.clientY - rect.top,
         };
-    };
-
-    const handleMouseLeave = () => {
-        // Keep last position - no sudden changes
     };
 
     return (
@@ -304,13 +308,13 @@ const HalftoneOverlayShader = ({ imageUrl }) => {
             ref={canvasRef}
             className="w-full h-full"
             onMouseMove={handleMouseMove}
-            onMouseLeave={handleMouseLeave}
+            onMouseLeave={() => {}}
         />
     );
 };
 
 HalftoneOverlayShader.propTypes = {
-    imageUrl: PropTypes.string
+    imageUrl: PropTypes.string,
 };
 
 export default HalftoneOverlayShader;
