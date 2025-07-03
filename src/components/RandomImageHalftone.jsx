@@ -162,10 +162,16 @@ const RandomImageHalftone = () => {
     // Load initial counter value
     useEffect(() => {
         const loadInitialData = async () => {
-            // Load initial counter value
-            const initialCount = await getCounter();
-            if (initialCount !== null) {
-                setCount(initialCount);
+            // Increment counter on page load (since we're generating a new image)
+            const newCount = await incrementCounter();
+            if (newCount !== null) {
+                setCount(newCount);
+            } else {
+                // Fallback: try to get current count if increment fails
+                const initialCount = await getCounter();
+                if (initialCount !== null) {
+                    setCount(initialCount);
+                }
             }
 
             // Load initial image
