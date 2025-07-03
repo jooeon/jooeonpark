@@ -2,7 +2,7 @@ import Header from "../components/templates/Header.jsx"
 import Footer from "../components/templates/Footer.jsx"
 import { useLenis } from "lenis/react"
 import {checkWebGL, scrollToTop} from "../Utils.jsx"
-import { useEffect } from "react"
+import {useEffect} from "react"
 import TitleText from "../components/templates/TitleText.jsx"
 import CustomTable from "../components/templates/CustomTable.jsx";
 import {motion} from "framer-motion";
