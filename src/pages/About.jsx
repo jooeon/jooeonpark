@@ -74,7 +74,7 @@ const About = () => {
                                 Info
                             </h3>
                             <div
-                                className="flex flex-col gap-[4vh] font-neueHaasGrotesk font-semibold text-[2vh] xl:text-[2.5vw] leading-tight">
+                                className="flex flex-col gap-[4vh] font-neueHaasGrotesk font-semibold text-[2vh] lg:text-[2.5vw] xl:text-[2.5vw] leading-tight">
                                 {aboutData.map((item, index) => (
                                     <motion.p
                                         key={index}
@@ -96,7 +96,7 @@ const About = () => {
 
                     {/* Skills Section */}
                     <motion.div
-                        className="font-roboto font-light uppercase tracking-wide text-[1vh] xl:text-[1vw] mt-[10vh] md:mt-[14vh] xl:mt-[18vh]"
+                        className="font-roboto font-light uppercase tracking-wide text-[1vh] lg:text-[1vw] xl:text-[1vw] mt-[10vh] md:mt-[14vh] xl:mt-[18vh]"
                         initial={{opacity: 0, y: 30}}
                         whileInView={{opacity: 1, y: 0}}
                         viewport={{once: true, amount: 0.5}}
@@ -147,7 +147,7 @@ const About = () => {
 
                     {/* Links section */}
                     <motion.div
-                        className="font-roboto font-light uppercase tracking-wide text-[1vh] xl:text-[1vw] my-[10vh] md:my-[14vh] xl:my-[18vh]"
+                        className="font-roboto font-light uppercase tracking-wide text-[1vh] lg:text-[1vw] xl:text-[1vw] my-[10vh] md:my-[14vh] xl:my-[18vh]"
                         initial={{opacity: 0, y: 20}}
                         whileInView={{opacity: 1, y: 0}}
                         viewport={{once: true, amount: 0.5}}

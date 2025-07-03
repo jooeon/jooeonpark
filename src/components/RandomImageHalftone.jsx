@@ -154,7 +154,7 @@ const RandomImageHalftone = () => {
                     {/* Loading indicator */}
                     {loading && (
                         <div className="absolute inset-0 flex items-center justify-center text-customWhite bg-customBlack bg-opacity-30 z-20">
-                            <span className="font-roboto font-normal lowercase text-[1vh] xl:text-[1vw]">Loading random image...</span>
+                            <span className="font-roboto font-normal lowercase text-[1vh] lg:text-[1vw] xl:text-[1vw]">Loading random image...</span>
                         </div>
                     )}
 
@@ -169,7 +169,7 @@ const RandomImageHalftone = () => {
             </div>
 
             {/* UI Controls - Image title only */}
-            <div className="font-roboto font-light uppercase tracking-wide text-[1vh] xl:text-[1vw] mt-[1vh]">
+            <div className="font-roboto font-light uppercase tracking-wide text-[1vh] lg:text-[1vw] xl:text-[1vw] mt-[1vh]">
                 {imageTitle && (
                     <a
                         href={
