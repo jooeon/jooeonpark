@@ -22,6 +22,7 @@ const halftoneImageFragmentShader = `
   uniform vec2 u_mouse;
   uniform sampler2D u_image;
   uniform bool u_hasImage;
+  uniform float u_gridSize;
   
   float circle(vec2 position, float radius) {
     return length(position) - radius;
@@ -58,7 +59,7 @@ const halftoneImageFragmentShader = `
     vec2 mouse = u_mouse / u_resolution;
     
     // Fixed grid size for dots
-    float gridSize = 80.0; // Adjust for dot density
+    float gridSize = u_gridSize;
     vec2 grid = fract(st * gridSize);
     vec2 gridIndex = floor(st * gridSize);
     
@@ -73,12 +74,13 @@ const halftoneImageFragmentShader = `
     // Convert to grayscale to determine dot size
     float brightness = luminance(imageColor);
     
-    // Invert brightness so dark areas have larger dots
-    float invBrightness = 1.0 - brightness;
+    // To invert brightness so dark areas have larger dots use:
+    // float dotSizeFactor = 1.0 - brightness;
+    float dotSizeFactor = brightness;
     
     // Base radius based on image brightness
     float baseRadius = 0.45;
-    float radius = baseRadius * invBrightness;
+    float radius = baseRadius * dotSizeFactor;
     
     // Wave-like breathing effect
     // Create ripples from center and multiple wave sources
@@ -95,7 +97,7 @@ const halftoneImageFragmentShader = `
     float breathingEffect = 1.0 + wave1 + wave2 + wave3 + wave4;
     
     // Clamp the breathing effect to prevent negative or extreme values
-    breathingEffect = clamp(breathingEffect, 0.6, 1.5);
+    breathingEffect = clamp(breathingEffect, 0.5, 1.5);
     
     // Apply breathing effect to radius
     radius *= breathingEffect;
@@ -120,7 +122,7 @@ const halftoneImageFragmentShader = `
   }
 `;
 
-const HalftoneOverlayShader = ({ imageUrl }) => {
+const HalftoneOverlayShader = ({ imageUrl, gridSize = 80.0 }) => {
     const canvasRef = useRef(null);
     const animationRef = useRef(null);
     const mousePosRef = useRef({ x: 0, y: 0 });
@@ -129,6 +131,12 @@ const HalftoneOverlayShader = ({ imageUrl }) => {
     const textureRef = useRef(null);
     const startTimeRef = useRef(Date.now());
     const hasImageRef = useRef(false); // Replaces useState for immediate effect
+    const gridSizeRef = useRef(gridSize);
+
+    // Update ref when prop changes
+    useEffect(() => {
+        gridSizeRef.current = gridSize;
+    }, [gridSize]);
 
     // Cleanup function for WebGL resources
     const cleanupWebGL = () => {
@@ -241,6 +249,7 @@ const HalftoneOverlayShader = ({ imageUrl }) => {
         const mouseLocation = gl.getUniformLocation(program, 'u_mouse');
         const imageLocation = gl.getUniformLocation(program, 'u_image');
         const hasImageLocation = gl.getUniformLocation(program, 'u_hasImage');
+        const gridSizeLocation = gl.getUniformLocation(program, 'u_gridSize');
 
         // Load image if provided
         if (imageUrl) loadImageTexture(gl, imageUrl);
@@ -260,6 +269,7 @@ const HalftoneOverlayShader = ({ imageUrl }) => {
             gl.uniform2f(resolutionLocation, canvas.width, canvas.height);
             gl.uniform2f(mouseLocation, mousePosRef.current.x, mousePosRef.current.y);
             gl.uniform1i(hasImageLocation, hasImageRef.current ? 1 : 0);
+            gl.uniform1f(gridSizeLocation, gridSizeRef.current);
 
             if (hasImageRef.current && textureRef.current) {
                 gl.activeTexture(gl.TEXTURE0);
@@ -315,6 +325,7 @@ const HalftoneOverlayShader = ({ imageUrl }) => {
 
 HalftoneOverlayShader.propTypes = {
     imageUrl: PropTypes.string,
+    gridSize: PropTypes.number,
 };
 
 export default HalftoneOverlayShader;

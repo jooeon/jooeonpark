@@ -10,7 +10,6 @@ import TopographicShader from "../components/shaders/Topographic.jsx";
 import HalftoneWavesShader from "../components/shaders/HalftoneWaves.jsx";
 import HeatmapShader from "../components/shaders/Heatmap.jsx";
 import LiquidGrainShader from "../components/shaders/LiquidGrain.jsx";
-import RandomImageHalftone from "../components/RandomImageHalftone.jsx";
 
 const Inspo = () => {
     // always begin page from top on load
@@ -176,7 +175,7 @@ const Inspo = () => {
                         {/*        <HalftoneOverlayShader imageUrl="images/thumbnails/album_covers/fka-twigs_eusexua.jpg"/>*/}
                         {/*    </div>*/}
                         {/*</div>*/}
-                        <RandomImageHalftone />
+                        {/*<RandomImageHalftone />*/}
                     </div>
                 </section>
                 }

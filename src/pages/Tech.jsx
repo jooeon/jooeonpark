@@ -28,7 +28,7 @@ const Tech = () => {
             <Header/>
             <main>
                 <TitleText phrase={"Technical"} />
-                <section className="relative flex flex-col gap-16 md:gap-28 lg:gap-36 pt-10 md:pt-20">
+                <section className="relative flex flex-col gap-16 md:gap-28 lg:gap-36 mt-[5vh] lg:mt-[7vh] xl:mt-[6vw]">
                     {/* 3D animation */}
                     {!isMobile && checkWebGL() && <AsciiAnimation/>}
                     <div className="xl:w-7/12 px-5 xl:px-7 6xl:px-14
@@ -44,7 +44,7 @@ const Tech = () => {
                         <div className="flex flex-col gap-10 w-full xl:px-5
                             [&_caption]:w-fit [&_caption]:mb-2 [&_caption]:7xl:mb-10 [&_caption]:text-start [&_caption]:font-neueHaasGrotesk [&_caption]:font-semibold
                             {/*[&_tr]:border-b [&_tr]:text-customGray [&_tr]:border-customGrayLight [&_tr]:dark:border-customBlackLight*/}
-                            [&_td]:pt-2 [&_td]:pb-1 [&_td]:7xl:pb-12 [&_td]:pl-3 [&_td]:md:pl-5 [&_td]:relative [&_td]:font-roboto [&_td]:uppercase
+                            [&_td]:pt-2 [&_td]:pb-1 [&_td]:3xl:pb-8 [&_td]:7xl:pb-12 [&_td]:pl-3 [&_td]:md:pl-5 [&_td]:relative [&_td]:font-roboto [&_td]:uppercase
                             [&_td]:tracking-wide [&_td]:text-[1vh] [&_td]:lg:text-[1.5vw] [&_td]:xl:text-[1vw]">
                             <motion.table
                                 className="table-fixed w-full"

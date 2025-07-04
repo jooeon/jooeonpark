@@ -102,6 +102,7 @@ const RandomImageHalftone = () => {
     const [loading, setLoading] = useState(true);
     const [count, setCount] = useState(0);
     const [error, setError] = useState(null);
+    const [dotDensity, setDotDensity] = useState(80);
 
     // Separate function to fetch image WITHOUT incrementing counter
     const fetchRandomImage = async () => {
@@ -182,13 +183,13 @@ const RandomImageHalftone = () => {
     }, []); // Empty dependency array - only run once on mount
 
     return (
-        <div className="relative flex flex-col items-center w-full">
+        <div className="relative flex flex-col items-center gap-[2vh] w-full">
             <div
                 className="interact-shader aspect-square overflow-hidden w-full xl:w-[47vw] cursor-pointer relative group"
                 onClick={handleImageClickAndCount}
             >
                 <div className="inset-0 w-full h-full">
-                    <HalftoneOverlayShader imageUrl={imageUrl}/>
+                    <HalftoneOverlayShader imageUrl={imageUrl} gridSize={dotDensity}/>
 
                     {/* Hover overlay */}
                     {/*<div className="absolute inset-0 bg-customBlack bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10">*/}
@@ -207,52 +208,9 @@ const RandomImageHalftone = () => {
                 </div>
             </div>
 
-            {/*Screen width: 100vw*/}
-            {/*Image width: 47vw (centered)*/}
-            {/*Image position: starts at calc(50% - 23.5vw), ends at calc(50% + 23.5vw)*/}
-            {/*Remaining space: from calc(50% + 23.5vw) to 100vw = calc(50% - 23.5vw) wide*/}
-
+            {/* Caption */}
             <div
-                className="hidden xl:flex absolute top-0 left-[calc(50%+23.5vw)] h-full w-[calc(50%-23.5vw)]
-                    flex-col justify-center items-center xl:px-[2vw]
-                    font-roboto font-light uppercase tracking-wide xl:text-[1vw] leading-relaxed">
-                <p>This interactive visualization explores Wikipedia&#39;s vast collection of 7,017,561 English articles
-                    (as of July 3, 2025)
-                    <a
-                        href={"https://en.wikipedia.org/wiki/Wikipedia:Size_of_Wikipedia"}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="xl:text-[0.5vw] hover:opacity-80 transition-opacity"
-                    >
-                        <span> (source↗)</span>
-                    </a>
-                    . It retrieves a random Wikipedia article and displays its first image
-                    <a
-                        href={"https://en.wikipedia.org/api/rest_v1/"}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="xl:text-[0.5vw] hover:opacity-80 transition-opacity"
-                    >
-                        <span> (source↗)</span>
-                    </a>
-                    . Click the image to load another random article and its image.
-                    A click counter on the opposite side tracks how many times a new image was generated.
-                    Click on the image caption to navigate to the corresponding Wikipedia page.
-                </p>
-            </div>
-
-            {/* Counter for xl screens*/}
-            <div
-                className="hidden xl:flex absolute top-0 right-[calc(50%+23.5vw)] h-full w-[calc(50%-23.5vw)]
-                    flex-col justify-center items-center xl:pr-3.5 4xl:pr-8 7xl:pr-10
-                    font-neueHaasGrotesk font-bold xl:text-[2vw]">
-                <p>/{count.toString().padStart(2, '0')}</p>
-                {error && <p className="text-[1vw]">{error}</p>}
-            </div>
-
-            {/* UI Controls - Image title only */}
-            <div
-                className="font-roboto font-light uppercase tracking-wide text-[1vh] lg:text-[1vw] xl:text-[1vw] mt-[1vh]">
+                className="font-roboto font-light uppercase tracking-wide text-[1.25vh] lg:text-[1.75vw] xl:text-[1vw]">
                 {imageTitle && (
                     <a
                         href={
@@ -268,6 +226,64 @@ const RandomImageHalftone = () => {
                     </a>
                 )}
             </div>
+
+            {/*Screen width: 100vw*/}
+            {/*Image width: 47vw (centered)*/}
+            {/*Image position: starts at calc(50% - 23.5vw), ends at calc(50% + 23.5vw)*/}
+            {/*Remaining space: from calc(50% + 23.5vw) to 100vw = calc(50% - 23.5vw) wide*/}
+            <div
+                className="flex xl:absolute top-0 left-[calc(50%+23.5vw)] h-full w-full xl:w-[calc(50%-23.5vw)]
+                    flex-col justify-center items-center xl:px-[2vw]
+                    font-roboto font-light uppercase tracking-wide text-[1vh] lg:text-[1.5vw] xl:text-[1vw] leading-relaxed">
+                <p>This interactive visualization explores Wikipedia&#39;s vast collection of 7,017,561 English articles
+                    (as of July 3, 2025)
+                    <a
+                        href={"https://en.wikipedia.org/wiki/Wikipedia:Size_of_Wikipedia"}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-[0.75vh] lg:text-[1vw] xl:text-[0.5vw] hover:opacity-80 transition-opacity"
+                    >
+                        <span> (source↗)</span>
+                    </a>
+                    . It retrieves a random Wikipedia article and displays its first image
+                    <a
+                        href={"https://en.wikipedia.org/api/rest_v1/"}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-[0.75vh] lg:text-[1vw] xl:text-[0.5vw] hover:opacity-80 transition-opacity"
+                    >
+                        <span> (source↗)</span>
+                    </a>
+                    . Click the image to load a new random article.
+                    A click counter on the opposite side keeps a global count of the total number of images generated.
+                    Click on the image caption to navigate to the corresponding Wikipedia page.
+                </p>
+
+                {/* Slider UI */}
+                <div className="mt-4 w-1/2 xl:w-full">
+                    <label className="block mb-2 text-[0.75vh] lg:text-[1.25vw] xl:text-[0.85vw]">
+                        Dot Density: {dotDensity}
+                    </label>
+                    <input
+                        type="range"
+                        min="50"
+                        max="150"
+                        value={dotDensity}
+                        onChange={(e) => setDotDensity(Number(e.target.value))}
+                        className="range w-full"
+                    />
+                </div>
+            </div>
+
+            {/* Counter */}
+            <div
+                className="xl:flex xl:absolute top-0 right-[calc(50%+23.5vw)] xl:h-full xl:w-[calc(50%-23.5vw)]
+                    flex-col justify-center items-center xl:pr-3.5 4xl:pr-8 7xl:pr-10
+                    font-neueHaasGrotesk font-bold text-[2.5vh] lg:text-[3vw] xl:text-[2vw]">
+                <p>/{count.toString().padStart(2, '0')}</p>
+                {error && <p className="text-[1vw]">{error}</p>}
+            </div>
+
         </div>
     );
 };
