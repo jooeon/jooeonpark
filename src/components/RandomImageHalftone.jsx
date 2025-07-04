@@ -210,7 +210,7 @@ const RandomImageHalftone = () => {
 
             {/* Caption */}
             <div
-                className="font-roboto font-light uppercase tracking-wide text-[1.25vh] lg:text-[1.75vw] xl:text-[1vw]">
+                className="font-roboto font-light uppercase tracking-wide text-[1.5vh] lg:text-[1.75vw] xl:text-[1vw]">
                 {imageTitle && (
                     <a
                         href={
@@ -234,7 +234,7 @@ const RandomImageHalftone = () => {
             <div
                 className="flex xl:absolute top-0 left-[calc(50%+23.5vw)] h-full w-full xl:w-[calc(50%-23.5vw)]
                     flex-col justify-center items-center xl:px-[2vw]
-                    font-roboto font-light uppercase tracking-wide text-[1vh] lg:text-[1.5vw] xl:text-[1vw] leading-relaxed">
+                    font-roboto font-light uppercase tracking-wide text-[1.25vh] lg:text-[1.5vw] xl:text-[1vw] leading-relaxed">
                 <p>This interactive visualization explores Wikipedia&#39;s vast collection of 7,017,561 English articles
                     (as of July 3, 2025)
                     <a
@@ -255,13 +255,13 @@ const RandomImageHalftone = () => {
                         <span> (source↗)</span>
                     </a>
                     . Click the image to load a new random article.
-                    A click counter on the opposite side keeps a global count of the total number of images generated.
+                    A click counter keeps a global count of the total number of images generated.
                     Click on the image caption to navigate to the corresponding Wikipedia page.
                 </p>
 
                 {/* Slider UI */}
                 <div className="mt-4 w-1/2 xl:w-full">
-                    <label className="block mb-2 text-[0.75vh] lg:text-[1.25vw] xl:text-[0.85vw]">
+                    <label className="block mb-2 text-[1vh] lg:text-[1.25vw] xl:text-[0.85vw]">
                         Dot Density: {dotDensity}
                     </label>
                     <input
