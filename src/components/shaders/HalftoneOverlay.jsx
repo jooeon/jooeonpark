@@ -1,5 +1,6 @@
 import { useRef, useEffect } from 'react';
 import PropTypes from "prop-types";
+import {generateShades} from "../../Utils.jsx";
 
 // Vertex shader - positions vertices
 const vertexShaderSource = `
@@ -13,7 +14,7 @@ const vertexShaderSource = `
   }
 `;
 
-// Halftone image processing fragment shader
+// Enhanced halftone fragment shader with dynamic color palette
 const halftoneImageFragmentShader = `
   precision mediump float;
   varying vec2 v_texCoord;
@@ -23,6 +24,14 @@ const halftoneImageFragmentShader = `
   uniform sampler2D u_image;
   uniform bool u_hasImage;
   uniform float u_gridSize;
+  uniform bool u_invertBrightness;
+  
+  // Color palette uniforms
+  uniform vec3 u_color1; // darkest
+  uniform vec3 u_color2; // dark
+  uniform vec3 u_color3; // mid
+  uniform vec3 u_color4; // bright
+  uniform vec3 u_color5; // brightest
   
   float circle(vec2 position, float radius) {
     return length(position) - radius;
@@ -33,24 +42,18 @@ const halftoneImageFragmentShader = `
     return dot(color, vec3(0.299, 0.587, 0.114));
   }
   
-  // Color palette interpolation
+  // Color palette interpolation using dynamic colors
   vec3 getColorFromDotSize(float normalizedRadius) {
-    vec3 darkest = vec3(0.02, 0.08, 0.08);
-    vec3 dark = vec3(0.05, 0.25, 0.25);
-    vec3 mid = vec3(0.10, 0.45, 0.45);
-    vec3 bright = vec3(0.17, 0.69, 0.68);
-    vec3 brightest = vec3(0.30, 0.85, 0.85);
-    
     // Map normalized radius (0.0 to 1.0) to color palette
     // Larger dots (higher values) get brighter colors
     if (normalizedRadius < 0.25) {
-      return mix(darkest, dark, normalizedRadius * 4.0);
+      return mix(u_color1, u_color2, normalizedRadius * 4.0);
     } else if (normalizedRadius < 0.5) {
-      return mix(dark, mid, (normalizedRadius - 0.25) * 4.0);
+      return mix(u_color2, u_color3, (normalizedRadius - 0.25) * 4.0);
     } else if (normalizedRadius < 0.75) {
-      return mix(mid, bright, (normalizedRadius - 0.5) * 4.0);
+      return mix(u_color3, u_color4, (normalizedRadius - 0.5) * 4.0);
     } else {
-      return mix(bright, brightest, (normalizedRadius - 0.75) * 4.0);
+      return mix(u_color4, u_color5, (normalizedRadius - 0.75) * 4.0);
     }
   }
   
@@ -74,9 +77,8 @@ const halftoneImageFragmentShader = `
     // Convert to grayscale to determine dot size
     float brightness = luminance(imageColor);
     
-    // To invert brightness so dark areas have larger dots use:
-    // float dotSizeFactor = 1.0 - brightness;
-    float dotSizeFactor = brightness;
+    // Apply brightness inversion based on uniform
+    float dotSizeFactor = u_invertBrightness ? (1.0 - brightness) : brightness;
     
     // Base radius based on image brightness
     float baseRadius = 0.45;
@@ -109,8 +111,8 @@ const halftoneImageFragmentShader = `
     float dot = circle(grid - 0.5, radius);
     float dotMask = smoothstep(0.02, 0.0, dot);
     
-    // Background color (darkest bluish-green)
-    vec3 backgroundColor = vec3(0.02, 0.08, 0.08);
+    // Background color (darkest color from palette)
+    vec3 backgroundColor = u_color1;
     
     // Get dot color based on normalized radius (0.0 to 1.0)
     float normalizedRadius = radius / baseRadius;
@@ -122,7 +124,7 @@ const halftoneImageFragmentShader = `
   }
 `;
 
-const HalftoneOverlayShader = ({ imageUrl, gridSize = 80.0 }) => {
+const HalftoneOverlayShader = ({ imageUrl, gridSize = 80.0, baseColor = "#2DB5B4", invertBrightness = false }) => {
     const canvasRef = useRef(null);
     const animationRef = useRef(null);
     const mousePosRef = useRef({ x: 0, y: 0 });
@@ -130,26 +132,42 @@ const HalftoneOverlayShader = ({ imageUrl, gridSize = 80.0 }) => {
     const programRef = useRef(null);
     const textureRef = useRef(null);
     const startTimeRef = useRef(Date.now());
-    const hasImageRef = useRef(false); // Replaces useState for immediate effect
+    const hasImageRef = useRef(false);
     const gridSizeRef = useRef(gridSize);
+    const colorShadesRef = useRef(generateShades(baseColor));
+    const invertBrightnessRef = useRef(invertBrightness);
 
-    // Update ref when prop changes
+    // Update refs when props change
     useEffect(() => {
         gridSizeRef.current = gridSize;
     }, [gridSize]);
+
+    useEffect(() => {
+        if (baseColor === 'original') {
+            // Use original hardcoded colors
+            colorShadesRef.current = [
+                [0.02, 0.08, 0.08],
+                [0.05, 0.25, 0.25],
+                [0.10, 0.45, 0.45],
+                [0.17, 0.69, 0.68],
+                [0.30, 0.85, 0.85]
+            ];
+        } else {
+            colorShadesRef.current = generateShades(baseColor);
+        }
+    }, [baseColor]);
+
+    useEffect(() => {
+        invertBrightnessRef.current = invertBrightness;
+    }, [invertBrightness]);
 
     // Cleanup function for WebGL resources
     const cleanupWebGL = () => {
         const gl = glRef.current;
         if (!gl) return;
 
-        // Delete texture if it exists
         if (textureRef.current) gl.deleteTexture(textureRef.current);
-
-        // Delete program if it exists
         if (programRef.current) gl.deleteProgram(programRef.current);
-
-        // Cancel animation frame
         if (animationRef.current) cancelAnimationFrame(animationRef.current);
     };
 
@@ -244,12 +262,21 @@ const HalftoneOverlayShader = ({ imageUrl, gridSize = 80.0 }) => {
         const positionLocation = gl.getAttribLocation(program, 'a_position');
         const texCoordLocation = gl.getAttribLocation(program, 'a_texCoord');
 
+        // Get uniform locations
         const timeLocation = gl.getUniformLocation(program, 'u_time');
         const resolutionLocation = gl.getUniformLocation(program, 'u_resolution');
         const mouseLocation = gl.getUniformLocation(program, 'u_mouse');
         const imageLocation = gl.getUniformLocation(program, 'u_image');
         const hasImageLocation = gl.getUniformLocation(program, 'u_hasImage');
         const gridSizeLocation = gl.getUniformLocation(program, 'u_gridSize');
+        const invertBrightnessLocation = gl.getUniformLocation(program, 'u_invertBrightness');
+
+        // Color palette uniform locations
+        const color1Location = gl.getUniformLocation(program, 'u_color1');
+        const color2Location = gl.getUniformLocation(program, 'u_color2');
+        const color3Location = gl.getUniformLocation(program, 'u_color3');
+        const color4Location = gl.getUniformLocation(program, 'u_color4');
+        const color5Location = gl.getUniformLocation(program, 'u_color5');
 
         // Load image if provided
         if (imageUrl) loadImageTexture(gl, imageUrl);
@@ -260,6 +287,7 @@ const HalftoneOverlayShader = ({ imageUrl, gridSize = 80.0 }) => {
         // Animation loop
         const animate = () => {
             const currentTime = (Date.now() - startTimeRef.current) * 0.001;
+            const shades = colorShadesRef.current;
 
             gl.clearColor(0, 0, 0, 1);
             gl.clear(gl.COLOR_BUFFER_BIT);
@@ -270,6 +298,14 @@ const HalftoneOverlayShader = ({ imageUrl, gridSize = 80.0 }) => {
             gl.uniform2f(mouseLocation, mousePosRef.current.x, mousePosRef.current.y);
             gl.uniform1i(hasImageLocation, hasImageRef.current ? 1 : 0);
             gl.uniform1f(gridSizeLocation, gridSizeRef.current);
+            gl.uniform1i(invertBrightnessLocation, invertBrightnessRef.current ? 1 : 0);
+
+            // Set color palette uniforms
+            gl.uniform3fv(color1Location, shades[0]);
+            gl.uniform3fv(color2Location, shades[1]);
+            gl.uniform3fv(color3Location, shades[2]);
+            gl.uniform3fv(color4Location, shades[3]);
+            gl.uniform3fv(color5Location, shades[4]);
 
             if (hasImageRef.current && textureRef.current) {
                 gl.activeTexture(gl.TEXTURE0);
@@ -285,10 +321,8 @@ const HalftoneOverlayShader = ({ imageUrl, gridSize = 80.0 }) => {
             gl.enableVertexAttribArray(texCoordLocation);
             gl.vertexAttribPointer(texCoordLocation, 2, gl.FLOAT, false, 0, 0);
 
-            // Only draw when image is ready
-            if (hasImageRef.current) {
-                gl.drawArrays(gl.TRIANGLES, 0, 6);
-            }
+            // Draw regardless of image state (will show pattern with default colors)
+            gl.drawArrays(gl.TRIANGLES, 0, 6);
 
             animationRef.current = requestAnimationFrame(animate);
         };
@@ -326,6 +360,8 @@ const HalftoneOverlayShader = ({ imageUrl, gridSize = 80.0 }) => {
 HalftoneOverlayShader.propTypes = {
     imageUrl: PropTypes.string,
     gridSize: PropTypes.number,
+    baseColor: PropTypes.string,
+    invertBrightness: PropTypes.bool,
 };
 
 export default HalftoneOverlayShader;

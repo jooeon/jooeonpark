@@ -37,6 +37,7 @@ export const CursorProvider = ({ children }) => {
             } else if (
                 e.target.closest("a") ||
                 e.target.closest("button") ||
+                e.target.closest("input") ||
                 e.target.closest(".interact-shader")
             ) {
                 setIsLinkHovered(true)
