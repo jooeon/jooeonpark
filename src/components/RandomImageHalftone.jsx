@@ -107,6 +107,7 @@ const RandomImageHalftone = () => {
     // const [generatedShades, setGeneratedShades] = useState(generateShades('#2DB5B4'));
     const [invertBrightness, setInvertBrightness] = useState(false);
     const [settingsExpanded, setSettingsExpanded] = useState(false);
+    const [detailsExpanded, setDetailsExpanded] = useState(false);
 
     // Update generated shades when base color changes
     // useEffect(() => {
@@ -241,6 +242,15 @@ const RandomImageHalftone = () => {
                 )}
             </div>
 
+            {/* Counter */}
+            <div
+                className="xl:flex xl:absolute top-0 right-[calc(50%+23.5vw)] xl:h-full xl:w-[calc(50%-23.5vw)]
+                    flex-col justify-center items-center xl:pr-3.5 4xl:pr-8 7xl:pr-10
+                    font-neueHaasGrotesk font-bold text-[2.5vh] lg:text-[3vw] xl:text-[2vw]">
+                <p>/{count.toString().padStart(2, '0')}</p>
+                {error && <p className="text-[1vw]">{error}</p>}
+            </div>
+
             {/*Screen width: 100vw*/}
             {/*Image width: 47vw (centered)*/}
             {/*Image position: starts at calc(50% - 23.5vw), ends at calc(50% + 23.5vw)*/}
@@ -249,7 +259,64 @@ const RandomImageHalftone = () => {
                 className="flex xl:absolute top-0 left-[calc(50%+23.5vw)] h-full w-full xl:w-[calc(50%-23.5vw)]
                     flex-col justify-center items-center xl:px-[2vw]
                     font-roboto font-light uppercase tracking-wide text-[1.25vh] lg:text-[1.5vw] xl:text-[1vw] leading-relaxed">
-                <p>This interactive visualization explores Wikipedia&#39;s vast collection of 7,017,561 English articles
+
+                {/* Mobile Details Dropdown (only visible on screens smaller than xl) */}
+                <div className="xl:hidden w-full">
+                    <button
+                        onClick={() => setDetailsExpanded(!detailsExpanded)}
+                        className="flex items-center gap-2 font-neueHaasGrotesk font-bold lowercase text-[1.25vh] lg:text-[1.5vw] hover:opacity-80 transition-opacity"
+                    >
+                        <span>Details</span>
+                        <svg
+                            width="12"
+                            height="8"
+                            viewBox="0 0 12 8"
+                            fill="none"
+                            className={`transition-transform duration-300 ${detailsExpanded ? 'rotate-180' : 'rotate-0'}`}
+                        >
+                            <path
+                                d="M1 1L6 6L11 1"
+                                stroke="currentColor"
+                                strokeWidth="1.5"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                            />
+                        </svg>
+                    </button>
+
+                    {/* Collapsible Details Panel */}
+                    <div
+                        className={`overflow-hidden transition-all duration-300 ${detailsExpanded ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}>
+                        <p>This interactive visualization explores Wikipedia&#39;s vast collection of 7,017,561 English
+                            articles
+                            (as of July 3, 2025)
+                            <a
+                                href={"https://en.wikipedia.org/wiki/Wikipedia:Size_of_Wikipedia"}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="text-[0.75vh] lg:text-[1vw] xl:text-[0.5vw] hover:opacity-80 transition-opacity"
+                            >
+                                <span> (source↗)</span>
+                            </a>
+                            . It retrieves a random Wikipedia article and displays its first image
+                            <a
+                                href={"https://en.wikipedia.org/api/rest_v1/"}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="text-[0.75vh] lg:text-[1vw] xl:text-[0.5vw] hover:opacity-80 transition-opacity"
+                            >
+                                <span> (source↗)</span>
+                            </a>
+                            . Click the image to load a new random article.
+                            A click counter keeps a global count of the total number of images generated.
+                            Click on the image caption to navigate to the corresponding Wikipedia page.
+                        </p>
+                    </div>
+                </div>
+
+                {/* Desktop Details (always visible on xl and larger screens) */}
+                <p className="hidden xl:block">This interactive visualization explores Wikipedia&#39;s vast collection
+                    of 7,017,561 English articles
                     (as of July 3, 2025)
                     <a
                         href={"https://en.wikipedia.org/wiki/Wikipedia:Size_of_Wikipedia"}
@@ -297,7 +364,8 @@ const RandomImageHalftone = () => {
                     </button>
 
                     {/* Collapsible Settings Panel */}
-                    <div className={`w-1/2 xl:w-full overflow-hidden transition-all duration-300 ${settingsExpanded ? 'opacity-100' : 'max-h-0 opacity-0'}`}>
+                    <div
+                        className={`w-1/2 xl:w-full overflow-hidden transition-all duration-300 ${settingsExpanded ? 'opacity-100' : 'max-h-0 opacity-0'}`}>
                         {/* Slider UI */}
                         <div className="mt-[2vh] w-full">
                             <label className="block mb-[1vh] text-[1vh] lg:text-[1.25vw] xl:text-[0.85vw]">
@@ -345,15 +413,15 @@ const RandomImageHalftone = () => {
                             {/* Quick Color Presets */}
                             <div className="flex flex-wrap gap-[1vh] xl:gap-[0.5vw] mt-[1.5vh]">
                                 {[
-                                    { name: 'Teal', color: '#2DB5B4' },
-                                    { name: 'Red', color: '#fc0834' },
-                                    { name: 'Blue', color: '#4a21ff' },
-                                    { name: 'Green', color: '#33ff57' },
-                                    { name: 'Light-Blue', color: '#33c4ff' },
-                                    { name: 'Purple', color: '#a633ff' },
-                                    { name: 'Pink', color: '#ff33a1' },
-                                    { name: 'Orange', color: '#ff5733' },
-                                    { name: 'Yellow', color: '#ffef73' },
+                                    {name: 'Teal', color: '#2DB5B4'},
+                                    {name: 'Red', color: '#fc0834'},
+                                    {name: 'Blue', color: '#4a21ff'},
+                                    {name: 'Green', color: '#33ff57'},
+                                    {name: 'Light-Blue', color: '#33c4ff'},
+                                    {name: 'Purple', color: '#a633ff'},
+                                    {name: 'Pink', color: '#ff33a1'},
+                                    {name: 'Orange', color: '#ff5733'},
+                                    {name: 'Yellow', color: '#ffef73'},
                                 ].map((preset) => (
                                     <button
                                         key={preset.name}
@@ -363,7 +431,7 @@ const RandomImageHalftone = () => {
                                                 ? 'border-customWhite border-opacity-80 scale-110'
                                                 : 'border-customWhite border-opacity-30'
                                         }`}
-                                        style={{ backgroundColor: preset.color }}
+                                        style={{backgroundColor: preset.color}}
                                         title={`${preset.name} (${preset.color})`}
                                     />
                                 ))}
@@ -401,15 +469,6 @@ const RandomImageHalftone = () => {
                     </div>
                     {/* Collapsible Settings Panel */}
                 </div>
-            </div>
-
-            {/* Counter */}
-            <div
-                className="xl:flex xl:absolute top-0 right-[calc(50%+23.5vw)] xl:h-full xl:w-[calc(50%-23.5vw)]
-                    flex-col justify-center items-center xl:pr-3.5 4xl:pr-8 7xl:pr-10
-                    font-neueHaasGrotesk font-bold text-[2.5vh] lg:text-[3vw] xl:text-[2vw]">
-                <p>/{count.toString().padStart(2, '0')}</p>
-                {error && <p className="text-[1vw]">{error}</p>}
             </div>
 
         </div>
