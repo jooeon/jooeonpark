@@ -7,7 +7,7 @@ import {scrollToTop} from "../Utils.jsx"
 import {MaskText} from "../components/textEffects/MaskText.jsx";
 import {Link} from "react-router-dom";
 
-const About = () => {
+const Info = () => {
     // always begin page from top on load
     const lenis = useLenis()
 
@@ -191,4 +191,4 @@ const About = () => {
     )
 }
 
-export default About
+export default Info

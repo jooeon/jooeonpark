@@ -85,7 +85,7 @@ const ScrollTitleSection = ({showEntryAnimation}) => {
 
     const subTitleLayer = useTransform(scrollYProgress, [0, 0.15], [(vh / vw) * (2000 / fontSize) + fontSize * 5.0, fontSize * 1.0]);
 
-    // Background of text visibile initially for cascade effect, hides after inputRange when it can overlap with other elements when scrolling down
+    // Background of text visible initially for cascade effect, hides after inputRange when it can overlap with other elements when scrolling down
     const titleToggle = useTransform(scrollYProgress, [0, 0.15], [1, 0], { clamp: true });
     const backgroundColor = useTransform(titleToggle, [0, 1], ["transparent", "#000000"]);
 

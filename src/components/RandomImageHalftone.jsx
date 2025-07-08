@@ -2,6 +2,10 @@ import { useState, useEffect } from 'react';
 import HalftoneOverlayShader from './shaders/HalftoneOverlay.jsx';
 import {getCounter, incrementCounter} from "../Utils.jsx";
 
+// UI wrapper component for HalftoneOverlay.jsx shader.
+// Includes click counter, detail text, and settings menu
+// Used in RandomImageGenerator.jsx
+
 // Wikipedia image fetcher functions (embedded for demo)
 // const getRandomCategoryImage = async () => {
 //     const categories = [
@@ -258,7 +262,7 @@ const RandomImageHalftone = () => {
             <div
                 className="flex xl:absolute top-0 left-[calc(50%+23.5vw)] h-full w-full xl:w-[calc(50%-23.5vw)]
                     flex-col justify-center items-center xl:px-[2vw]
-                    font-roboto font-light uppercase tracking-wide text-[1.25vh] lg:text-[1.5vw] xl:text-[1vw] leading-relaxed">
+                    font-neueHaasGrotesk font-semibold uppercase text-[1.25vh] lg:text-[1.5vw] xl:text-[1vw] leading-relaxed">
 
                 {/* Mobile Details Dropdown (only visible on screens smaller than xl) */}
                 <div className="xl:hidden w-full">
@@ -286,7 +290,7 @@ const RandomImageHalftone = () => {
 
                     {/* Collapsible Details Panel */}
                     <div
-                        className={`overflow-hidden transition-all duration-300 ${detailsExpanded ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}>
+                        className={`mt-[1vh] xl:mt-[2vh] overflow-hidden transition-all duration-300 ${detailsExpanded ? 'opacity-100' : 'max-h-0 opacity-0'}`}>
                         <p>This interactive visualization explores Wikipedia&#39;s vast collection of 7,017,561 English
                             articles
                             (as of July 3, 2025)
@@ -341,7 +345,7 @@ const RandomImageHalftone = () => {
                 </p>
 
                 {/* Settings Dropdown */}
-                <div className="flex flex-col  mt-6 w-full">
+                <div className="flex flex-col mt-[3vh] w-full font-roboto font-light uppercase tracking-wide">
                     {/* Settings Toggle Button */}
                     <button
                         onClick={() => setSettingsExpanded(!settingsExpanded)}
@@ -365,9 +369,9 @@ const RandomImageHalftone = () => {
 
                     {/* Collapsible Settings Panel */}
                     <div
-                        className={`w-1/2 xl:w-full overflow-hidden transition-all duration-300 ${settingsExpanded ? 'opacity-100' : 'max-h-0 opacity-0'}`}>
+                        className={`w-1/2 xl:w-full mt-[1vh] xl:mt-[2vh] overflow-hidden transition-all duration-300 ${settingsExpanded ? 'opacity-100' : 'max-h-0 opacity-0'}`}>
                         {/* Slider UI */}
-                        <div className="mt-[2vh] w-full">
+                        <div className="w-full">
                             <label className="block mb-[1vh] text-[1vh] lg:text-[1.25vw] xl:text-[0.85vw]">
                                 Dot Density: {dotDensity}
                             </label>
@@ -382,7 +386,7 @@ const RandomImageHalftone = () => {
                         </div>
 
                         {/* Color Picker UI */}
-                        <div className="mt-[2vh] w-full">
+                        <div className="mt-[1vh] xl:mt-[2vh] w-full">
                             <label className="block mb-[1vh] text-[1vh] lg:text-[1.25vw] xl:text-[0.85vw]">
                                 Color Theme
                             </label>
@@ -439,7 +443,7 @@ const RandomImageHalftone = () => {
                         </div>
 
                         {/* Brightness Inversion Toggle */}
-                        <div className="mt-[2vh] w-full">
+                        <div className="mt-[1vh] xl:mt-[2vh] w-full">
                             <label className="block mb-[1vh] text-[1vh] lg:text-[1.25vw] xl:text-[0.85vw]">
                                 Color Mode
                             </label>

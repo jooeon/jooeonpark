@@ -7,7 +7,7 @@ import Index from "./pages/Index.jsx";
 import Art from "./pages/Art.jsx";
 import Tech from "./pages/Tech.jsx";
 import ProjectDetail from "./pages/ProjectDetail.jsx";
-import About from "./pages/About.jsx";
+import Info from "./pages/Info.jsx";
 import Cursor from "./components/cursor/Cursor.jsx";
 import { CursorProvider } from "./components/cursor/CursorContext.jsx";
 import PropTypes from "prop-types";
@@ -43,7 +43,7 @@ const AnimatedRoutes = () => {
                 <Route path="/:type/:id" element={<PageWrapper><ProjectDetail /></PageWrapper>} />
                 <Route path="/inspo" element={<PageWrapper><Inspo /></PageWrapper>} />
                 <Route path="/tech" element={<PageWrapper><Tech /></PageWrapper>} />
-                <Route path="/info" element={<PageWrapper><About /></PageWrapper>} />
+                <Route path="/info" element={<PageWrapper><Info /></PageWrapper>} />
                 <Route path="/404" element={<PageWrapper><Page404 /></PageWrapper>} />
                 <Route path="/404" element={<Page404 />} />
                 <Route path="/citibike-process" element={<CitibikeProcess />} />
