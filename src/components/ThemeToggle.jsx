@@ -50,7 +50,7 @@ const ThemeToggle = () => {
                 className="peer inline-flex h-[1vh] w-[2.5vh] xl:h-[0.75vw] xl:w-[1.5vw] shrink-0 cursor-pointer items-center rounded-full border-2 border-transparent
                 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background
                 disabled:cursor-not-allowed disabled:opacity-50 data-[state=checked]:bg-primary data-[state=unchecked]:bg-input
-                transition-all duration-700 ease-[cubic-bezier(0.34,1.56,0.64,1)] hover:scale-110 bg-[#d6d6d6] dark:bg-[#333333]"
+                transition-all duration-700 ease-[cubic-bezier(0.34,1.56,0.64,1)] hover:scale-110 bg-[#d6d6d6] dark:bg-[#474747]"
                 aria-label="Toggle theme"
             >
                 <span
