@@ -272,11 +272,9 @@ const RandomImageHalftone = () => {
                     >
                         <span>Details</span>
                         <svg
-                            width="12"
-                            height="8"
                             viewBox="0 0 12 8"
                             fill="none"
-                            className={`transition-transform duration-300 ${detailsExpanded ? 'rotate-180' : 'rotate-0'}`}
+                            className={`w-[0.75vh] h-[0.5vh] xl:w-[0.75vw] xl:h-[0.5vw] transition-transform duration-300 ${detailsExpanded ? 'rotate-180' : 'rotate-0'}`}
                         >
                             <path
                                 d="M1 1L6 6L11 1"
