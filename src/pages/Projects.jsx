@@ -36,16 +36,16 @@ const Projects = () => {
                                 ease: "easeOut",
                             }}
                         >
-                            <Link to="/projects/rig" className="w-full">
+                            <Link to="/projects/atopol" className="w-full">
                                 <img
-                                    src="/images/thumbnails/rig_thumb.jpg"
-                                    alt="Random_Image_Generator_Project_Thumbnail"
+                                    src="/images/thumbnails/atopol_thumb.jpg"
+                                    alt="Allen_Topolski_portfolio_website_image"
                                     loading="lazy"
                                     className="w-full"/>
                             </Link>
                             <div
-                                className="flex flex-col justify-end text-3xs md:text-base 3xl:text-lg 5xl:text-2xl 6xl:text-3xl">
-                                <p className="mb-4 2xl:mb-10">R.I.G.</p>
+                                className="flex flex-col justify-end text-3xs md:text-base 3xl:text-lg 5xl:text-2xl 6xl:text-3xl xl:text-left">
+                                <p className="mb-4 2xl:mb-10">Allen Topolski&apos;s Portfolio</p>
                                 <p className="text-customGray">2025</p>
                             </div>
                         </motion.div>
@@ -62,13 +62,13 @@ const Projects = () => {
                         >
                             <div
                                 className="flex flex-col justify-end text-3xs md:text-base 3xl:text-lg 5xl:text-2xl 6xl:text-3xl xl:text-right">
-                                <p className="mb-4 2xl:mb-10">Allen Topolski&apos;s Portfolio</p>
+                                <p className="mb-4 2xl:mb-10">R.I.G.</p>
                                 <p className="text-customGray">2025</p>
                             </div>
-                            <Link to="/projects/atopol" className="w-full">
+                            <Link to="/projects/rig" className="w-full">
                                 <img
-                                    src="/images/thumbnails/atopol_thumb.jpg"
-                                    alt="Allen_Topolski_portfolio_website_image"
+                                    src="/images/thumbnails/rig_thumb.jpg"
+                                    alt="Random_Image_Generator_Project_Thumbnail"
                                     loading="lazy"
                                     className="w-full"/>
                             </Link>
