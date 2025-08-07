@@ -174,25 +174,38 @@ const ProjectDetail = () => {
                             </div>
                         </motion.div>
                     </section>
-                    {type === "art" && (
                     <section className="flex justify-between m-2 md:m-5 mt-10 md:mt-20 font-neueHaasGrotesk font-extrabold uppercase">
                         <div
                             className="text-sm sm:text-base md:text-xl lg:text-2xl xl:text-3xl 2xl:text-4xl 3xl:text-5xl 4xl:text-6xl">
                             <span>Next:</span>
                             <br/>
-                            <Link
-                                to={`/art/${nextProject.id}`}
-                                className="text-link after:bg-customBlack dark:after:bg-customWhite ml-10"
-                            >
-                                {nextProject.caption[0]}
-                            </Link>
+                            {type === "art" && (
+                                <Link
+                                    to={`/art/${nextProject.id}`}
+                                    className="text-link after:bg-customBlack dark:after:bg-customWhite ml-10"
+                                >
+                                    {nextProject.caption[0]}
+                                </Link>
+                            )}
+                            {type === "projects" && (
+                                <Link
+                                    to={`/projects/${nextProject.id}`}
+                                    className="text-link after:bg-customBlack dark:after:bg-customWhite ml-10"
+                                >
+                                    {nextProject.caption[0]}
+                                </Link>
+                            )}
                         </div>
                         <div className="flex items-end pr-2
                             text-3xs sm:text-2xs md:text-sm lg:text-sm xl:text-lg 2xl:text-xl 3xl:text-2xl 4xl:text-3xl">
-                            <Link to="/art" className="text-link after:bg-customBlack dark:after:bg-customWhite">Back to Gallery</Link>
+                            {type === "art" && (
+                                <Link to="/art" className="text-link after:bg-customBlack dark:after:bg-customWhite">Back to Gallery</Link>
+                            )}
+                            {type === "projects" && (
+                                <Link to="/projects" className="text-link after:bg-customBlack dark:after:bg-customWhite">Back to Projects</Link>
+                            )}
                         </div>
                     </section>
-                    )}
                 </div>
             </main>
 

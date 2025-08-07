@@ -1,7 +1,7 @@
 export const items = [
     {
         id: "atopol",
-        nextItem: "",
+        nextItem: "citibike",
         isVideo: false,
         images: [
             "/images/atopol_detail_2.JPG",
@@ -29,6 +29,38 @@ export const items = [
         padding: "pb-10 ",
         link: "/project/atopol",
         externalLink: "https://allentopolski.com",
+        externalLinkLabel: "Visit site",
+        hasAnimation: true,
+    },
+    {
+        id: "citibike",
+        nextItem: "atopol",
+        isVideo: false,
+        images: [
+            // "/images/citibike_1.png",
+            "/images/citibike_3.png",
+            "/images/citibike_4.png",
+            // "/images/citibike_2.png",
+            "/images/citibike_5.png",
+        ],
+        videos: [
+            {
+                source: "/videos/citibike_video_1.mp4",
+                hasAudio: false
+            },
+        ],
+        caption: [
+            "NYC Citi Bike Data Visualization",
+            "Data Visualization",
+            "",
+            "2025",
+            "A creative data visualization project that transforms NYC Citi Bike trip data into an artistic, spatial representation.",
+        ],
+        thumbnail: "/images/thumbnails/citibike_thumb.jpg",
+        alt: "NYC Citi Bike Data Visualization",
+        padding: "pb-10 ",
+        link: "/project/citibike",
+        externalLink: "https://nyccitibike.netlify.app/",
         externalLinkLabel: "Visit site",
         hasAnimation: true,
     },

@@ -36,16 +36,16 @@ const Projects = () => {
                                 ease: "easeOut",
                             }}
                         >
-                            <Link to="/projects/atopol" className="w-full">
+                            <Link to="/projects/citibike" className="w-full">
                                 <img
-                                    src="/images/thumbnails/atopol_thumb.jpg"
-                                    alt="Allen_Topolski_portfolio_website_image"
+                                    src="/images/thumbnails/citibike_thumb.jpg"
+                                    alt="NYC_Citi_Bike_Data_Visualization_Image"
                                     loading="lazy"
                                     className="w-full"/>
                             </Link>
                             <div
                                 className="flex flex-col justify-end text-3xs md:text-base 3xl:text-lg 5xl:text-2xl 6xl:text-3xl xl:text-left">
-                                <p className="mb-4 2xl:mb-10">Allen Topolski&apos;s Portfolio</p>
+                                <p className="mb-4 2xl:mb-10">NYC Citi Bike Data Visualization</p>
                                 <p className="text-customGray">2025</p>
                             </div>
                         </motion.div>
@@ -62,9 +62,28 @@ const Projects = () => {
                         >
                             <div
                                 className="flex flex-col justify-end text-3xs md:text-base 3xl:text-lg 5xl:text-2xl 6xl:text-3xl xl:text-right">
-                                <p className="mb-4 2xl:mb-10">R.I.G.</p>
+                                <p className="mb-4 2xl:mb-10">Allen Topolski&apos;s Portfolio</p>
                                 <p className="text-customGray">2025</p>
                             </div>
+                            <Link to="/projects/atopol" className="w-full">
+                                <img
+                                    src="/images/thumbnails/atopol_thumb.jpg"
+                                    alt="Allen_Topolski_portfolio_website_image"
+                                    loading="lazy"
+                                    className="w-full"/>
+                            </Link>
+                        </motion.div>
+                        <motion.div
+                            className="w-11/12 xl:w-full flex flex-col xl:flex-row xl:row-start-7 xl:row-end-11 xl:col-start-1 gap-4"
+                            initial={{opacity: 0, y: 70}}
+                            whileInView={{opacity: 1, y: 0}}
+                            viewport={{once: true}}
+                            transition={{
+                                duration: 0.6,
+                                delay: 1.1,
+                                ease: "easeOut",
+                            }}
+                        >
                             <Link to="/projects/rig" className="w-full">
                                 <img
                                     src="/images/thumbnails/rig_thumb.jpg"
@@ -72,6 +91,11 @@ const Projects = () => {
                                     loading="lazy"
                                     className="w-full"/>
                             </Link>
+                            <div
+                                className="flex flex-col justify-end text-3xs md:text-base 3xl:text-lg 5xl:text-2xl 6xl:text-3xl xl:text-left">
+                                <p className="mb-4 2xl:mb-10">R.I.G.</p>
+                                <p className="text-customGray">2025</p>
+                            </div>
                         </motion.div>
                     </div>
                     <motion.div
