@@ -31,19 +31,19 @@ const Index = () => {
     }, [showAnimation]);
 
     // 4k or larger, for rendering full resolution images if screen resolution is large
-    // const [isXLargeScreen, setIsXLargeScreen] = useState(window.innerWidth >= 3840);
-    //
-    // useEffect(() => {
-    //     const handleResize = () => {
-    //         setIsXLargeScreen(window.innerWidth >= 3840);
-    //     };
-    //
-    //     window.addEventListener("resize", handleResize);
-    //
-    //     return () => {
-    //         window.removeEventListener("resize", handleResize);
-    //     };
-    // }, []);
+    const [isXLargeScreen, setIsXLargeScreen] = useState(window.innerWidth >= 3840);
+
+    useEffect(() => {
+        const handleResize = () => {
+            setIsXLargeScreen(window.innerWidth >= 3840);
+        };
+
+        window.addEventListener("resize", handleResize);
+
+        return () => {
+            window.removeEventListener("resize", handleResize);
+        };
+    }, []);
 
     // always begin page from top on load
     const lenis = useLenis();
@@ -112,166 +112,154 @@ const Index = () => {
                         </div>
                     </div>
                 </section>
-                <section className="flex flex-col items-center">
-                    <div className="w-11/12 xl:w-5/6 md:mb-14">
-                        <h3 className="w-fit outline-text-black dark:outline-text-lack dark:outline-text-white text-transparent font-nick pb-5
-                            text-[3vw] leading-none">
-                            Recent Work
-                        </h3>
-                    </div>
-                    <motion.div
-                        className="w-11/12 xl:w-5/6 font-neueHaasGrotesk font-bold lowercase
-                        flex flex-col xl:grid xl:grid-cols-[1fr_6fr_1fr] justify-start xl:justify-center items-center xl:items-start"
-                        initial={{opacity: 0, y: 70}}
-                        whileInView={{opacity: 1, y: 0}}
-                        viewport={{once: false}}
-                        transition={{
-                            duration: 0.6,
-                            ease: "easeInOut",
-                        }}
-                    >
-                        <div className="w-full xl:col-start-2 xl:px-10">
-                            <Link to="/projects/atopol" className="w-full">
-                                <img
-                                    src="/images/thumbnails/atopol_thumb.jpg"
-                                    alt="Allen_Topolski_portfolio_website_image"
-                                    loading="lazy"
-                                    className="w-full"/>
-                            </Link>
-                        </div>
-                        <div
-                            className="flex flex-col justify-end h-full w-full xl:col-start-1 xl:row-start-1 xl:text-right text-3xs md:text-base 3xl:text-lg 5xl:text-2xl 6xl:text-3xl">
-                            <p className="mb-4 2xl:mb-10">Allen Topolski&apos;s Portfolio</p>
-                            <p className="text-customGray">2025</p>
-                        </div>
-                    </motion.div>
-                </section>
-                {/* Art scroll gallery, use this format once more web projects are added */}
+                {/* For when there is only one work to show */}
                 {/*<section className="flex flex-col items-center">*/}
                 {/*    <div className="w-11/12 xl:w-5/6 md:mb-14">*/}
-                {/*        <h3 className="w-fit outline-text-black dark:outline-text-black dark:outline-text-white text-transparent font-nick pb-5*/}
+                {/*        <h3 className="w-fit outline-text-black dark:outline-text-lack dark:outline-text-white text-transparent font-nick pb-5*/}
                 {/*            text-[3vw] leading-none">*/}
-                        {/*            Selected Works*/}
-                        {/*        </h3>*/}
-                        {/*    </div>*/}
-                        {/*    <div className="flex flex-col gap-10 xl:grid xl:grid-cols-2 xl:grid-rows-13 xl:gap-x-0 xl:gap-y-24 justify-start xl:justify-center items-center xl:items-start*/}
-                        {/*        font-neueHaasGrotesk font-bold lowercase">*/}
-                        {/*        <motion.div*/}
-                        {/*            className="w-11/12 xl:w-full flex flex-col xl:flex-row xl:row-start-1 xl:row-end-5 xl:col-start-1 gap-4"*/}
-                        {/*            initial={{opacity: 0, y: 70}}*/}
-                        {/*            whileInView={{opacity: 1, y: 0}}*/}
-                        {/*            viewport={{once: false}}*/}
-                        {/*            transition={{*/}
-                        {/*                duration: 0.6,*/}
-                        {/*                ease: "easeInOut",*/}
-                        {/*            }}*/}
-                        {/*        >*/}
-                        {/*            <Link to="/project/recollection" className="w-full xl:w-5/6">*/}
-                        {/*                { isXLargeScreen ?*/}
-                        {/*                    <img*/}
-                        {/*                        src="/images/Recollection_main_cropped.jpg"*/}
-                        {/*                        alt="Recollection_art_image"*/}
-                        {/*                        loading="lazy"*/}
-                        {/*                        className="w-full"/>*/}
-                        {/*                    :*/}
-                        {/*                    <img*/}
-                        {/*                        src="/images/Recollection_main_cropped_smaller.jpg"*/}
-                        {/*                        alt="Recollection_art_image"*/}
-                        {/*                        loading="lazy"*/}
-                        {/*                        className="w-full"/>*/}
-                        {/*                }*/}
-                        {/*            </Link>*/}
-                        {/*            <div className="flex flex-col justify-end text-3xs md:text-base 3xl:text-lg 5xl:text-2xl 6xl:text-3xl">*/}
-                        {/*                <p className="mb-4 2xl:mb-10">Recollection</p>*/}
-                        {/*                <p className="text-customGray">2024</p>*/}
-                        {/*            </div>*/}
-                        {/*        </motion.div>*/}
-                        {/*        <motion.div*/}
-                        {/*            className="w-11/12 xl:w-full flex flex-col-reverse xl:flex-row xl:justify-end xl:row-start-4 xl:row-end-8 xl:col-start-2 gap-4"*/}
-                        {/*            initial={{opacity: 0, y: 70}}*/}
-                        {/*            whileInView={{opacity: 1, y: 0}}*/}
-                        {/*            viewport={{once: false}}*/}
-                        {/*            transition={{*/}
-                        {/*                duration: 0.6,*/}
-                        {/*                ease: "easeInOut",*/}
-                        {/*            }}*/}
-                        {/*        >*/}
-                        {/*            <div className="flex flex-col justify-end text-3xs md:text-base 3xl:text-lg 5xl:text-2xl 6xl:text-3xl xl:text-right">*/}
-                        {/*                <p className="mb-4 2xl:mb-10">11,182,156 Steps</p>*/}
-                        {/*                <p className="text-customGray">2024</p>*/}
-                        {/*            </div>*/}
-                        {/*            <Link to="/project/steps" className="w-full xl:w-5/6">*/}
-                        {/*                <video*/}
-                        {/*                    autoPlay*/}
-                        {/*                    playsInline*/}
-                        {/*                    muted*/}
-                        {/*                    loop*/}
-                        {/*                    className="w-full"*/}
-                        {/*                >*/}
-                        {/*                    <source src="/videos/polychrome_dark.mp4#t=70" type="video/mp4"/>*/}
-                        {/*                    Your browser does not support the video tag.*/}
-                        {/*                </video>*/}
-                        {/*            </Link>*/}
-                        {/*        </motion.div>*/}
-                        {/*        <motion.div*/}
-                        {/*            className="w-11/12 xl:w-full flex flex-col xl:flex-row xl:row-start-7 xl:row-end-11 xl:col-start-1 gap-4"*/}
-                        {/*            initial={{opacity: 0, y: 70}}*/}
-                        {/*            whileInView={{opacity: 1, y: 0}}*/}
-                        {/*            viewport={{once: false}}*/}
-                        {/*            transition={{*/}
-                        {/*                duration: 0.6,*/}
-                        {/*                ease: "easeInOut",*/}
-                        {/*            }}*/}
-                        {/*        >*/}
-                        {/*            <Link to="/project/ocular-prosthetic" className="w-full xl:w-5/6">*/}
-                        {/*                { isXLargeScreen ?*/}
-                        {/*                    <img*/}
-                        {/*                        src="/images/Ocular%20Prosthetic%20for%20Reading%20Another%20Human_01.jpg"*/}
-                        {/*                        alt="Ocular_prostetic_art_image"*/}
-                        {/*                        loading="lazy"*/}
-                        {/*                        className="w-full"/>*/}
-                        {/*                    :*/}
-                        {/*                    <img*/}
-                        {/*                        src="/images/thumbnails/Ocular%20Prosthetic%20for%20Reading%20Another%20Human_thumb.jpg"*/}
-                        {/*                        alt="Ocular_prostetic_art_image"*/}
-                        {/*                        loading="lazy"*/}
-                        {/*                        className="w-full"/>*/}
-                        {/*                }*/}
-                        {/*            </Link>*/}
-                        {/*            <div className="flex flex-col justify-end text-3xs md:text-base 3xl:text-lg 5xl:text-2xl 6xl:text-3xl">*/}
-                        {/*                <p className="mb-4 2xl:mb-10">Ocular Prosthetic for Reading Another Human</p>*/}
-                        {/*                <p className="text-customGray">2024</p>*/}
-                        {/*            </div>*/}
-                        {/*        </motion.div>*/}
-                        {/*        <motion.div*/}
-                        {/*            className="w-11/12 xl:w-full flex flex-col-reverse xl:flex-row xl:justify-end xl:row-start-10 xl:row-end-13 xl:col-start-2 gap-4"*/}
-                        {/*            initial={{opacity: 0, y: 70}}*/}
-                        {/*            whileInView={{opacity: 1, y: 0}}*/}
-                        {/*            viewport={{once: false}}*/}
-                        {/*            transition={{*/}
-                        {/*                duration: 0.6,*/}
-                        {/*                ease: "easeInOut",*/}
-                        {/*            }}*/}
-                        {/*        >*/}
-                        {/*            <div className="flex flex-col justify-end text-3xs md:text-base 3xl:text-lg 5xl:text-2xl 6xl:text-3xl xl:text-right">*/}
-                        {/*                <p className="mb-4 2xl:mb-10">On The Tracks</p>*/}
-                        {/*                <p className="text-customGray">2024</p>*/}
-                        {/*            </div>*/}
-                        {/*            <Link to="/project/on-the-tracks" className="w-full xl:w-5/6">*/}
-                        {/*                <video*/}
-                        {/*                    autoPlay*/}
-                        {/*                    playsInline*/}
-                        {/*                    muted*/}
-                        {/*                    loop*/}
-                        {/*                    className="w-full"*/}
-                        {/*                >*/}
-                        {/*                    <source src="/videos/JooEon_Park_OnTheTracks_Video.MOV#t=4" type="video/mp4"/>*/}
-                        {/*                    Your browser does not support the video tag.*/}
-                        {/*                </video>*/}
-                        {/*            </Link>*/}
-                        {/*        </motion.div>*/}
-                        {/*    </div>*/}
-                        {/*</section>*/}
+                {/*            Recent Work*/}
+                {/*        </h3>*/}
+                {/*    </div>*/}
+                {/*    <motion.div*/}
+                {/*        className="w-11/12 xl:w-5/6 font-neueHaasGrotesk font-bold lowercase*/}
+                {/*        flex flex-col xl:grid xl:grid-cols-[1fr_6fr_1fr] justify-start xl:justify-center items-center xl:items-start"*/}
+                {/*        initial={{opacity: 0, y: 70}}*/}
+                {/*        whileInView={{opacity: 1, y: 0}}*/}
+                {/*        viewport={{once: false}}*/}
+                {/*        transition={{*/}
+                {/*            duration: 0.6,*/}
+                {/*            ease: "easeInOut",*/}
+                {/*        }}*/}
+                {/*    >*/}
+                {/*        <div className="w-full xl:col-start-2 xl:px-10">*/}
+                {/*            <Link to="/projects/atopol" className="w-full">*/}
+                {/*                <img*/}
+                {/*                    src="/images/thumbnails/atopol_thumb.jpg"*/}
+                {/*                    alt="Allen_Topolski_portfolio_website_image"*/}
+                {/*                    loading="lazy"*/}
+                {/*                    className="w-full"/>*/}
+                {/*            </Link>*/}
+                {/*        </div>*/}
+                {/*        <div*/}
+                {/*            className="flex flex-col justify-end h-full w-full xl:col-start-1 xl:row-start-1 xl:text-right text-3xs md:text-base 3xl:text-lg 5xl:text-2xl 6xl:text-3xl">*/}
+                {/*            <p className="mb-4 2xl:mb-10">Allen Topolski&apos;s Portfolio</p>*/}
+                {/*            <p className="text-customGray">2025</p>*/}
+                {/*        </div>*/}
+                {/*    </motion.div>*/}
+                {/*</section>*/}
+                {/* Selected works scroll gallery */}
+                <section className="flex flex-col items-center">
+                    <div className="w-11/12 xl:w-5/6 md:mb-14">
+                        <h3 className="w-fit outline-text-black dark:outline-text-white text-transparent font-nick pb-5
+                            text-[3vw] leading-none">
+                                    Selected Works
+                                </h3>
+                            </div>
+                            <div className="flex flex-col gap-10 xl:grid xl:grid-cols-2 xl:grid-rows-13 xl:gap-x-0 xl:gap-y-24 justify-start xl:justify-center items-center xl:items-start
+                                font-neueHaasGrotesk font-bold lowercase">
+                                <motion.div
+                                    className="w-11/12 xl:w-full flex flex-col xl:flex-row xl:row-start-1 xl:row-end-5 xl:col-start-1 gap-4"
+                                    initial={{opacity: 0, y: 70}}
+                                    whileInView={{opacity: 1, y: 0}}
+                                    viewport={{once: false}}
+                                    transition={{
+                                        duration: 0.6,
+                                        ease: "easeInOut",
+                                    }}
+                                >
+                                    <Link to="/projects/citibike" className="w-full">
+                                        <img
+                                            src="/images/thumbnails/citibike_thumb.jpg"
+                                            alt="NYC_Citi_Bike_Data_Visualization_Image"
+                                            loading="lazy"
+                                            className="w-full"/>
+                                    </Link>
+                                    <div className="flex flex-col justify-end text-3xs md:text-base 3xl:text-lg 5xl:text-2xl 6xl:text-3xl">
+                                        <p className="mb-4 2xl:mb-10">NYC Citi Bike Data Visualization</p>
+                                        <p className="text-customGray">2025</p>
+                                    </div>
+                                </motion.div>
+                                <motion.div
+                                    className="w-11/12 xl:w-full flex flex-col-reverse xl:flex-row xl:justify-end xl:row-start-4 xl:row-end-8 xl:col-start-2 gap-4"
+                                    initial={{opacity: 0, y: 70}}
+                                    whileInView={{opacity: 1, y: 0}}
+                                    viewport={{once: false}}
+                                    transition={{
+                                        duration: 0.6,
+                                        ease: "easeInOut",
+                                    }}
+                                >
+                                    <div className="flex flex-col justify-end text-3xs md:text-base 3xl:text-lg 5xl:text-2xl 6xl:text-3xl xl:text-right">
+                                        <p className="mb-4 2xl:mb-10">Allen Topolski&apos;s Portfolio</p>
+                                        <p className="text-customGray">2025</p>
+                                    </div>
+                                    <Link to="/projects/atopol" className="w-full">
+                                        <img
+                                            src="/images/thumbnails/atopol_thumb.jpg"
+                                            alt="Allen_Topolski_portfolio_website_image"
+                                            loading="lazy"
+                                            className="w-full"/>
+                                    </Link>
+                                </motion.div>
+                                {/*<motion.div*/}
+                                {/*    className="w-11/12 xl:w-full flex flex-col xl:flex-row xl:row-start-7 xl:row-end-11 xl:col-start-1 gap-4"*/}
+                                {/*    initial={{opacity: 0, y: 70}}*/}
+                                {/*    whileInView={{opacity: 1, y: 0}}*/}
+                                {/*    viewport={{once: false}}*/}
+                                {/*    transition={{*/}
+                                {/*        duration: 0.6,*/}
+                                {/*        ease: "easeInOut",*/}
+                                {/*    }}*/}
+                                {/*>*/}
+                                {/*    <Link to="/project/ocular-prosthetic" className="w-full xl:w-5/6">*/}
+                                {/*        { isXLargeScreen ?*/}
+                                {/*            <img*/}
+                                {/*                src="/images/Ocular%20Prosthetic%20for%20Reading%20Another%20Human_01.jpg"*/}
+                                {/*                alt="Ocular_prostetic_art_image"*/}
+                                {/*                loading="lazy"*/}
+                                {/*                className="w-full"/>*/}
+                                {/*            :*/}
+                                {/*            <img*/}
+                                {/*                src="/images/thumbnails/Ocular%20Prosthetic%20for%20Reading%20Another%20Human_thumb.jpg"*/}
+                                {/*                alt="Ocular_prostetic_art_image"*/}
+                                {/*                loading="lazy"*/}
+                                {/*                className="w-full"/>*/}
+                                {/*        }*/}
+                                {/*    </Link>*/}
+                                {/*    <div className="flex flex-col justify-end text-3xs md:text-base 3xl:text-lg 5xl:text-2xl 6xl:text-3xl">*/}
+                                {/*        <p className="mb-4 2xl:mb-10">Ocular Prosthetic for Reading Another Human</p>*/}
+                                {/*        <p className="text-customGray">2024</p>*/}
+                                {/*    </div>*/}
+                                {/*</motion.div>*/}
+                                {/*<motion.div*/}
+                                {/*    className="w-11/12 xl:w-full flex flex-col-reverse xl:flex-row xl:justify-end xl:row-start-10 xl:row-end-13 xl:col-start-2 gap-4"*/}
+                                {/*    initial={{opacity: 0, y: 70}}*/}
+                                {/*    whileInView={{opacity: 1, y: 0}}*/}
+                                {/*    viewport={{once: false}}*/}
+                                {/*    transition={{*/}
+                                {/*        duration: 0.6,*/}
+                                {/*        ease: "easeInOut",*/}
+                                {/*    }}*/}
+                                {/*>*/}
+                                {/*    <div className="flex flex-col justify-end text-3xs md:text-base 3xl:text-lg 5xl:text-2xl 6xl:text-3xl xl:text-right">*/}
+                                {/*        <p className="mb-4 2xl:mb-10">On The Tracks</p>*/}
+                                {/*        <p className="text-customGray">2024</p>*/}
+                                {/*    </div>*/}
+                                {/*    <Link to="/project/on-the-tracks" className="w-full xl:w-5/6">*/}
+                                {/*        <video*/}
+                                {/*            autoPlay*/}
+                                {/*            playsInline*/}
+                                {/*            muted*/}
+                                {/*            loop*/}
+                                {/*            className="w-full"*/}
+                                {/*        >*/}
+                                {/*            <source src="/videos/JooEon_Park_OnTheTracks_Video.MOV#t=4" type="video/mp4"/>*/}
+                                {/*            Your browser does not support the video tag.*/}
+                                {/*        </video>*/}
+                                {/*    </Link>*/}
+                                {/*</motion.div>*/}
+                            </div>
+                        </section>
                         <section className="flex justify-center items-center h-96 md:h-[80vh]">
                             <motion.div
                                 className="relative top-1/4 flex justify-center gap-5 md:gap-10 lg:gap-14 xl:gap-20 3xl:gap-30 6xl:gap-72 font-nick lowercase
