@@ -62,6 +62,8 @@ export const items = [
         link: "/project/citibike",
         externalLink: "https://nyccitibike.netlify.app/",
         externalLinkLabel: "Visit site",
+        externalLink_2: "https://github.com/jooeon/citibike-visualization",
+        externalLinkLabel_2: "More Info",
         hasAnimation: true,
     },
 ];
