@@ -33,7 +33,7 @@ const Info = () => {
     ];
 
     const skillsData = {
-        DESIGN: ["UI / UX", "Responsiveness", "Accessibility", "Wireframing", "Logo Design"],
+        DESIGN: ["UI / UX", "Responsiveness", "Accessibility", "Prototyping", "Graphic Design"],
         TECHNOLOGY: ["Front-end Development", "Back-end Development", "CMS Integration", "Creative Coding", "3D"],
         "TOOLS & SOFTWARE": ["Adobe Creative Cloud", "Figma", "Generative AI"],
     }
