@@ -1,4 +1,5 @@
-import { createContext, useContext, useState, useEffect } from "react"
+import { createContext, useContext, useState, useEffect, useRef } from "react"
+import { useLocation } from "react-router-dom" // Add if using React Router
 import PropTypes from "prop-types"
 
 // Use Context API to manage the isHovered state globally
@@ -13,6 +14,44 @@ export const CursorProvider = ({ children }) => {
     const [leftViewport, setLeftViewport] = useState(false)
     const [isAlbumHovered, setIsAlbumHovered] = useState(false)
     const [currentAlbumArt, setCurrentAlbumArt] = useState("")
+
+    // Add location hook if using React Router
+    const location = useLocation()
+
+    // Use ref to track navigation state without causing re-renders
+    const isNavigatingRef = useRef(false)
+
+    // Reset all cursor states function
+    const resetAllCursorStates = () => {
+        setIsLinkHovered(false)
+        setIsContentHovered(false)
+        setIsInteractiveHovered(false)
+        setIsShaderHovered(false)
+        setIsAlbumHovered(false)
+        setCurrentAlbumArt("")
+    }
+
+    // Reset cursor states on route change and block mouse events during transition
+    useEffect(() => {
+        isNavigatingRef.current = true
+        resetAllCursorStates()
+
+        // Continuously reset during transition period
+        const resetInterval = setInterval(() => {
+            resetAllCursorStates()
+        }, 50)
+
+        // Stop blocking after transition completes
+        const navigationTimer = setTimeout(() => {
+            isNavigatingRef.current = false
+            clearInterval(resetInterval)
+        }, 600) // Match to navigation transition duration (see App.jsx)
+
+        return () => {
+            clearTimeout(navigationTimer)
+            clearInterval(resetInterval)
+        }
+    }, [location.pathname])
 
     const handleAlbumHover = (albumArt) => {
         setIsAlbumHovered(true)
@@ -47,6 +86,7 @@ export const CursorProvider = ({ children }) => {
                 setIsShaderHovered(true);
             }
         }
+
         // Mouse leaves the target elements
         const handleMouseLeave = () => {
             setIsLinkHovered(false)
@@ -70,6 +110,8 @@ export const CursorProvider = ({ children }) => {
                 e.clientX >= window.innerWidth // Right
             ) {
                 setLeftViewport(true)
+                // Reset cursor states when leaving viewport
+                resetAllCursorStates()
             }
         }
 
@@ -78,11 +120,30 @@ export const CursorProvider = ({ children }) => {
             setLeftViewport(false)
         }
 
+        // Handle page visibility changes (tab switching, minimizing)
+        const handleVisibilityChange = () => {
+            if (document.hidden) {
+                resetAllCursorStates()
+            }
+        }
+
+        // Handle navigation events (for non-React Router navigation)
+        const handleBeforeUnload = () => {
+            resetAllCursorStates()
+        }
+
+        const handlePopState = () => {
+            resetAllCursorStates()
+        }
+
         document.addEventListener("mouseover", handleMouseEnter)
         document.addEventListener("mouseout", handleMouseLeave)
         window.addEventListener("mousedown", handleClick)
         document.addEventListener("mouseout", handleMouseLeaveViewport)
         window.addEventListener("mousemove", handleMouseEnterViewport)
+        document.addEventListener("visibilitychange", handleVisibilityChange)
+        window.addEventListener("beforeunload", handleBeforeUnload)
+        window.addEventListener("popstate", handlePopState)
 
         return () => {
             document.removeEventListener("mouseover", handleMouseEnter)
@@ -90,6 +151,12 @@ export const CursorProvider = ({ children }) => {
             window.removeEventListener("mousedown", handleClick)
             document.removeEventListener("mouseout", handleMouseLeaveViewport)
             window.removeEventListener("mousemove", handleMouseEnterViewport)
+            document.removeEventListener("visibilitychange", handleVisibilityChange)
+            window.removeEventListener("beforeunload", handleBeforeUnload)
+            window.removeEventListener("popstate", handlePopState)
+
+            // Final cleanup - reset all states when provider unmounts
+            resetAllCursorStates()
         }
     }, [])
 
@@ -104,6 +171,7 @@ export const CursorProvider = ({ children }) => {
         currentAlbumArt,
         handleAlbumHover,
         handleAlbumLeave,
+        resetAllCursorStates, // Expose for manual resets
     }
 
     return <CursorContext.Provider value={value}>{children}</CursorContext.Provider>

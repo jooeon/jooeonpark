@@ -41,7 +41,7 @@ const Design = () => {
                             animate={{opacity: 1, y: 0}}
                             transition={{
                                 duration: 0.35,
-                                delay: 1.5,
+                                delay: 1.4,
                                 ease: "easeOut",
                             }}
                         >
@@ -51,25 +51,20 @@ const Design = () => {
                 </div>
                 <section className="mt-[8vh] mb-[2vh] xl:mb-[4vh] p-4 md:p-7 xl:p-8 4xl:p-12 7xl:p-20">
                     <div className="flex flex-wrap justify-center xl:justify-start gap-[10vw] xl:gap-[3.5vw]">
-                        {items.map((item) => {
-                            const animationProps = item.hasAnimation
-                                ? {
-                                    initial: {opacity: 0, y: 70},
-                                    whileInView: {opacity: 1, y: 0},
-                                    viewport: {once: true},
-                                    transition: {
-                                        duration: 0.5,
-                                        delay: 0.7 + item.animationDelay,
-                                        ease: "easeOut",
-                                    },
-                                }
-                                : {};
+                        {items.map((item, index) => {
 
                             return (
                                 <motion.div
                                     key={item.id}
                                     className="w-[25vw] xl:w-[10vw]"
-                                    {...animationProps}
+                                    initial={{ opacity: 0, y: 20 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    viewport={{ once: true, amount: 0.1 }}
+                                    transition={{
+                                        duration: 0.4,
+                                        delay: 1.4 + index * 0.1,
+                                        ease: "easeOut",
+                                    }}
                                 >
                                     {/* Video/image content */}
                                     <Link to={item.link} className="">

@@ -25,10 +25,10 @@ const Inspo = () => {
     const musicData = [
         {
             no: "/01",
-            artist: "Fred again..",
-            titleyear: "USB (2022)",
-            genresubjective: "Electronic",
-            albumArt: "/images/thumbnails/album_covers/fred-again_usb.jpg",
+            artist: "Ecca Vandal",
+            titleyear: "CRUISING TO SELF SOOTHE (2025)",
+            genresubjective: "Punk rock",
+            albumArt: "/images/thumbnails/album_covers/ecca-vandal_cruising.jpg",
         },
         {
             no: "/02",

@@ -215,6 +215,9 @@ const ProjectDetail = () => {
                             {type === "projects" && (
                                 <Link to="/projects" className="text-link after:bg-customBlack dark:after:bg-customWhite">Back to Projects</Link>
                             )}
+                            {type === "design" && (
+                                <Link to="/design" className="text-link after:bg-customBlack dark:after:bg-customWhite">Back to Gallery</Link>
+                            )}
                         </div>
                     </section>
                 </div>
