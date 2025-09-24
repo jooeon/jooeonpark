@@ -31,7 +31,7 @@ export const items = [
                 hasAudio: true
             },
             {
-                source: "/videos/helix_vid.mov",
+                source: "/videos/helix_vid.mp4",
                 hasAudio: true
             },
             {
