@@ -106,11 +106,12 @@ const Info = () => {
                             ease: "easeOut",
                         }}
                     >
-                        <div className="flex gap-[10vw]">
+                        <div className="flex flex-wrap xl:flex-nowrap gap-x-[5vw] gap-y-[3vh] xl:gap-[10vw]">
                             <h3>Skills</h3>
                             {Object.entries(skillsData).map(([category, skills], categoryIndex) => (
                                 <motion.div
                                     key={categoryIndex}
+                                    className="basis-1/4 md:basis-auto"
                                     initial={{opacity: 0, y: 20}}
                                     whileInView={{opacity: 1, y: 0}}
                                     viewport={{once: true, amount: 0.5}}

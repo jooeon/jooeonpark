@@ -198,6 +198,14 @@ const ProjectDetail = () => {
                                     {nextProject.caption[0]}
                                 </Link>
                             )}
+                            {type === "design" && (
+                                <Link
+                                    to={`/design/${nextProject.id}`}
+                                    className="text-link after:bg-customBlack dark:after:bg-customWhite ml-10"
+                                >
+                                    {nextProject.caption[0]}
+                                </Link>
+                            )}
                         </div>
                         <div className="flex items-end pr-2
                             text-3xs sm:text-2xs md:text-sm lg:text-sm xl:text-lg 2xl:text-xl 3xl:text-2xl 4xl:text-3xl">
