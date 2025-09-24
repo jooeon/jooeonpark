@@ -162,8 +162,8 @@ const Header = ({ delay = 0.4 }) => {
                             { to: "/", text: "Joo Eon Park", delay: 0.2 },
                             { to: "/projects", text: "Projects", delay: 0.25 },
                             { to: "/art", text: "Art", delay: 0.3 },
-                            { to: "/inspo", text: "Inspo", delay: 0.35 },
-                            { to: "/tech", text: "Tech", delay: 0.4 },
+                            { to: "/design", text: "Design", delay: 0.35 },
+                            { to: "/inspo", text: "Inspo", delay: 0.4 },
                             { to: "/info", text: "Info", delay: 0.45 },
                         ].map((link, index) => {
                             const Component = index === 0 ? Link : NavLink
