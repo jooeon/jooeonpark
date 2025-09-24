@@ -17,6 +17,7 @@ import Projects from "./pages/Projects.jsx";
 import Inspo from "./pages/Inspo.jsx";
 import CitibikeProcess from "./components/CitibikeProcess.jsx";
 import RandomImageGenerator from "./pages/RandomImageGenerator.jsx";
+import Design from "./pages/Design.jsx";
 
 // animations for entering and exiting each page
 const navVariants = {
@@ -40,6 +41,7 @@ const AnimatedRoutes = () => {
                 <Route path="/projects" element={<PageWrapper><Projects /></PageWrapper>} />
                 <Route path="/projects/rig" element={<PageWrapper><RandomImageGenerator /></PageWrapper>} />
                 <Route path="/art" element={<PageWrapper><Art /></PageWrapper>} />
+                <Route path="/design" element={<PageWrapper><Design /></PageWrapper>} />
                 <Route path="/:type/:id" element={<PageWrapper><ProjectDetail /></PageWrapper>} />
                 <Route path="/inspo" element={<PageWrapper><Inspo /></PageWrapper>} />
                 <Route path="/tech" element={<PageWrapper><Tech /></PageWrapper>} />

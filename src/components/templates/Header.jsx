@@ -11,6 +11,7 @@ const Header = ({ delay = 0.4 }) => {
     const isLandingPage = location.pathname === "/"
     const isProjectsPage = location.pathname.startsWith("/projects/") || location.pathname === "/projects"
     const isArtPage = location.pathname.startsWith("/art/") || location.pathname === "/art"
+    const isDesignPage = location.pathname.startsWith("/design/") || location.pathname === "/design"
     const isInspoPage = location.pathname === "/inspo"
     const isTechPage = location.pathname === "/tech"
     const isInfoPage = location.pathname === "/info"
@@ -57,16 +58,16 @@ const Header = ({ delay = 0.4 }) => {
             return "text-link" // Art should be active when /art/*
         }
 
+        if (path === "/design" && isDesignPage) {
+            return "text-link" // Design should be active when /design/*
+        }
+
         if (path === "/inspo" && isInspoPage) {
             return "text-link" // Inspo is active on /inspo
         }
 
-        if (path === "/tech" && isTechPage) {
-            return "text-link" // Tech is active on /tech
-        }
-
-        if (path === "/info" && isInfoPage) {
-            return "text-link" // Info is active on /info
+        if ((path === "/info" || path === "/tech") && (isInfoPage || isTechPage)) {
+            return "text-link" // Info is active on /info or /tech
         }
 
         // Otherwise, make inactive links greyed out
@@ -113,13 +114,13 @@ const Header = ({ delay = 0.4 }) => {
                             </NavLink>
                         </li>
                         <li>
-                            <NavLink to="/inspo" className={() => getLinkClasses("/inspo")}>
-                                Inspo
+                            <NavLink to="/design" className={() => getLinkClasses("/design")}>
+                                Design
                             </NavLink>
                         </li>
                         <li>
-                            <NavLink to="/tech" className={() => getLinkClasses("/tech")}>
-                                Tech
+                            <NavLink to="/inspo" className={() => getLinkClasses("/inspo")}>
+                                Inspo
                             </NavLink>
                         </li>
                         <li>

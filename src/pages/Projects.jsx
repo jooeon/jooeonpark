@@ -21,8 +21,23 @@ const Projects = () => {
         <>
             <Header/>
             <main>
-                <TitleText phrase={"Projects"}/>
-                <section className="flex flex-col items-center px-4 md:px-7 6xl:px-12 7xl:px-14 mt-[5vh] lg:mt-[7vh] xl:mt-[8vw]">
+                <div className="flex items-baseline gap-[3vw] xl:gap-[2vw]">
+                    <TitleText phrase={"Projects"}/>
+                    <motion.p
+                        className="leading-none text-[2vh] xl:text-[1vw] font-neueHaasGrotesk font-semibold lowercase"
+                        initial={{opacity: 0, y: 15}}
+                        animate={{opacity: 1, y: 0}}
+                        transition={{
+                            duration: 0.35,
+                            delay: 1.3,
+                            ease: "easeOut",
+                        }}
+                    >
+                        /Web
+                    </motion.p>
+                </div>
+                <section
+                    className="flex flex-col items-center px-4 md:px-7 6xl:px-12 7xl:px-14 mt-[5vh] lg:mt-[7vh] xl:mt-[8vw]">
                     <div className="flex flex-col gap-10 xl:grid xl:grid-cols-2 xl:grid-rows-13 xl:gap-x-0 xl:gap-y-24 justify-start xl:justify-center items-center xl:items-start
                                 font-neueHaasGrotesk font-bold lowercase">
                         <motion.div
@@ -80,7 +95,7 @@ const Projects = () => {
                             viewport={{once: true}}
                             transition={{
                                 duration: 0.6,
-                                delay: 1.1,
+                                delay: 0,
                                 ease: "easeOut",
                             }}
                         >

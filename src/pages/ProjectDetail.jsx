@@ -11,6 +11,7 @@ import { useLenis } from 'lenis/react';
 import {scrollToTop} from "../Utils.jsx";
 import VideoPlayer from "../components/templates/VideoPlayer.jsx";
 import Overlay from "../components/Overlay.jsx";
+import designData from "../data/DesignData.jsx";
 
 // Template component for individual project pages
 // Reads data from data files in src/data and displays content with consistent format
@@ -40,7 +41,9 @@ const ProjectDetail = () => {
         ? artData
         : type === "projects"
             ? projectData
-            : null;
+            : type === "design"
+                ? designData
+                : null
 
     // if the “type” wasn’t recognized, you can optionally redirect or show an error
     if (items === null) {

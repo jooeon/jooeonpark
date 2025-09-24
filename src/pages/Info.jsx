@@ -142,6 +142,19 @@ const Info = () => {
                                     </ul>
                                 </motion.div>
                             ))}
+                            <motion.div
+                                className="font-neueHaasGrotesk font-bold"
+                                initial={{opacity: 0, y: 20}}
+                                whileInView={{opacity: 1, y: 0}}
+                                viewport={{once: true, amount: 0.5}}
+                                transition={{
+                                    duration: 0.4,
+                                    delay: hasInitiallyLoaded ? 0.1 + 3 * 0.2 : 1.3 + 3 * 0.2,
+                                    ease: "easeOut",
+                                }}
+                            >
+                                <Link to={"/tech"} className="text-link after:bg-customBlack dark:after:bg-customWhite">More Info</Link>
+                            </motion.div>
                         </div>
                     </motion.div>
 
