@@ -29,6 +29,13 @@ const ScrollTitleSection = ({showEntryAnimation}) => {
     const controls = useAnimation(); // Animation controls
     const [animationState, setAnimationState] = useState("visible"); // Track the current animation state
 
+    // Subtitle fade out state
+    const [subTitleVisible, setSubTitleVisible] = useState(true);
+    const subTitleFadeThreshold = 0.1; // Adjust this value to control when subtitle fades out
+
+    // Track if initial entry animation has completed
+    const [hasEntryAnimationPlayed, setHasEntryAnimationPlayed] = useState(false);
+
     // Handle scroll direction, hide title when scrolling up to prevent overlap with navbar
     useMotionValueEvent(scrollY, "change", latest => {
         if (Math.abs(latest - lastY.current) > scrollThreshold) {
@@ -53,6 +60,18 @@ const ScrollTitleSection = ({showEntryAnimation}) => {
             } else {
                 void triggerAnimation("hidden");
             }
+
+            // Handle subtitle fade out based on threshold
+            if (latest >= subTitleFadeThreshold) {
+                // Check scroll direction - if scrolling up, show subtitle
+                if (scrollY.get() < lastY.current) {
+                    setSubTitleVisible(true);
+                } else {
+                    setSubTitleVisible(false);
+                }
+            } else {
+                setSubTitleVisible(true);
+            }
         });
 
         return () => unsubscribeScroll(); // Cleanup subscription
@@ -61,6 +80,18 @@ const ScrollTitleSection = ({showEntryAnimation}) => {
     useEffect(() => {
         setFinalVisible(isVisible || animationState === "visible");
     }, [isVisible, animationState]);
+
+    // Mark entry animation as played after delays complete
+    useEffect(() => {
+        if (showEntryAnimation) {
+            const timer = setTimeout(() => {
+                setHasEntryAnimationPlayed(true);
+            }, (delays[4] + 0.5) * 1000); // Wait for subtitle delay + duration
+            return () => clearTimeout(timer);
+        } else {
+            setHasEntryAnimationPlayed(true);
+        }
+    }, [showEntryAnimation, delays]);
 
     // Dynamically calculate fontSize and sectionHeight
     useEffect(() => {
@@ -89,6 +120,16 @@ const ScrollTitleSection = ({showEntryAnimation}) => {
     const titleToggle = useTransform(scrollYProgress, [0, 0.15], [1, 0], { clamp: true });
     const backgroundColor = useTransform(titleToggle, [0, 1], ["transparent", "#000000"]);
 
+    // Determine subtitle delay based on conditions
+    const getSubTitleDelay = () => {
+        // Initial load delays, on entry animation condition
+        if (!hasEntryAnimationPlayed) {
+            return delays[4]; // 3.5 or 1.5 depending on showEntryAnimation
+        }
+        // All scroll-triggered changes have 0 delay
+        return 0;
+    };
+
     return (
         <motion.section
             className="sticky top-0 flex flex-col items-center mix-blend-difference text-customWhite pointer-events-none"
@@ -100,7 +141,7 @@ const ScrollTitleSection = ({showEntryAnimation}) => {
             }}
             transition={{
                 duration: 0.4,
-                delay: 0.2,
+                delay: hasEntryAnimationPlayed ? 0 : 0.2, // 0 delay for scroll-triggered changes
                 ease: "easeIn",
             }}
         >
@@ -136,10 +177,10 @@ const ScrollTitleSection = ({showEntryAnimation}) => {
                     text-[3vw] leading-none"
                 style={{ y: subTitleLayer }}
                 initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
+                animate={{ opacity: subTitleVisible ? 1 : 0 }}
                 transition={{
                     duration: 0.5,
-                    delay: delays[4],
+                    delay: getSubTitleDelay(),
                     ease: "easeIn",
                 }}
             >
