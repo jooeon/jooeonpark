@@ -33,7 +33,7 @@ const Design = () => {
                                 ease: "easeOut",
                             }}
                         >
-                            /graphic
+                            /branding
                         </motion.p>
                         <motion.p
                             className="leading-none text-[2vh] xl:text-[1vw] font-neueHaasGrotesk font-semibold lowercase"
@@ -42,6 +42,18 @@ const Design = () => {
                             transition={{
                                 duration: 0.35,
                                 delay: 1.4,
+                                ease: "easeOut",
+                            }}
+                        >
+                            /graphic
+                        </motion.p>
+                        <motion.p
+                            className="leading-none text-[2vh] xl:text-[1vw] font-neueHaasGrotesk font-semibold lowercase"
+                            initial={{opacity: 0, y: 15}}
+                            animate={{opacity: 1, y: 0}}
+                            transition={{
+                                duration: 0.35,
+                                delay: 1.5,
                                 ease: "easeOut",
                             }}
                         >
@@ -57,7 +69,7 @@ const Design = () => {
                                 <motion.div
                                     key={item.id}
                                     className="w-[25vw] xl:w-[10vw]"
-                                    initial={{ opacity: 0, y: 20 }}
+                                    initial={{opacity: 0, y: 20}}
                                     whileInView={{ opacity: 1, y: 0 }}
                                     viewport={{ once: true, amount: 0.1 }}
                                     transition={{

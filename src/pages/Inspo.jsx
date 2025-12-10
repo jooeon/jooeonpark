@@ -74,10 +74,10 @@ const Inspo = () => {
         },
         {
             no: "/07",
-            artist: "WACK",
-            titleyear: "2004 (2023)",
-            genresubjective: "Alt rock, korean indie rock",
-            albumArt: "/images/thumbnails/album_covers/wack_2004.jpg",
+            artist: "Gary Clark Jr.",
+            titleyear: "Catfish Blues (Live) (2014)",
+            genresubjective: "Rock, blues rock",
+            albumArt: "/images/thumbnails/album_covers/gary-clark-jr-live.jpg",
         },
         {
             no: "/08",

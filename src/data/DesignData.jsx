@@ -28,9 +28,9 @@ export const items = [
         nextItem: "helios-hours-2",
         isVideo: false,
         images: [
-            "/images/helix_2.jpeg",
-            "/images/helix_1.jpeg",
             "/images/swaney.jpeg",
+            // "/images/helix_2.jpeg",
+            "/images/helix_1.jpeg",
             "/images/lot.jpeg",
         ],
         videos: [
@@ -39,15 +39,11 @@ export const items = [
                 hasAudio: false
             },
             {
+                source: "/videos/helix_vid.mp4",
+                hasAudio: true
+            },
+            {
                 source: "/videos/lot_final.mp4",
-                hasAudio: false
-            },
-            {
-                source: "/videos/uche_final.mp4",
-                hasAudio: false
-            },
-            {
-                source: "/videos/swaney_final.mp4",
                 hasAudio: false
             },
             {
@@ -55,12 +51,16 @@ export const items = [
                 hasAudio: true
             },
             {
-                source: "/videos/helix_vid.mp4",
-                hasAudio: true
+                source: "/videos/uche_final.mp4",
+                hasAudio: false
             },
             {
                 source: "/videos/lot_vid_2.mov",
                 hasAudio: true
+            },
+            {
+                source: "/videos/swaney_final.mp4",
+                hasAudio: false
             },
         ],
         caption: [
