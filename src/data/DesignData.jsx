@@ -1,5 +1,29 @@
 export const items = [
     {
+        id: "demiurgo-mock",
+        nextItem: "bowery-electric",
+        isVideo: false,
+        images: [
+            "/images/demiurgo-mock-1.png",
+            "/images/demiurgo-mock-2.png",
+            "/images/demiurgo-mock-3.png",
+        ],
+        videos: [
+        ],
+        caption: [
+            "Demiurgo Branding Mockup",
+            "Branding, Graphic Design",
+            "",
+            "2025",
+            "Branding mockup of Italian fashion brand, Demiurgo Studio",
+        ],
+        thumbnail: "/images/thumbnails/demiurgo-thumb.png",
+        alt: "Branding mockup of Demiurgo Studio",
+        link: "/design/demiurgo-mock",
+        externalLink: "https://demiurgostudio.com/",
+        externalLinkLabel: "Image and content credit to Demiurgo Studio",
+    },
+    {
         id: "bowery-electric",
         nextItem: "helios-hours-2",
         isVideo: false,
