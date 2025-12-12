@@ -55,7 +55,7 @@ export const items = [
                 hasAudio: false
             },
             {
-                source: "/videos/lot_vid_2.mov",
+                source: "/videos/uche_vid.MOV",
                 hasAudio: true
             },
             {
