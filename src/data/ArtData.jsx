@@ -374,7 +374,7 @@ export const items = [
             "Printmaking",
             "Linocut",
             "2023",
-            "N/A",
+            "Dedicated to those that beat on endlessly",
         ],
         thumbnail: "/images/thumbnails/The_Workers_thumb.jpg",
         alt: "The Workers",
@@ -385,7 +385,7 @@ export const items = [
     },
     {
         id: "symbiosis",
-        nextItem: "filter-cigarettes",
+        nextItem: "blind-sparkler",
         isVideo: false,
         images: [
             "/images/Symbiosis.jpg",
