@@ -28,7 +28,7 @@ const Info = () => {
 
     const aboutData = [
         "I am an artist & creative developer specializing in Web Development, UI/UX Design, and Visual Arts.",
-        "I build modern, stylish websites using industry-leading technologies, delivering stunning first impressions that are designed to last.",
+        "I build modern and stylish digital experiences, delivering stunning first impressions that are designed to last.",
         "Don't hesitate to reach out for project inquiries."
     ];
 
@@ -51,10 +51,10 @@ const Info = () => {
             <main>
                 <section className="px-3 md:px-3.5 xl:px-3.5 4xl:px-8 7xl:px-10 ">
                     <div className="mt-[12vh] md:mt-[15vh] xl:mt-[20vh]">
-                        <h2 className="flex flex-col font-nick uppercase text-[8vw] md:text-[5vw] leading-[0.9]">
+                        <h1 className="title-text flex flex-col font-nick uppercase text-[8vw] md:text-[5vw] leading-[0.9]">
                             <MaskText phrase={"Artist"} duration={1} delay={0.8}/>
                             <span className="pl-10 md:pl-20 4xl:pl-40 6xl:pl-72"><MaskText phrase={"& Creative Developer"} duration={1} delay={0.8}/></span>
-                        </h2>
+                        </h1>
                     </div>
 
                     {/* Info Section */}
