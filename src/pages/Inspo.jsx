@@ -122,7 +122,7 @@ const Inspo = () => {
                     >
                         <div className="flex justify-center items-end w-1/4 md:w-4/12 xl:w-1/2 pt-10 xl:pt-0 ml-2 xl:ml-0
                             font-neueHaasGrotesk font-semibold lowercase text-[1.5vh] md:text-[2vh] xl:text-[1vw] text-left">
-                            <p className="leading-none w-10/12 xl:w-10/12">* updated automatically every 24 hours</p>
+                            <p className="leading-none w-10/12 xl:w-10/12">* Updated automatically every 24 hours</p>
                         </div>
                         <div className="flex flex-col items-end w-3/4 md:w-9/12 xl:w-1/2 pt-10 xl:pt-0 mr-2 xl:mr-0
                             font-neueHaasGrotesk font-semibold lowercase text-[2.5vh] md:text-[4vh] xl:text-[2.5vw] text-left">

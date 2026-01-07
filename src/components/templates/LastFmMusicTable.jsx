@@ -15,7 +15,7 @@ const LastFmMusicTable = ({ musicData: propMusicData = null }) => {
     const tableHeadings = ['No.', 'Artist', 'Title / Year', 'Genre (subjective)'];
 
     // Cache configuration
-    const CACHE_DURATION = 24 * 60 * 60 * 1000; // 1 hour in milliseconds
+    const CACHE_DURATION = 24 * 60 * 60 * 1000; // 24 hour in milliseconds
     const CACHE_KEY = 'lastfm_music_data';
     const CACHE_TIMESTAMP_KEY = 'lastfm_cache_timestamp';
 
