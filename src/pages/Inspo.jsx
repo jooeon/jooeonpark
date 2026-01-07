@@ -53,10 +53,10 @@ const Inspo = () => {
         },
         {
             no: "/04",
-            artist: "FKA Twigs",
-            titleyear: "EUSEXUA (2025)",
-            genresubjective: "Electronic, dance",
-            albumArt: "/images/thumbnails/album_covers/fka-twigs_eusexua.jpg",
+            artist: "Smashing Pumpkins",
+            titleyear: "Siamese Dream (1993)",
+            genresubjective: "Rock, alt rock",
+            albumArt: "/images/thumbnails/album_covers/smashing-pumpkins_siamese-dream.jpg",
         },
         {
             no: "/05",
@@ -77,7 +77,7 @@ const Inspo = () => {
             artist: "Gary Clark Jr.",
             titleyear: "Catfish Blues (Live) (2014)",
             genresubjective: "Rock, blues rock",
-            albumArt: "/images/thumbnails/album_covers/gary-clark-jr-live.jpg",
+            albumArt: "/images/thumbnails/album_covers/gary-clark-jr_live.jpg",
         },
         {
             no: "/08",

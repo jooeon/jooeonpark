@@ -332,7 +332,7 @@ const Index = () => {
                     </motion.span>
                 </Link>
                 <span>. </span>
-                <Link to="/projects" className="outline-text-black dark:outline-text-white">
+                <Link to="/design" className="outline-text-black dark:outline-text-white">
                     <motion.span
                         onHoverStart={() => {
                             const newColor = pickRandomColor();
@@ -349,7 +349,7 @@ const Index = () => {
                     </motion.span>
                 </Link>
                 <span>. </span>
-                <Link to="/tech" className="outline-text-black dark:outline-text-white">
+                <Link to="/projects" className="outline-text-black dark:outline-text-white">
                     <motion.span
                         onHoverStart={() => {
                             const newColor = pickRandomColor();
