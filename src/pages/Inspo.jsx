@@ -10,6 +10,7 @@ import TopographicShader from "../components/shaders/Topographic.jsx";
 import HalftoneWavesShader from "../components/shaders/HalftoneWaves.jsx";
 import HeatmapShader from "../components/shaders/Heatmap.jsx";
 import LiquidGrainShader from "../components/shaders/LiquidGrain.jsx";
+import LastFmMusicTable from "../components/templates/LastFmMusicTable.jsx";
 
 const Inspo = () => {
     // always begin page from top on load
@@ -129,7 +130,7 @@ const Inspo = () => {
                         flex flex-col justify-start items-center
                         text-[3vh] xl:text-[2vw]"
                     >
-                        <CustomTable data={musicData} headings={tableHeadings} imageField="albumArt" enableCursorHover={true} />
+                        <LastFmMusicTable />
                     </div>
                 </section>
                 { checkWebGL() &&
