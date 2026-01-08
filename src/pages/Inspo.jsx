@@ -11,6 +11,7 @@ import HalftoneWavesShader from "../components/shaders/HalftoneWaves.jsx";
 import HeatmapShader from "../components/shaders/Heatmap.jsx";
 import LiquidGrainShader from "../components/shaders/LiquidGrain.jsx";
 import LastFmMusicTable from "../components/templates/LastFmMusicTable.jsx";
+import RecentSongScroll from "../components/recentSongScroll.jsx";
 
 const Inspo = () => {
     // always begin page from top on load
@@ -132,22 +133,23 @@ const Inspo = () => {
                     </motion.div>
                     <div
                         className="w-full mt-10 lg:mt-14 2xl:mt-[4vw] mb-10 xl:mb-8 3xl:mb-20 font-neueHaasGrotesk font-bold
-                        flex flex-col justify-start items-center
+                        flex flex-col justify-start items-center gap-[7.5vh] xl:gap-[3vw]
                         text-[3vh] xl:text-[2vw]"
                     >
                         {/*<LastFmMusicTable musicData={musicData}/>*/}
-                        <LastFmMusicTable />
+                        <LastFmMusicTable/>
+                        <RecentSongScroll />
                     </div>
                 </section>
                 {checkWebGL() &&
                     <section className="mt-[8vh] mb-[2vh] xl:mb-[4vh] p-3 md:p-3.5 xl:p-3.5 4xl:p-8 7xl:p-10">
-                    <motion.div
-                        className="mb-[8vh]"
-                        initial={{opacity: 0, y: 20}}
-                        animate={{opacity: 1, y: 0}}
-                        transition={{
-                            delay: 1.2,
-                            duration: 0.3,
+                        <motion.div
+                            className="mb-[8vh]"
+                            initial={{opacity: 0, y: 20}}
+                            animate={{opacity: 1, y: 0}}
+                            transition={{
+                                delay: 1.2,
+                                duration: 0.3,
                             ease: "easeOut",
                         }}
                     >
