@@ -15,7 +15,7 @@ const LastFmMusicTable = ({ musicData: propMusicData = null }) => {
     const tableHeadings = ['No.', 'Artist', 'Title / Year', 'Genre (subjective)'];
 
     // Cache configuration
-    const CACHE_DURATION = 24 * 60 * 60 * 1000; // 24 hour in milliseconds
+    const CACHE_DURATION = 24 * 60 * 60 * 1000; // 24 hours in milliseconds
     const CACHE_KEY = 'lastfm_music_data';
     const CACHE_TIMESTAMP_KEY = 'lastfm_cache_timestamp';
 
@@ -84,7 +84,7 @@ const LastFmMusicTable = ({ musicData: propMusicData = null }) => {
                         let year = '';
 
                         try {
-                            // Fetch album info to get tags (genres) and release date
+                            // Fetch album info from Last.fm to get tags (genres)
                             const infoResponse = await fetch(
                                 `https://ws.audioscrobbler.com/2.0/?method=album.getInfo&artist=${encodeURIComponent(album.artist.name)}&album=${encodeURIComponent(album.name)}&api_key=${API_KEY}&format=json`
                             );
@@ -101,13 +101,34 @@ const LastFmMusicTable = ({ musicData: propMusicData = null }) => {
                                         .join(', ');
                                 }
 
-                                // Get release year from wiki.published field
-                                // Format: "01 Jan 2020, 00:00" or similar
-                                const publishedDate = infoData.album?.wiki?.published;
-                                if (publishedDate) {
-                                    const yearMatch = publishedDate.match(/\d{4}/);
-                                    if (yearMatch) {
-                                        year = yearMatch[0];
+                                // Try to get year from MusicBrainz if MBID exists
+                                const mbid = infoData.album?.mbid || album.mbid;
+                                if (mbid) {
+                                    try {
+                                        // Add delay to respect MusicBrainz rate limit (1 req/sec)
+                                        await new Promise(resolve => setTimeout(resolve, 1000));
+
+                                        // Use release endpoint with release-groups include to get first-release-date
+                                        // Using CORS proxy to avoid browser CORS restrictions
+                                        const mbResponse = await fetch(
+                                            `https://corsproxy.io/?${encodeURIComponent(`https://musicbrainz.org/ws/2/release/${mbid}?inc=release-groups&fmt=json`)}`,
+                                            {
+                                                headers: {
+                                                    'User-Agent': 'JooEonParkPortfolio/1.0 (jooeon427@gmail.com)'
+                                                }
+                                            }
+                                        );
+
+                                        if (mbResponse.ok) {
+                                            const mbData = await mbResponse.json();
+                                            // Get first-release-date from the release-group
+                                            const releaseDate = mbData['release-group']?.['first-release-date'];
+                                            if (releaseDate) {
+                                                year = releaseDate.split('-')[0]; // Extract year from YYYY-MM-DD
+                                            }
+                                        }
+                                    } catch (mbErr) {
+                                        console.warn(`MusicBrainz lookup failed for ${album.name}:`, mbErr);
                                     }
                                 }
                             }
