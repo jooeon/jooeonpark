@@ -125,7 +125,7 @@ const Art = () => {
                              key={item.id}>
                             <motion.div
                                 className=""
-                                initial={{opacity: 0, y: 70}}
+                                initial={{opacity: 0, y: 50}}
                                 whileInView={{opacity: 1, y: 0}}
                                 viewport={{once: true}}
                                 transition={{
