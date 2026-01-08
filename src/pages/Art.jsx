@@ -130,7 +130,7 @@ const Art = () => {
                                 viewport={{once: true}}
                                 transition={{
                                     duration: 0.6,
-                                    delay: 1.1,
+                                    delay: 0,
                                     ease: "easeOut",
                                 }}
                             >
