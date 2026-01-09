@@ -15,11 +15,6 @@ const RecentSongScroll = () => {
     const API_KEY = import.meta.env.VITE_LASTFM_API_KEY;
     const USERNAME = import.meta.env.VITE_LASTFM_USERNAME;
 
-    // Cache configuration
-    const CACHE_DURATION = 60 * 60 * 1000; // 1 hour in milliseconds
-    const CACHE_KEY = 'lastfm_recent_song';
-    const CACHE_TIMESTAMP_KEY = 'lastfm_recent_song_timestamp';
-
     const handleMouseEnter = () => {
         if (albumArt) {
             handleAlbumHover(albumArt);
@@ -29,6 +24,12 @@ const RecentSongScroll = () => {
     const handleMouseLeave = () => {
         handleAlbumLeave();
     };
+
+    // Cache configuration
+    const CACHE_DURATION = 60 * 60 * 1000; // 1 hour in milliseconds
+    const CACHE_KEY = 'lastfm_recent_song';
+    const CACHE_TIMESTAMP_KEY = 'lastfm_recent_song_timestamp';
+    const ENABLE_CACHE = false; // Set to true to enable caching
 
     useEffect(() => {
         // Check if credentials are available
@@ -40,23 +41,18 @@ const RecentSongScroll = () => {
 
         // Check if we have valid cached data
         const checkCache = () => {
+            if (!ENABLE_CACHE) return false; // Skip cache if disabled
+
             try {
                 const cachedData = localStorage.getItem(CACHE_KEY);
                 const cachedAlbumArt = localStorage.getItem(CACHE_KEY + '_albumart');
                 const cacheTimestamp = localStorage.getItem(CACHE_TIMESTAMP_KEY);
-
-                // console.log('Cache check:', {
-                //     cachedData,
-                //     cachedAlbumArt,
-                //     cacheTimestamp
-                // });
 
                 if (cachedData && cacheTimestamp) {
                     const age = Date.now() - parseInt(cacheTimestamp);
 
                     // If cache is still valid (less than 1 hour old)
                     if (age < CACHE_DURATION) {
-                        // console.log('Using cached recent song data');
                         setScrollText(cachedData);
                         if (cachedAlbumArt) {
                             setAlbumArt(cachedAlbumArt);
@@ -105,13 +101,14 @@ const RecentSongScroll = () => {
                 setLoading(false);
 
                 // Cache the data
-                try {
-                    localStorage.setItem(CACHE_KEY, formattedText);
-                    localStorage.setItem(CACHE_KEY + '_albumart', albumArtUrl);
-                    localStorage.setItem(CACHE_TIMESTAMP_KEY, Date.now().toString());
-                    // console.log('Recent song cached successfully');
-                } catch (err) {
-                    console.warn('Error caching data:', err);
+                if (ENABLE_CACHE) { // Only cache if enabled
+                    try {
+                        localStorage.setItem(CACHE_KEY, formattedText);
+                        localStorage.setItem(CACHE_KEY + '_albumart', albumArtUrl);
+                        localStorage.setItem(CACHE_TIMESTAMP_KEY, Date.now().toString());
+                    } catch (err) {
+                        console.warn('Error caching data:', err);
+                    }
                 }
             } catch (err) {
                 console.error('Error fetching recent track:', err);
