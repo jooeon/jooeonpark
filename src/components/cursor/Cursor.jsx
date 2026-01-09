@@ -143,6 +143,7 @@ const Cursor = () => {
 
             {getCursorVariant() === "albumHover" && currentAlbumArt && (
                 <motion.img
+                    key={currentAlbumArt} // Add key to help React identify when to reuse
                     src={currentAlbumArt}
                     alt="Album Art"
                     className="w-full h-full object-cover"
@@ -150,6 +151,8 @@ const Cursor = () => {
                     animate={{ scale: 1 }}
                     exit={{ opacity: 0, scale: 0.8 }}
                     transition={{ duration: 0 }}
+                    loading="eager" // Force eager loading
+                    decoding="sync" // Synchronous decoding
                 />
             )}
         </motion.div>

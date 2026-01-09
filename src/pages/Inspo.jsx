@@ -2,16 +2,15 @@ import Header from "../components/templates/Header.jsx"
 import Footer from "../components/templates/Footer.jsx"
 import { useLenis } from "lenis/react"
 import {checkWebGL, scrollToTop} from "../Utils.jsx"
-import {useEffect} from "react"
+import {useEffect, useState} from "react"
 import TitleText from "../components/templates/TitleText.jsx"
-import CustomTable from "../components/templates/CustomTable.jsx";
 import {motion} from "framer-motion";
 import TopographicShader from "../components/shaders/Topographic.jsx";
 import HalftoneWavesShader from "../components/shaders/HalftoneWaves.jsx";
 import HeatmapShader from "../components/shaders/Heatmap.jsx";
 import LiquidGrainShader from "../components/shaders/LiquidGrain.jsx";
 import LastFmMusicTable from "../components/templates/LastFmMusicTable.jsx";
-import RecentSongScroll from "../components/recentSongScroll.jsx";
+import RecentSongScroll from "../components/RecentSongScroll.jsx";
 
 const Inspo = () => {
     // always begin page from top on load
@@ -21,89 +20,91 @@ const Inspo = () => {
         scrollToTop(lenis)
     }, [lenis])
 
+    const [viewMode, setViewMode] = useState('albums'); // 'albums' or 'songs'
+
     // Table headings
     // const tableHeadings = ["No.", "Artist", "Title / Year", "Genre (subjective)"]
 
     // Manual music data, can be used by passing into table like so: <LastFmMusicTable musicData={musicData}/>
-    const musicData = [
-        {
-            no: "/01",
-            artist: "Ecca Vandal",
-            titleyear: "CRUISING TO SELF SOOTHE (2025)",
-            genresubjective: "Punk rock",
-            albumArt: "/images/thumbnails/album_covers/ecca-vandal_cruising.jpg",
-        },
-        {
-            no: "/02",
-            artist: "Little Simz",
-            titleyear: "Gorilla (2022)",
-            genresubjective: "Hip-hop",
-            albumArt: "/images/thumbnails/album_covers/little-simz_no-thank-you.jpg",
-        },
-        {
-            no: "/02",
-            artist: "Peggy Gou",
-            titleyear: "I Hear You (2024)",
-            genresubjective: "Electronic, house, dance",
-            albumArt: "/images/thumbnails/album_covers/peggy-gou_i-hear-you.jpg",
-        },
-        {
-            no: "/03",
-            artist: "Autechre",
-            titleyear: "Tri Repetae (1995)",
-            genresubjective: "Electronic, IDM",
-            albumArt: "/images/thumbnails/album_covers/autechre_tri-repetae.jpg",
-        },
-        {
-            no: "/04",
-            artist: "Smashing Pumpkins",
-            titleyear: "Siamese Dream (1993)",
-            genresubjective: "Rock, alt rock",
-            albumArt: "/images/thumbnails/album_covers/smashing-pumpkins_siamese-dream.jpg",
-        },
-        {
-            no: "/05",
-            artist: "Alice In Chains",
-            titleyear: "Dirt (1992)",
-            genresubjective: "Grunge, alt metal",
-            albumArt: "/images/thumbnails/album_covers/alice-in-chains_dirt.jpg",
-        },
-        {
-            no: "/06",
-            artist: "Nirvana",
-            titleyear: "Dive (1992)",
-            genresubjective: "Grunge, alt rock",
-            albumArt: "/images/thumbnails/album_covers/nirvana_incesticide.jpg",
-        },
-        {
-            no: "/07",
-            artist: "Gary Clark Jr.",
-            titleyear: "Catfish Blues (Live) (2014)",
-            genresubjective: "Rock, blues rock",
-            albumArt: "/images/thumbnails/album_covers/gary-clark-jr_live.jpg",
-        },
-        {
-            no: "/08",
-            artist: "HYUKOH",
-            titleyear: "Gondry (2015)",
-            genresubjective: "Alt rock, korean indie rock",
-            albumArt: "/images/thumbnails/album_covers/hyukoh_22.jpg",
-        },
-        {
-            no: "/09",
-            artist: "The Smile",
-            titleyear: "A Light for Attracting Attention (2022)",
-            genresubjective: "Alternative",
-            albumArt: "/images/thumbnails/album_covers/the-smile_a-light-for-attracting.jpg",
-        },
-        {
-            no: "/10",
-            artist: "Nine Inch Nails",
-            titleyear: "Head Like a Hole (1989)",
-            genresubjective: "Industrial, alternative",
-            albumArt: "/images/thumbnails/album_covers/nin_pretty-hate-machine.jpg",
-        },
-    ]
+    // const musicData = [
+    //     {
+    //         no: "/01",
+    //         artist: "Ecca Vandal",
+    //         titleyear: "CRUISING TO SELF SOOTHE (2025)",
+    //         genresubjective: "Punk rock",
+    //         albumArt: "/images/thumbnails/album_covers/ecca-vandal_cruising.jpg",
+    //     },
+    //     {
+    //         no: "/02",
+    //         artist: "Little Simz",
+    //         titleyear: "Gorilla (2022)",
+    //         genresubjective: "Hip-hop",
+    //         albumArt: "/images/thumbnails/album_covers/little-simz_no-thank-you.jpg",
+    //     },
+    //     {
+    //         no: "/02",
+    //         artist: "Peggy Gou",
+    //         titleyear: "I Hear You (2024)",
+    //         genresubjective: "Electronic, house, dance",
+    //         albumArt: "/images/thumbnails/album_covers/peggy-gou_i-hear-you.jpg",
+    //     },
+    //     {
+    //         no: "/03",
+    //         artist: "Autechre",
+    //         titleyear: "Tri Repetae (1995)",
+    //         genresubjective: "Electronic, IDM",
+    //         albumArt: "/images/thumbnails/album_covers/autechre_tri-repetae.jpg",
+    //     },
+    //     {
+    //         no: "/04",
+    //         artist: "Smashing Pumpkins",
+    //         titleyear: "Siamese Dream (1993)",
+    //         genresubjective: "Rock, alt rock",
+    //         albumArt: "/images/thumbnails/album_covers/smashing-pumpkins_siamese-dream.jpg",
+    //     },
+    //     {
+    //         no: "/05",
+    //         artist: "Alice In Chains",
+    //         titleyear: "Dirt (1992)",
+    //         genresubjective: "Grunge, alt metal",
+    //         albumArt: "/images/thumbnails/album_covers/alice-in-chains_dirt.jpg",
+    //     },
+    //     {
+    //         no: "/06",
+    //         artist: "Nirvana",
+    //         titleyear: "Dive (1992)",
+    //         genresubjective: "Grunge, alt rock",
+    //         albumArt: "/images/thumbnails/album_covers/nirvana_incesticide.jpg",
+    //     },
+    //     {
+    //         no: "/07",
+    //         artist: "Gary Clark Jr.",
+    //         titleyear: "Catfish Blues (Live) (2014)",
+    //         genresubjective: "Rock, blues rock",
+    //         albumArt: "/images/thumbnails/album_covers/gary-clark-jr_live.jpg",
+    //     },
+    //     {
+    //         no: "/08",
+    //         artist: "HYUKOH",
+    //         titleyear: "Gondry (2015)",
+    //         genresubjective: "Alt rock, korean indie rock",
+    //         albumArt: "/images/thumbnails/album_covers/hyukoh_22.jpg",
+    //     },
+    //     {
+    //         no: "/09",
+    //         artist: "The Smile",
+    //         titleyear: "A Light for Attracting Attention (2022)",
+    //         genresubjective: "Alternative",
+    //         albumArt: "/images/thumbnails/album_covers/the-smile_a-light-for-attracting.jpg",
+    //     },
+    //     {
+    //         no: "/10",
+    //         artist: "Nine Inch Nails",
+    //         titleyear: "Head Like a Hole (1989)",
+    //         genresubjective: "Industrial, alternative",
+    //         albumArt: "/images/thumbnails/album_covers/nin_pretty-hate-machine.jpg",
+    //     },
+    // ]
 
     return (
         <>
@@ -121,13 +122,32 @@ const Inspo = () => {
                             ease: "easeOut",
                         }}
                     >
-                        <div className="flex justify-center items-end w-1/4 md:w-4/12 xl:w-1/2 pt-10 xl:pt-0 ml-2 xl:ml-0
-                            font-neueHaasGrotesk font-semibold lowercase text-[1.5vh] md:text-[2vh] xl:text-[1vw] text-left">
-                            <p className="leading-none w-10/12 xl:w-10/12">* Updated automatically every 24 hours</p>
+                        <div className="flex justify-center items-end w-1/4 md:w-4/12 xl:w-1/2 pt-10 xl:pt-0 ml-3 xl:ml-0
+                            font-neueHaasGrotesk font-semibold lowercase text-[1.5vh] md:text-[2vh] xl:text-[1vw]">
+                            <div className="leading-none flex items-center gap-1">
+                                <button
+                                    onClick={() => setViewMode('albums')}
+                                    className={`transition-opacity duration-200 ${
+                                        viewMode === 'albums' ? 'opacity-100' : 'opacity-65'
+                                    }`}
+                                >
+                                    albums
+                                </button>
+                                <span>/</span>
+                                <button
+                                    onClick={() => setViewMode('songs')}
+                                    className={`transition-opacity duration-200 ${
+                                        viewMode === 'songs' ? 'opacity-100' : 'opacity-65'
+                                    }`}
+                                >
+                                    songs
+                                </button>
+                            </div>
+                            <p className="hidden xl:block leading-none text-end w-10/12 xl:w-8/12">* Updates automatically every 24 hours</p>
                         </div>
-                        <div className="flex flex-col items-end w-3/4 md:w-9/12 xl:w-1/2 pt-10 xl:pt-0 mr-2 xl:mr-0
-                            font-neueHaasGrotesk font-semibold lowercase text-[2.5vh] md:text-[4vh] xl:text-[2.5vw] text-left">
-                            <p className="leading-none w-11/12 xl:w-9/12">Top 10 artists & albums</p>
+                        <div className="flex flex-col items-end w-3/4 md:w-9/12 xl:w-1/2 pt-10 xl:pt-0 mr-3 xl:mr-0
+                            font-neueHaasGrotesk font-semibold lowercase text-[2.5vh] md:text-[3.5vh] xl:text-[2.5vw] text-start">
+                            <p className="leading-none w-11/12 xl:w-9/12">Top 10 albums & songs</p>
                             <p className="leading-none w-10/12 xl:w-7/12">In my queue this month.</p>
                         </div>
                     </motion.div>
@@ -137,7 +157,7 @@ const Inspo = () => {
                         text-[3vh] xl:text-[2vw]"
                     >
                         {/*<LastFmMusicTable musicData={musicData}/>*/}
-                        <LastFmMusicTable/>
+                        <LastFmMusicTable viewMode={viewMode} />
                         <RecentSongScroll />
                     </div>
                 </section>

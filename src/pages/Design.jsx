@@ -107,6 +107,7 @@ const Design = () => {
                     </div>
                 </section>
             </main>
+            {/*<Footer/>*/}
         </>
     )
 

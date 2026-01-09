@@ -40,12 +40,13 @@ const CustomTable = ({
     return (
         <div className="w-full">
             {/* Desktop Table - Hidden on mobile/tablet */}
-            <table className="w-full hidden xl:table">
+            <table className="w-full hidden xl:table table-fixed">
                 <thead>
                     <motion.tr
                         className="text-left lowercase text-[0.75vh] xl:text-[1vw]
                             [&_th]:px-3.5 [&_th]:3xl:px-5 [&_th]:4xl:px-7 [&_th]:7xl:px-10
-                            [&_th]:pb-[3.5vh]"
+                            [&_th]:pb-[3.5vh]
+                            [&_th:nth-child(1)]:w-[6%]"
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{
@@ -65,7 +66,7 @@ const CustomTable = ({
                         key={index}
                         className="hover:bg-customBlack hover:text-customWhite dark:hover:bg-customWhite dark:hover:text-customBlack
                                 transition-colors duration-200
-                                [&_td]:pointer-events-auto [&_td]:leading-none
+                                [&_td]:pointer-events-auto [&_td]:leading-none [&_td]:truncate
                                 [&_td]:py-1 [&_td]:xl:py-3 [&_td]:3xl:py-4 [&_td]:4xl:py-5 [&_td]:7xl:py-8
                                 [&_td]:px-3.5 [&_td]:3xl:px-5 [&_td]:4xl:px-7 [&_td]:7xl:px-10"
                         initial={{ opacity: 0, y: 20 }}
