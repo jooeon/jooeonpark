@@ -12,6 +12,7 @@ const CustomTable = ({
                          headings,
                          imageField = null, // Field name that contains image for cursor hover
                          enableCursorHover = false,
+                         viewMode = 'albums', // 'albums' or 'songs'
                      }) => {
     const { handleAlbumHover, handleAlbumLeave } = useCursor()
     const [hasInitiallyLoaded, setHasInitiallyLoaded] = useState(false)
@@ -63,18 +64,17 @@ const CustomTable = ({
                 <tbody>
                 {data.map((item, index) => (
                     <motion.tr
-                        key={index}
+                        key={`${viewMode}-${index}`}  // Add viewMode to key to force remount
                         className="hover:bg-customBlack hover:text-customWhite dark:hover:bg-customWhite dark:hover:text-customBlack
                                 transition-colors duration-200
                                 [&_td]:pointer-events-auto [&_td]:leading-none [&_td]:truncate
                                 [&_td]:py-1 [&_td]:xl:py-3 [&_td]:3xl:py-4 [&_td]:4xl:py-5 [&_td]:7xl:py-8
                                 [&_td]:px-3.5 [&_td]:3xl:px-5 [&_td]:4xl:px-7 [&_td]:7xl:px-10"
                         initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true, amount: 0.1 }}
+                        animate={{ opacity: 1, y: 0 }}
                         transition={{
                             duration: 0.4,
-                            delay: hasInitiallyLoaded ? 0 : 1.3 + index * 0.1,
+                            delay: hasInitiallyLoaded ? 0 + index * 0.1 : 1.3 + index * 0.1,
                             ease: "easeOut",
                         }}
                         onMouseEnter={() => handleRowHover(item)}
@@ -124,6 +124,7 @@ CustomTable.propTypes = {
     headings: PropTypes.array.isRequired,
     imageField: PropTypes.string,
     enableCursorHover: PropTypes.bool,
+    viewMode: PropTypes.string,
 }
 
 export default CustomTable

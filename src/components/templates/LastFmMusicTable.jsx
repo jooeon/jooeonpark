@@ -116,7 +116,7 @@ const LastFmMusicTable = ({ musicData: propMusicData = null, viewMode = 'albums'
                         // Preload images before showing data
                         await preloadImages(parsedData);
 
-                        console.log(`Using cached Last.fm ${viewMode} data with preloaded images`);
+                        // console.log(`Using cached Last.fm ${viewMode} data with preloaded images`);
                         setMusicData(parsedData);
                         setLoading(false);
                         return true;
@@ -233,7 +233,7 @@ const LastFmMusicTable = ({ musicData: propMusicData = null, viewMode = 'albums'
                 try {
                     localStorage.setItem(CACHE_KEY, JSON.stringify(formattedData));
                     localStorage.setItem(CACHE_TIMESTAMP_KEY, Date.now().toString());
-                    console.log('Last.fm albums data cached successfully');
+                    // console.log('Last.fm albums data cached successfully');
                 } catch (err) {
                     console.warn('Error caching data:', err);
                 }
@@ -343,7 +343,7 @@ const LastFmMusicTable = ({ musicData: propMusicData = null, viewMode = 'albums'
                 try {
                     localStorage.setItem(CACHE_KEY, JSON.stringify(formattedData));
                     localStorage.setItem(CACHE_TIMESTAMP_KEY, Date.now().toString());
-                    console.log('Last.fm tracks data cached successfully');
+                    // console.log('Last.fm tracks data cached successfully');
                 } catch (err) {
                     console.warn('Error caching data:', err);
                 }
@@ -379,6 +379,7 @@ const LastFmMusicTable = ({ musicData: propMusicData = null, viewMode = 'albums'
             headings={tableHeadings}
             imageField={viewMode === 'albums' ? 'albumArt' : 'trackImage'}
             enableCursorHover={true}
+            viewMode={viewMode}
         />
     );
 };
