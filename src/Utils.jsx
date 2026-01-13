@@ -25,15 +25,41 @@ export function formatString(str) {
 
 // for checking if WebGL is compatible to browser
 // return true if
+let webglSupported = null;
+
 export function checkWebGL() {
+    if (webglSupported !== null) return webglSupported;
+
+    console.log('Active WebGL contexts:', document.querySelectorAll('canvas').length);
     try {
         const canvas = document.createElement("canvas");
-        return !!(window.WebGLRenderingContext && canvas.getContext("webgl"));
+        const gl = canvas.getContext("webgl");
+
+        if (gl) {
+            const loseContext = gl.getExtension('WEBGL_lose_context');
+            if (loseContext) {
+                loseContext.loseContext();
+            }
+            webglSupported = true;
+        } else {
+            webglSupported = false;
+        }
+        return webglSupported;
     } catch {
+        webglSupported = false;
         return false;
     }
 }
 
+// Cleanup function for WebGL resources
+export const cleanupWebGL = (glRef, textureRef, programRef, animationRef) => {
+    const gl = glRef.current;
+    if (!gl) return;
+
+    if (textureRef.current) gl.deleteTexture(textureRef.current);
+    if (programRef.current) gl.deleteProgram(programRef.current);
+    if (animationRef.current) cancelAnimationFrame(animationRef.current);
+};
 
 // Cloudflare Worker URL for click-counter
 const WORKER_URL = 'https://click-counter.jooeon427.workers.dev';

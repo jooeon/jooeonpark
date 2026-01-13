@@ -1,6 +1,6 @@
 import { useRef, useEffect } from 'react';
 import PropTypes from "prop-types";
-import {generateShades} from "../../Utils.jsx";
+import {cleanupWebGL, generateShades} from "../../Utils.jsx";
 
 // Vertex shader - positions vertices
 const vertexShaderSource = `
@@ -160,16 +160,6 @@ const HalftoneOverlayShader = ({ imageUrl, gridSize = 80.0, baseColor = "#2DB5B4
     useEffect(() => {
         invertBrightnessRef.current = invertBrightness;
     }, [invertBrightness]);
-
-    // Cleanup function for WebGL resources
-    const cleanupWebGL = () => {
-        const gl = glRef.current;
-        if (!gl) return;
-
-        if (textureRef.current) gl.deleteTexture(textureRef.current);
-        if (programRef.current) gl.deleteProgram(programRef.current);
-        if (animationRef.current) cancelAnimationFrame(animationRef.current);
-    };
 
     // Load image and create texture
     const loadImageTexture = (gl, url) => {
@@ -331,7 +321,7 @@ const HalftoneOverlayShader = ({ imageUrl, gridSize = 80.0, baseColor = "#2DB5B4
 
         return () => {
             window.removeEventListener('resize', resize);
-            cleanupWebGL();
+            cleanupWebGL(glRef, textureRef, programRef, animationRef);
         };
     }, []);
 
