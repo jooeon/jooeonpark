@@ -134,7 +134,7 @@ const Header = ({ delay = 0.4 }) => {
                     {/* Mobile Menu Button */}
                     <button
                         onClick={toggleMobileMenu}
-                        className="lg:hidden text-link uppercase font-neueHaasGrotesk font-bold tracking-wide"
+                        className="lg:hidden text-link uppercase font-neueHaasGrotesk font-bold tracking-wide pointer-events-auto"
                     >
                         Menu
                     </button>
