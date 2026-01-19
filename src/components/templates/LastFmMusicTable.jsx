@@ -2,6 +2,22 @@ import { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import CustomTable from './CustomTable';
 
+// Artist name normalization utilities
+const getCanonicalArtistName = (name) => {
+    return name.trim().toLowerCase().replace(/^the\s+/i, '');
+};
+
+// Map canonical names to preferred display names
+// Add artists as variations are discovered
+const artistNameMap = {
+    'smashing pumpkins': 'The Smashing Pumpkins',
+};
+
+const normalizeArtistName = (name) => {
+    const canonical = getCanonicalArtistName(name);
+    return artistNameMap[canonical] || name.trim();
+};
+
 const LastFmMusicTable = ({ musicData: propMusicData = null, viewMode = 'albums' }) => {
     const [musicData, setMusicData] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -145,9 +161,9 @@ const LastFmMusicTable = ({ musicData: propMusicData = null, viewMode = 'albums'
 
         const fetchTopAlbums = async () => {
             try {
-                // Fetch top albums
+                // Fetch top albums - get extra to account for duplicates after normalization
                 const albumsResponse = await fetch(
-                    `https://ws.audioscrobbler.com/2.0/?method=user.getTopAlbums&user=${USERNAME}&period=1month&limit=10&api_key=${API_KEY}&format=json`
+                    `https://ws.audioscrobbler.com/2.0/?method=user.getTopAlbums&user=${USERNAME}&period=1month&limit=15&api_key=${API_KEY}&format=json`
                 );
 
                 if (!albumsResponse.ok) {
@@ -215,7 +231,7 @@ const LastFmMusicTable = ({ musicData: propMusicData = null, viewMode = 'albums'
 
                         return {
                             no: `/${String(index + 1).padStart(2, '0')}`,
-                            artist: album.artist.name,
+                            artist: normalizeArtistName(album.artist.name),
                             albumyear: year ? `${album.name} (${year})` : album.name,
                             genresubjective: genre,
                             albumArt: album.image[3]['#text'], // extralarge (300x300)
@@ -226,12 +242,49 @@ const LastFmMusicTable = ({ musicData: propMusicData = null, viewMode = 'albums'
                 // Preload all album art images before showing the data
                 await preloadImages(formattedData);
 
-                setMusicData(formattedData);
+                // Deduplicate based on artist + album combination
+                const seen = new Map();
+                const deduplicatedData = [];
+
+                for (const item of formattedData) {
+                    // Create a unique key combining normalized artist and album name (without year)
+                    const albumNameWithoutYear = item.albumyear.replace(/\s*\(\d{4}\)\s*$/, '');
+                    const key = `${item.artist.toLowerCase()}|||${albumNameWithoutYear.toLowerCase()}`;
+
+                    if (!seen.has(key)) {
+                        seen.set(key, item);
+                        deduplicatedData.push(item);
+                    } else {
+                        // If we've seen this album before, prefer the one with more data
+                        const existing = seen.get(key);
+
+                        // Prefer entry with genre data over "unknown"
+                        if (existing.genresubjective === 'unknown' && item.genresubjective !== 'unknown') {
+                            seen.set(key, item);
+                            const index = deduplicatedData.findIndex(d => d === existing);
+                            deduplicatedData[index] = item;
+                        }
+                        // Prefer entry with year data
+                        else if (!existing.albumyear.includes('(') && item.albumyear.includes('(')) {
+                            seen.set(key, item);
+                            const index = deduplicatedData.findIndex(d => d === existing);
+                            deduplicatedData[index] = item;
+                        }
+                    }
+                }
+
+                // Take only top 10 after deduplication and renumber
+                const top10Data = deduplicatedData.slice(0, 10).map((item, index) => ({
+                    ...item,
+                    no: `/${String(index + 1).padStart(2, '0')}`
+                }));
+
+                setMusicData(top10Data);
                 setLoading(false);
 
                 // Cache the data
                 try {
-                    localStorage.setItem(CACHE_KEY, JSON.stringify(formattedData));
+                    localStorage.setItem(CACHE_KEY, JSON.stringify(top10Data));
                     localStorage.setItem(CACHE_TIMESTAMP_KEY, Date.now().toString());
                     // console.log('Last.fm albums data cached successfully');
                 } catch (err) {
@@ -246,9 +299,9 @@ const LastFmMusicTable = ({ musicData: propMusicData = null, viewMode = 'albums'
 
         const fetchTopTracks = async () => {
             try {
-                // Fetch top tracks
+                // Fetch top tracks - get extra to account for duplicates after normalization
                 const tracksResponse = await fetch(
-                    `https://ws.audioscrobbler.com/2.0/?method=user.getTopTracks&user=${USERNAME}&period=1month&limit=10&api_key=${API_KEY}&format=json`
+                    `https://ws.audioscrobbler.com/2.0/?method=user.getTopTracks&user=${USERNAME}&period=1month&limit=15&api_key=${API_KEY}&format=json`
                 );
 
                 if (!tracksResponse.ok) {
@@ -325,7 +378,7 @@ const LastFmMusicTable = ({ musicData: propMusicData = null, viewMode = 'albums'
 
                         return {
                             no: `/${String(index + 1).padStart(2, '0')}`,
-                            artist: track.artist.name,
+                            artist: normalizeArtistName(track.artist.name),
                             song: track.name,
                             albumyear: year ? `${albumName} (${year})` : albumName,
                             trackImage: trackImage,
@@ -336,12 +389,48 @@ const LastFmMusicTable = ({ musicData: propMusicData = null, viewMode = 'albums'
                 // Preload all track images before showing the data
                 await preloadImages(formattedData);
 
-                setMusicData(formattedData);
+                // Deduplicate based on artist + song combination
+                const seen = new Map();
+                const deduplicatedData = [];
+
+                for (const item of formattedData) {
+                    // Create a unique key combining normalized artist and song name
+                    const key = `${item.artist.toLowerCase()}|||${item.song.toLowerCase()}`;
+
+                    if (!seen.has(key)) {
+                        seen.set(key, item);
+                        deduplicatedData.push(item);
+                    } else {
+                        // If we've seen this track before, prefer the one with more data
+                        const existing = seen.get(key);
+
+                        // Prefer entry with album year data
+                        if (!existing.albumyear.includes('(') && item.albumyear.includes('(')) {
+                            seen.set(key, item);
+                            const index = deduplicatedData.findIndex(d => d === existing);
+                            deduplicatedData[index] = item;
+                        }
+                        // Prefer entry with album name over "Unknown Album"
+                        else if (existing.albumyear === 'Unknown Album' && item.albumyear !== 'Unknown Album') {
+                            seen.set(key, item);
+                            const index = deduplicatedData.findIndex(d => d === existing);
+                            deduplicatedData[index] = item;
+                        }
+                    }
+                }
+
+                // Take only top 10 after deduplication and renumber
+                const top10Data = deduplicatedData.slice(0, 10).map((item, index) => ({
+                    ...item,
+                    no: `/${String(index + 1).padStart(2, '0')}`
+                }));
+
+                setMusicData(top10Data);
                 setLoading(false);
 
                 // Cache the data
                 try {
-                    localStorage.setItem(CACHE_KEY, JSON.stringify(formattedData));
+                    localStorage.setItem(CACHE_KEY, JSON.stringify(top10Data));
                     localStorage.setItem(CACHE_TIMESTAMP_KEY, Date.now().toString());
                     // console.log('Last.fm tracks data cached successfully');
                 } catch (err) {
