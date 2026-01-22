@@ -1,4 +1,4 @@
-import {Link, Navigate, useParams} from "react-router-dom";
+import {Link, Navigate, useNavigate, useParams} from "react-router-dom";
 import Header from "../components/templates/Header.jsx";
 import Footer from "../components/templates/Footer.jsx";
 import {AnimatePresence, motion} from "framer-motion";
@@ -21,6 +21,12 @@ const ProjectDetail = () => {
     // functions and variables for image overlay on click
     const [overlayVisible, setOverlayVisible] = useState(false);
     const [currentIndex, setCurrentIndex] = useState(0);
+
+    const navigate = useNavigate();
+
+    const goToPreviousPage = () => {
+        navigate(-1);
+    };
 
     const openOverlay = (index) => {
         setCurrentIndex(index);
@@ -53,7 +59,13 @@ const ProjectDetail = () => {
     // find the one item whose id matches
     const project = items.find(item => item.id === id);
     if (!project) {
-        return <p>Project not found.</p>;
+        return <div className="flex flex-col justify-center items-center gap-[2vh] w-full h-screen">
+            <p className="text-[3vh] xl:text-[2vw] font-neueHaasGrotesk font-bold">Project not found.</p>
+            <button onClick={goToPreviousPage}
+                  className="text-link after:bg-customBlack dark:after:bg-customWhite">
+                Go back
+            </button>
+        </div>;
     }
 
     // find next if you have a nextItem pointer
@@ -65,10 +77,11 @@ const ProjectDetail = () => {
 
     return (
         <>
-            <Header />
+            <Header/>
             <main>
                 <div className="flex flex-col">
-                    <section className="relative flex m-2 md:m-5 6xl:m-10 h-full pt-10 md:pt-20 3xl:pt-32 6xl:pt-40 7xl:pt-52">
+                    <section
+                        className="relative flex m-2 md:m-5 6xl:m-10 h-full pt-10 md:pt-20 3xl:pt-32 6xl:pt-40 7xl:pt-52">
                         {/* Image/Video content scroll section */}
                         <div className="flex flex-col gap-3 md:gap-6 6xl:gap-12 w-7/12">
                             {/* ProjectDetail title */}

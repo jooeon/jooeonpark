@@ -1,4 +1,29 @@
 export const items = [
+    // Change nextItem field on last item to the top most item to make sure the next button wraps to front
+    {
+        id: "post-realm",
+        nextItem: "demiurgo-mock",
+        isVideo: false,
+        images: [
+            "/images/nyfw_v1.jpg",
+            "/images/nyfw_v3.jpg",
+            "/images/nyfw_v2.jpg",
+        ],
+        videos: [
+        ],
+        caption: [
+            "Post-Realm: NYFW '26 Afterparty",
+            "Graphic Design, Poster Design",
+            "",
+            "2026",
+            "Poster series design for New York Fashion Week '26 Afterparty",
+        ],
+        thumbnail: "/images/nyfw_v1.jpg",
+        alt: "Poster design for NYFW 2026 Afterparty",
+        link: "/design/post-realm",
+        externalLink: "",
+        externalLinkLabel: "",
+    },
     {
         id: "demiurgo-mock",
         nextItem: "bowery-electric",
@@ -78,7 +103,7 @@ export const items = [
     },
     {
         id: "helios-hours-2",
-        nextItem: "bowery-electric",
+        nextItem: "post-realm",
         isVideo: false,
         images: [
             "/images/helios_final.jpg",
@@ -86,10 +111,10 @@ export const items = [
         videos: [],
         caption: [
             "Helios Hours Vol. II",
-            "Poster Design",
+            "Graphic Design, Poster Design",
             "",
             "2025",
-            "Designed for independent techno event in Brooklyn, NY",
+            "Poster design for independent techno event in Brooklyn, NY",
         ],
         thumbnail: "/images/helios_final.jpg",
         alt: "Helios Hours vol 2 Poster Design",
