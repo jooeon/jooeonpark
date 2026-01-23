@@ -21,10 +21,11 @@ const Projects = () => {
         <>
             <Header/>
             <main>
-                <div className="flex items-baseline gap-[3vw] xl:gap-[2vw]">
+                <div className="flex flex-col md:flex-row items-baseline gap-[3vw] xl:gap-[2vw]">
                     <TitleText phrase={"Projects"}/>
                     <motion.p
-                        className="leading-none text-[2vh] xl:text-[1vw] font-neueHaasGrotesk font-semibold lowercase"
+                        className="leading-none text-[2vh] xl:text-[1vw] font-neueHaasGrotesk font-semibold lowercase
+                            pl-3 md:pl-0"
                         initial={{opacity: 0, y: 15}}
                         animate={{opacity: 1, y: 0}}
                         transition={{
@@ -59,7 +60,7 @@ const Projects = () => {
                                     className="w-full"/>
                             </Link>
                             <div
-                                className="flex flex-col justify-end text-3xs md:text-base 3xl:text-lg 5xl:text-2xl 6xl:text-3xl xl:text-left">
+                                className="flex flex-col justify-end text-[2vh] lg:text-[1vw] xl:text-left">
                                 <p className="mb-4 2xl:mb-10">NYC Citi Bike Data Visualization</p>
                                 <p className="text-customGray">2025</p>
                             </div>
@@ -76,7 +77,7 @@ const Projects = () => {
                             }}
                         >
                             <div
-                                className="flex flex-col justify-end text-3xs md:text-base 3xl:text-lg 5xl:text-2xl 6xl:text-3xl xl:text-right">
+                                className="flex flex-col justify-end text-[2vh] lg:text-[1vw] xl:text-right">
                                 <p className="mb-4 2xl:mb-10">Allen Topolski&apos;s Portfolio</p>
                                 <p className="text-customGray">2025</p>
                             </div>
@@ -107,7 +108,7 @@ const Projects = () => {
                                     className="w-full"/>
                             </Link>
                             <div
-                                className="flex flex-col justify-end text-3xs md:text-base 3xl:text-lg 5xl:text-2xl 6xl:text-3xl xl:text-left">
+                                className="flex flex-col justify-end text-[2vh] lg:text-[1vw] xl:text-left">
                                 <p className="mb-4 2xl:mb-10">R.I.G.</p>
                                 <p className="text-customGray">2025</p>
                             </div>

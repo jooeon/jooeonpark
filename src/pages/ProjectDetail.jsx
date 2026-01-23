@@ -78,8 +78,8 @@ const ProjectDetail = () => {
     return (
         <>
             <Header/>
-            <main>
-                <div className="flex flex-col">
+            <main className="flex flex-col min-h-[100vh]">
+                <div className="flex flex-col flex-1 justify-between">
                     <section
                         className="relative flex m-2 md:m-5 6xl:m-10 h-full pt-10 md:pt-20 3xl:pt-32 6xl:pt-40 7xl:pt-52">
                         {/* Image/Video content scroll section */}
@@ -234,6 +234,7 @@ const ProjectDetail = () => {
                         </div>
                     </section>
                 </div>
+                <Footer />
             </main>
 
             {/* Image overlay */}
@@ -247,8 +248,6 @@ const ProjectDetail = () => {
                     />
                 )}
             </AnimatePresence>
-
-            <Footer />
         </>
     );
 };

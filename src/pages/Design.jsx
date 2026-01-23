@@ -6,6 +6,7 @@ import {useLenis} from "lenis/react";
 import {motion} from "framer-motion";
 import {Link} from "react-router-dom";
 import items from "../data/DesignData.jsx";
+import Footer from "../components/templates/Footer.jsx";
 
 const Design = () => {
 
@@ -19,12 +20,12 @@ const Design = () => {
     return (
         <>
             <Header/>
-            <main>
-                <div className="flex items-baseline gap-[3vw] xl:gap-[2vw]">
+            <main className="flex flex-col min-h-[100vh]">
+                <div className="flex flex-col md:flex-row items-baseline gap-[3vw] xl:gap-[2vw]">
                     <TitleText phrase={"Design"}/>
-                    <div className="flex gap-[2vw] xl:gap-[1vw]">
+                    <div className="flex gap-[2vw] xl:gap-[1vw] pl-3 md:pl-0
+                        leading-none text-[2vh] xl:text-[1vw] font-neueHaasGrotesk font-semibold lowercase">
                         <motion.p
-                            className="leading-none text-[2vh] xl:text-[1vw] font-neueHaasGrotesk font-semibold lowercase"
                             initial={{opacity: 0, y: 15}}
                             animate={{opacity: 1, y: 0}}
                             transition={{
@@ -36,7 +37,6 @@ const Design = () => {
                             /branding
                         </motion.p>
                         <motion.p
-                            className="leading-none text-[2vh] xl:text-[1vw] font-neueHaasGrotesk font-semibold lowercase"
                             initial={{opacity: 0, y: 15}}
                             animate={{opacity: 1, y: 0}}
                             transition={{
@@ -48,7 +48,6 @@ const Design = () => {
                             /graphic
                         </motion.p>
                         <motion.p
-                            className="leading-none text-[2vh] xl:text-[1vw] font-neueHaasGrotesk font-semibold lowercase"
                             initial={{opacity: 0, y: 15}}
                             animate={{opacity: 1, y: 0}}
                             transition={{
@@ -61,7 +60,7 @@ const Design = () => {
                         </motion.p>
                     </div>
                 </div>
-                <section className="mt-[8vh] mb-[2vh] xl:mb-[4vh] p-4 md:p-7 xl:p-8 4xl:p-12 7xl:p-20">
+                <section className="xl:min-h-[70vh] flex-1 mt-[8vh] mb-[2vh] xl:mb-[4vh] p-4 md:p-7 xl:p-8 4xl:p-12 7xl:p-20">
                     <div className="flex flex-wrap justify-center xl:justify-start gap-[10vw] xl:gap-[3.5vw]">
                         {items.map((item, index) => {
 
@@ -106,8 +105,8 @@ const Design = () => {
                         })}
                     </div>
                 </section>
+                <Footer/>
             </main>
-            {/*<Footer/>*/}
         </>
     )
 
