@@ -1,13 +1,36 @@
 export const items = [
     // Change nextItem field on last item to the top most item to make sure the next button wraps to front
     {
-        id: "post-realm",
+        id: "post-realm-runway",
+        nextItem: "post-realm-afterparty",
+        isVideo: false,
+        images: [
+            "/images/nyfw_runway_v1.jpg",
+            "/images/nyfw_runway_v2.jpg",
+        ],
+        videos: [
+        ],
+        caption: [
+            "Post-Realm: NYFW '26 Runway Show",
+            "Graphic Design, Poster Design",
+            "",
+            "2026",
+            "Poster series design for New York Fashion Week '26 Runway Show",
+        ],
+        thumbnail: "/images/thumbnails/nyfw_runway_thumb.jpg",
+        alt: "Poster design for NYFW 2026 Runway Show",
+        link: "/design/post-realm-runway",
+        externalLink: "",
+        externalLinkLabel: "",
+    },
+    {
+        id: "post-realm-afterparty",
         nextItem: "demiurgo-mock",
         isVideo: false,
         images: [
-            "/images/nyfw_v1.jpg",
-            "/images/nyfw_v3.jpg",
-            "/images/nyfw_v2.jpg",
+            "/images/nyfw_afterparty_v1.jpg",
+            "/images/nyfw_afterparty_v2.jpg",
+            "/images/nyfw_afterparty_v3.jpg",
         ],
         videos: [
         ],
@@ -18,9 +41,9 @@ export const items = [
             "2026",
             "Poster series design for New York Fashion Week '26 Afterparty",
         ],
-        thumbnail: "/images/thumbnails/nyfw_thumb.jpg",
+        thumbnail: "/images/thumbnails/nyfw_afterparty_thumb.jpg",
         alt: "Poster design for NYFW 2026 Afterparty",
-        link: "/design/post-realm",
+        link: "/design/post-realm-afterparty",
         externalLink: "",
         externalLinkLabel: "",
     },
@@ -103,7 +126,7 @@ export const items = [
     },
     {
         id: "helios-hours-2",
-        nextItem: "post-realm",
+        nextItem: "post-realm-runway",
         isVideo: false,
         images: [
             "/images/helios_final.jpg",
