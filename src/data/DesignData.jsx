@@ -18,7 +18,7 @@ export const items = [
             "2026",
             "Poster series design for New York Fashion Week '26 Afterparty",
         ],
-        thumbnail: "/images/nyfw_v1.jpg",
+        thumbnail: "/images/thumbnails/nyfw_thumb.jpg",
         alt: "Poster design for NYFW 2026 Afterparty",
         link: "/design/post-realm",
         externalLink: "",
