@@ -16,7 +16,7 @@ const ScrollTitleSection = ({showEntryAnimation}) => {
     const [sectionHeight, setSectionHeight] = useState(0);
     let lineHeightMultiplier = 0.86;
     const [linkColor, setLinkColor] = useState("#fafafa");
-    // index 0~4, title text (multidisciplinary), index 5 subtitle text (artist & creative developer)
+    // index 0~4, title text (multidisciplinary), index 5 subtitle text
     const baseDelays = [3.1, 3.0, 2.9, 2.6, 3.5];
     const newDelays = [1.1, 1.0, 0.9, 0.6, 1.5];
     const delays = showEntryAnimation
@@ -132,7 +132,7 @@ const ScrollTitleSection = ({showEntryAnimation}) => {
 
     return (
         <motion.section
-            className="sticky top-0 flex flex-col items-center mix-blend-difference text-customWhite pointer-events-none"
+            className="sticky top-0 flex flex-col items-center z-20 mix-blend-difference text-customWhite pointer-events-none"
             style={{ height: `${sectionHeight}px` }}
             animate={finalVisible ? "visible" : "hidden"}
             variants={{
@@ -184,6 +184,40 @@ const ScrollTitleSection = ({showEntryAnimation}) => {
                     ease: "easeIn",
                 }}
             >
+                <Link to="/design" className="outline-text-white">
+                    <motion.span
+                        onHoverStart={() => {
+                            const newColor = pickRandomColor();
+                            setLinkColor(newColor);
+                        }}
+                        whileHover={{
+                            color: linkColor,
+                            opacity: 0.9,
+                            transition: {duration: 0.2},
+                        }}
+                        whileTap={{scale: 0.9}}
+                    >
+                        Designer
+                    </motion.span>
+                </Link>
+                ,&nbsp;
+                <Link to="/projects" className="outline-text-white">
+                    <motion.span
+                        onHoverStart={() => {
+                            const newColor = pickRandomColor();
+                            setLinkColor(newColor);
+                        }}
+                        whileHover={{
+                            color: linkColor,
+                            opacity: 0.9,
+                            transition: {duration: 0.2},
+                        }}
+                        whileTap={{scale: 0.9}}
+                    >
+                        Developer
+                    </motion.span>
+                </Link>
+                &nbsp;&&nbsp;
                 <Link to="/art" className="outline-text-white">
                     <motion.span
                         onHoverStart={() => {
@@ -198,23 +232,6 @@ const ScrollTitleSection = ({showEntryAnimation}) => {
                         whileTap={{scale: 0.9}}
                     >
                         Artist
-                    </motion.span>
-                </Link>
-                &nbsp;&&nbsp;
-                <Link to="/projects" className="outline-text-white">
-                    <motion.span
-                        onHoverStart={() => {
-                            const newColor = pickRandomColor();
-                            setLinkColor(newColor);
-                        }}
-                        whileHover={{
-                            color: linkColor,
-                            opacity: 0.9,
-                            transition: {duration: 0.2},
-                        }}
-                        whileTap={{scale: 0.9}}
-                    >
-                        Creative Developer
                     </motion.span>
                 </Link>
             </motion.h2>

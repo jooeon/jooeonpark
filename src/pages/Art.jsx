@@ -125,11 +125,11 @@ const Art = () => {
                              key={item.id}>
                             <motion.div
                                 className=""
-                                initial={{opacity: 0, y: 50}}
-                                whileInView={{opacity: 1, y: 0}}
+                                initial={{opacity: 0, y: 50, filter: "blur(10px)",}}
+                                whileInView={{opacity: 1, y: 0, filter: "none",}}
                                 viewport={{once: true}}
                                 transition={{
-                                    duration: 0.6,
+                                    duration: 0.8,
                                     delay: 0,
                                     ease: "easeOut",
                                 }}

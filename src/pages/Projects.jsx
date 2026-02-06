@@ -43,8 +43,8 @@ const Projects = () => {
                                 font-neueHaasGrotesk font-bold lowercase">
                         <motion.div
                             className="w-11/12 xl:w-full flex flex-col xl:flex-row xl:row-start-1 xl:row-end-5 xl:col-start-1 gap-4"
-                            initial={{opacity: 0, y: 70}}
-                            whileInView={{opacity: 1, y: 0}}
+                            initial={{opacity: 0, y: 70, filter: "blur(10px)",}}
+                            whileInView={{opacity: 1, y: 0, filter: "none",}}
                             viewport={{once: true}}
                             transition={{
                                 duration: 0.6,
@@ -67,8 +67,8 @@ const Projects = () => {
                         </motion.div>
                         <motion.div
                             className="w-11/12 xl:w-full flex flex-col-reverse xl:flex-row xl:justify-end xl:row-start-4 xl:row-end-8 xl:col-start-2 gap-4"
-                            initial={{opacity: 0, y: 70}}
-                            whileInView={{opacity: 1, y: 0}}
+                            initial={{opacity: 0, y: 70, filter: "blur(10px)",}}
+                            whileInView={{opacity: 1, y: 0, filter: "none",}}
                             viewport={{once: true}}
                             transition={{
                                 duration: 0.6,
@@ -91,8 +91,8 @@ const Projects = () => {
                         </motion.div>
                         <motion.div
                             className="w-11/12 xl:w-full flex flex-col xl:flex-row xl:row-start-7 xl:row-end-11 xl:col-start-1 gap-4"
-                            initial={{opacity: 0, y: 70}}
-                            whileInView={{opacity: 1, y: 0}}
+                            initial={{opacity: 0, y: 70, filter: "blur(10px)",}}
+                            whileInView={{opacity: 1, y: 0, filter: "none",}}
                             viewport={{once: true}}
                             transition={{
                                 duration: 0.6,

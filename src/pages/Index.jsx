@@ -92,7 +92,7 @@ const Index = () => {
                     <EntryAnim/>
                 </motion.div>
             }
-            <main className="relative flex flex-col px-4 md:px-7 6xl:px-12 7xl:px-14 pb-20 xl:pb-40 w-full gap-48 md:gap-96">
+            <main className="relative flex flex-col px-4 md:px-7 6xl:px-12 7xl:px-14 pb-20 xl:pb-40 w-full gap-48 md:gap-[20vw]">
                 {/* Main landing text */}
                 <LayeredScrollTitle showEntryAnimation={showAnimation}/>
                 <section className="flex flex-col items-center">
@@ -107,7 +107,7 @@ const Index = () => {
                         <div className="w-11/12 xl:w-11/12 xl:px-24 font-bold font-neueHaasGrotesk uppercase mix-blend-difference text-customWhite [&_span]:lg:mb-2
                             md:text-xl lg:text-3xl xl:text-4xl 2xl:text-6xl 3xl:text-6xl 5xl:text-8xl 6xl:text-9xl 7xl:text-11xl">
                             <ScrollTextAnim
-                                paragraph={"Artist and Creative Developer from Seoul, South Korea, specializing in Web Development, UI/UX Design, and Visual Arts.\nSeamlessly integrating design and technology to create experiences that are both highly functional and stylish."}
+                                paragraph={"Multidisciplinary creative from Seoul [based in NYC].\nFrom concept to execution,\nI design it, I build it.\n[Web Development, UI/UX, Graphic Design, and Visual Arts]"}
                             />
                         </div>
                     </div>
@@ -123,8 +123,8 @@ const Index = () => {
                 {/*    <motion.div*/}
                 {/*        className="w-11/12 xl:w-5/6 font-neueHaasGrotesk font-bold lowercase*/}
                 {/*        flex flex-col xl:grid xl:grid-cols-[1fr_6fr_1fr] justify-start xl:justify-center items-center xl:items-start"*/}
-                {/*        initial={{opacity: 0, y: 70}}*/}
-                {/*        whileInView={{opacity: 1, y: 0}}*/}
+                {/*        initial={{opacity: 0, y: 70, filter: "blur(10px)",}}
+                            whileInView={{opacity: 1, y: 0, filter: "blur(0px)",}}*/}
                 {/*        viewport={{once: false}}*/}
                 {/*        transition={{*/}
                 {/*            duration: 0.6,*/}
@@ -155,137 +155,128 @@ const Index = () => {
                                     Selected Works
                                 </h3>
                             </div>
-                            <div className="flex flex-col gap-10 xl:grid xl:grid-cols-2 xl:grid-rows-13 xl:gap-x-0 xl:gap-y-24 justify-start xl:justify-center items-center xl:items-start
+                    <div className="flex flex-col gap-10 xl:grid xl:grid-cols-2 xl:grid-rows-13 xl:gap-x-0 xl:gap-y-[7vw] justify-start xl:justify-center items-center xl:items-start
                                 font-neueHaasGrotesk font-bold lowercase">
-                                <motion.div
-                                    className="w-11/12 xl:w-full flex flex-col xl:flex-row xl:row-start-1 xl:row-end-5 xl:col-start-1 gap-4"
-                                    initial={{opacity: 0, y: 70}}
-                                    whileInView={{opacity: 1, y: 0}}
-                                    viewport={{once: false}}
-                                    transition={{
-                                        duration: 0.6,
-                                        ease: "easeInOut",
-                                    }}
-                                >
-                                    <Link to="/projects/citibike" className="w-full">
-                                        <img
-                                            src="/images/thumbnails/citibike_thumb.jpg"
-                                            alt="NYC_Citi_Bike_Data_Visualization_Image"
-                                            loading="lazy"
-                                            className="w-full"/>
-                                    </Link>
-                                    <div className="flex flex-col justify-end text-3xs md:text-base 3xl:text-lg 5xl:text-2xl 6xl:text-3xl">
-                                        <p className="mb-4 2xl:mb-10">NYC Citi Bike Data Visualization</p>
-                                        <p className="text-customGray">2025</p>
-                                    </div>
-                                </motion.div>
-                                <motion.div
-                                    className="w-11/12 xl:w-full flex flex-col-reverse xl:flex-row xl:justify-end xl:row-start-4 xl:row-end-8 xl:col-start-2 gap-4"
-                                    initial={{opacity: 0, y: 70}}
-                                    whileInView={{opacity: 1, y: 0}}
-                                    viewport={{once: false}}
-                                    transition={{
-                                        duration: 0.6,
-                                        ease: "easeInOut",
-                                    }}
-                                >
-                                    <div className="flex flex-col justify-end text-3xs md:text-base 3xl:text-lg 5xl:text-2xl 6xl:text-3xl xl:text-right">
-                                        <p className="mb-4 2xl:mb-10">Allen Topolski&apos;s Portfolio</p>
-                                        <p className="text-customGray">2025</p>
-                                    </div>
-                                    <Link to="/projects/atopol" className="w-full">
-                                        <img
-                                            src="/images/thumbnails/atopol_thumb.jpg"
-                                            alt="Allen_Topolski_portfolio_website_image"
-                                            loading="lazy"
-                                            className="w-full"/>
-                                    </Link>
-                                </motion.div>
-                                {/*<motion.div*/}
-                                {/*    className="w-11/12 xl:w-full flex flex-col xl:flex-row xl:row-start-7 xl:row-end-11 xl:col-start-1 gap-4"*/}
-                                {/*    initial={{opacity: 0, y: 70}}*/}
-                                {/*    whileInView={{opacity: 1, y: 0}}*/}
-                                {/*    viewport={{once: false}}*/}
-                                {/*    transition={{*/}
-                                {/*        duration: 0.6,*/}
-                                {/*        ease: "easeInOut",*/}
-                                {/*    }}*/}
-                                {/*>*/}
-                                {/*    <Link to="/project/ocular-prosthetic" className="w-full xl:w-5/6">*/}
-                                {/*        { isXLargeScreen ?*/}
-                                {/*            <img*/}
-                                {/*                src="/images/Ocular%20Prosthetic%20for%20Reading%20Another%20Human_01.jpg"*/}
-                                {/*                alt="Ocular_prostetic_art_image"*/}
-                                {/*                loading="lazy"*/}
-                                {/*                className="w-full"/>*/}
-                                {/*            :*/}
-                                {/*            <img*/}
-                                {/*                src="/images/thumbnails/Ocular%20Prosthetic%20for%20Reading%20Another%20Human_thumb.jpg"*/}
-                                {/*                alt="Ocular_prostetic_art_image"*/}
-                                {/*                loading="lazy"*/}
-                                {/*                className="w-full"/>*/}
-                                {/*        }*/}
-                                {/*    </Link>*/}
-                                {/*    <div className="flex flex-col justify-end text-3xs md:text-base 3xl:text-lg 5xl:text-2xl 6xl:text-3xl">*/}
-                                {/*        <p className="mb-4 2xl:mb-10">Ocular Prosthetic for Reading Another Human</p>*/}
-                                {/*        <p className="text-customGray">2024</p>*/}
-                                {/*    </div>*/}
-                                {/*</motion.div>*/}
-                                {/*<motion.div*/}
-                                {/*    className="w-11/12 xl:w-full flex flex-col-reverse xl:flex-row xl:justify-end xl:row-start-10 xl:row-end-13 xl:col-start-2 gap-4"*/}
-                                {/*    initial={{opacity: 0, y: 70}}*/}
-                                {/*    whileInView={{opacity: 1, y: 0}}*/}
-                                {/*    viewport={{once: false}}*/}
-                                {/*    transition={{*/}
-                                {/*        duration: 0.6,*/}
-                                {/*        ease: "easeInOut",*/}
-                                {/*    }}*/}
-                                {/*>*/}
-                                {/*    <div className="flex flex-col justify-end text-3xs md:text-base 3xl:text-lg 5xl:text-2xl 6xl:text-3xl xl:text-right">*/}
-                                {/*        <p className="mb-4 2xl:mb-10">On The Tracks</p>*/}
-                                {/*        <p className="text-customGray">2024</p>*/}
-                                {/*    </div>*/}
-                                {/*    <Link to="/project/on-the-tracks" className="w-full xl:w-5/6">*/}
-                                {/*        <video*/}
-                                {/*            autoPlay*/}
-                                {/*            playsInline*/}
-                                {/*            muted*/}
-                                {/*            loop*/}
-                                {/*            className="w-full"*/}
-                                {/*        >*/}
-                                {/*            <source src="/videos/JooEon_Park_OnTheTracks_Video.MOV#t=4" type="video/mp4"/>*/}
-                                {/*            Your browser does not support the video tag.*/}
-                                {/*        </video>*/}
-                                {/*    </Link>*/}
-                                {/*</motion.div>*/}
+                        <motion.div
+                            className="w-11/12 xl:w-full flex flex-col xl:flex-row xl:row-start-1 xl:row-end-5 xl:col-start-1 gap-4"
+                            initial={{opacity: 0, y: 70, filter: "blur(10px)",}}
+                            whileInView={{opacity: 1, y: 0, filter: "blur(0px)",}}
+                            viewport={{once: true}}
+                            transition={{
+                                duration: 0.8,
+                                ease: "easeOut",
+                            }}
+                        >
+                            <Link to="/projects/citibike" className="w-full">
+                                <img
+                                    src="/images/thumbnails/citibike_thumb.jpg"
+                                    alt="NYC_Citi_Bike_Data_Visualization_Image"
+                                    loading="lazy"
+                                    className="w-full"/>
+                            </Link>
+                            <div
+                                className="flex flex-col justify-end text-3xs md:text-base 3xl:text-lg 5xl:text-2xl 6xl:text-3xl">
+                                <p className="mb-4 2xl:mb-10">NYC Citi Bike Data Visualization</p>
+                                <p className="text-customGray">2025</p>
                             </div>
-                        </section>
-                        <section className="flex justify-center items-center h-96 md:h-[80vh]">
-                            <motion.div
-                                className="relative top-1/4 flex justify-center gap-5 md:gap-10 lg:gap-14 xl:gap-20 3xl:gap-30 6xl:gap-72 font-nick lowercase
+                        </motion.div>
+                        <motion.div
+                            className="w-11/12 xl:w-full flex flex-col-reverse xl:flex-row xl:justify-end xl:row-start-4 xl:row-end-8 xl:col-start-2 gap-4"
+                            initial={{opacity: 0, y: 70, filter: "blur(10px)",}}
+                            whileInView={{opacity: 1, y: 0, filter: "blur(0px)",}}
+                            viewport={{once: true}}
+                            transition={{
+                                duration: 0.8,
+                                ease: "easeOut",
+                            }}
+                        >
+                            <div
+                                className="flex flex-col justify-end text-3xs md:text-base 3xl:text-lg 5xl:text-2xl 6xl:text-3xl xl:text-right">
+                                <p className="mb-4 2xl:mb-10">Allen Topolski&apos;s Portfolio</p>
+                                <p className="text-customGray">2025</p>
+                            </div>
+                            <Link to="/projects/atopol" className="w-full">
+                                <img
+                                    src="/images/thumbnails/atopol_thumb.jpg"
+                                    alt="Allen_Topolski_portfolio_website_image"
+                                    loading="lazy"
+                                    className="w-full"/>
+                            </Link>
+                        </motion.div>
+                        <motion.div
+                            className="w-11/12 xl:w-full flex flex-col xl:flex-row xl:row-start-7 xl:row-end-11 xl:col-start-1 gap-4"
+                            initial={{opacity: 0, y: 70, filter: "blur(10px)",}}
+                            whileInView={{opacity: 1, y: 0, filter: "blur(0px)",}}
+                            viewport={{once: true}}
+                            transition={{
+                                duration: 0.8,
+                                ease: "easeOut",
+                            }}
+                        >
+                            <Link to="/design/post-realm-runway" className="w-full">
+                                <img
+                                    src="/images/thumbnails/nyfw_runway_thumb.jpg"
+                                    alt="nyfw_runway_poster_design_image"
+                                    loading="lazy"
+                                    className="w-full"/>
+                            </Link>
+                            <div
+                                className="flex flex-col justify-end text-3xs md:text-base 3xl:text-lg 5xl:text-2xl 6xl:text-3xl">
+                                <p className="mb-4 2xl:mb-10">NYFW '26 Poster Design</p>
+                                <p className="text-customGray">2026</p>
+                            </div>
+                        </motion.div>
+                        <motion.div
+                            className="w-11/12 xl:w-full flex flex-col-reverse xl:flex-row xl:justify-end xl:row-start-10 xl:row-end-14 xl:col-start-2 gap-4"
+                            initial={{opacity: 0, y: 70, filter: "blur(10px)",}}
+                            whileInView={{opacity: 1, y: 0, filter: "blur(0px)",}}
+                            viewport={{once: true}}
+                            transition={{
+                                duration: 0.8,
+                                ease: "easeOut",
+                            }}
+                        >
+                            <div
+                                className="flex flex-col justify-end text-3xs md:text-base 3xl:text-lg 5xl:text-2xl 6xl:text-3xl xl:text-right">
+                                <p className="mb-4 2xl:mb-10">Demiurgo Branding Mockup</p>
+                                <p className="text-customGray">2026</p>
+                            </div>
+                            <Link to="/design/demiurgo-mock" className="w-full xl:w-9/12">
+                                <img
+                                    src="/images/thumbnails/demiurgo-thumb.png"
+                                    alt="Demiurgo_branding_design_mockup_image"
+                                    loading="lazy"
+                                    className="w-full"/>
+                            </Link>
+                        </motion.div>
+                    </div>
+                </section>
+                <section className="flex justify-center items-center h-96 md:h-[70vh]">
+                    <motion.div
+                        className="relative top-1/4 flex justify-center gap-5 md:gap-10 lg:gap-14 xl:gap-20 3xl:gap-30 6xl:gap-72 font-nick lowercase
                         text-[2vw] px-5 xl:px-7"
-                                initial="hidden"
-                                animate={controls}
-                                variants={{
-                                    hidden: {opacity: 0},
-                                    visible: {opacity: 1},
-                                }}
-                                transition={{
-                                    duration: 0.5,
-                                    ease: "easeIn",
-                                }}
-                            >
-                                <EncryptionText
-                                    text={"Connect:"}
-                                    delay={0.4}
-                                    duration={0.4}
-                                    speed={20}
-                                />
-                                <Link to="https://www.linkedin.com/in/joo-eon-park/" target="_blank"
-                                      rel="noopener noreferrer"
-                                      className="text-link text-customBlack dark:text-customWhite after:bg-customBlack dark:after:bg-customWhite">
-                                    <EncryptionText
-                                        text={"LinkedIn"}
+                        initial="hidden"
+                        animate={controls}
+                        variants={{
+                            hidden: {opacity: 0},
+                            visible: {opacity: 1},
+                        }}
+                        transition={{
+                            duration: 0.5,
+                            ease: "easeIn",
+                        }}
+                    >
+                        <EncryptionText
+                            text={"Connect:"}
+                            delay={0.4}
+                            duration={0.4}
+                            speed={20}
+                        />
+                        <Link to="https://www.linkedin.com/in/joo-eon-park/" target="_blank"
+                              rel="noopener noreferrer"
+                              className="text-link text-customBlack dark:text-customWhite after:bg-customBlack dark:after:bg-customWhite">
+                            <EncryptionText
+                                text={"LinkedIn"}
                                         delay={0.4}
                                         duration={0.4}
                                         speed={20}
