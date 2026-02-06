@@ -217,7 +217,7 @@ const ScrollTitleSection = ({showEntryAnimation}) => {
                         Developer
                     </motion.span>
                 </Link>
-                &nbsp;&&nbsp;
+                ,&nbsp;&&nbsp;
                 <Link to="/art" className="outline-text-white">
                     <motion.span
                         onHoverStart={() => {

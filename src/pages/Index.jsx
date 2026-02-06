@@ -31,11 +31,11 @@ const Index = () => {
     }, [showAnimation]);
 
     // 4k or larger, for rendering full resolution images if screen resolution is large
-    const [isXLargeScreen, setIsXLargeScreen] = useState(window.innerWidth >= 3840);
+    const [isLargeScreen, setIsLargeScreen] = useState(window.innerWidth >= 1280);
 
     useEffect(() => {
         const handleResize = () => {
-            setIsXLargeScreen(window.innerWidth >= 3840);
+            setIsLargeScreen(window.innerWidth >= 1280);
         };
 
         window.addEventListener("resize", handleResize);
@@ -55,6 +55,21 @@ const Index = () => {
     // ************************
     // Start of scrolling behavior logic
     // ************************
+
+    const [scrollY, setScrollY] = useState(0); // Track the scroll position
+
+    useEffect(() => {
+        const handleScroll = () => {
+            setScrollY(window.scrollY); // Update scroll position
+        };
+
+        // Add event listener for scroll
+        window.addEventListener("scroll", handleScroll);
+
+        return () => {
+            window.removeEventListener("scroll", handleScroll); // Clean up the event listener
+        };
+    }, []);
 
     const { scrollYProgress } = useScroll();
 
@@ -92,7 +107,8 @@ const Index = () => {
                     <EntryAnim/>
                 </motion.div>
             }
-            <main className="relative flex flex-col px-4 md:px-7 6xl:px-12 7xl:px-14 pb-20 xl:pb-40 w-full gap-48 md:gap-[20vw]">
+            <main
+                className="relative flex flex-col px-4 md:px-7 6xl:px-12 7xl:px-14 w-full gap-48 md:gap-[20vw]">
                 {/* Main landing text */}
                 <LayeredScrollTitle showEntryAnimation={showAnimation}/>
                 <section className="flex flex-col items-center">
@@ -152,27 +168,30 @@ const Index = () => {
                     <div className="w-11/12 xl:w-5/6 md:mb-14">
                         <h3 className="w-fit outline-text-black dark:outline-text-white text-transparent font-nick pb-5
                             text-[3vw] leading-none">
-                                    Selected Works
-                                </h3>
-                            </div>
-                    <div className="flex flex-col gap-10 xl:grid xl:grid-cols-2 xl:grid-rows-13 xl:gap-x-0 xl:gap-y-[7vw] justify-start xl:justify-center items-center xl:items-start
+                            Selected Works
+                        </h3>
+                    </div>
+                    <div className="flex flex-col gap-10 xl:grid xl:grid-cols-2 xl:gap-x-0 xl:gap-y-[7vw] justify-start xl:justify-center items-center xl:items-start
                                 font-neueHaasGrotesk font-bold lowercase">
                         <motion.div
                             className="w-11/12 xl:w-full flex flex-col xl:flex-row xl:row-start-1 xl:row-end-5 xl:col-start-1 gap-4"
-                            initial={{opacity: 0, y: 70, filter: "blur(10px)",}}
-                            whileInView={{opacity: 1, y: 0, filter: "blur(0px)",}}
-                            viewport={{once: true}}
-                            transition={{
-                                duration: 0.8,
-                                ease: "easeOut",
-                            }}
+                            // style={!isLargeScreen ? {} : {
+                            //     transform: `translateY(${scrollY * -0.28}px)`,
+                            // }}
                         >
                             <Link to="/projects/citibike" className="w-full">
-                                <img
+                                <motion.img
                                     src="/images/thumbnails/citibike_thumb.jpg"
                                     alt="NYC_Citi_Bike_Data_Visualization_Image"
                                     loading="lazy"
-                                    className="w-full"/>
+                                    className="w-full"
+                                    initial={{opacity: 0, y: 70, filter: "blur(10px)",}}
+                                    whileInView={{opacity: 1, y: 0, filter: "blur(0px)",}}
+                                    viewport={{once: true}}
+                                    transition={{
+                                        duration: 0.8,
+                                        ease: "easeOut",
+                                    }}/>
                             </Link>
                             <div
                                 className="flex flex-col justify-end text-3xs md:text-base 3xl:text-lg 5xl:text-2xl 6xl:text-3xl">
@@ -182,13 +201,9 @@ const Index = () => {
                         </motion.div>
                         <motion.div
                             className="w-11/12 xl:w-full flex flex-col-reverse xl:flex-row xl:justify-end xl:row-start-4 xl:row-end-8 xl:col-start-2 gap-4"
-                            initial={{opacity: 0, y: 70, filter: "blur(10px)",}}
-                            whileInView={{opacity: 1, y: 0, filter: "blur(0px)",}}
-                            viewport={{once: true}}
-                            transition={{
-                                duration: 0.8,
-                                ease: "easeOut",
-                            }}
+                            // style={!isLargeScreen ? {} : {
+                            //     transform: `translateY(${scrollY * -0.24}px)`,
+                            // }}
                         >
                             <div
                                 className="flex flex-col justify-end text-3xs md:text-base 3xl:text-lg 5xl:text-2xl 6xl:text-3xl xl:text-right">
@@ -196,29 +211,39 @@ const Index = () => {
                                 <p className="text-customGray">2025</p>
                             </div>
                             <Link to="/projects/atopol" className="w-full">
-                                <img
+                                <motion.img
                                     src="/images/thumbnails/atopol_thumb.jpg"
                                     alt="Allen_Topolski_portfolio_website_image"
                                     loading="lazy"
-                                    className="w-full"/>
+                                    className="w-full"
+                                    initial={{opacity: 0, y: 70, filter: "blur(10px)",}}
+                                    whileInView={{opacity: 1, y: 0, filter: "blur(0px)",}}
+                                    viewport={{once: true}}
+                                    transition={{
+                                        duration: 0.8,
+                                        ease: "easeOut",
+                                    }}/>
                             </Link>
                         </motion.div>
                         <motion.div
                             className="w-11/12 xl:w-full flex flex-col xl:flex-row xl:row-start-7 xl:row-end-11 xl:col-start-1 gap-4"
-                            initial={{opacity: 0, y: 70, filter: "blur(10px)",}}
-                            whileInView={{opacity: 1, y: 0, filter: "blur(0px)",}}
-                            viewport={{once: true}}
-                            transition={{
-                                duration: 0.8,
-                                ease: "easeOut",
-                            }}
+                            // style={!isLargeScreen ? {} : {
+                            //     transform: `translateY(${scrollY * -0.05}px)`,
+                            // }}
                         >
                             <Link to="/design/post-realm-runway" className="w-full">
-                                <img
+                                <motion.img
                                     src="/images/thumbnails/nyfw_runway_thumb.jpg"
                                     alt="nyfw_runway_poster_design_image"
                                     loading="lazy"
-                                    className="w-full"/>
+                                    className="w-full"
+                                    initial={{opacity: 0, y: 70, filter: "blur(10px)",}}
+                                    whileInView={{opacity: 1, y: 0, filter: "blur(0px)",}}
+                                    viewport={{once: true}}
+                                    transition={{
+                                        duration: 0.8,
+                                        ease: "easeOut",
+                                    }}/>
                             </Link>
                             <div
                                 className="flex flex-col justify-end text-3xs md:text-base 3xl:text-lg 5xl:text-2xl 6xl:text-3xl">
@@ -228,13 +253,9 @@ const Index = () => {
                         </motion.div>
                         <motion.div
                             className="w-11/12 xl:w-full flex flex-col-reverse xl:flex-row xl:justify-end xl:row-start-10 xl:row-end-14 xl:col-start-2 gap-4"
-                            initial={{opacity: 0, y: 70, filter: "blur(10px)",}}
-                            whileInView={{opacity: 1, y: 0, filter: "blur(0px)",}}
-                            viewport={{once: true}}
-                            transition={{
-                                duration: 0.8,
-                                ease: "easeOut",
-                            }}
+                            // style={!isLargeScreen ? {} : {
+                            //     transform: `translateY(${scrollY * -0.14}px)`,
+                            // }}
                         >
                             <div
                                 className="flex flex-col justify-end text-3xs md:text-base 3xl:text-lg 5xl:text-2xl 6xl:text-3xl xl:text-right">
@@ -242,18 +263,25 @@ const Index = () => {
                                 <p className="text-customGray">2026</p>
                             </div>
                             <Link to="/design/demiurgo-mock" className="w-full xl:w-9/12">
-                                <img
+                                <motion.img
                                     src="/images/thumbnails/demiurgo-thumb.png"
                                     alt="Demiurgo_branding_design_mockup_image"
                                     loading="lazy"
-                                    className="w-full"/>
+                                    className="w-full"
+                                    initial={{opacity: 0, y: 70, filter: "blur(10px)",}}
+                                    whileInView={{opacity: 1, y: 0, filter: "blur(0px)",}}
+                                    viewport={{once: true}}
+                                    transition={{
+                                        duration: 0.8,
+                                        ease: "easeOut",
+                                    }}/>
                             </Link>
                         </motion.div>
                     </div>
                 </section>
                 <section className="flex justify-center items-center h-96 md:h-[70vh]">
                     <motion.div
-                        className="relative top-1/4 flex justify-center gap-5 md:gap-10 lg:gap-14 xl:gap-20 3xl:gap-30 6xl:gap-72 font-nick lowercase
+                        className="relative flex justify-center gap-5 md:gap-10 lg:gap-14 xl:gap-20 3xl:gap-30 6xl:gap-72 font-nick lowercase
                         text-[2vw] px-5 xl:px-7"
                         initial="hidden"
                         animate={controls}
@@ -277,31 +305,31 @@ const Index = () => {
                               className="text-link text-customBlack dark:text-customWhite after:bg-customBlack dark:after:bg-customWhite">
                             <EncryptionText
                                 text={"LinkedIn"}
-                                        delay={0.4}
-                                        duration={0.4}
-                                        speed={20}
-                                    />
-                                </Link>
-                                <Link to="https://github.com/jooeon" target="_blank" rel="noopener noreferrer"
-                                      className="text-link text-customBlack dark:text-customWhite after:bg-customBlack dark:after:bg-customWhite">
-                                    <EncryptionText
-                                        text={"GitHub"}
-                                        delay={0.4}
-                                        duration={0.4}
-                                        speed={20}
-                                    />
-                                </Link>
-                                <Link to="mailto:jooeon427@gmail.com" target="_blank" rel="noopener noreferrer"
-                                      className="text-link text-customBlack dark:text-customWhite after:bg-customBlack dark:after:bg-customWhite">
-                                    <EncryptionText
-                                        text={"Email"}
-                                        delay={0.4}
-                                        duration={0.4}
-                                        speed={20}
-                                    />
-                                </Link>
-                            </motion.div>
-                        </section>
+                                delay={0.4}
+                                duration={0.4}
+                                speed={20}
+                            />
+                        </Link>
+                        <Link to="https://github.com/jooeon" target="_blank" rel="noopener noreferrer"
+                              className="text-link text-customBlack dark:text-customWhite after:bg-customBlack dark:after:bg-customWhite">
+                            <EncryptionText
+                                text={"GitHub"}
+                                delay={0.4}
+                                duration={0.4}
+                                speed={20}
+                            />
+                        </Link>
+                        <Link to="mailto:jooeon427@gmail.com" target="_blank" rel="noopener noreferrer"
+                              className="text-link text-customBlack dark:text-customWhite after:bg-customBlack dark:after:bg-customWhite">
+                            <EncryptionText
+                                text={"Email"}
+                                delay={0.4}
+                                duration={0.4}
+                                speed={20}
+                            />
+                        </Link>
+                    </motion.div>
+                </section>
             </main>
             <div className="title-text text-[6vw]
                 text-center uppercase font-nick tracking-wider leading-tight outline-text-black dark:outline-text-lack dark:outline-text-white text-transparent
