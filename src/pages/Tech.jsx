@@ -148,7 +148,7 @@ const Tech = () => {
                             }}
                         >
                             <ParallaxText
-                                textArray={["react", "next.js", "tailwind", "framer motion", "sql", "android", "adobe cc", "figma"]}
+                                textArray={["react", "next.js", "shopify", "wordpress", "framer motion", "sql", "android", "adobe cc", "figma"]}
                                 baseVelocity={isMobile ? 50 : 100}
                                 scrollY={scrollY}
                             />
