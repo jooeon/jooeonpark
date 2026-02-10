@@ -3,6 +3,8 @@
 //   useEffect(() => {
 //     scrollToTop(lenis);
 //   }, [lenis]);
+import {useEffect, useState} from "react";
+
 export function scrollToTop(lenis, immediate = true) {
     if (lenis && typeof lenis.scrollTo === "function") {
         lenis.scrollTo(0, { immediate });
@@ -187,4 +189,20 @@ export const generateShades = (targetColor) => {
             Math.min(1.0, rgb[2] * 1.1)
         ]                            // brightest - enhanced version
     ];
+};
+
+export const useMediaQuery = (query) => {
+    const [matches, setMatches] = useState(false);
+
+    useEffect(() => {
+        const media = window.matchMedia(query);
+        if (media.matches !== matches) {
+            setMatches(media.matches);
+        }
+        const listener = () => setMatches(media.matches);
+        media.addEventListener('change', listener);
+        return () => media.removeEventListener('change', listener);
+    }, [matches, query]);
+
+    return matches;
 };

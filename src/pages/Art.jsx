@@ -3,16 +3,17 @@ import Header from "../components/templates/Header.jsx";
 import Footer from "../components/templates/Footer.jsx";
 import { motion } from "framer-motion";
 import {items} from "../data/ArtData.jsx";
-import {isMobile} from "react-device-detect";
 import HorizontalScrollSection from '../components/HorizontalScrollSection.jsx';
+import {useMediaQuery} from "../Utils.jsx";
 
 const Art = () => {
+    const isXlOrLarger = useMediaQuery('(min-width: 1280px)');
 
     return (
         <>
             <Header/>
             <main className="">
-                {!isMobile && <section className="relative flex justify-center items-center p-7 h-[60vh]">
+                {isXlOrLarger && <section className="relative flex justify-center items-center p-7 h-[60vh]">
                     <h1 className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full text-center leading-none uppercase font-nick
                         text-[3vw]">
                         Creative Works
@@ -26,7 +27,7 @@ const Art = () => {
                     </div>
                 </section>}
                 {/* Use horizontal scroll only on desktop, since it is awkward on touch screens */}
-                {!isMobile ?
+                {isXlOrLarger ?
                     <section className="relative flex justify-center items-center w-full">
                         <div className="absolute top-0 bottom-0 flex flex-wrap w-full -z-10 *:w-1/4
                             *:border-customGrayLight *:dark:border-customBlackLight">
@@ -118,7 +119,7 @@ const Art = () => {
                         <h1 className="title-text font-nick uppercase text-4xl sm:text-5xl md:text-7xl lg:text-8xl 4xl:text-9xl">Creative Works</h1>
                     </motion.div>
                 }
-                {isMobile && <section className="flex flex-row flex-wrap justify-between gap-5
+                {!isXlOrLarger && <section className="flex flex-row flex-wrap justify-between gap-5
                     h-min w-full xl:w-11/12 p-5 mx-auto uppercase">
                     {items.map((item) => (
                         <div className={`flex flex-col w-full h-full xl:w-2/5 xl:h-2/5 ${item.padding}`}
@@ -179,7 +180,7 @@ const Art = () => {
                                 </div>
                             </motion.div>
                         </div>
-                        ))}
+                    ))}
                 </section>
                 }
             </main>

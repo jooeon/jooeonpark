@@ -247,7 +247,7 @@ const Index = () => {
                             </Link>
                             <div
                                 className="flex flex-col justify-end text-3xs md:text-base 3xl:text-lg 5xl:text-2xl 6xl:text-3xl">
-                                <p className="mb-4 2xl:mb-10">NYFW '26 Poster Design</p>
+                                <p className="mb-4 2xl:mb-10">NYFW &#39;26 Poster Design</p>
                                 <p className="text-customGray">2026</p>
                             </div>
                         </motion.div>
