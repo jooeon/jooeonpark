@@ -41,7 +41,7 @@ const Info = () => {
     const linksData = [
         { name: "LINKEDIN", href: "https://linkedin.com/in/joo-eon-park" },
         { name: "GITHUB", href: "https://github.com/jooeon" },
-        { name: "EMAIL", href: "mailto:jooeon427@gmail.com" },
+        { name: "EMAIL", href: "mailto:hello@jooeonpark.com" },
         { name: "RESUME", href: "/files/Park_JooEon_Resume.pdf" },
     ]
 

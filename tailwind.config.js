@@ -13,6 +13,7 @@ export default {
 		// File
 		'nick': ['Nickelodeon2001', 'Outfit', 'Arial', 'sans-serif'],
 		'switzer': ['Switzer-Variable', 'neue-haas-grotesk-display', 'Arial', 'sans-serif'],
+		'apercu': ['Apercu Mono Pro', 'Roboto Mono', 'monospace'],
 	},
   	extend: {
 		width: {

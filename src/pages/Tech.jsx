@@ -183,7 +183,7 @@ const Tech = () => {
                                   className="text-link after:bg-customBlack dark:after:bg-customWhite">
                                 GitHub
                             </Link>
-                            <Link to="mailto:jooeon427@gmail.com" target="_blank" rel="noopener noreferrer"
+                            <Link to="mailto:hello@jooeonpark.com" target="_blank" rel="noopener noreferrer"
                                   className="text-link after:bg-customBlack dark:after:bg-customWhite">
                                 Email
                             </Link>

@@ -123,7 +123,7 @@ const Index = () => {
                         <div className="w-11/12 xl:w-11/12 xl:px-24 font-bold font-neueHaasGrotesk uppercase mix-blend-difference text-customWhite [&_span]:lg:mb-2
                             md:text-xl lg:text-3xl xl:text-4xl 2xl:text-6xl 3xl:text-6xl 5xl:text-8xl 6xl:text-9xl 7xl:text-11xl">
                             <ScrollTextAnim
-                                paragraph={"Multidisciplinary creative from Seoul [based in NYC].\nFrom concept to execution,\nI design it, I build it.\n[Web Development, UI/UX, Graphic Design, and Visual Arts]"}
+                                paragraph={"Multidisciplinary creative from Seoul [based in NYC].\nFrom concept to execution,\nI design it, I build it.\n[Web Development, UI/UX, Graphic Design, Visual Arts]"}
                             />
                         </div>
                     </div>
@@ -300,6 +300,15 @@ const Index = () => {
                             duration={0.4}
                             speed={20}
                         />
+                        <Link to="mailto:hello@jooeonpark.com" target="_blank" rel="noopener noreferrer"
+                              className="text-link text-customBlack dark:text-customWhite after:bg-customBlack dark:after:bg-customWhite">
+                            <EncryptionText
+                                text={"Email"}
+                                delay={0.4}
+                                duration={0.4}
+                                speed={20}
+                            />
+                        </Link>
                         <Link to="https://www.linkedin.com/in/joo-eon-park/" target="_blank"
                               rel="noopener noreferrer"
                               className="text-link text-customBlack dark:text-customWhite after:bg-customBlack dark:after:bg-customWhite">
@@ -314,15 +323,6 @@ const Index = () => {
                               className="text-link text-customBlack dark:text-customWhite after:bg-customBlack dark:after:bg-customWhite">
                             <EncryptionText
                                 text={"GitHub"}
-                                delay={0.4}
-                                duration={0.4}
-                                speed={20}
-                            />
-                        </Link>
-                        <Link to="mailto:jooeon427@gmail.com" target="_blank" rel="noopener noreferrer"
-                              className="text-link text-customBlack dark:text-customWhite after:bg-customBlack dark:after:bg-customWhite">
-                            <EncryptionText
-                                text={"Email"}
                                 delay={0.4}
                                 duration={0.4}
                                 speed={20}
