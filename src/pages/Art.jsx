@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import Header from "../components/templates/Header.jsx";
 import Footer from "../components/templates/Footer.jsx";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import {items} from "../data/ArtData.jsx";
 import HorizontalScrollSection from '../components/HorizontalScrollSection.jsx';
 import {useMediaQuery} from "../Utils.jsx";

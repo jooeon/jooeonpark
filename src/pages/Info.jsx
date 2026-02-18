@@ -1,6 +1,6 @@
 import Header from "../components/templates/Header.jsx"
 import Footer from "../components/templates/Footer.jsx"
-import { motion } from "framer-motion"
+import { motion } from "motion/react"
 import {useEffect, useState} from "react"
 import { useLenis } from "lenis/react"
 import {scrollToTop} from "../Utils.jsx"

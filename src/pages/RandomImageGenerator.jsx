@@ -2,7 +2,7 @@ import RandomImageHalftone from "../components/RandomImageHalftone.jsx";
 import TitleText from "../components/templates/TitleText.jsx";
 import Header from "../components/templates/Header.jsx";
 import Footer from "../components/templates/Footer.jsx";
-import {motion} from "framer-motion";
+import {motion} from "motion/react";
 import {checkWebGL} from "../Utils.jsx";
 
 const RandomImageGenerator = () => {

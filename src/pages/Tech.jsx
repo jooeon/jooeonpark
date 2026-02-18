@@ -1,6 +1,6 @@
 import Header from "../components/templates/Header.jsx";
 import Footer from "../components/templates/Footer.jsx";
-import {motion, useScroll} from "framer-motion";
+import {motion, useScroll} from "motion/react";
 import EncryptionText from "../components/EncryptionAnim.jsx";
 import AsciiAnimation from "../components/AsciiAnim.jsx";
 import ParallaxText from "../components/textEffects/ParallaxText.jsx";

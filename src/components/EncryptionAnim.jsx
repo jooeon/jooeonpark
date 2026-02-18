@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { motion, useInView } from "framer-motion";
+import { motion, useInView } from "motion/react";
 import PropTypes from "prop-types";
 
 // Plays encryption animation on a string, eventually landing on the input string

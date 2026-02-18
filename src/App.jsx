@@ -1,6 +1,6 @@
 import {BrowserRouter, Navigate, Route, Routes, useLocation} from "react-router-dom";
-import { AnimatePresence } from "framer-motion";
-import { motion } from "framer-motion";
+import { AnimatePresence } from "motion/react";
+import { motion } from "motion/react";
 import { isMobile } from "react-device-detect";
 import {ReactLenis} from 'lenis/react'
 import Index from "./pages/Index.jsx";

@@ -1,7 +1,7 @@
 import {Link, Navigate, useNavigate, useParams} from "react-router-dom";
 import Header from "../components/templates/Header.jsx";
 import Footer from "../components/templates/Footer.jsx";
-import {AnimatePresence, motion} from "framer-motion";
+import {AnimatePresence, motion} from "motion/react";
 import artData from "../data/ArtData.jsx";
 import projectData from "../data/ProjectsData.jsx";
 import PropTypes from "prop-types";

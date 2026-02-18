@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react"
 import { useLocation } from "react-router-dom"
-import { motion, useMotionValue, useSpring } from "framer-motion"
+import { motion, useMotionValue, useSpring } from "motion/react"
 import { useCursor } from "./CursorContext.jsx"
 
 const Cursor = () => {

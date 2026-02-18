@@ -3,7 +3,7 @@ import TitleText from "../components/templates/TitleText.jsx";
 import {scrollToTop} from "../Utils.jsx";
 import {useEffect} from "react";
 import {useLenis} from "lenis/react";
-import {motion} from "framer-motion";
+import {motion} from "motion/react";
 import {Link} from "react-router-dom";
 import items from "../data/DesignData.jsx";
 import Footer from "../components/templates/Footer.jsx";

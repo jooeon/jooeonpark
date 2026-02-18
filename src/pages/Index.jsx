@@ -1,6 +1,6 @@
 import Header from "../components/templates/Header.jsx";
 import Footer from "../components/templates/Footer.jsx";
-import {motion, useAnimation, useScroll} from "framer-motion";
+import {motion, useAnimation, useScroll} from "motion/react";
 import EntryAnim from "../components/EntryAnim.jsx";
 import ScrollTextAnim from "../components/textEffects/ScrollTextAnim.jsx";
 import {useEffect, useState} from "react";

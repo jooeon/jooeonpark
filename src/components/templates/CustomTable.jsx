@@ -1,4 +1,4 @@
-import { motion } from "framer-motion"
+import { motion } from "motion/react"
 import { useCursor } from "../cursor/CursorContext.jsx"
 import PropTypes from "prop-types"
 import {formatString} from "../../Utils.jsx";

@@ -1,5 +1,5 @@
 import {useState, useEffect, useRef} from "react";
-import {motion, useScroll, useTransform, useAnimation, useMotionValueEvent} from "framer-motion";
+import {motion, useScroll, useTransform, useAnimation, useMotionValueEvent} from "motion/react";
 import { Link } from "react-router-dom";
 import {MaskText} from "./textEffects/MaskText.jsx";
 import PropTypes from "prop-types";

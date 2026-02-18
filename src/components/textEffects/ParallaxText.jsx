@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import PropTypes from "prop-types";
-import { motion, useMotionValue, useAnimationFrame, animate } from "framer-motion";
+import { motion, useMotionValue, useAnimationFrame, animate } from "motion/react";
 
 /**
  * ParallaxText component

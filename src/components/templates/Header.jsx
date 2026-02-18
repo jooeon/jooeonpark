@@ -1,5 +1,5 @@
 import { NavLink, Link, useLocation } from "react-router-dom"
-import {motion, useMotionValueEvent, useScroll} from "framer-motion"
+import {motion, useMotionValueEvent, useScroll} from "motion/react"
 import PropTypes from "prop-types"
 import EncryptionText from "../EncryptionAnim.jsx"
 import {useRef, useState} from "react"

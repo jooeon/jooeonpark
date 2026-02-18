@@ -4,7 +4,7 @@ import { useLenis } from "lenis/react"
 import {checkWebGL, scrollToTop} from "../Utils.jsx"
 import {useEffect, useState} from "react"
 import TitleText from "../components/templates/TitleText.jsx"
-import {motion} from "framer-motion";
+import {motion} from "motion/react";
 import TopographicShader from "../components/shaders/Topographic.jsx";
 import HalftoneWavesShader from "../components/shaders/HalftoneWaves.jsx";
 import HeatmapShader from "../components/shaders/Heatmap.jsx";
