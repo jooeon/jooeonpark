@@ -53,7 +53,9 @@ const Info = () => {
                     <div className="mt-[12vh] md:mt-[15vh] xl:mt-[20vh]">
                         <h1 className="title-text flex flex-col font-nick uppercase text-[8vw] md:text-[5vw] leading-[0.9]">
                             <MaskText phrase={"Designer"} duration={1} delay={0.8}/>
-                            <span className="pl-10 md:pl-20 xl:pl-[10vw]"><MaskText phrase={"Developer & Artist"} duration={1} delay={0.8}/></span>
+                            <span className="pl-10 md:pl-20 xl:pl-[10vw]">
+                                <MaskText phrase={"Developer & Artist"} duration={1} delay={1.0}/>
+                            </span>
                         </h1>
                     </div>
 
@@ -83,7 +85,7 @@ const Info = () => {
                                         viewport={{once: true}}
                                         transition={{
                                             duration: 0.4,
-                                            delay: hasInitiallyLoaded ? 0 : 1.3 + index * 0.1,
+                                            delay: hasInitiallyLoaded ? 0 : 1.4 + index * 0.1,
                                             ease: "easeOut",
                                         }}
                                     >
