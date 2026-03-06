@@ -18,7 +18,6 @@ import Inspo from "./pages/Inspo.jsx";
 import CitibikeProcess from "./components/CitibikeProcess.jsx";
 import RandomImageGenerator from "./pages/RandomImageGenerator.jsx";
 import Design from "./pages/Design.jsx";
-import Privacy from "./pages/Privacy.jsx";
 
 // animations for entering and exiting each page
 const navVariants = {
@@ -49,7 +48,6 @@ const AnimatedRoutes = () => {
                 <Route path="/info" element={<PageWrapper><Info /></PageWrapper>} />
                 <Route path="/404" element={<PageWrapper><Page404 /></PageWrapper>} />
                 <Route path="/citibike-process" element={<CitibikeProcess />} />
-                <Route path="/privacy-policy" element={<PageWrapper><Privacy /></PageWrapper>} />
                 {/* catch‑all: redirect to /404 */}
                 <Route path="*" element={<Navigate to="/404" replace />} />
             </Routes>
