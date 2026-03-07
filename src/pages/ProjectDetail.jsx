@@ -156,12 +156,17 @@ const ProjectDetail = () => {
                             <p className="text-right md:p-1.5 4xl:p-2 6xl:p-3 7xl:p-6 col-start-2 text-4xs xs:text-4xs md:text-xs lg:text-sm xl:text-sm 2xl:text-lg 3xl:text-2xl 4xl:text-3xl 6xl:text-4xl 7xl:text-5xl">Type</p>
                             <p className="col-start-3">{project.caption[1]}</p>
 
-                            {type === "art" && (
+                            {type === "art" ?
                                 <>
                                     <p className="text-right md:p-1.5 4xl:p-2 6xl:p-3 7xl:p-6 col-start-2 text-4xs xs:text-4xs md:text-xs lg:text-sm xl:text-sm 2xl:text-lg 3xl:text-2xl 4xl:text-3xl 6xl:text-4xl 7xl:text-5xl">Medium</p>
                                     <p className="col-start-3">{project.caption[2]}</p>
                                 </>
-                            )}
+                            :
+                                <>
+                                    <p className="text-right md:p-1.5 4xl:p-2 6xl:p-3 7xl:p-6 col-start-2 text-4xs xs:text-4xs md:text-xs lg:text-sm xl:text-sm 2xl:text-lg 3xl:text-2xl 4xl:text-3xl 6xl:text-4xl 7xl:text-5xl">Tech</p>
+                                    <p className="col-start-3">{project.caption[2]}</p>
+                                </>
+                            }
 
                             <p className="text-right md:p-1.5 4xl:p-2 6xl:p-3 7xl:p-6 col-start-2 text-4xs xs:text-4xs md:text-xs lg:text-sm xl:text-sm 2xl:text-lg 3xl:text-2xl 4xl:text-3xl 6xl:text-4xl 7xl:text-5xl">Info</p>
                             <p className="col-start-3">{project.caption[4]}</p>

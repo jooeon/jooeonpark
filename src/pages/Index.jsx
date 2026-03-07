@@ -179,10 +179,10 @@ const Index = () => {
                             //     transform: `translateY(${scrollY * -0.28}px)`,
                             // }}
                         >
-                            <Link to="/projects/citibike" className="w-full">
+                            <Link to="/projects/artgrind" className="w-full">
                                 <motion.img
-                                    src="/images/thumbnails/citibike_thumb.jpg"
-                                    alt="NYC_Citi_Bike_Data_Visualization_Image"
+                                    src="/images/thumbnails/artgrind_thumb.png"
+                                    alt="ArtGrind_Image"
                                     loading="lazy"
                                     className="w-full"
                                     initial={{opacity: 0, y: 70, filter: "blur(10px)",}}
@@ -195,8 +195,8 @@ const Index = () => {
                             </Link>
                             <div
                                 className="flex flex-col justify-end text-3xs md:text-base 3xl:text-lg 5xl:text-2xl 6xl:text-3xl">
-                                <p className="mb-4 2xl:mb-10">NYC Citi Bike Data Visualization</p>
-                                <p className="text-customGray">2025</p>
+                                <p className="mb-4 2xl:mb-10">ArtGrind: Timed Drawing Practice</p>
+                                <p className="text-customGray">2026</p>
                             </div>
                         </motion.div>
                         <motion.div
