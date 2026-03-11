@@ -2,13 +2,12 @@ import Header from "../components/templates/Header.jsx";
 import Footer from "../components/templates/Footer.jsx";
 import {motion} from "motion/react";
 import {Link} from "react-router-dom";
-import EncryptionText from "../components/EncryptionAnim.jsx";
 import {useLenis} from "lenis/react";
 import {scrollToTop} from "../Utils.jsx";
 import {useEffect} from "react";
 import TitleText from "../components/templates/TitleText.jsx";
 
-const Projects = () => {
+const Work = () => {
 
     // always begin page from top on load
     const lenis = useLenis();
@@ -22,7 +21,7 @@ const Projects = () => {
             <Header/>
             <main>
                 <div className="flex flex-col md:flex-row items-baseline gap-[3vw] xl:gap-[2vw]">
-                    <TitleText phrase={"Projects"}/>
+                    <TitleText phrase={"Work"}/>
                     <div className="flex gap-[2vw] xl:gap-[1vw] pl-3 md:pl-0
                         leading-none text-[2vh] xl:text-[1vw] font-neueHaasGrotesk font-semibold lowercase">
                         <motion.p
@@ -75,7 +74,7 @@ const Projects = () => {
                                 ease: "easeOut",
                             }}
                         >
-                            <Link to="/projects/artgrind" className="w-full">
+                            <Link to="/work/artgrind" className="w-full">
                                 <img
                                     src="/images/thumbnails/artgrind_thumb.png"
                                     alt="ArtGrind_Image"
@@ -104,7 +103,7 @@ const Projects = () => {
                                 <p className="mb-4 2xl:mb-10">NYC Citi Bike Data Visualization</p>
                                 <p className="text-customGray">2025</p>
                             </div>
-                            <Link to="/projects/citibike" className="w-full">
+                            <Link to="/work/citibike" className="w-full">
                                 <img
                                     src="/images/thumbnails/citibike_thumb.jpg"
                                     alt="NYC_Citi_Bike_Data_Visualization_Image"
@@ -123,7 +122,7 @@ const Projects = () => {
                                 ease: "easeOut",
                             }}
                         >
-                            <Link to="/projects/atopol" className="w-full">
+                            <Link to="/work/atopol" className="w-full">
                                 <img
                                     src="/images/thumbnails/atopol_thumb.jpg"
                                     alt="Allen_Topolski_portfolio_website_image"
@@ -152,7 +151,7 @@ const Projects = () => {
                                 <p className="mb-4 2xl:mb-10">R.I.G.</p>
                                 <p className="text-customGray">2025</p>
                             </div>
-                            <Link to="/projects/rig" className="w-full">
+                            <Link to="/work/rig" className="w-full">
                                 <img
                                     src="/images/thumbnails/rig_thumb.jpg"
                                     alt="Random_Image_Generator_Project_Thumbnail"
@@ -180,59 +179,10 @@ const Projects = () => {
                     {/*    />*/}
                     {/*</motion.div>*/}
                 </section>
-                {/*<section>*/}
-                {/*    <div className="w-full px-3 md:px-4 xl:px-10 mt-[10vh] md:mt-[14vh] xl:mt-[18vh] font-neueHaasGrotesk font-bold lowercase*/}
-                {/*        flex flex-col justify-start items-center">*/}
-                {/*        <motion.div*/}
-                {/*            className="w-full xl:w-1/2"*/}
-                {/*            initial={{opacity: 0, y: 70}}*/}
-                {/*            whileInView={{opacity: 1, y: 0}}*/}
-                {/*            viewport={{once: true}}*/}
-                {/*            transition={{*/}
-                {/*                duration: 0.6,*/}
-                {/*                delay: 1.1,*/}
-                {/*                ease: "easeOut",*/}
-                {/*            }}*/}
-                {/*        >*/}
-                {/*            <div className="">*/}
-                {/*            <Link to="/projects/atopol" className="w-full">*/}
-                {/*                    <img*/}
-                {/*                        src="/images/thumbnails/atopol_thumb.jpg"*/}
-                {/*                        alt="Allen_Topolski_portfolio_website_image"*/}
-                {/*                        loading="lazy"*/}
-                {/*                        className="w-full"/>*/}
-                {/*                </Link>*/}
-                {/*            </div>*/}
-                {/*            <div*/}
-                {/*                className="flex justify-between w-full mt-2 xl:mt-4*/}
-                {/*                    text-3xs md:text-base 3xl:text-lg 5xl:text-2xl 6xl:text-3xl">*/}
-                {/*                <p className="">Allen Topolski&apos;s Portfolio</p>*/}
-                {/*                <p className="text-customGray">2025</p>*/}
-                {/*            </div>*/}
-                {/*        </motion.div>*/}
-                {/*        <motion.div*/}
-                {/*            className="flex justify-center items-center w-full h-screen text:[1.25vh] xl:text-[1.25vw]"*/}
-                {/*            initial={{opacity: 0}}*/}
-                {/*            whileInView={{opacity: 1}}*/}
-                {/*            viewport={{once: true, amount: 0.8}}*/}
-                {/*            transition={{*/}
-                {/*                duration: 0.6,*/}
-                {/*                ease: "easeInOut",*/}
-                {/*            }}*/}
-                {/*        >*/}
-                {/*            <EncryptionText*/}
-                {/*                text={"More projects coming soon..."}*/}
-                {/*                delay={0.6}*/}
-                {/*                duration={0.3}*/}
-                {/*                speed={20}*/}
-                {/*            />*/}
-                {/*        </motion.div>*/}
-                {/*    </div>*/}
-                {/*</section>*/}
             </main>
             <Footer/>
         </>
     );
 };
 
-export default Projects;
+export default Work;

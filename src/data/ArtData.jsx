@@ -246,7 +246,7 @@ export const items = [
             "Drawing & Collage",
             "Ink and collage on illustration board, ink on plastic film",
             "2024",
-            "Exhibited at the \"Frame of Mind\" exhibition at Field Projects Gallery, New York, NY",
+            "Exhibited at the \"Frame of Mind\" exhibition at Field Work Gallery, New York, NY",
         ],
         thumbnail: "/images/thumbnails/Recollection_thumb.jpg",
         alt: "Recollection",

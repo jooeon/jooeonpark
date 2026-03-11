@@ -3,7 +3,7 @@ import Header from "../components/templates/Header.jsx";
 import Footer from "../components/templates/Footer.jsx";
 import {AnimatePresence, motion} from "motion/react";
 import artData from "../data/ArtData.jsx";
-import projectData from "../data/ProjectsData.jsx";
+import projectData from "../data/WorkData.jsx";
 import PropTypes from "prop-types";
 import {useEffect, useState} from "react";
 import {MaskText} from "../components/textEffects/MaskText.jsx";
@@ -15,7 +15,7 @@ import designData from "../data/DesignData.jsx";
 
 // Template component for individual project pages
 // Reads data from data files in src/data and displays content with consistent format
-const ProjectDetail = () => {
+const WorkDetail = () => {
     const { type, id } = useParams(); // Extract the id from the URL
 
     // functions and variables for image overlay on click
@@ -45,7 +45,7 @@ const ProjectDetail = () => {
     // choose the correct data array
     const items = type === "art"
         ? artData
-        : type === "projects"
+        : type === "work"
             ? projectData
             : type === "design"
                 ? designData
@@ -84,7 +84,7 @@ const ProjectDetail = () => {
                         className="relative flex m-2 md:m-5 6xl:m-10 h-full pt-10 md:pt-20 3xl:pt-32 6xl:pt-40 7xl:pt-52">
                         {/* Image/Video content scroll section */}
                         <div className="flex flex-col gap-3 md:gap-6 6xl:gap-12 w-7/12">
-                            {/* ProjectDetail title */}
+                            {/* WorkDetail title */}
                             <motion.div
                                 className="mb-4 md:mb-10 xl:mb-20"
                                 initial={{ opacity: 0 }}
@@ -156,12 +156,13 @@ const ProjectDetail = () => {
                             <p className="text-right md:p-1.5 4xl:p-2 6xl:p-3 7xl:p-6 col-start-2 text-4xs xs:text-4xs md:text-xs lg:text-sm xl:text-sm 2xl:text-lg 3xl:text-2xl 4xl:text-3xl 6xl:text-4xl 7xl:text-5xl">Type</p>
                             <p className="col-start-3">{project.caption[1]}</p>
 
-                            {type === "art" ?
+                            {type === "art" &&
                                 <>
                                     <p className="text-right md:p-1.5 4xl:p-2 6xl:p-3 7xl:p-6 col-start-2 text-4xs xs:text-4xs md:text-xs lg:text-sm xl:text-sm 2xl:text-lg 3xl:text-2xl 4xl:text-3xl 6xl:text-4xl 7xl:text-5xl">Medium</p>
                                     <p className="col-start-3">{project.caption[2]}</p>
                                 </>
-                            :
+                            }
+                            {type === "work" &&
                                 <>
                                     <p className="text-right md:p-1.5 4xl:p-2 6xl:p-3 7xl:p-6 col-start-2 text-4xs xs:text-4xs md:text-xs lg:text-sm xl:text-sm 2xl:text-lg 3xl:text-2xl 4xl:text-3xl 6xl:text-4xl 7xl:text-5xl">Tech</p>
                                     <p className="col-start-3">{project.caption[2]}</p>
@@ -208,9 +209,9 @@ const ProjectDetail = () => {
                                     {nextProject.caption[0]}
                                 </Link>
                             )}
-                            {type === "projects" && (
+                            {type === "work" && (
                                 <Link
-                                    to={`/projects/${nextProject.id}`}
+                                    to={`/work/${nextProject.id}`}
                                     className="text-link after:bg-customBlack dark:after:bg-customWhite ml-10"
                                 >
                                     {nextProject.caption[0]}
@@ -230,11 +231,11 @@ const ProjectDetail = () => {
                             {type === "art" && (
                                 <Link to="/art" className="text-link after:bg-customBlack dark:after:bg-customWhite">Back to Gallery</Link>
                             )}
-                            {type === "projects" && (
-                                <Link to="/projects" className="text-link after:bg-customBlack dark:after:bg-customWhite">Back to Projects</Link>
+                            {type === "work" && (
+                                <Link to="/work" className="text-link after:bg-customBlack dark:after:bg-customWhite">Back to [Work]</Link>
                             )}
                             {type === "design" && (
-                                <Link to="/design" className="text-link after:bg-customBlack dark:after:bg-customWhite">Back to Gallery</Link>
+                                <Link to="/design" className="text-link after:bg-customBlack dark:after:bg-customWhite">Back to [Design]</Link>
                             )}
                         </div>
                     </section>
@@ -258,8 +259,8 @@ const ProjectDetail = () => {
 };
 
 // PropTypes validation
-ProjectDetail.propTypes = {
+WorkDetail.propTypes = {
     id: PropTypes.number,
 };
 
-export default ProjectDetail;
+export default WorkDetail;

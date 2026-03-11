@@ -6,14 +6,14 @@ import {ReactLenis} from 'lenis/react'
 import Index from "./pages/Index.jsx";
 import Art from "./pages/Art.jsx";
 import Tech from "./pages/Tech.jsx";
-import ProjectDetail from "./pages/ProjectDetail.jsx";
+import WorkDetail from "./pages/WorkDetail.jsx";
 import Info from "./pages/Info.jsx";
 import Cursor from "./components/cursor/Cursor.jsx";
 import { CursorProvider } from "./components/cursor/CursorContext.jsx";
 import PropTypes from "prop-types";
 import {useEffect} from "react";
 import Page404 from "./pages/Page404.jsx";
-import Projects from "./pages/Projects.jsx";
+import Work from "./pages/Work.jsx";
 import Inspo from "./pages/Inspo.jsx";
 import CitibikeProcess from "./components/CitibikeProcess.jsx";
 import RandomImageGenerator from "./pages/RandomImageGenerator.jsx";
@@ -38,11 +38,11 @@ const AnimatedRoutes = () => {
         <AnimatePresence mode="wait">
             <Routes location={location} key={location.pathname}>
                 <Route path="/" element={<PageWrapper><Index /></PageWrapper>} />
-                <Route path="/projects" element={<PageWrapper><Projects /></PageWrapper>} />
-                <Route path="/projects/rig" element={<PageWrapper><RandomImageGenerator /></PageWrapper>} />
+                <Route path="/work" element={<PageWrapper><Work /></PageWrapper>} />
+                <Route path="/work/rig" element={<PageWrapper><RandomImageGenerator /></PageWrapper>} />
                 <Route path="/art" element={<PageWrapper><Art /></PageWrapper>} />
                 <Route path="/design" element={<PageWrapper><Design /></PageWrapper>} />
-                <Route path="/:type/:id" element={<PageWrapper><ProjectDetail /></PageWrapper>} />
+                <Route path="/:type/:id" element={<PageWrapper><WorkDetail /></PageWrapper>} />
                 <Route path="/inspo" element={<PageWrapper><Inspo /></PageWrapper>} />
                 <Route path="/tech" element={<PageWrapper><Tech /></PageWrapper>} />
                 <Route path="/info" element={<PageWrapper><Info /></PageWrapper>} />
