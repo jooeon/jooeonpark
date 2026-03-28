@@ -2,6 +2,14 @@ import { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import CustomTable from './CustomTable';
 
+// Fetch with timeout — rejects after `ms` milliseconds
+const fetchWithTimeout = (url, options = {}, ms = 3000) => {
+    const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(), ms);
+    return fetch(url, { ...options, signal: controller.signal })
+        .finally(() => clearTimeout(timer));
+};
+
 // Artist name normalization utilities
 const getCanonicalArtistName = (name) => {
     return name.trim().toLowerCase().replace(/^the\s+/i, '');
@@ -38,6 +46,10 @@ const LastFmMusicTable = ({ musicData: propMusicData = null, viewMode = 'albums'
     const CACHE_DURATION = 24 * 60 * 60 * 1000; // 24 hours in milliseconds
     const CACHE_KEY = `lastfm_${viewMode}_data`;
     const CACHE_TIMESTAMP_KEY = `lastfm_${viewMode}_cache_timestamp`;
+
+    // MusicBrainz timeout — keep well under your 3s total budget.
+    // Each MB request gets 1.5s before we give up and move on.
+    const MB_TIMEOUT_MS = 1500;
 
     // Create a global image cache to prevent re-fetching
     useEffect(() => {
@@ -79,7 +91,6 @@ const LastFmMusicTable = ({ musicData: propMusicData = null, viewMode = 'albums'
                         hiddenImg.style.height = '1px';
                         document.body.appendChild(hiddenImg);
 
-                        // console.log(`Cached: ${item.artist}`);
                         resolve();
                     };
 
@@ -132,7 +143,6 @@ const LastFmMusicTable = ({ musicData: propMusicData = null, viewMode = 'albums'
                         // Preload images before showing data
                         await preloadImages(parsedData);
 
-                        // console.log(`Using cached Last.fm ${viewMode} data with preloaded images`);
                         setMusicData(parsedData);
                         setLoading(false);
                         return true;
@@ -142,6 +152,28 @@ const LastFmMusicTable = ({ musicData: propMusicData = null, viewMode = 'albums'
                 console.warn('Error reading cache:', err);
             }
             return false;
+        };
+
+        // Helper: fetch release year from MusicBrainz with a hard timeout.
+        // Returns the year string on success, or '' on any failure/timeout.
+        const fetchMBYear = async (mbid, label) => {
+            try {
+                const mbResponse = await fetchWithTimeout(
+                    `https://corsproxy.io/?${encodeURIComponent(`https://musicbrainz.org/ws/2/release/${mbid}?inc=release-groups&fmt=json`)}`,
+                    { headers: { 'User-Agent': 'JooEonParkPortfolio/1.0 (jooeon427@gmail.com)' } },
+                    MB_TIMEOUT_MS
+                );
+
+                if (!mbResponse.ok) return '';
+
+                const mbData = await mbResponse.json();
+                const releaseDate = mbData['release-group']?.['first-release-date'];
+                return releaseDate ? releaseDate.split('-')[0] : '';
+            } catch (mbErr) {
+                // AbortError = timeout; TypeError = network failure — skip either way
+                console.warn(`MusicBrainz lookup skipped for ${label}:`, mbErr.name || mbErr.message);
+                return '';
+            }
         };
 
         // If cache is valid, use it and don't fetch
@@ -173,7 +205,7 @@ const LastFmMusicTable = ({ musicData: propMusicData = null, viewMode = 'albums'
                 const albumsData = await albumsResponse.json();
                 const albums = albumsData.topalbums.album;
 
-                // Fetch genre/tags and year for each album
+                // Fetch genre/tags and year for each album in parallel (no more sequential 1s delays)
                 const formattedData = await Promise.all(
                     albums.map(async (album, index) => {
                         let genre = 'unknown';
@@ -200,29 +232,7 @@ const LastFmMusicTable = ({ musicData: propMusicData = null, viewMode = 'albums'
                                 // Try to get year from MusicBrainz if MBID exists
                                 const mbid = infoData.album?.mbid || album.mbid;
                                 if (mbid) {
-                                    try {
-                                        // Add delay to respect MusicBrainz rate limit (1 req/sec)
-                                        await new Promise(resolve => setTimeout(resolve, 1000));
-
-                                        const mbResponse = await fetch(
-                                            `https://corsproxy.io/?${encodeURIComponent(`https://musicbrainz.org/ws/2/release/${mbid}?inc=release-groups&fmt=json`)}`,
-                                            {
-                                                headers: {
-                                                    'User-Agent': 'JooEonParkPortfolio/1.0 (jooeon427@gmail.com)'
-                                                }
-                                            }
-                                        );
-
-                                        if (mbResponse.ok) {
-                                            const mbData = await mbResponse.json();
-                                            const releaseDate = mbData['release-group']?.['first-release-date'];
-                                            if (releaseDate) {
-                                                year = releaseDate.split('-')[0];
-                                            }
-                                        }
-                                    } catch (mbErr) {
-                                        console.warn(`MusicBrainz lookup failed for ${album.name}:`, mbErr);
-                                    }
+                                    year = await fetchMBYear(mbid, album.name);
                                 }
                             }
                         } catch (err) {
@@ -286,7 +296,6 @@ const LastFmMusicTable = ({ musicData: propMusicData = null, viewMode = 'albums'
                 try {
                     localStorage.setItem(CACHE_KEY, JSON.stringify(top10Data));
                     localStorage.setItem(CACHE_TIMESTAMP_KEY, Date.now().toString());
-                    // console.log('Last.fm albums data cached successfully');
                 } catch (err) {
                     console.warn('Error caching data:', err);
                 }
@@ -311,10 +320,9 @@ const LastFmMusicTable = ({ musicData: propMusicData = null, viewMode = 'albums'
                 const tracksData = await tracksResponse.json();
                 const tracks = tracksData.toptracks.track;
 
-                // Format track data
+                // Format track data — all tracks fetched in parallel
                 const formattedData = await Promise.all(
                     tracks.map(async (track, index) => {
-                        // Fetch track info to get album details and image
                         let albumName = 'Unknown Album';
                         let trackImage = '';
                         let year = '';
@@ -345,29 +353,7 @@ const LastFmMusicTable = ({ musicData: propMusicData = null, viewMode = 'albums'
                                         const mbid = albumInfoData.album?.mbid;
 
                                         if (mbid) {
-                                            try {
-                                                // Add delay to respect MusicBrainz rate limit (1 req/sec)
-                                                await new Promise(resolve => setTimeout(resolve, 1000));
-
-                                                const mbResponse = await fetch(
-                                                    `https://corsproxy.io/?${encodeURIComponent(`https://musicbrainz.org/ws/2/release/${mbid}?inc=release-groups&fmt=json`)}`,
-                                                    {
-                                                        headers: {
-                                                            'User-Agent': 'JooEonParkPortfolio/1.0 (jooeon427@gmail.com)'
-                                                        }
-                                                    }
-                                                );
-
-                                                if (mbResponse.ok) {
-                                                    const mbData = await mbResponse.json();
-                                                    const releaseDate = mbData['release-group']?.['first-release-date'];
-                                                    if (releaseDate) {
-                                                        year = releaseDate.split('-')[0];
-                                                    }
-                                                }
-                                            } catch (mbErr) {
-                                                console.warn(`MusicBrainz lookup failed for ${track.name}:`, mbErr);
-                                            }
+                                            year = await fetchMBYear(mbid, track.name);
                                         }
                                     }
                                 }
@@ -394,14 +380,12 @@ const LastFmMusicTable = ({ musicData: propMusicData = null, viewMode = 'albums'
                 const deduplicatedData = [];
 
                 for (const item of formattedData) {
-                    // Create a unique key combining normalized artist and song name
                     const key = `${item.artist.toLowerCase()}|||${item.song.toLowerCase()}`;
 
                     if (!seen.has(key)) {
                         seen.set(key, item);
                         deduplicatedData.push(item);
                     } else {
-                        // If we've seen this track before, prefer the one with more data
                         const existing = seen.get(key);
 
                         // Prefer entry with album year data
@@ -432,7 +416,6 @@ const LastFmMusicTable = ({ musicData: propMusicData = null, viewMode = 'albums'
                 try {
                     localStorage.setItem(CACHE_KEY, JSON.stringify(top10Data));
                     localStorage.setItem(CACHE_TIMESTAMP_KEY, Date.now().toString());
-                    // console.log('Last.fm tracks data cached successfully');
                 } catch (err) {
                     console.warn('Error caching data:', err);
                 }
