@@ -6,14 +6,12 @@ export default {
 	fontFamily: {
 		// Google fonts
 		'roboto': ['Roboto Mono', 'monospace'],
-		'outfit': ['Outfit', 'Arial', 'sans-serif'],
 		'raleway': ['Raleway', 'Outfit', 'Arial', 'sans-serif'],
 		// Adobe fonts
 		'neueHaasGrotesk': ['neue-haas-grotesk-display', 'Switzer-Variable', 'Arial', 'sans-serif'],
 		// File
 		'nick': ['Nickelodeon2001', 'Outfit', 'Arial', 'sans-serif'],
 		'switzer': ['Switzer-Variable', 'neue-haas-grotesk-display', 'Arial', 'sans-serif'],
-		'apercu': ['Apercu Mono Pro', 'Roboto Mono', 'monospace'],
 	},
   	extend: {
 		width: {

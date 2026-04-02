@@ -34,11 +34,6 @@ body a {
     src: url('/fonts/Switzer-Variable.ttf') format('truetype');
 }
 
-@font-face {
-    font-family: "Apercu Mono Pro";
-    src: url('/fonts/ApercuMonoProRegular.ttf') format('truetype');
-}
-
 /* Links styling  */
 
 a.text-link {
