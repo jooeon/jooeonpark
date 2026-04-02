@@ -4,24 +4,57 @@ import Footer from "../components/templates/Footer.jsx";
 import { motion } from "motion/react";
 import {items} from "../data/ArtData.jsx";
 import HorizontalScrollSection from '../components/HorizontalScrollSection.jsx';
-import {getRandomImage, useMediaQuery} from "../Utils.jsx";
+import {useMediaQuery} from "../Utils.jsx";
 import HalftoneOverlayShader from "../components/shaders/HalftoneOverlay.jsx";
+import {useEffect, useState} from "react";
+
+const COLORS = [
+    {name: 'Teal', color: '#2DB5B4'},
+    {name: 'Red', color: '#fc0834'},
+    {name: 'Blue', color: '#4a21ff'},
+    {name: 'Green', color: '#33ff57'},
+    {name: 'Light-Blue', color: '#33c4ff'},
+    {name: 'Purple', color: '#a633ff'},
+    {name: 'Pink', color: '#ff33a1'},
+    {name: 'Orange', color: '#ff5733'},
+    {name: 'Yellow', color: '#ffef73'},
+];
+const IMAGES = [
+    "cat_2.jpg",
+    "cat.webp",
+    "portrait_3.jpg",
+    "eye.jpg",
+    "portrait_2.jpg",
+    "portrait_1.jpg",
+    "ulysess.jpg",
+    "jellyfish_2.avif",
+    "jellyfish.webp",
+    "wolf-spider.avif",
+    "ocelot.jpg",
+    "poison_frog.webp",
+];
+const IMG_PATH = "/images/thumbnails/cool_images";
 
 const Art = () => {
     const isXlOrLarger = useMediaQuery('(min-width: 1280px)');
-    const colors = [
-        {name: 'Teal', color: '#2DB5B4'},
-        {name: 'Red', color: '#fc0834'},
-        {name: 'Blue', color: '#4a21ff'},
-        {name: 'Green', color: '#33ff57'},
-        {name: 'Light-Blue', color: '#33c4ff'},
-        {name: 'Purple', color: '#a633ff'},
-        {name: 'Pink', color: '#ff33a1'},
-        {name: 'Orange', color: '#ff5733'},
-        {name: 'Yellow', color: '#ffef73'},
-    ];
 
-    const randomColor = colors[Math.floor(Math.random() * colors.length)].color;
+    const [randomColor, setRandomColor] = useState(COLORS[0].color);
+    const [randomImage, setRandomImage] = useState("");
+
+    useEffect(() => {
+        const update = () => {
+            const imageIndex = Math.floor(Math.random() * IMAGES.length);
+            const colorIndex = Math.floor(Math.random() * COLORS.length);
+
+            setRandomImage(`${IMG_PATH}/${IMAGES[imageIndex]}`);
+            setRandomColor(COLORS[colorIndex].color);
+        };
+
+        update(); // initial
+
+        const id = setInterval(update, 3000);
+        return () => clearInterval(id);
+    }, []);
 
     return (
         <>
@@ -90,7 +123,7 @@ const Art = () => {
                                                     // See Utils for getRandomImage and images loaded
                                                     <div className="aspect-square">
                                                         <HalftoneOverlayShader
-                                                            imageUrl={getRandomImage()}
+                                                            imageUrl={randomImage}
                                                             gridSize={30}
                                                             baseColor={randomColor}
                                                             invertBrightness={true}

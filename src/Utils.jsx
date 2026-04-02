@@ -206,24 +206,3 @@ export const useMediaQuery = (query) => {
 
     return matches;
 };
-
-const imgPath = "/images/thumbnails/cool_images"
-const images = [
-    "cat_2.jpg",
-    "cat.webp",
-    "portrait_3.jpg",
-    "eye.jpg",
-    "portrait_2.jpg",
-    "portrait_1.jpg",
-    "ulysess.jpg",
-    "jellyfish_2.avif",
-    "jellyfish.webp",
-    "wolf-spider.avif",
-    "ocelot.jpg",
-    "poison_frog.webp",
-];
-
-export const getRandomImage = () => {
-    const randomIndex = Math.floor(Math.random() * images.length);
-    return `${imgPath}/${images[randomIndex]}`;
-};
