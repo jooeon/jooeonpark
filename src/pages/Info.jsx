@@ -27,7 +27,7 @@ const Info = () => {
     }, [])
 
     const aboutData = [
-        "I am a Design Technologist specializing in Web Development, UI/UX, Graphic Design, and Visual Arts.",
+        "I am a Creative Technologist specializing in Web Development, UI/UX, Graphic Design, and Visual Arts.",
         "I'm all about cool ideas, collaborating, and [making] things happen.",
         "Don't hesitate to reach out for project inquiries."
     ];

@@ -197,7 +197,7 @@ const ScrollTitleSection = ({showEntryAnimation}) => {
                         }}
                         whileTap={{scale: 0.9}}
                     >
-                        Design
+                        Creative
                     </motion.span>
                 </Link>
                 &nbsp;
