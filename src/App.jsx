@@ -39,8 +39,8 @@ const AnimatedRoutes = () => {
             <Routes location={location} key={location.pathname}>
                 <Route path="/" element={<PageWrapper><Index /></PageWrapper>} />
                 <Route path="/work" element={<PageWrapper><Work /></PageWrapper>} />
-                <Route path="/work/rig" element={<PageWrapper><RandomImageGenerator /></PageWrapper>} />
                 <Route path="/art" element={<PageWrapper><Art /></PageWrapper>} />
+                <Route path="/art/rig" element={<PageWrapper><RandomImageGenerator /></PageWrapper>} />
                 <Route path="/design" element={<PageWrapper><Design /></PageWrapper>} />
                 <Route path="/:type/:id" element={<PageWrapper><WorkDetail /></PageWrapper>} />
                 <Route path="/inspo" element={<PageWrapper><Inspo /></PageWrapper>} />

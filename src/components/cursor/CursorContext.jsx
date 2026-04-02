@@ -70,7 +70,8 @@ export const CursorProvider = ({ children }) => {
                 e.target.closest(".title-text") ||
                 e.target.closest(".parallax-text") ||
                 e.target.closest("img") ||
-                e.target.closest("video")
+                e.target.closest("video") ||
+                e.target.closest(".thumbnail-img")
             ) {
                 setIsContentHovered(true)
             } else if (

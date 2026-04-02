@@ -197,10 +197,10 @@ const ScrollTitleSection = ({showEntryAnimation}) => {
                         }}
                         whileTap={{scale: 0.9}}
                     >
-                        Designer
+                        Design
                     </motion.span>
                 </Link>
-                ,&nbsp;
+                &nbsp;
                 <Link to="/work" className="outline-text-white">
                     <motion.span
                         onHoverStart={() => {
@@ -214,24 +214,7 @@ const ScrollTitleSection = ({showEntryAnimation}) => {
                         }}
                         whileTap={{scale: 0.9}}
                     >
-                        Developer
-                    </motion.span>
-                </Link>
-                ,&nbsp;&&nbsp;
-                <Link to="/art" className="outline-text-white">
-                    <motion.span
-                        onHoverStart={() => {
-                            const newColor = pickRandomColor();
-                            setLinkColor(newColor);
-                        }}
-                        whileHover={{
-                            color: linkColor,
-                            opacity: 0.9,
-                            transition: {duration: 0.2},
-                        }}
-                        whileTap={{scale: 0.9}}
-                    >
-                        Artist
+                        Technologist
                     </motion.span>
                 </Link>
             </motion.h2>

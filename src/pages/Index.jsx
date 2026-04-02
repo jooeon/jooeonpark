@@ -107,15 +107,14 @@ const Index = () => {
                     <EntryAnim/>
                 </motion.div>
             }
-            <main
-                className="relative flex flex-col px-4 md:px-7 6xl:px-12 7xl:px-14 w-full gap-48 md:gap-[20vw]">
+            <main className="relative flex flex-col px-4 md:px-7 6xl:px-12 7xl:px-14 w-full gap-48 md:gap-[20vw]">
                 {/* Main landing text */}
                 <LayeredScrollTitle showEntryAnimation={showAnimation}/>
                 <section className="flex flex-col items-center">
                     <div className="w-11/12 xl:w-5/6 md:mb-14">
                         <h3 className="w-fit outline-text-black dark:outline-text-lack dark:outline-text-white text-transparent font-nick pb-5
                             text-[3vw] leading-none">
-                            About
+                            Info
                         </h3>
                     </div>
                     <div
@@ -123,7 +122,7 @@ const Index = () => {
                         <div className="w-11/12 xl:w-11/12 xl:px-24 font-bold font-neueHaasGrotesk uppercase mix-blend-difference text-customWhite [&_span]:lg:mb-2
                             md:text-xl lg:text-3xl xl:text-4xl 2xl:text-6xl 3xl:text-6xl 5xl:text-8xl 6xl:text-9xl 7xl:text-11xl">
                             <ScrollTextAnim
-                                paragraph={"Multidisciplinary creative from Seoul [based in NYC].\nFrom concept to execution,\nI design it, I build it.\n[Web Development, UI/UX, Graphic Design, Visual Arts]"}
+                                paragraph={"Design Technologist from Seoul [based in NYC].\nFrom concept to execution,\nI design it, I build it.\n[Web Development, UI/UX, Graphic Design, Visual Arts]"}
                             />
                         </div>
                     </div>
@@ -163,12 +162,12 @@ const Index = () => {
                 {/*        </div>*/}
                 {/*    </motion.div>*/}
                 {/*</section>*/}
-                {/* Selected work scroll gallery */}
+                {/* Selected works scroll gallery */}
                 <section className="flex flex-col items-center">
                     <div className="w-11/12 xl:w-5/6 md:mb-14">
                         <h3 className="w-fit outline-text-black dark:outline-text-white text-transparent font-nick pb-5
                             text-[3vw] leading-none">
-                            Selected Work
+                            Selected Works
                         </h3>
                     </div>
                     <div className="flex flex-col gap-10 xl:grid xl:grid-cols-2 xl:gap-x-0 xl:gap-y-[7vw] justify-start xl:justify-center items-center xl:items-start
@@ -294,40 +293,40 @@ const Index = () => {
                             ease: "easeIn",
                         }}
                     >
-                        <EncryptionText
-                            text={"Connect:"}
-                            delay={0.4}
-                            duration={0.4}
-                            speed={20}
-                        />
+                        {/*<EncryptionText*/}
+                        {/*    text={"Connect:"}*/}
+                        {/*    delay={0.4}*/}
+                        {/*    duration={0.4}*/}
+                        {/*    speed={20}*/}
+                        {/*/>*/}
                         <Link to="mailto:hello@jooeonpark.com" target="_blank" rel="noopener noreferrer"
                               className="text-link text-customBlack dark:text-customWhite after:bg-customBlack dark:after:bg-customWhite">
                             <EncryptionText
-                                text={"Email"}
+                                text={"hello@jooeonpark.com"}
                                 delay={0.4}
                                 duration={0.4}
                                 speed={20}
                             />
                         </Link>
-                        <Link to="https://www.linkedin.com/in/joo-eon-park/" target="_blank"
-                              rel="noopener noreferrer"
-                              className="text-link text-customBlack dark:text-customWhite after:bg-customBlack dark:after:bg-customWhite">
-                            <EncryptionText
-                                text={"LinkedIn"}
-                                delay={0.4}
-                                duration={0.4}
-                                speed={20}
-                            />
-                        </Link>
-                        <Link to="https://github.com/jooeon" target="_blank" rel="noopener noreferrer"
-                              className="text-link text-customBlack dark:text-customWhite after:bg-customBlack dark:after:bg-customWhite">
-                            <EncryptionText
-                                text={"GitHub"}
-                                delay={0.4}
-                                duration={0.4}
-                                speed={20}
-                            />
-                        </Link>
+                        {/*<Link to="https://www.linkedin.com/in/joo-eon-park/" target="_blank"*/}
+                        {/*      rel="noopener noreferrer"*/}
+                        {/*      className="text-link text-customBlack dark:text-customWhite after:bg-customBlack dark:after:bg-customWhite">*/}
+                        {/*    <EncryptionText*/}
+                        {/*        text={"LinkedIn"}*/}
+                        {/*        delay={0.4}*/}
+                        {/*        duration={0.4}*/}
+                        {/*        speed={20}*/}
+                        {/*    />*/}
+                        {/*</Link>*/}
+                        {/*<Link to="https://github.com/jooeon" target="_blank" rel="noopener noreferrer"*/}
+                        {/*      className="text-link text-customBlack dark:text-customWhite after:bg-customBlack dark:after:bg-customWhite">*/}
+                        {/*    <EncryptionText*/}
+                        {/*        text={"GitHub"}*/}
+                        {/*        delay={0.4}*/}
+                        {/*        duration={0.4}*/}
+                        {/*        speed={20}*/}
+                        {/*    />*/}
+                        {/*</Link>*/}
                     </motion.div>
                 </section>
             </main>

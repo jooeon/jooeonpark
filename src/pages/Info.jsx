@@ -27,7 +27,7 @@ const Info = () => {
     }, [])
 
     const aboutData = [
-        "I am a multidisciplinary creative specializing in Web Development, UI/UX, Graphic Design, and Visual Arts.",
+        "I am a Design Technologist specializing in Web Development, UI/UX, Graphic Design, and Visual Arts.",
         "I'm all about cool ideas, collaborating, and [making] things happen.",
         "Don't hesitate to reach out for project inquiries."
     ];
@@ -35,7 +35,7 @@ const Info = () => {
     const skillsData = {
         DESIGN: ["UI / UX", "Graphic Design", "Motion Design", "Video Editing", "Prototyping", "Branding"],
         TECHNOLOGY: ["Front-end Development", "Back-end Development", "E-Commerce","Content Management Systems", "3D & Graphics"],
-        "TOOLS & SOFTWARE": ["Adobe Creative Cloud", "Figma", "Unreal Engine 5", "Generative AI"],
+        "TOOLS & SOFTWARE": ["Adobe Creative Cloud", "Figma", "Shopify", "Unreal Engine 5", "Generative AI"],
     }
 
     const linksData = [

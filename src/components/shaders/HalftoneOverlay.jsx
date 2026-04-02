@@ -72,7 +72,7 @@ const halftoneImageFragmentShader = `
     
     // Get the color from the image at this grid cell
     vec2 cellCenter = (gridIndex + 0.5) / gridSize;
-    vec3 imageColor = u_hasImage ? texture2D(u_image, cellCenter).rgb : vec3(0.5);
+    vec3 imageColor = texture2D(u_image, v_texCoord).rgb;
     
     // Convert to grayscale to determine dot size
     float brightness = luminance(imageColor);
@@ -173,17 +173,35 @@ const HalftoneOverlayShader = ({ imageUrl, gridSize = 80.0, baseColor = "#2DB5B4
         }
 
         const image = new Image();
+        image.onerror = (e) => {
+            console.error("Image failed to load:", url, e);
+        };
         image.crossOrigin = 'anonymous';
+        const newTexture = gl.createTexture();
+        gl.bindTexture(gl.TEXTURE_2D, newTexture);
+
+        // placeholder pixel
+        gl.texImage2D(
+            gl.TEXTURE_2D,
+            0,
+            gl.RGBA,
+            1,
+            1,
+            0,
+            gl.RGBA,
+            gl.UNSIGNED_BYTE,
+            new Uint8Array([0, 0, 0, 255])
+        );
+
         image.onload = () => {
-            const newTexture = gl.createTexture();
             gl.bindTexture(gl.TEXTURE_2D, newTexture);
+            gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL, false);
             gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, image);
             gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE);
             gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
             gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR);
             gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.LINEAR);
 
-            if (textureRef.current) gl.deleteTexture(textureRef.current);
             textureRef.current = newTexture;
             hasImageRef.current = true;
         };
@@ -207,7 +225,11 @@ const HalftoneOverlayShader = ({ imageUrl, gridSize = 80.0, baseColor = "#2DB5B4
             canvas.height = canvas.clientHeight;
             gl.viewport(0, 0, canvas.width, canvas.height);
         };
-        resize();
+        const observer = new ResizeObserver(() => {
+            resize();
+        });
+
+        observer.observe(canvas);
         window.addEventListener('resize', resize);
 
         // Compile shaders
@@ -321,6 +343,7 @@ const HalftoneOverlayShader = ({ imageUrl, gridSize = 80.0, baseColor = "#2DB5B4
 
         return () => {
             window.removeEventListener('resize', resize);
+            observer.disconnect();
             cleanupWebGL(glRef, textureRef, programRef, animationRef);
         };
     }, []);

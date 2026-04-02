@@ -6,6 +6,7 @@ import {useLenis} from "lenis/react";
 import {scrollToTop} from "../Utils.jsx";
 import {useEffect} from "react";
 import TitleText from "../components/templates/TitleText.jsx";
+import EncryptionText from "../components/EncryptionAnim.jsx";
 
 const Work = () => {
 
@@ -100,13 +101,13 @@ const Work = () => {
                         >
                             <div
                                 className="flex flex-col justify-end text-[2vh] lg:text-[1vw] xl:text-right">
-                                <p className="mb-4 2xl:mb-10">NYC Citi Bike Data Visualization</p>
+                                <p className="mb-4 2xl:mb-10">Allen Topolski&apos;s Portfolio</p>
                                 <p className="text-customGray">2025</p>
                             </div>
-                            <Link to="/work/citibike" className="w-full">
+                            <Link to="/work/atopol" className="w-full">
                                 <img
-                                    src="/images/thumbnails/citibike_thumb.jpg"
-                                    alt="NYC_Citi_Bike_Data_Visualization_Image"
+                                    src="/images/thumbnails/atopol_thumb.jpg"
+                                    alt="Allen_Topolski_portfolio_website_image"
                                     loading="lazy"
                                     className="w-full"/>
                             </Link>
@@ -122,62 +123,38 @@ const Work = () => {
                                 ease: "easeOut",
                             }}
                         >
-                            <Link to="/work/atopol" className="w-full">
+                            <Link to="/work/citibike" className="w-full">
                                 <img
-                                    src="/images/thumbnails/atopol_thumb.jpg"
-                                    alt="Allen_Topolski_portfolio_website_image"
+                                    src="/images/thumbnails/citibike_thumb.jpg"
+                                    alt="NYC_Citi_Bike_Data_Visualization_Image"
                                     loading="lazy"
                                     className="w-full"/>
                             </Link>
                             <div
                                 className="flex flex-col justify-end text-[2vh] lg:text-[1vw] xl:text-left">
-                                <p className="mb-4 2xl:mb-10">Allen Topolski&apos;s Portfolio</p>
+                                <p className="mb-4 2xl:mb-10">NYC Citi Bike Data Visualization</p>
                                 <p className="text-customGray">2025</p>
                             </div>
-                        </motion.div>
-                        <motion.div
-                            className="w-11/12 xl:w-full flex flex-col-reverse xl:flex-row xl:justify-end xl:row-start-12 xl:row-end-16 xl:col-start-2 gap-4"
-                            initial={{opacity: 0, y: 70, filter: "blur(10px)",}}
-                            whileInView={{opacity: 1, y: 0, filter: "none",}}
-                            viewport={{once: true}}
-                            transition={{
-                                duration: 0.6,
-                                delay: 0,
-                                ease: "easeOut",
-                            }}
-                        >
-                            <div
-                                className="flex flex-col justify-end text-[2vh] lg:text-[1vw] xl:text-left">
-                                <p className="mb-4 2xl:mb-10">R.I.G.</p>
-                                <p className="text-customGray">2025</p>
-                            </div>
-                            <Link to="/work/rig" className="w-full">
-                                <img
-                                    src="/images/thumbnails/rig_thumb.jpg"
-                                    alt="Random_Image_Generator_Project_Thumbnail"
-                                    loading="lazy"
-                                    className="w-full"/>
-                            </Link>
                         </motion.div>
                     </div>
-                    {/*<motion.div*/}
-                    {/*    className="flex justify-center items-center w-full h-screen text:[1.25vh] xl:text-[1.25vw]*/}
-                    {/*    font-neueHaasGrotesk font-bold lowercase"*/}
-                    {/*    initial={{opacity: 0}}*/}
-                    {/*    whileInView={{opacity: 1}}*/}
-                    {/*    viewport={{once: true, amount: 0.8}}*/}
-                    {/*    transition={{*/}
-                    {/*        duration: 0.6,*/}
-                    {/*        ease: "easeInOut",*/}
-                    {/*    }}*/}
-                    {/*>*/}
-                    {/*    <EncryptionText*/}
-                    {/*        text={"More projects coming soon..."}*/}
-                    {/*        delay={0.6}*/}
-                    {/*        duration={0.3}*/}
-                    {/*        speed={20}*/}
-                    {/*    />*/}
-                    {/*</motion.div>*/}
+                    <motion.div
+                        className="flex justify-center items-center w-full h-screen text:[1.25vh] xl:text-[1.25vw]
+                        font-neueHaasGrotesk font-bold lowercase"
+                        initial={{opacity: 0}}
+                        whileInView={{opacity: 1}}
+                        viewport={{once: true, amount: 0.8}}
+                        transition={{
+                            duration: 0.6,
+                            ease: "easeInOut",
+                        }}
+                    >
+                        <EncryptionText
+                            text={"More projects coming soon..."}
+                            delay={0.6}
+                            duration={0.3}
+                            speed={20}
+                        />
+                    </motion.div>
                 </section>
             </main>
             <Footer/>

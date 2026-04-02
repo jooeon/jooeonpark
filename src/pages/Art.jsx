@@ -4,10 +4,24 @@ import Footer from "../components/templates/Footer.jsx";
 import { motion } from "motion/react";
 import {items} from "../data/ArtData.jsx";
 import HorizontalScrollSection from '../components/HorizontalScrollSection.jsx';
-import {useMediaQuery} from "../Utils.jsx";
+import {getRandomImage, useMediaQuery} from "../Utils.jsx";
+import HalftoneOverlayShader from "../components/shaders/HalftoneOverlay.jsx";
 
 const Art = () => {
     const isXlOrLarger = useMediaQuery('(min-width: 1280px)');
+    const colors = [
+        {name: 'Teal', color: '#2DB5B4'},
+        {name: 'Red', color: '#fc0834'},
+        {name: 'Blue', color: '#4a21ff'},
+        {name: 'Green', color: '#33ff57'},
+        {name: 'Light-Blue', color: '#33c4ff'},
+        {name: 'Purple', color: '#a633ff'},
+        {name: 'Pink', color: '#ff33a1'},
+        {name: 'Orange', color: '#ff5733'},
+        {name: 'Yellow', color: '#ffef73'},
+    ];
+
+    const randomColor = colors[Math.floor(Math.random() * colors.length)].color;
 
     return (
         <>
@@ -54,7 +68,7 @@ const Art = () => {
                                 return (
                                     <motion.div
                                         key={item.id}
-                                        className="flex flex-col"
+                                        className="thumbnail-img flex flex-col w-full"
                                         {...animationProps}
                                     >
                                         {/* Video/image content */}
@@ -72,16 +86,28 @@ const Art = () => {
                                                 </video>
                                             )}
                                             {!item.isVideo && (
-                                                <img
-                                                    src={item.thumbnail}
-                                                    alt={`Gallery ${item.id + 1}`}
-                                                    className=""
-                                                    loading="lazy"
-                                                />
+                                                item.id === "rig" ?
+                                                    // See Utils for getRandomImage and images loaded
+                                                    <div className="aspect-square">
+                                                        <HalftoneOverlayShader
+                                                            imageUrl={getRandomImage()}
+                                                            gridSize={30}
+                                                            baseColor={randomColor}
+                                                            invertBrightness={true}
+                                                        />
+                                                    </div>
+                                                    :
+                                                    <img
+                                                        src={item.thumbnail}
+                                                        alt={`Gallery ${item.id + 1}`}
+                                                        className=""
+                                                        loading="lazy"
+                                                    />
                                             )}
                                             {/* Bottom captions */}
-                                            <div className="flex justify-between gap-10 pt-1 font-neueHaasGrotesk font-bold lowercase text-sm 4xl:text-xl">
-                                                {item.caption && (
+                                            <div
+                                                className="flex justify-between gap-10 pt-1 font-neueHaasGrotesk font-bold lowercase text-sm 4xl:text-xl">
+                                            {item.caption && (
                                                     <>
                                                         {/* Bottom-Left Caption */}
                                                         {item.caption[0] && (
