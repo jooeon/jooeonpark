@@ -123,7 +123,7 @@ const Inspo = () => {
                         }}
                     >
                         <div className="flex justify-center items-end w-1/4 md:w-4/12 xl:w-1/2 pt-10 xl:pt-0 ml-3 xl:ml-0
-                            font-neueHaasGrotesk font-semibold lowercase text-[1.5vh] md:text-[2vh] xl:text-[1vw]">
+                            font-neueHaasGrotesk font-semibold lowercase text-fluid-sm">
                             <div className="leading-none flex items-center gap-1">
                                 <button
                                     onClick={() => setViewMode('albums')}
@@ -146,7 +146,7 @@ const Inspo = () => {
                             <p className="hidden xl:block leading-none text-end w-10/12 xl:w-8/12">* Updates automatically every 24 hours</p>
                         </div>
                         <div className="flex flex-col items-end w-3/4 md:w-9/12 xl:w-1/2 pt-10 xl:pt-0 mr-3 xl:mr-0
-                            font-neueHaasGrotesk font-semibold lowercase text-[2.5vh] md:text-[3.5vh] xl:text-[2.5vw] text-start">
+                            font-neueHaasGrotesk font-semibold lowercase text-fluid-xl text-start">
                             <p className="leading-none w-11/12 xl:w-9/12">Top 10 albums & songs</p>
                             <p className="leading-none w-10/12 xl:w-7/12">In my queue this month.</p>
                         </div>
@@ -154,7 +154,7 @@ const Inspo = () => {
                     <div
                         className="w-full mt-10 lg:mt-14 2xl:mt-[4vw] mb-10 xl:mb-8 3xl:mb-20 font-neueHaasGrotesk font-bold
                         flex flex-col justify-start items-center gap-[7.5vh] xl:gap-[3vw]
-                        text-[3vh] xl:text-[2vw]"
+                        text-fluid-lg"
                     >
                         {/*<LastFmMusicTable musicData={musicData}/>*/}
                         <LastFmMusicTable viewMode={viewMode} />
@@ -174,8 +174,8 @@ const Inspo = () => {
                         }}
                     >
                         <div className="flex items-baseline gap-[3vw] xl:gap-[1vw] font-neueHaasGrotesk font-semibold lowercase">
-                            <p className="leading-none text-[6vh] xl:text-[4.5vw]">Visual Experiments</p>
-                            <p className="leading-none text-[2vh] xl:text-[1vw]">/WebGL</p>
+                            <p className="leading-none text-fluid-4xl">Visual Experiments</p>
+                            <p className="leading-none text-fluid-sm">/WebGL</p>
                         </div>
                     </motion.div>
                     <div className="flex flex-wrap justify-center gap-3 md:gap-3.5 xl:gap-[2vw]">

@@ -221,7 +221,7 @@ const RandomImageHalftone = () => {
                     {loading && (
                         <div
                             className="absolute inset-0 flex items-center justify-center text-customWhite bg-customBlack bg-opacity-30 z-20">
-                            <span className="font-roboto font-normal lowercase text-[1vh] lg:text-[1vw] xl:text-[1vw]">Loading random image...</span>
+                            <span className="font-roboto font-normal lowercase text-fluid-sm]">Loading random image...</span>
                         </div>
                     )}
                 </div>
@@ -229,7 +229,7 @@ const RandomImageHalftone = () => {
 
             {/* Caption */}
             <div
-                className="font-roboto font-light uppercase tracking-wide text-[1.5vh] lg:text-[1.75vw] xl:text-[1vw]">
+                className="font-roboto font-light uppercase tracking-wide text-fluid-sm">
                 {imageTitle && (
                     <a
                         href={
@@ -250,9 +250,9 @@ const RandomImageHalftone = () => {
             <div
                 className="xl:flex xl:absolute top-0 right-[calc(50%+23.5vw)] xl:h-full xl:w-[calc(50%-23.5vw)]
                     flex-col justify-center items-center xl:pr-3.5 4xl:pr-8 7xl:pr-10
-                    font-neueHaasGrotesk font-bold text-[2.5vh] lg:text-[3vw] xl:text-[2vw]">
+                    font-neueHaasGrotesk font-bold text-fluid-lg">
                 <p>/{count.toString().padStart(2, '0')}</p>
-                {error && <p className="text-[1vw]">{error}</p>}
+                {error && <p className="text-fluid-base">{error}</p>}
             </div>
 
             {/*Screen width: 100vw*/}
@@ -262,19 +262,19 @@ const RandomImageHalftone = () => {
             <div
                 className="flex xl:absolute top-0 left-[calc(50%+23.5vw)] h-full w-full xl:w-[calc(50%-23.5vw)]
                     flex-col justify-center items-center xl:px-[2vw]
-                    font-neueHaasGrotesk font-semibold uppercase text-[1.25vh] lg:text-[1.5vw] xl:text-[1vw] leading-relaxed">
+                    font-neueHaasGrotesk font-semibold uppercase text-fluid-sm leading-relaxed">
 
                 {/* Mobile Details Dropdown (only visible on screens smaller than xl) */}
                 <div className="xl:hidden w-full">
                     <button
                         onClick={() => setDetailsExpanded(!detailsExpanded)}
-                        className="flex items-center gap-2 font-neueHaasGrotesk font-bold lowercase text-[1.25vh] lg:text-[1.5vw] hover:opacity-80 transition-opacity"
+                        className="flex items-center gap-2 font-neueHaasGrotesk font-bold lowercase hover:opacity-80 transition-opacity"
                     >
                         <span>Details</span>
                         <svg
                             viewBox="0 0 12 8"
                             fill="none"
-                            className={`w-[0.75vh] h-[0.5vh] xl:w-[0.75vw] xl:h-[0.5vw] transition-transform duration-300 ${detailsExpanded ? 'rotate-180' : 'rotate-0'}`}
+                            className={`w-[1.5vh] h-[1vh] xl:w-[0.75vw] xl:h-[0.5vw] transition-transform duration-300 ${detailsExpanded ? 'rotate-180' : 'rotate-0'}`}
                         >
                             <path
                                 d="M1 1L6 6L11 1"
@@ -296,7 +296,7 @@ const RandomImageHalftone = () => {
                                 href={"https://en.wikipedia.org/wiki/Wikipedia:Size_of_Wikipedia"}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="text-[0.75vh] lg:text-[1vw] xl:text-[0.5vw] hover:opacity-80 transition-opacity"
+                                className="text-fluid-xxs hover:opacity-80 transition-opacity"
                             >
                                 <span> (source↗)</span>
                             </a>
@@ -305,7 +305,7 @@ const RandomImageHalftone = () => {
                                 href={"https://en.wikipedia.org/api/rest_v1/"}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="text-[0.75vh] lg:text-[1vw] xl:text-[0.5vw] hover:opacity-80 transition-opacity"
+                                className="text-fluid-xxs hover:opacity-80 transition-opacity"
                             >
                                 <span> (source↗)</span>
                             </a>
@@ -324,7 +324,7 @@ const RandomImageHalftone = () => {
                         href={"https://en.wikipedia.org/wiki/Wikipedia:Size_of_Wikipedia"}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-[0.75vh] lg:text-[1vw] xl:text-[0.5vw] hover:opacity-80 transition-opacity"
+                        className="text-fluid-xxs hover:opacity-80 transition-opacity"
                     >
                         <span> (source↗)</span>
                     </a>
@@ -333,7 +333,7 @@ const RandomImageHalftone = () => {
                         href={"https://en.wikipedia.org/api/rest_v1/"}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-[0.75vh] lg:text-[1vw] xl:text-[0.5vw] hover:opacity-80 transition-opacity"
+                        className="text-fluid-xxs hover:opacity-80 transition-opacity"
                     >
                         <span> (source↗)</span>
                     </a>
@@ -347,13 +347,13 @@ const RandomImageHalftone = () => {
                     {/* Settings Toggle Button */}
                     <button
                         onClick={() => setSettingsExpanded(!settingsExpanded)}
-                        className="flex items-center gap-2 w-fit font-neueHaasGrotesk font-bold lowercase text-[1.25vh] lg:text-[1.5vw] xl:text-[1vw] hover:opacity-80 transition-opacity"
+                        className="flex items-center gap-2 w-fit font-neueHaasGrotesk font-bold lowercase text-fluid-sm hover:opacity-80 transition-opacity"
                     >
                         <span>Settings</span>
                         <svg
                             viewBox="0 0 12 8"
                             fill="none"
-                            className={`w-[0.75vh] h-[0.5vh] xl:w-[0.75vw] xl:h-[0.5vw] transition-transform duration-300 ${settingsExpanded ? 'rotate-180' : 'rotate-0'}`}
+                            className={`w-[1.5vh] h-[1vh] xl:w-[0.75vw] xl:h-[0.5vw] transition-transform duration-300 ${settingsExpanded ? 'rotate-180' : 'rotate-0'}`}
                         >
                             <path
                                 d="M1 1L6 6L11 1"
@@ -370,7 +370,7 @@ const RandomImageHalftone = () => {
                         className={`w-1/2 xl:w-full mt-[1vh] xl:mt-[2vh] overflow-hidden transition-all duration-300 ${settingsExpanded ? 'opacity-100' : 'max-h-0 opacity-0'}`}>
                         {/* Slider UI */}
                         <div className="w-full">
-                            <label className="block mb-[1vh] text-[1vh] lg:text-[1.25vw] xl:text-[0.85vw]">
+                            <label className="block mb-[1vh] text-fluid-xxs xl:text-fluid-xs">
                                 Dot Density: {dotDensity}
                             </label>
                             <input
@@ -385,7 +385,7 @@ const RandomImageHalftone = () => {
 
                         {/* Color Picker UI */}
                         <div className="mt-[1vh] xl:mt-[2vh] w-full">
-                            <label className="block mb-[1vh] text-[1vh] lg:text-[1.25vw] xl:text-[0.85vw]">
+                            <label className="block mb-[1vh] text-fluid-xxs xl:text-fluid-xs">
                                 Color Theme
                             </label>
                             <input
@@ -442,13 +442,13 @@ const RandomImageHalftone = () => {
 
                         {/* Brightness Inversion Toggle */}
                         <div className="mt-[1vh] xl:mt-[2vh] w-full">
-                            <label className="block mb-[1vh] text-[1vh] lg:text-[1.25vw] xl:text-[0.85vw]">
+                            <label className="block mb-[1vh] text-fluid-xxs xl:text-fluid-xs">
                                 Color Mode
                             </label>
                             <div className="flex items-center gap-3">
                                 <button
                                     onClick={() => setInvertBrightness(false)}
-                                    className={`px-3 py-1 text-[0.8vh] lg:text-[1vw] xl:text-[0.7vw] border transition-all duration-200 ${
+                                    className={`px-3 py-1 text-fluid-xxs xl:text-fluid-xs border transition-all duration-200 ${
                                         !invertBrightness
                                             ? 'border-customBlack/80 dark:border-customWhite/80 bg-customBlack/10 dark:bg-customWhite/10'
                                             : 'border-customBlack/30 dark:border-customWhite/30 hover:border-customBlack/50 dark:hover:border-customWhite/50'
@@ -458,7 +458,7 @@ const RandomImageHalftone = () => {
                                 </button>
                                 <button
                                     onClick={() => setInvertBrightness(true)}
-                                    className={`px-3 py-1 text-[0.8vh] lg:text-[1vw] xl:text-[0.7vw] border transition-all duration-200 ${
+                                    className={`px-3 py-1 text-fluid-xxs xl:text-fluid-xs border transition-all duration-200 ${
                                         invertBrightness
                                             ? 'border-customBlack/80 dark:border-customWhite/80 bg-customBlack/10 dark:bg-customWhite/10'
                                             : 'border-customBlack/30 dark:border-customWhite/30 hover:border-customBlack/50 dark:hover:border-customWhite/50'

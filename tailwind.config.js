@@ -38,7 +38,17 @@ export default {
 			'60rem' : '60rem',
 		},
 		fontSize: {
-			'35px': '35px',
+			'fluid-xxs': ['clamp(0.45rem, 0.05vw + 0.6rem, 0.55rem)', { lineHeight: '1.5' }],
+			'fluid-xs': ['clamp(0.6rem, 0.05vw + 0.74rem, 0.7rem)', { lineHeight: '1.5' }],
+			'fluid-sm': ['clamp(0.875rem, 0.1vw + 0.85rem, 1rem)', { lineHeight: '1.5' }],
+			'fluid-base': ['clamp(1.125rem, 0.5vw + 1rem, 1.5rem)', { lineHeight: '1.3' }],
+			'fluid-lg': ['clamp(1.125rem, 1vw + 1rem, 2rem)', { lineHeight: '1.3' }],
+			'fluid-xl': ['clamp(1.25rem, 1.5vw + 1rem, 2.5rem)', { lineHeight: '1.2' }],
+			'fluid-2xl': ['clamp(2rem, 2.75vw + 1rem, 3.5rem)', { lineHeight: '1.1' }],
+			'fluid-3xl': ['clamp(2.5rem, 3.25vw + 1rem, 4.25rem)', { lineHeight: '1.1' }],
+			'fluid-4xl': ['clamp(3rem, 4vw + 1rem, 5rem)', { lineHeight: '1' }],
+			'fluid-5xl': ['clamp(4rem, 5vw + 1rem, 6rem)', { lineHeight: '1' }],
+
 			'5xs': ['0.25rem', '0.667rem'],
 			'4xs': ['0.375rem', '0.667rem'],
 			'3xs': ['0.5rem', '0.75rem'],
@@ -59,7 +69,7 @@ export default {
   		colors: {
 			customWhite: "#fafafa",
 			customBlack: "#070707",
-			customBlackLight: "#151515",
+			customBlackLight: "#111111",
 			customGray: "#9a9a9a",
 			customGrayLight: "#ececec",
 			customNavy: "#100f14",

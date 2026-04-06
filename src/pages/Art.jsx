@@ -62,7 +62,7 @@ const Art = () => {
             <main className="">
                 {isXlOrLarger && <section className="relative flex justify-center items-center p-7 h-[60vh]">
                     <h1 className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full text-center leading-none uppercase font-nick
-                        text-[3vw]">
+                        text-fluid-xl">
                         Creative Works
                     </h1>
                     <div className="absolute top-0 bottom-0 flex flex-wrap w-full -z-10 *:w-1/4

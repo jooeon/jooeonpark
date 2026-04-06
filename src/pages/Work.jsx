@@ -24,7 +24,7 @@ const Work = () => {
                 <div className="flex flex-col md:flex-row items-baseline gap-[3vw] xl:gap-[2vw]">
                     <TitleText phrase={"Work"}/>
                     <div className="flex gap-[2vw] xl:gap-[1vw] pl-3 md:pl-0
-                        leading-none text-[2vh] xl:text-[1vw] font-neueHaasGrotesk font-semibold lowercase">
+                        leading-none text-fluid-sm font-neueHaasGrotesk font-semibold lowercase">
                         <motion.p
                             initial={{opacity: 0, y: 15}}
                             animate={{opacity: 1, y: 0}}
@@ -83,7 +83,7 @@ const Work = () => {
                                     className="w-full"/>
                             </Link>
                             <div
-                                className="flex flex-col justify-end text-[2vh] lg:text-[1vw] xl:text-left">
+                                className="flex flex-col justify-end text-fluid-sm xl:text-left">
                                 <p className="mb-4 2xl:mb-10">ArtGrind: Timed Drawing Practice</p>
                                 <p className="text-customGray">2026</p>
                             </div>
@@ -100,7 +100,7 @@ const Work = () => {
                             }}
                         >
                             <div
-                                className="flex flex-col justify-end text-[2vh] lg:text-[1vw] xl:text-right">
+                                className="flex flex-col justify-end text-fluid-sm xl:text-right">
                                 <p className="mb-4 2xl:mb-10">Allen Topolski&apos;s Portfolio</p>
                                 <p className="text-customGray">2025</p>
                             </div>
@@ -131,14 +131,14 @@ const Work = () => {
                                     className="w-full"/>
                             </Link>
                             <div
-                                className="flex flex-col justify-end text-[2vh] lg:text-[1vw] xl:text-left">
+                                className="flex flex-col justify-end text-fluid-sm xl:text-left">
                                 <p className="mb-4 2xl:mb-10">NYC Citi Bike Data Visualization</p>
                                 <p className="text-customGray">2025</p>
                             </div>
                         </motion.div>
                     </div>
                     <motion.div
-                        className="flex justify-center items-center w-full h-screen text:[1.25vh] xl:text-[1.25vw]
+                        className="flex justify-center items-center w-full h-screen text-fluid-base
                         font-neueHaasGrotesk font-bold lowercase"
                         initial={{opacity: 0}}
                         whileInView={{opacity: 1}}

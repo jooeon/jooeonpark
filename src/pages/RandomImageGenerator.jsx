@@ -13,7 +13,7 @@ const RandomImageGenerator = () => {
             <div className="flex items-baseline gap-[3vw] xl:gap-[2vw]">
                 <TitleText phrase={"R.I.G."}/>
                 <motion.p
-                    className="leading-none text-[2vh] xl:text-[1vw] font-neueHaasGrotesk font-semibold lowercase"
+                    className="leading-none text-fluid-sm font-neueHaasGrotesk font-semibold lowercase"
                     initial={{opacity: 0, y: 15}}
                     animate={{opacity: 1, y: 0}}
                     transition={{
@@ -30,9 +30,9 @@ const RandomImageGenerator = () => {
                     <RandomImageHalftone/>
                 ) : (
                     <div className="flex flex-col justify-center items-center gap-[1.5vh] h-[65vh] xl:h-[50vh]
-                        font-neueHaasGrotesk font-bold text-[3vh] xl:text-[2vw] text-center">
+                        font-neueHaasGrotesk font-bold text-fluid-base text-center">
                         <p>WebGL failed to load on your browser.</p>
-                        <p className="w-2/3 text-[2vh] xl:text-[1vw] opacity-80">Try a different browser or restart your
+                        <p className="w-2/3 text-fluid-sm opacity-80">Try a different browser or restart your
                             current browser.</p>
                     </div>
                 )}

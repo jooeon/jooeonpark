@@ -51,7 +51,7 @@ const Info = () => {
             <main>
                 <section className="px-3 md:px-3.5 xl:px-3.5 4xl:px-8 7xl:px-10 ">
                     <div className="mt-[12vh] md:mt-[15vh] xl:mt-[20vh]">
-                        <h1 className="title-text flex flex-col font-nick uppercase text-[8vw] md:text-[5vw] leading-[0.9]">
+                        <h1 className="title-text flex flex-col font-nick uppercase text-fluid-4xl leading-[0.9]">
                             <MaskText phrase={"Designer"} duration={1} delay={0.8}/>
                             <span className="pl-10 md:pl-20 xl:pl-[10vw]">
                                 <MaskText phrase={"Developer & Artist"} duration={1} delay={1.0}/>
@@ -72,11 +72,11 @@ const Info = () => {
                         }}
                     >
                         <div className="flex gap-[6vw] xl:gap-[2vw] w-full xl:w-7/12">
-                            <h3 className="font-roboto font-light uppercase text-[1vh] xl:text-[1vw] h-fit xl:mt-[1.25vh]">
+                            <h3 className="font-roboto font-light uppercase text-fluid-sm h-fit xl:mt-[1.25vh]">
                                 Info
                             </h3>
                             <div
-                                className="flex flex-col gap-[4vh] font-neueHaasGrotesk font-semibold text-[2vh] lg:text-[2.5vw] xl:text-[2.5vw] leading-tight">
+                                className="flex flex-col gap-[4vh] font-neueHaasGrotesk font-semibold text-fluid-xl leading-tight">
                                 {aboutData.map((item, index) => (
                                     <motion.p
                                         key={index}
@@ -98,7 +98,7 @@ const Info = () => {
 
                     {/* Skills Section */}
                     <motion.div
-                        className="font-roboto font-light uppercase tracking-wide text-[1vh] lg:text-[1vw] xl:text-[1vw] mt-[10vh] md:mt-[14vh] xl:mt-[18vh]"
+                        className="font-roboto font-light uppercase tracking-wide text-fluid-sm mt-[10vh] md:mt-[14vh] xl:mt-[18vh]"
                         initial={{opacity: 0, y: 30}}
                         whileInView={{opacity: 1, y: 0}}
                         viewport={{once: true, amount: 0.5}}
@@ -163,7 +163,7 @@ const Info = () => {
 
                     {/* Links section */}
                     <motion.div
-                        className="font-roboto font-light uppercase tracking-wide text-[1vh] lg:text-[1vw] xl:text-[1vw] my-[10vh] md:my-[14vh] xl:my-[18vh]"
+                        className="font-roboto font-light uppercase tracking-wide text-fluid-sm my-[10vh] md:my-[14vh] xl:my-[18vh]"
                         initial={{opacity: 0, y: 20}}
                         whileInView={{opacity: 1, y: 0}}
                         viewport={{once: true, amount: 0.5}}

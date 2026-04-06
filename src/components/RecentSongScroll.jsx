@@ -131,7 +131,7 @@ const RecentSongScroll = () => {
     if (loading) {
         return (
             <div className="w-full overflow-hidden py-1 md:py-3 xl:py-4">
-                <p className="text-5xs xs:text-5xs md:text-xs lg:text-base xl:text-base 2xl:text-lg 3xl:text-2xl 4xl:text-3xl">
+                <p className="text-fluid-base">
                     Loading...
                 </p>
             </div>
@@ -144,7 +144,7 @@ const RecentSongScroll = () => {
 
     return (
         <div className="flex flex-col items-center w-full overflow-hidden">
-            <div className="w-full font-bold lowercase text-[4.5vh] md:text-[5vh] xl:text-[3.5vw]
+            <div className="w-full font-bold lowercase text-fluid-2xl
                 px-[2vh] xl:px-[2vw] mb-[5vh] md:mb-[4vh] xl:mb-[3vw]">
                 <p className="leading-none">Most recently listened to:</p>
             </div>

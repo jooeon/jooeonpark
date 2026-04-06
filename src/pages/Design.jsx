@@ -24,7 +24,7 @@ const Design = () => {
                 <div className="flex flex-col md:flex-row items-baseline gap-[3vw] xl:gap-[2vw]">
                     <TitleText phrase={"Design"}/>
                     <div className="flex gap-[2vw] xl:gap-[1vw] pl-3 md:pl-0
-                        leading-none text-[2vh] xl:text-[1vw] font-neueHaasGrotesk font-semibold lowercase">
+                        leading-none text-fluid-sm font-neueHaasGrotesk font-semibold lowercase">
                         <motion.p
                             initial={{opacity: 0, y: 15}}
                             animate={{opacity: 1, y: 0}}

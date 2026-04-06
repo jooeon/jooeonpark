@@ -60,7 +60,7 @@ const WorkDetail = () => {
     const project = items.find(item => item.id === id);
     if (!project) {
         return <div className="flex flex-col justify-center items-center gap-[2vh] w-full h-screen">
-            <p className="text-[3vh] xl:text-[2vw] font-neueHaasGrotesk font-bold">Project not found.</p>
+            <p className="text-fluid-base font-neueHaasGrotesk font-bold">Project not found.</p>
             <button onClick={goToPreviousPage}
                   className="text-link after:bg-customBlack dark:after:bg-customWhite">
                 Go back
@@ -95,7 +95,7 @@ const WorkDetail = () => {
                                     ease: "easeOut",
                                 }}
                             >
-                                <h1 className="title-text font-nick uppercase text-[5vw] 2xl:text-[5.4vw] leading-none">
+                                <h1 className="title-text font-nick uppercase text-fluid-4xl leading-none">
                                     <MaskText phrase={project.caption[0]} duration={1} delay={0.8}/>
                                 </h1>
                             </motion.div>
@@ -141,7 +141,7 @@ const WorkDetail = () => {
                             className="sticky top-0 grid md:grid-cols-[1fr_1fr_8fr_1fr] auto-rows-min
                                 gap-y-1 md:gap-y-3 lg:gap-y-4 3xl:gap-y-8 gap-x-2 md:gap-x-4 lg:gap-x-6 3xl:gap-x-10
                                 h-fit w-5/12 p-0 pt-16 md:p-5 md:pt-32 2xl:pt-48 4xl:pt-56 font-neueHaasGrotesk font-bold uppercase
-                                text-3xs xs:text-2xs md:text-lg lg:text-2xl xl:text-2xl 2xl:text-3xl 3xl:text-5xl 4xl:text-6xl 6xl:text-7xl 7xl:text-8xl"
+                                text-fluid-lg [&_p.label]:text-fluid-sm"
                             initial={{opacity: 0, y: 20}}
                             animate={{opacity: 1, y: 0}}
                             transition={{
@@ -150,26 +150,26 @@ const WorkDetail = () => {
                                 ease: "easeOut",
                             }}
                         >
-                            <p className="text-right md:p-1.5 4xl:p-2 6xl:p-3 7xl:p-6 col-start-2 text-4xs xs:text-4xs md:text-xs lg:text-sm xl:text-sm 2xl:text-lg 3xl:text-2xl 4xl:text-3xl 6xl:text-4xl 7xl:text-5xl">Year</p>
+                            <p className="label text-right md:p-1.5 4xl:p-2 6xl:p-3 7xl:p-6 col-start-2">Year</p>
                             <p className="col-start-3">{project.caption[3]}</p>
 
-                            <p className="text-right md:p-1.5 4xl:p-2 6xl:p-3 7xl:p-6 col-start-2 text-4xs xs:text-4xs md:text-xs lg:text-sm xl:text-sm 2xl:text-lg 3xl:text-2xl 4xl:text-3xl 6xl:text-4xl 7xl:text-5xl">Type</p>
+                            <p className="label text-right md:p-1.5 4xl:p-2 6xl:p-3 7xl:p-6 col-start-2">Type</p>
                             <p className="col-start-3">{project.caption[1]}</p>
 
                             {type === "art" &&
                                 <>
-                                    <p className="text-right md:p-1.5 4xl:p-2 6xl:p-3 7xl:p-6 col-start-2 text-4xs xs:text-4xs md:text-xs lg:text-sm xl:text-sm 2xl:text-lg 3xl:text-2xl 4xl:text-3xl 6xl:text-4xl 7xl:text-5xl">Medium</p>
+                                    <p className="label text-right md:p-1.5 4xl:p-2 6xl:p-3 7xl:p-6 col-start-2">Medium</p>
                                     <p className="col-start-3">{project.caption[2]}</p>
                                 </>
                             }
                             {type === "work" &&
                                 <>
-                                    <p className="text-right md:p-1.5 4xl:p-2 6xl:p-3 7xl:p-6 col-start-2 text-4xs xs:text-4xs md:text-xs lg:text-sm xl:text-sm 2xl:text-lg 3xl:text-2xl 4xl:text-3xl 6xl:text-4xl 7xl:text-5xl">Tech</p>
+                                    <p className="label text-right md:p-1.5 4xl:p-2 6xl:p-3 7xl:p-6 col-start-2">Tech</p>
                                     <p className="col-start-3">{project.caption[2]}</p>
                                 </>
                             }
 
-                            <p className="text-right md:p-1.5 4xl:p-2 6xl:p-3 7xl:p-6 col-start-2 text-4xs xs:text-4xs md:text-xs lg:text-sm xl:text-sm 2xl:text-lg 3xl:text-2xl 4xl:text-3xl 6xl:text-4xl 7xl:text-5xl">Info</p>
+                            <p className="label text-right md:p-1.5 4xl:p-2 6xl:p-3 7xl:p-6 col-start-2">Info</p>
                             <p className="col-start-3">{project.caption[4]}</p>
 
                             <div className="flex flex-col gap-1 md:gap-4 col-start-3 pt-2 md:pt-4">
@@ -178,7 +178,7 @@ const WorkDetail = () => {
                                         to={project.externalLink}
                                         target="_blank"
                                         className="text-link after:bg-customBlack dark:after:bg-customWhite w-fit
-                                            text-4xs xs:text-4xs md:text-xs lg:text-sm xl:text-sm 2xl:text-lg 3xl:text-2xl 4xl:text-3xl"
+                                            text-fluid-sm"
                                     >
                                         {project.externalLinkLabel} ↗
                                     </Link>
@@ -188,7 +188,7 @@ const WorkDetail = () => {
                                         to={project.externalLink_2}
                                         target="_blank"
                                         className="text-link after:bg-customBlack dark:after:bg-customWhite w-fit
-                                            text-4xs xs:text-4xs md:text-xs lg:text-sm xl:text-sm 2xl:text-lg 3xl:text-2xl 4xl:text-3xl"
+                                            text-fluid-sm"
                                     >
                                         {project.externalLinkLabel_2} ↗
                                     </Link>
@@ -198,7 +198,7 @@ const WorkDetail = () => {
                     </section>
                     <section className="flex justify-between m-2 md:m-5 mt-10 md:mt-20 font-neueHaasGrotesk font-extrabold uppercase">
                         <div
-                            className="text-sm sm:text-base md:text-xl lg:text-2xl xl:text-3xl 2xl:text-4xl 3xl:text-5xl 4xl:text-6xl">
+                            className="text-fluid-xl">
                             <span>Next:</span>
                             <br/>
                             {type === "art" && (
@@ -227,7 +227,7 @@ const WorkDetail = () => {
                             )}
                         </div>
                         <div className="flex items-end pr-2
-                            text-3xs sm:text-2xs md:text-sm lg:text-sm xl:text-lg 2xl:text-xl 3xl:text-2xl 4xl:text-3xl">
+                            text-fluid-base">
                             {type === "art" && (
                                 <Link to="/art" className="text-link after:bg-customBlack dark:after:bg-customWhite">Back to Gallery</Link>
                             )}

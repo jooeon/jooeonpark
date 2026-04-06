@@ -95,7 +95,7 @@ const Header = ({ delay = 0.4 }) => {
                 }}
             >
                 <nav className="flex items-center justify-between [&_a]:pointer-events-auto
-                        text-xs md:text-base 4xl:text-2xl 6xl:text-4xl uppercase font-roboto font-medium tracking-wide
+                        text-fluid-sm uppercase font-roboto font-medium tracking-wide
                         px-3 py-5 md:px-4 md:py-7 xl:px-4 xl:py-6 3xl:px-5 3xl:py-8 4xl:px-6 4xl:py-10 7xl:px-10 7xl:py-16
                         text-customWhite [&_a]:after:bg-customBlack dark:[&_a]:after:bg-customWhite">
                     <Link to="/" className="text-link font-neueHaasGrotesk font-bold lg:font-roboto lg:font-medium" onClick={closeMobileMenu}>

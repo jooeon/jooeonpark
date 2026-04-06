@@ -9,7 +9,7 @@ const TitleText = ({phrase, className = ""}) => {
             "w-fit pl-3 md:pl-6 xl:pl-7 4xl:pl-12 7xl:pl-20 mt-[9vh] md:mt-[12vh] lg:mt-[15vh]",
             className
         )}>
-            <h1 className="title-text font-nick uppercase text-[5vh] md:text-[6vh] xl:text-[5.5vw] leading-none">
+            <h1 className="title-text font-nick uppercase text-fluid-4xl leading-none">
                 <MaskText phrase={phrase} duration={1} delay={0.8}/>
             </h1>
         </div>

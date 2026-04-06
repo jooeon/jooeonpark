@@ -174,7 +174,7 @@ const ScrollTitleSection = ({showEntryAnimation}) => {
             </motion.h1>
             <motion.h2
                 className="pointer-events-auto font-nick outline-text-white text-transparent
-                    text-[3vw] leading-none"
+                    text-fluid-xl leading-none"
                 style={{ y: subTitleLayer }}
                 initial={{ opacity: 0 }}
                 animate={{ opacity: subTitleVisible ? 1 : 0 }}

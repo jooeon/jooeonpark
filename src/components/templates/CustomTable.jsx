@@ -44,7 +44,7 @@ const CustomTable = ({
             <table className="w-full hidden xl:table table-fixed">
                 <thead>
                     <motion.tr
-                        className="text-left lowercase text-[0.75vh] xl:text-[1vw]
+                        className="text-left lowercase text-fluid-sm
                             [&_th]:px-3.5 [&_th]:3xl:px-5 [&_th]:4xl:px-7 [&_th]:7xl:px-10
                             [&_th]:pb-[3.5vh]
                             [&_th:nth-child(1)]:w-[6%]"

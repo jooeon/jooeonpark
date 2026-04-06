@@ -45,7 +45,7 @@ const Tech = () => {
                             [&_caption]:w-fit [&_caption]:mb-2 [&_caption]:7xl:mb-10 [&_caption]:text-start [&_caption]:font-neueHaasGrotesk [&_caption]:font-semibold
                             {/*[&_tr]:border-b [&_tr]:text-customGray [&_tr]:border-customGrayLight [&_tr]:dark:border-customBlackLight*/}
                             [&_td]:pt-2 [&_td]:pb-1 [&_td]:3xl:pb-8 [&_td]:7xl:pb-12 [&_td]:pl-3 [&_td]:md:pl-5 [&_td]:relative [&_td]:font-roboto [&_td]:uppercase
-                            [&_td]:tracking-wide [&_td]:text-[1vh] [&_td]:lg:text-[1.5vw] [&_td]:xl:text-[1vw]">
+                            [&_td]:tracking-wide [&_td]:text-fluid-sm">
                             <motion.table
                                 className="table-fixed w-full"
                                 initial={{opacity: 0, y: 20}}
@@ -166,7 +166,7 @@ const Tech = () => {
                             />
                         </h2>
                         <motion.div
-                            className="flex gap-10 md:gap-20 xl:px-5 text-customGray font-roboto uppercase tracking-wide text-[1vh] lg:text-[1.5vw] xl:text-[1vw]"
+                            className="flex gap-10 md:gap-20 xl:px-5 text-customGray font-roboto uppercase tracking-wide text-fluid-sm"
                             initial={{opacity: 0, y: 20}}
                             animate={{opacity: 1, y: 0}}
                             transition={{

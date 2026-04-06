@@ -6,7 +6,7 @@ const Page404 = () => {
         <>
             <main>
                 <div className="flex flex-col justify-center items-center w-full h-screen">
-                    <h1 className="font-nick text-[10vw]">404</h1>
+                    <h1 className="font-nick text-8xl xl:text-10xl">404</h1>
                     <Link to="/" rel="noopener noreferrer"
                           className="text-link after:bg-customBlack dark:after:bg-customWhite">
                         jooeonpark.com
