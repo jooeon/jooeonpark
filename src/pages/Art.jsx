@@ -209,12 +209,22 @@ const Art = () => {
                                         </video>
                                     )}
                                     {!item.isVideo && (
-                                        <img
-                                            src={item.thumbnail}
-                                            alt={item.alt}
-                                            loading="lazy" // Adds lazy loading for performance
-                                            className="w-full aspect-square md:aspect-auto object-cover py-3"
-                                        />
+                                        item.id === "rig" ?
+                                            <div className="aspect-square">
+                                                <HalftoneOverlayShader
+                                                    imageUrl={randomImage}
+                                                    gridSize={30}
+                                                    baseColor={randomColor}
+                                                    invertBrightness={true}
+                                                />
+                                            </div>
+                                        :
+                                            <img
+                                                src={item.thumbnail}
+                                                alt={item.alt}
+                                                loading="lazy" // Adds lazy loading for performance
+                                                className="w-full aspect-square md:aspect-auto object-cover py-3"
+                                            />
                                     )}
                                 </Link>
                                 {/* Bottom captions */}

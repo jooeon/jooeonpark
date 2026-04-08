@@ -49,7 +49,7 @@ export const items = [
         externalLink: "https://www.cdc.gov/tobacco/campaign/tips/quit-smoking/quitline/index.html",
         externalLinkLabel: "1-800-784-8669",
         hasAnimation: false,
-        animationDelay: 0.1,
+        animationDelay: 0,
     },
     {
         id: "blind-sparkler",
@@ -81,7 +81,7 @@ export const items = [
         padding: "pb-10 ",
         link: "/art/blind-sparkler",
         hasAnimation: true,
-        animationDelay: 0,
+        animationDelay: 0.3,
     },
     {
         id: "ocular-prosthetic",
@@ -120,7 +120,7 @@ export const items = [
         padding: "pb-10 ",
         link: "/art/ocular-prosthetic",
         hasAnimation: false,
-        animationDelay: 0.2,
+        animationDelay: 0,
     },
     {
         id: "steps",
@@ -154,7 +154,7 @@ export const items = [
         externalLink: "https://github.com/jooeon/steps",
         externalLinkLabel: "More Info",
         hasAnimation: true,
-        animationDelay: 0,
+        animationDelay: 0.2,
     },
     {
         id: "running-in-a-dream",
@@ -180,7 +180,7 @@ export const items = [
         padding: "pb-10 ",
         link: "/art/running-in-a-dream",
         hasAnimation: false,
-        animationDelay: 0.3,
+        animationDelay: 0,
     },
     {
         id: "transitions",
