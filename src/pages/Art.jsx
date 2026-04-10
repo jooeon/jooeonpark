@@ -7,6 +7,7 @@ import HorizontalScrollSection from '../components/HorizontalScrollSection.jsx';
 import {useMediaQuery} from "../Utils.jsx";
 import HalftoneOverlayShader from "../components/shaders/HalftoneOverlay.jsx";
 import {useEffect, useState} from "react";
+import TitleText from "../components/templates/TitleText.jsx";
 
 const COLORS = [
     {name: 'Teal', color: '#2DB5B4'},
@@ -165,21 +166,10 @@ const Art = () => {
                         </HorizontalScrollSection>
                     </section>
                     :
-                    <motion.div
-                        className="pt-10 pl-5 md:pt-20 md:pl-10 pb-2 md:pb-10"
-                        initial={{opacity: 0, y: 40}}
-                        animate={{opacity: 1, y: 0}}
-                        transition={{
-                            duration: 0.3,
-                            delay: 0.6,
-                            ease: "easeOut"
-                        }}
-                    >
-                        <h1 className="title-text font-nick uppercase text-4xl sm:text-5xl md:text-7xl lg:text-8xl 4xl:text-9xl">Creative Works</h1>
-                    </motion.div>
+                    <TitleText phrase={"Creative Works"} />
                 }
                 {!isXlOrLarger && <section className="flex flex-row flex-wrap justify-between gap-5
-                    h-min w-full xl:w-11/12 p-5 mx-auto uppercase">
+                    h-min w-full xl:w-11/12 p-5 mx-auto uppercase mt-[5vh] lg:mt-[7vh] xl:mt-[8vw]">
                     {items.map((item) => (
                         <div className={`flex flex-col w-full h-full xl:w-2/5 xl:h-2/5 ${item.padding}`}
                              key={item.id}>
