@@ -38,6 +38,7 @@ export default {
 			'60rem' : '60rem',
 		},
 		fontSize: {
+			'fluid-3xs': ['clamp(0.35rem, 0.05vw + 0.4rem, 0.45rem)', { lineHeight: '1.5' }],
 			'fluid-xxs': ['clamp(0.45rem, 0.05vw + 0.6rem, 0.55rem)', { lineHeight: '1.5' }],
 			'fluid-xs': ['clamp(0.6rem, 0.05vw + 0.74rem, 0.7rem)', { lineHeight: '1.5' }],
 			'fluid-sm': ['clamp(0.875rem, 0.1vw + 0.85rem, 1rem)', { lineHeight: '1.5' }],

@@ -81,7 +81,7 @@ const WorkDetail = () => {
             <main className="flex flex-col min-h-[100vh]">
                 <div className="flex flex-col flex-1 justify-between">
                     <section
-                        className="relative flex m-2 md:m-5 6xl:m-10 h-full pt-10 md:pt-20 3xl:pt-32 6xl:pt-40 7xl:pt-52">
+                        className="relative flex m-2 md:m-5 6xl:m-10 h-full pt-[6vh] xl:pt-[5vw]">
                         {/* Image/Video content scroll section */}
                         <div className="flex flex-col gap-3 md:gap-6 6xl:gap-12 w-7/12">
                             {/* WorkDetail title */}
@@ -95,7 +95,7 @@ const WorkDetail = () => {
                                     ease: "easeOut",
                                 }}
                             >
-                                <h1 className="title-text font-nick uppercase text-fluid-4xl leading-none">
+                                <h1 className="title-text font-nick uppercase text-fluid-xl md:text-fluid-2xl lg:text-fluid-4xl leading-none">
                                     <MaskText phrase={project.caption[0]} duration={1} delay={0.8}/>
                                 </h1>
                             </motion.div>
@@ -141,7 +141,7 @@ const WorkDetail = () => {
                             className="sticky top-0 grid md:grid-cols-[1fr_1fr_8fr_1fr] auto-rows-min
                                 gap-y-1 md:gap-y-3 lg:gap-y-4 3xl:gap-y-8 gap-x-2 md:gap-x-4 lg:gap-x-6 3xl:gap-x-10
                                 h-fit w-5/12 p-0 pt-16 md:p-5 md:pt-32 2xl:pt-48 4xl:pt-56 font-neueHaasGrotesk font-bold uppercase
-                                text-fluid-lg [&_p.label]:text-fluid-sm"
+                                text-fluid-xs lg:text-fluid-lg [&_p.label]:text-fluid-3xs lg:[&_p.label]:text-fluid-sm"
                             initial={{opacity: 0, y: 20}}
                             animate={{opacity: 1, y: 0}}
                             transition={{
@@ -178,7 +178,7 @@ const WorkDetail = () => {
                                         to={project.externalLink}
                                         target="_blank"
                                         className="text-link after:bg-customBlack dark:after:bg-customWhite w-fit
-                                            text-fluid-sm"
+                                            text-fluid-3xs lg:text-fluid-sm"
                                     >
                                         {project.externalLinkLabel} ↗
                                     </Link>
@@ -188,7 +188,7 @@ const WorkDetail = () => {
                                         to={project.externalLink_2}
                                         target="_blank"
                                         className="text-link after:bg-customBlack dark:after:bg-customWhite w-fit
-                                            text-fluid-sm"
+                                            text-fluid-3xs lg:text-fluid-sm"
                                     >
                                         {project.externalLinkLabel_2} ↗
                                     </Link>
@@ -198,7 +198,7 @@ const WorkDetail = () => {
                     </section>
                     <section className="flex justify-between m-2 md:m-5 mt-10 md:mt-20 font-neueHaasGrotesk font-extrabold uppercase">
                         <div
-                            className="text-fluid-xl">
+                            className="text-fluid-base lg:text-fluid-xl w-1/2">
                             <span>Next:</span>
                             <br/>
                             {type === "art" && (
@@ -227,7 +227,7 @@ const WorkDetail = () => {
                             )}
                         </div>
                         <div className="flex items-end pr-2
-                            text-fluid-base">
+                            text-fluid-xs lg:text-fluid-base">
                             {type === "art" && (
                                 <Link to="/art" className="text-link after:bg-customBlack dark:after:bg-customWhite">Back to Gallery</Link>
                             )}

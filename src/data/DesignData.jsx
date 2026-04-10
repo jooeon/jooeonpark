@@ -11,7 +11,7 @@ export const items = [
         videos: [
         ],
         caption: [
-            "Post-Realm: NYFW '26 Runway Show",
+            "NYFW '26 Runway Show",
             "Graphic Design, Poster Design",
             "",
             "2026",
@@ -35,7 +35,7 @@ export const items = [
         videos: [
         ],
         caption: [
-            "Post-Realm: NYFW '26 Afterparty",
+            "NYFW '26 Afterparty",
             "Graphic Design, Poster Design",
             "",
             "2026",

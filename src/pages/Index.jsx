@@ -113,14 +113,14 @@ const Index = () => {
                 <section className="flex flex-col items-center">
                     <div className="w-11/12 xl:w-5/6 md:mb-14">
                         <h3 className="w-fit outline-text-black dark:outline-text-lack dark:outline-text-white text-transparent font-nick pb-5
-                            text-fluid-xl leading-none">
+                            text-fluid-base lg:text-fluid-xl leading-none">
                             Info
                         </h3>
                     </div>
                     <div
                         className="flex flex-col xl:flex-row gap-10 xl:gap-0 justify-start xl:justify-center items-center xl:items-start">
                         <div className="w-11/12 xl:w-11/12 xl:px-24 font-bold font-neueHaasGrotesk uppercase mix-blend-difference text-customWhite [&_span]:lg:mb-2
-                            text-fluid-2xl">
+                            text-fluid-lg lg:text-fluid-2xl">
                             <ScrollTextAnim
                                 paragraph={"Creative Technologist from Seoul [based in NYC].\nFrom concept to execution,\nI design it, I build it.\n[Web Development, UI/UX, Graphic Design, Visual Arts]"}
                             />
@@ -131,7 +131,7 @@ const Index = () => {
                 <section className="flex flex-col items-center">
                     <div className="w-11/12 xl:w-5/6 md:mb-14">
                         <h3 className="w-fit outline-text-black dark:outline-text-white text-transparent font-nick pb-5
-                            text-fluid-xl leading-none">
+                            text-fluid-base lg:text-fluid-xl leading-none">
                             Selected Work
                         </h3>
                     </div>
@@ -246,7 +246,7 @@ const Index = () => {
                 <section className="flex justify-center items-center h-96 md:h-[70vh]">
                     <motion.div
                         className="relative flex justify-center gap-5 md:gap-10 lg:gap-14 xl:gap-20 3xl:gap-30 6xl:gap-72 font-nick lowercase
-                        text-fluid-lg px-5 xl:px-7"
+                        text-fluid-base md:text-fluid-lg px-5 xl:px-7"
                         initial="hidden"
                         animate={controls}
                         variants={{
@@ -295,7 +295,7 @@ const Index = () => {
                     </motion.div>
                 </section>
             </main>
-            <div className="title-text text-fluid-5xl
+            <div className="title-text text-[6.25vw]
                 text-center uppercase font-nick tracking-wider leading-tight outline-text-black dark:outline-text-lack dark:outline-text-white text-transparent
                 pb-2 sm:pb-5 lg:pb-10">
                 <Link to="/art" className="outline-text-b lack dark:outline-text-white">

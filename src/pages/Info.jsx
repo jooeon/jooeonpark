@@ -51,7 +51,7 @@ const Info = () => {
             <main>
                 <section className="px-3 md:px-3.5 xl:px-3.5 4xl:px-8 7xl:px-10 ">
                     <div className="mt-[12vh] md:mt-[15vh] xl:mt-[20vh]">
-                        <h1 className="title-text flex flex-col font-nick uppercase text-fluid-4xl leading-[0.9]">
+                        <h1 className="title-text flex flex-col font-nick uppercase text-fluid-2xl lg:text-fluid-4xl leading-[0.9]">
                             <MaskText phrase={"Designer"} duration={1} delay={0.8}/>
                             <span className="pl-10 md:pl-20 xl:pl-[10vw]">
                                 <MaskText phrase={"Developer & Artist"} duration={1} delay={1.0}/>
@@ -72,7 +72,7 @@ const Info = () => {
                         }}
                     >
                         <div className="flex gap-[6vw] xl:gap-[2vw] w-full xl:w-7/12">
-                            <h3 className="font-roboto font-light uppercase text-fluid-sm h-fit xl:mt-[1.25vh]">
+                            <h3 className="font-roboto font-light uppercase text-fluid-xxs lg:text-fluid-sm h-fit xl:mt-[1.25vh]">
                                 Info
                             </h3>
                             <div
@@ -98,7 +98,7 @@ const Info = () => {
 
                     {/* Skills Section */}
                     <motion.div
-                        className="font-roboto font-light uppercase tracking-wide text-fluid-sm mt-[10vh] md:mt-[14vh] xl:mt-[18vh]"
+                        className="font-roboto font-light uppercase tracking-wide text-fluid-xxs lg:text-fluid-sm mt-[10vh] md:mt-[14vh] xl:mt-[18vh]"
                         initial={{opacity: 0, y: 30}}
                         whileInView={{opacity: 1, y: 0}}
                         viewport={{once: true, amount: 0.5}}
@@ -108,8 +108,8 @@ const Info = () => {
                             ease: "easeOut",
                         }}
                     >
-                        <div className="flex flex-wrap xl:flex-nowrap gap-x-[5vw] gap-y-[3vh] xl:gap-[10vw]">
-                            <h3>Skills</h3>
+                        <div className="flex justify-between md:justify-start flex-wrap xl:flex-nowrap gap-x-[3vw] gap-y-[3vh] md:gap-[6vw] xl:gap-[10vw]">
+                            <h3 className="pr-2">Skills</h3>
                             {Object.entries(skillsData).map(([category, skills], categoryIndex) => (
                                 <motion.div
                                     key={categoryIndex}
@@ -163,7 +163,7 @@ const Info = () => {
 
                     {/* Links section */}
                     <motion.div
-                        className="font-roboto font-light uppercase tracking-wide text-fluid-sm my-[10vh] md:my-[14vh] xl:my-[18vh]"
+                        className="font-roboto font-light uppercase tracking-wide text-fluid-xxs lg:text-fluid-sm my-[10vh] md:my-[14vh] xl:my-[18vh]"
                         initial={{opacity: 0, y: 20}}
                         whileInView={{opacity: 1, y: 0}}
                         viewport={{once: true, amount: 0.5}}
@@ -175,7 +175,7 @@ const Info = () => {
                     >
                         <div className="flex gap-[10vw]">
                             <h3>Links</h3>
-                            <div className="flex gap-[4vw]">
+                            <div className="flex gap-[6vw] xl:gap-[4vw]">
                             {linksData.map((link, index) => (
                                 <motion.ul
                                     key={index}
