@@ -155,7 +155,7 @@ const Index = () => {
                                         ease: "easeOut",
                                     }}
                                 >
-                                    <source src="/videos/free-agency_vid01.mov" type="video/mp4"/>
+                                    <source src="/videos/free-agency_vid01.mp4" type="video/mp4"/>
                                 </motion.video>
                             </Link>
                             <div

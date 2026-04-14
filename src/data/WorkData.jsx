@@ -5,7 +5,7 @@ export const items = [
         images: [],
         videos: [
             {
-                source: "/videos/free-agency_vid01.mov",
+                source: "/videos/free-agency_vid01.mp4",
                 hasAudio: false
             },
             {
@@ -29,7 +29,7 @@ export const items = [
             "Bespoke online store for NY-based fashion brand, giving independent designers a real presence in NYC",
         ],
         thumbnails: [
-            "/videos/free-agency_vid01.mov",
+            "/videos/free-agency_vid01.mp4",
             "/videos/free-agency_vid02.mp4",
             "/videos/free-agency_vid03.mp4",
             "/videos/free-agency_vid04.mp4",
