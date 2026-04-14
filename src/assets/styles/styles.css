@@ -151,3 +151,7 @@ video {
 .x-scroll-item:nth-child(3n) {
     align-items: center;
 }
+
+.work-grid {
+    grid-template-columns: repeat(20, minmax(0, 1fr));
+}

@@ -18,7 +18,7 @@ export function MaskText({
     const wordArray = phrase.split(" ");
 
     return (
-        <div className="flex flex-wrap gap-x-2 md:gap-x-5 xl:gap-x-8 4xl:gap-x-10">
+        <div className="mask-box flex flex-wrap gap-x-2 md:gap-x-5 xl:gap-x-8 4xl:gap-x-10">
         {wordArray.map((word, i) => (
             <div key={i} className="overflow-hidden w-fit">
                 <motion.p

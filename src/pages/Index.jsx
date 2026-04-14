@@ -143,11 +143,9 @@ const Index = () => {
                             //     transform: `translateY(${scrollY * -0.28}px)`,
                             // }}
                         >
-                            <Link to="/work/artgrind" className="w-full">
-                                <motion.img
-                                    src="/images/thumbnails/artgrind_thumb.png"
-                                    alt="ArtGrind_Image"
-                                    loading="lazy"
+                            <Link to="/work/free-agency" className="w-full">
+                                <motion.video
+                                    autoPlay playsInline muted loop
                                     className="w-full"
                                     initial={{opacity: 0, y: 70, filter: "blur(10px)",}}
                                     whileInView={{opacity: 1, y: 0, filter: "blur(0px)",}}
@@ -155,11 +153,14 @@ const Index = () => {
                                     transition={{
                                         duration: 0.8,
                                         ease: "easeOut",
-                                    }}/>
+                                    }}
+                                >
+                                    <source src="/videos/free-agency_vid01.mov" type="video/mp4"/>
+                                </motion.video>
                             </Link>
                             <div
                                 className="flex flex-col justify-end text-fluid-sm">
-                                <p className="mb-4 2xl:mb-10">ArtGrind: Timed Drawing Practice</p>
+                                <p className="mb-4 2xl:mb-10">Free Agency</p>
                                 <p className="text-customGray">2026</p>
                             </div>
                         </motion.div>
@@ -171,7 +172,7 @@ const Index = () => {
                         >
                             <div
                                 className="flex flex-col justify-end text-fluid-sm xl:text-right">
-                                <p className="mb-4 2xl:mb-10">Allen Topolski&apos;s Portfolio</p>
+                                <p className="mb-4 2xl:mb-10">Allen Topolski</p>
                                 <p className="text-customGray">2025</p>
                             </div>
                             <Link to="/work/atopol" className="w-full">
@@ -211,7 +212,7 @@ const Index = () => {
                             </Link>
                             <div
                                 className="flex flex-col justify-end text-fluid-sm">
-                                <p className="mb-4 2xl:mb-10">NYFW &#39;26 Poster Design</p>
+                                <p className="mb-4 2xl:mb-10">NYFW &#39;26 Runway Show</p>
                                 <p className="text-customGray">2026</p>
                             </div>
                         </motion.div>
@@ -223,7 +224,7 @@ const Index = () => {
                         >
                             <div
                                 className="flex flex-col justify-end text-fluid-sm xl:text-right">
-                                <p className="mb-4 2xl:mb-10">Demiurgo Branding Mockup</p>
+                                <p className="mb-4 2xl:mb-10">Demiurgo Branding</p>
                                 <p className="text-customGray">2026</p>
                             </div>
                             <Link to="/design/demiurgo-mock" className="w-full xl:w-9/12">

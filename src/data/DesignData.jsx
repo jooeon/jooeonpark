@@ -59,7 +59,7 @@ export const items = [
         videos: [
         ],
         caption: [
-            "Demiurgo Branding Mockup",
+            "Demiurgo Branding",
             "Branding, Graphic Design",
             "",
             "2025",
@@ -69,7 +69,7 @@ export const items = [
         alt: "Branding mockup of Demiurgo Studio",
         link: "/design/demiurgo-mock",
         externalLink: "https://demiurgostudio.com/",
-        externalLinkLabel: "Image and content credit to Demiurgo Studio",
+        externalLinkLabel: "Content credit to Demiurgo Studio",
     },
     {
         id: "bowery-electric",
