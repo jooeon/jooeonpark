@@ -26,7 +26,7 @@ export const items = [
             "E-commerce, Branding",
             "Shopify",
             "2026",
-            "Bespoke online store for NY-based fashion brand, giving independent designers a real presence in NYC",
+            "Bespoke online storefront for NY-based fashion brand, giving independent designers a real presence in NYC",
         ],
         thumbnails: [
             "/videos/free-agency_vid01.mp4",
