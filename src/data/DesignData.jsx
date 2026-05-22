@@ -1,6 +1,31 @@
 export const items = [
     // Change nextItem field on last item to the top most item to make sure the next button wraps to front
     {
+        id: "simulacrum",
+        nextItem: "post-realm-runway",
+        isVideo: false,
+        images: [
+            "/images/SIMULACRUM-alt.jpg",
+            "/images/SIMULACRUM-alt2.jpg",
+            "/images/SIMULACRUM-alt3.jpg",
+            "/images/SIMULACRUM-FINAL.jpg",
+        ],
+        videos: [
+        ],
+        caption: [
+            "Simulacrum",
+            "Graphic Design, Poster Design",
+            "",
+            "2026",
+            "Poster design for warehouse techno party in Brooklyn, NY",
+        ],
+        thumbnail: "/images/SIMULACRUM-alt2.jpg",
+        alt: "Poster design for warehouse techno party",
+        link: "/design/simulacrum",
+        externalLink: "",
+        externalLinkLabel: "",
+    },
+    {
         id: "post-realm-runway",
         nextItem: "post-realm-afterparty",
         isVideo: false,
