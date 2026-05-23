@@ -405,7 +405,7 @@ export const items = [
     },
     {
         id: "symbiosis",
-        nextItem: "blind-sparkler",
+        nextItem: "rig",
         isVideo: false,
         images: [
             "/images/Symbiosis.jpg",

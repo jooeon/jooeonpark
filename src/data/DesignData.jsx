@@ -151,7 +151,7 @@ export const items = [
     },
     {
         id: "helios-hours-2",
-        nextItem: "post-realm-runway",
+        nextItem: "simulacrum",
         isVideo: false,
         images: [
             "/images/helios_final.jpg",
