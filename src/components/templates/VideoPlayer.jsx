@@ -2,18 +2,19 @@ import { useRef, useState } from "react";
 import { motion } from "motion/react";
 import PropTypes from "prop-types";
 
-export default function VideoPlayer({ src, hasAudio }) {
+export default function VideoPlayer({ src, hasAudio, onClick }) {
     const videoRef = useRef(null);
     const [isMuted, setIsMuted] = useState(true);
 
-    const toggleMute = () => {
+    const toggleMute = (e) => {
+        e.stopPropagation();
         if (!videoRef.current) return;
         videoRef.current.muted = !videoRef.current.muted;
         setIsMuted(videoRef.current.muted);
     };
 
     return (
-        <div className="relative overflow-hidden">
+        <div className="relative overflow-hidden" onClick={onClick}>
             <motion.video
                 className="w-full h-full object-cover"
                 initial={{ opacity: 0, y: 40 }}
@@ -58,4 +59,5 @@ export default function VideoPlayer({ src, hasAudio }) {
 VideoPlayer.propTypes = {
     src: PropTypes.string.isRequired,
     hasAudio: PropTypes.bool,
+    onClick: PropTypes.func,
 };

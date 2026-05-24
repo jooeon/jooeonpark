@@ -68,6 +68,13 @@ const WorkDetail = () => {
         </div>;
     }
 
+    const media = [
+        ...project.images.map((src) => ({ src, type: "image" })),
+        ...project.videos.map((v) => ({ src: v.source, type: "video", hasAudio: v.hasAudio })),
+    ];
+
+    console.log(media)
+
     // find next if you have a nextItem pointer
     const nextProject = items.find(item => item.id === project.nextItem);
 
@@ -83,10 +90,10 @@ const WorkDetail = () => {
                     <section
                         className="relative flex m-2 md:m-5 6xl:m-10 h-full pt-[6vh] xl:pt-[5vw]">
                         {/* Image/Video content scroll section */}
-                        <div className="flex flex-col gap-3 md:gap-6 6xl:gap-12 w-7/12">
+                        <div className="flex flex-col gap-3 md:gap-6 6xl:gap-12 w-full lg:w-7/12">
                             {/* WorkDetail title */}
                             <motion.div
-                                className="mb-4 md:mb-10 xl:mb-20"
+                                className="mt-2 mb-2 md:mt-0 md:mb-4 xl:mb-20"
                                 initial={{ opacity: 0 }}
                                 animate={{ opacity: 1 }}
                                 transition={{
@@ -100,10 +107,71 @@ const WorkDetail = () => {
                                 </h1>
                             </motion.div>
 
+                            {/* Description for mobile */}
+                            <motion.div
+                                className="lg:hidden grid top-0 auto-rows-min
+                                gap-y-1 md:gap-y-3 gap-x-2 md:gap-x-4
+                                h-fit w-full p-0 mb-2 md:mb-4 font-neueHaasGrotesk font-bold uppercase
+                                text-fluid-xs md:text-fluid-base [&_p.label]:text-fluid-3xs md:[&_p.label]:text-fluid-xs"
+                                initial={{opacity: 0, y: 20}}
+                                animate={{opacity: 1, y: 0}}
+                                transition={{
+                                    duration: 0.3,
+                                    delay: 1.1,
+                                    ease: "easeOut",
+                                }}
+                            >
+                                <p className="label text-right p-0.5 md:p-1 col-start-2">Year</p>
+                                <p className="col-start-3">{project.caption[3]}</p>
+
+                                <p className="label text-right p-0.5 md:p-1 col-start-2">Type</p>
+                                <p className="col-start-3">{project.caption[1]}</p>
+
+                                {type === "art" &&
+                                    <>
+                                        <p className="label text-right p-0.5 md:p-1 col-start-2">Medium</p>
+                                        <p className="col-start-3">{project.caption[2]}</p>
+                                    </>
+                                }
+                                {type === "work" &&
+                                    <>
+                                        <p className="label text-right p-0.5 md:p-1 col-start-2">Tech</p>
+                                        <p className="col-start-3">{project.caption[2]}</p>
+                                    </>
+                                }
+
+                                <p className="label text-right p-0.5 md:p-1 col-start-2">Info</p>
+                                <p className="col-start-3">{project.caption[4]}</p>
+
+                                <div className="flex flex-col gap-1 md:gap-4 col-start-3 pt-2 md:pt-4">
+                                    {project.externalLink && (
+                                        <Link
+                                            to={project.externalLink}
+                                            target="_blank"
+                                            className="text-link after:bg-customBlack dark:after:bg-customWhite w-fit
+                                            text-fluid-3xs md:text-fluid-xs"
+                                        >
+                                            {project.externalLinkLabel} ↗
+                                        </Link>
+                                    )}
+                                    {project.externalLink_2 && (
+                                        <Link
+                                            to={project.externalLink_2}
+                                            target="_blank"
+                                            className="text-link after:bg-customBlack dark:after:bg-customWhite w-fit
+                                            text-fluid-3xs md:text-fluid-xs"
+                                        >
+                                            {project.externalLinkLabel_2} ↗
+                                        </Link>
+                                    )}
+                                </div>
+                            </motion.div>
+
                             {/* Render videos */}
                             {project.videos.map((video, index) => (
                                 <VideoPlayer
                                     key={index}
+                                    onClick={() => openOverlay(project.images.length + index)}
                                     src={video.source}
                                     hasAudio={video.hasAudio}
                                 />
@@ -138,7 +206,7 @@ const WorkDetail = () => {
 
                         {/* Description section */}
                         <motion.div
-                            className="sticky top-0 grid md:grid-cols-[1fr_1fr_8fr_1fr] auto-rows-min
+                            className="sticky hidden lg:grid top-0 md:grid-cols-[1fr_1fr_8fr_1fr] auto-rows-min
                                 gap-y-1 md:gap-y-3 lg:gap-y-4 3xl:gap-y-8 gap-x-2 md:gap-x-4 lg:gap-x-6 3xl:gap-x-10
                                 h-fit w-5/12 p-0 pt-16 md:p-5 md:pt-32 2xl:pt-48 4xl:pt-56 font-neueHaasGrotesk font-bold uppercase
                                 text-fluid-xs lg:text-fluid-lg [&_p.label]:text-fluid-3xs lg:[&_p.label]:text-fluid-sm"
@@ -247,10 +315,10 @@ const WorkDetail = () => {
             <AnimatePresence>
                 {overlayVisible && (
                     <Overlay
-                        images={project.images}
+                        media={media}
                         currentIndex={currentIndex}
                         closeOverlay={closeOverlay}
-                        key="overlay" // Key is necessary for AnimatePresence
+                        key="overlay"
                     />
                 )}
             </AnimatePresence>

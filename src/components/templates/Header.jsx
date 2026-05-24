@@ -185,7 +185,7 @@ const Header = ({ delay = 0.4 }) => {
                                 >
                                     <Component
                                         to={link.to}
-                                        className="text-customBlack dark:text-customWhite uppercase font-neueHaasGrotesk font-bold tracking-wide text-xl md:text-2xl block"
+                                        className={`text-customBlack dark:text-customWhite uppercase font-neueHaasGrotesk font-bold tracking-wide text-xl md:text-2xl block`}
                                         onClick={closeMobileMenu}
                                     >
                                         {link.text}
