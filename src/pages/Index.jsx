@@ -196,10 +196,10 @@ const Index = () => {
                             //     transform: `translateY(${scrollY * -0.05}px)`,
                             // }}
                         >
-                            <Link to="/design/post-realm-runway" className="w-full">
+                            <Link to="/design/simulacrum" className="w-full">
                                 <motion.img
-                                    src="/images/thumbnails/nyfw_runway_thumb.jpg"
-                                    alt="nyfw_runway_poster_design_image"
+                                    src="/images/SIMULACRUM-alt2.jpg"
+                                    alt="Poster design for warehouse techno party"
                                     loading="lazy"
                                     className="w-full"
                                     initial={{opacity: 0, y: 70, filter: "blur(10px)",}}
@@ -212,7 +212,7 @@ const Index = () => {
                             </Link>
                             <div
                                 className="flex flex-col justify-end text-fluid-sm">
-                                <p className="mb-4 2xl:mb-10">NYFW &#39;26 Runway Show</p>
+                                <p className="mb-4 2xl:mb-10">Simulacrum</p>
                                 <p className="text-customGray">2026</p>
                             </div>
                         </motion.div>
@@ -224,13 +224,13 @@ const Index = () => {
                         >
                             <div
                                 className="flex flex-col justify-end text-fluid-sm xl:text-right">
-                                <p className="mb-4 2xl:mb-10">Demiurgo Branding</p>
+                                <p className="mb-4 2xl:mb-10">NYFW &#39;26 Runway Show</p>
                                 <p className="text-customGray">2026</p>
                             </div>
-                            <Link to="/design/demiurgo-mock" className="w-full xl:w-9/12">
+                            <Link to="/design/post-realm-runway" className="w-full xl:w-9/12">
                                 <motion.img
-                                    src="/images/thumbnails/demiurgo-thumb.png"
-                                    alt="Demiurgo_branding_design_mockup_image"
+                                    src="/images/thumbnails/nyfw_runway_thumb.jpg"
+                                    alt="nyfw_runway_poster_design_image"
                                     loading="lazy"
                                     className="w-full"
                                     initial={{opacity: 0, y: 70, filter: "blur(10px)",}}

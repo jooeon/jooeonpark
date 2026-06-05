@@ -5,8 +5,8 @@ export const items = [
         nextItem: "post-realm-runway",
         isVideo: false,
         images: [
-            "/images/SIMULACRUM-alt.jpg",
             "/images/SIMULACRUM-alt2.jpg",
+            "/images/SIMULACRUM-alt.jpg",
             "/images/SIMULACRUM-alt3.jpg",
             "/images/SIMULACRUM-FINAL.jpg",
         ],
