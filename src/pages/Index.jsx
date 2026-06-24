@@ -132,7 +132,7 @@ const Index = () => {
                     <div className="w-11/12 xl:w-5/6 md:mb-14">
                         <h3 className="w-fit outline-text-black dark:outline-text-white text-transparent font-nick pb-5
                             text-fluid-base lg:text-fluid-xl leading-none">
-                            Selected Work
+                            Selected Works
                         </h3>
                     </div>
                     <div className="flex flex-col gap-10 xl:grid xl:grid-cols-2 xl:gap-x-0 xl:gap-y-[7vw] justify-start xl:justify-center items-center xl:items-start
@@ -143,7 +143,7 @@ const Index = () => {
                             //     transform: `translateY(${scrollY * -0.28}px)`,
                             // }}
                         >
-                            <Link to="/work/free-agency" className="w-full">
+                            <Link to="/web/free-agency" className="w-full">
                                 <motion.video
                                     autoPlay playsInline muted loop
                                     className="w-full"
@@ -175,7 +175,7 @@ const Index = () => {
                                 <p className="mb-4 2xl:mb-10">Allen Topolski</p>
                                 <p className="text-customGray">2025</p>
                             </div>
-                            <Link to="/work/atopol" className="w-full">
+                            <Link to="/web/atopol" className="w-full">
                                 <motion.img
                                     src="/images/thumbnails/atopol_thumb.jpg"
                                     alt="Allen_Topolski_portfolio_website_image"
@@ -333,7 +333,7 @@ const Index = () => {
                     </motion.span>
                 </Link>
                 <span>. </span>
-                <Link to="/work" className="outline-text-black dark:outline-text-white">
+                <Link to="/web" className="outline-text-black dark:outline-text-white">
                     <motion.span
                         onHoverStart={() => {
                             const newColor = pickRandomColor();

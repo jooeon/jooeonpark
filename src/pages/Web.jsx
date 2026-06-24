@@ -10,7 +10,7 @@ import EncryptionText from "../components/EncryptionAnim.jsx";
 import {items} from "../data/WorkData.jsx";
 import {MaskText} from "../components/textEffects/MaskText.jsx";
 
-const Work = () => {
+const Web = () => {
     const isVideo = (src) => /\.(mp4|webm|ogg|mov)$/i.test(src);
     const [hasInitiallyLoaded, setHasInitiallyLoaded] = useState(false);
 
@@ -35,7 +35,7 @@ const Work = () => {
             <Header/>
             <main>
                 <div className="flex flex-col md:flex-row items-baseline gap-[3vw] xl:gap-[2vw]">
-                    <TitleText phrase={"Work"}/>
+                    <TitleText phrase={"Web"}/>
                     <div className="flex gap-[2vw] xl:gap-[1vw] pl-3 md:pl-0
                         leading-none text-fluid-sm font-neueHaasGrotesk font-semibold lowercase">
                         <motion.p
@@ -47,7 +47,7 @@ const Work = () => {
                                 ease: "easeOut",
                             }}
                         >
-                            /Web
+                            /Design
                         </motion.p>
                         <motion.p
                             initial={{opacity: 0, y: 15}}
@@ -58,18 +58,7 @@ const Work = () => {
                                 ease: "easeOut",
                             }}
                         >
-                            /dev
-                        </motion.p>
-                        <motion.p
-                            initial={{opacity: 0, y: 15}}
-                            animate={{opacity: 1, y: 0}}
-                            transition={{
-                                duration: 0.35,
-                                delay: 1.4,
-                                ease: "easeOut",
-                            }}
-                        >
-                            /design
+                            /Dev
                         </motion.p>
                     </div>
                 </div>
@@ -154,4 +143,4 @@ const Work = () => {
     );
 };
 
-export default Work;
+export default Web;

@@ -13,7 +13,7 @@ import { CursorProvider } from "./components/cursor/CursorContext.jsx";
 import PropTypes from "prop-types";
 import {useEffect} from "react";
 import Page404 from "./pages/Page404.jsx";
-import Work from "./pages/Work.jsx";
+import Web from "./pages/Web.jsx";
 import Inspo from "./pages/Inspo.jsx";
 import CitibikeProcess from "./components/CitibikeProcess.jsx";
 import RandomImageGenerator from "./pages/RandomImageGenerator.jsx";
@@ -38,7 +38,7 @@ const AnimatedRoutes = () => {
         <AnimatePresence mode="wait">
             <Routes location={location} key={location.pathname}>
                 <Route path="/" element={<PageWrapper><Index /></PageWrapper>} />
-                <Route path="/work" element={<PageWrapper><Work /></PageWrapper>} />
+                <Route path="/web" element={<PageWrapper><Web /></PageWrapper>} />
                 <Route path="/art" element={<PageWrapper><Art /></PageWrapper>} />
                 <Route path="/art/rig" element={<PageWrapper><RandomImageGenerator /></PageWrapper>} />
                 <Route path="/design" element={<PageWrapper><Design /></PageWrapper>} />

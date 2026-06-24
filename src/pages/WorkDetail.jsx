@@ -45,7 +45,7 @@ const WorkDetail = () => {
     // choose the correct data array
     const items = type === "art"
         ? artData
-        : type === "work"
+        : type === "web"
             ? projectData
             : type === "design"
                 ? designData
@@ -133,7 +133,7 @@ const WorkDetail = () => {
                                         <p className="col-start-3">{project.caption[2]}</p>
                                     </>
                                 }
-                                {type === "work" &&
+                                {type === "web" &&
                                     <>
                                         <p className="label text-right p-0.5 md:p-1 col-start-2">Tech</p>
                                         <p className="col-start-3">{project.caption[2]}</p>
@@ -230,7 +230,7 @@ const WorkDetail = () => {
                                     <p className="col-start-3">{project.caption[2]}</p>
                                 </>
                             }
-                            {type === "work" &&
+                            {type === "web" &&
                                 <>
                                     <p className="label text-right md:p-1.5 4xl:p-2 6xl:p-3 7xl:p-6 col-start-2">Tech</p>
                                     <p className="col-start-3">{project.caption[2]}</p>
@@ -277,9 +277,9 @@ const WorkDetail = () => {
                                     {nextProject.caption[0]}
                                 </Link>
                             )}
-                            {type === "work" && (
+                            {type === "web" && (
                                 <Link
-                                    to={`/work/${nextProject.id}`}
+                                    to={`/web/${nextProject.id}`}
                                     className="text-link after:bg-customBlack dark:after:bg-customWhite ml-10"
                                 >
                                     {nextProject.caption[0]}
@@ -299,8 +299,8 @@ const WorkDetail = () => {
                             {type === "art" && (
                                 <Link to="/art" className="text-link after:bg-customBlack dark:after:bg-customWhite">Back to Gallery</Link>
                             )}
-                            {type === "work" && (
-                                <Link to="/work" className="text-link after:bg-customBlack dark:after:bg-customWhite">Back to [Work]</Link>
+                            {type === "web" && (
+                                <Link to="/web" className="text-link after:bg-customBlack dark:after:bg-customWhite">Back to [Web]</Link>
                             )}
                             {type === "design" && (
                                 <Link to="/design" className="text-link after:bg-customBlack dark:after:bg-customWhite">Back to [Design]</Link>
