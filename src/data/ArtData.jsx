@@ -85,7 +85,7 @@ export const items = [
     },
     {
         id: "ocular-prosthetic",
-        nextItem: "steps",
+        nextItem: "racers",
         isVideo: false,
         images: [
             "/images/ocular_01.jpg",
@@ -123,6 +123,28 @@ export const items = [
         animationDelay: 0,
     },
     {
+        id: "racers",
+        nextItem: "steps",
+        isVideo: false,
+        images: [
+            "/images/racers.jpeg",
+        ],
+        videos: [],
+        caption: [
+            "Racers",
+            "Drawing",
+            "Pastel on paper",
+            "2025",
+            "Quick sketch done on an uneven surface in a woodshop",
+        ],
+        thumbnail: "/images/racers.jpeg",
+        alt: "Abstract pastel drawing of racers on bikes",
+        padding: "pb-10 ",
+        link: "/art/racers",
+        hasAnimation: true,
+        animationDelay: 0.2,
+    },
+    {
         id: "steps",
         nextItem: "running-in-a-dream",
         isVideo: true,
@@ -153,8 +175,8 @@ export const items = [
         link: "/art/steps",
         externalLink: "https://github.com/jooeon/steps",
         externalLinkLabel: "More Info",
-        hasAnimation: true,
-        animationDelay: 0.2,
+        hasAnimation: false,
+        animationDelay: 0,
     },
     {
         id: "running-in-a-dream",
