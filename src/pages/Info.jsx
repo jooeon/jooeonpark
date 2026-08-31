@@ -33,9 +33,9 @@ const Info = () => {
     ];
 
     const skillsData = {
-        DESIGN: ["UI / UX", "Graphic Design", "Motion Design", "Video Editing", "Prototyping", "Branding"],
-        TECHNOLOGY: ["Front-end Development", "Back-end Development", "E-Commerce","Content Management Systems", "3D & Graphics"],
-        "TOOLS & SOFTWARE": ["Adobe Creative Cloud", "Figma", "Shopify", "Unreal Engine 5", "Generative AI"],
+        DESIGN: ["UI / UX", "Graphic Design", "Motion Design", "Video Editing", "Branding", "Marketing"],
+        TECHNOLOGY: ["Front-end Development", "Back-end Development", "E-Commerce","Content Management Systems"],
+        "TOOLS & SOFTWARE": ["Adobe Creative Cloud", "Figma", "Shopify", "Unreal Engine 5"],
     }
 
     const linksData = [
